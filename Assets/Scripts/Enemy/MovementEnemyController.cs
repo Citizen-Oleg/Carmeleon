@@ -9,16 +9,9 @@ namespace Enemy
     {
         [SerializeField]
         private float _speed;
-
-        //TODO: Убрать после создания спавнера
-        [SerializeField]
+        
         private Node.Node _currentNode;
         
-        private void Start()
-        {
-            Initialize(_currentNode);
-        }
-
         private void Update()
         {
             if (_currentNode != null)
@@ -30,7 +23,6 @@ namespace Enemy
         public void Initialize(Node.Node node)
         {
             _currentNode = node;
-            SetMovementToPoint();
         }
 
         private void MoveToThePoint()
