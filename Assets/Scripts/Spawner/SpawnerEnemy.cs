@@ -29,20 +29,7 @@ namespace Spawner
         {
             StartCoroutine(Spawn());
         }
-
-        private void Update()
-        {
-            if (Input.GetMouseButton(0))
-            {
-                Time.timeScale = 0;
-            }
-
-            if (Input.GetMouseButton(1))
-            {
-                Time.timeScale = 1;
-            }
-        }
-
+        
         private void StartWave(EventWaveSweep eventWaveSweep)
         {
             if (_waveNumber > _waveSpawns.Count)
