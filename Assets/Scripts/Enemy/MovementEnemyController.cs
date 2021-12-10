@@ -8,10 +8,11 @@ namespace Enemy
     public class MovementEnemyController : MonoBehaviour
     {
         [SerializeField]
-        private float _speed;
+        private float _distancePointChange = 0.1f;
         
+        private CharacteristicsEnemy _characteristicsEnemy;
         private Node.Node _currentNode;
-        
+
         private void Update()
         {
             if (_currentNode != null)
@@ -20,17 +21,18 @@ namespace Enemy
             }
         }
 
-        public void Initialize(Node.Node node)
+        public void Initialize(Enemy enemy, Node.Node node)
         {
+            _characteristicsEnemy = enemy.CharacteristicsEnemy;
             _currentNode = node;
         }
 
         private void MoveToThePoint()
         {
             transform.position = Vector3.MoveTowards(transform.position, _currentNode.transform.position,
-                _speed * Time.deltaTime);
+                _characteristicsEnemy.Speed * Time.deltaTime);
             
-            if (Vector3.Distance(transform.position, _currentNode.transform.position) <= 0.1f)
+            if (Vector3.Distance(transform.position, _currentNode.transform.position) <= _distancePointChange)
             {
                 SetMovementToPoint();
             }

@@ -51,7 +51,7 @@ namespace Spawner
                 for (var i = 0; i < enemyData.Count; i++)
                 {
                     var enemy = Instantiate(enemyData.Enemy, enemyData.StartNode.transform.position, Quaternion.identity);
-                    enemy.MovementEnemyController.Initialize(enemyData.StartNode);
+                    enemy.MovementEnemyController.Initialize(enemy, enemyData.StartNode);
 
                     yield return new WaitForSeconds(_delayedSpawnEnemies);
                 }
