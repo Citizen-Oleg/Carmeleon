@@ -180,7 +180,7 @@ GameObject:
   m_Layer: 0
   m_Name: NodeStart
   m_TagString: Untagged
-  m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 4162164826716764455, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1021,10 +1021,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1550243035}
   - component: {fileID: 1550243036}
+  - component: {fileID: 1550243037}
   m_Layer: 0
   m_Name: NodeFinish
   m_TagString: Untagged
-  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1055,6 +1056,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _nextNode: {fileID: 0}
+--- !u!114 &1550243037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1550243034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e61e2285ee9562543a87ca2e3a3f38f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHP: 10
+  _currentHP: 10
 --- !u!1 &1562206584
 GameObject:
   m_ObjectHideFlags: 0
@@ -1421,11 +1436,8 @@ MonoBehaviour:
   _waveSpawns:
   - _enemySpawnData:
     - _startNode: {fileID: 886702605}
-      _count: 5
-      _enemy: {fileID: 5837287484079487289, guid: 06b7dbb60f6da0c4287aefd3c2dbfb5d, type: 3}
-    - _startNode: {fileID: 886702605}
-      _count: 5
-      _enemy: {fileID: 5837287484079487289, guid: 06b7dbb60f6da0c4287aefd3c2dbfb5d, type: 3}
+      _count: 3
+      _enemy: {fileID: -4151402454022704107, guid: 06b7dbb60f6da0c4287aefd3c2dbfb5d, type: 3}
 --- !u!4 &1669284895
 Transform:
   m_ObjectHideFlags: 0

@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 5837287484079487291}
   - component: {fileID: 5837287484079487288}
   - component: {fileID: 5837287484079487270}
-  - component: {fileID: 5837287484079487289}
   - component: {fileID: 255524764575009456}
+  - component: {fileID: 2328838928154820727}
+  - component: {fileID: -4151402454022704107}
   m_Layer: 0
   m_Name: Circle
   m_TagString: Untagged
@@ -97,18 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71d8b188a418b5945a729a621c2a447b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5837287484079487289
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5837287484079487271}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31ae16164415477e9553eb170ea1733c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  _distancePointChange: 0.1
 --- !u!114 &255524764575009456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,8 +114,33 @@ MonoBehaviour:
   _maxHP: 100
   _currentHP: 100
   _speed: 10
+  _damageToBase: 5
   _armor: 0
   _fireResistance: 0
   _earthResistance: 0
   _waterResistance: 0
   _airResistance: 0
+--- !u!114 &2328838928154820727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5837287484079487271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97f8b9d9be554e62b5d3a5b632c43c84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-4151402454022704107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5837287484079487271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31ae16164415477e9553eb170ea1733c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

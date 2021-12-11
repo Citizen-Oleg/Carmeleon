@@ -15,7 +15,7 @@ namespace Enemy
         public int CurrentHp
         {
             get => _currentHP;
-            set => _currentHP = value;
+            set => Mathf.Clamp(value, 0 , _maxHP);
         }
         public float Speed
         {
@@ -48,12 +48,16 @@ namespace Enemy
             set => _airResistance = value;
         }
 
+        public int DamageToBase => _damageToBase;
+
         [SerializeField]
         private int _maxHP;
         [SerializeField]
         private int _currentHP;
         [SerializeField]
         private float _speed;
+        [SerializeField]
+        private int _damageToBase;
 
         [Header("Указываются проценты")]
         [Range(0f, 100f)]
