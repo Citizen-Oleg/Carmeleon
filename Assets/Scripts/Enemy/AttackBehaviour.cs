@@ -1,4 +1,7 @@
-﻿using Player;
+﻿using System;
+using Event;
+using Player;
+using SimpleEventBus;
 using UnityEngine;
 
 namespace Enemy
@@ -13,17 +16,21 @@ namespace Enemy
         private void Start()
         {
             _enemy = GetComponent<Enemy>();
-            
             _enemy.MovementEnemyController.OnFinishPoint += Attack;
+        }
+
+        private void OnEnable()
+        {
+            Start();
         }
 
         private void Attack(PlayerBase playerBase)
         {
             playerBase.TakeDamage(_enemy.CharacteristicsEnemy.DamageToBase);
-            Destroy(gameObject);
+            EventStreams.UserInterface.Publish(new EnemyDestroyedEvent(_enemy.TypeEnemy, _enemy));
         }
 
-        private void OnDestroy()
+        private void OnDisable()
         {
             _enemy.MovementEnemyController.OnFinishPoint -= Attack;
         }

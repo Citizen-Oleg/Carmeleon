@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Event;
+using Factory;
 using SimpleEventBus;
 using UnityEngine;
 
@@ -10,6 +11,7 @@ namespace Spawner
     /// <summary>
     /// Класс отвечает за спавн врагов на карте
     /// </summary>
+    [RequireComponent(typeof(EnemyFactory))]
     public class SpawnerEnemy : MonoBehaviour
     {
         [SerializeField]
@@ -19,10 +21,13 @@ namespace Spawner
         
         private int _waveNumber;
         private IDisposable _subscription;
+        private EnemyFactory _enemyFactory;
 
         private void Awake()
         {
             _subscription = EventStreams.UserInterface.Subscribe<EventWaveSweep>(StartWave);
+            _enemyFactory = GetComponent<EnemyFactory>();
+
         }
 
         private void Start()
@@ -50,7 +55,8 @@ namespace Spawner
             {
                 for (var i = 0; i < enemyData.Count; i++)
                 {
-                    var enemy = Instantiate(enemyData.Enemy, enemyData.StartNode.transform.position, Quaternion.identity);
+                    var enemy = _enemyFactory.GetEnemy(enemyData.TypeEnemy);
+                    enemy.transform.position = enemyData.StartNode.transform.position;
                     enemy.MovementEnemyController.Initialize(enemy, enemyData.StartNode);
 
                     yield return new WaitForSeconds(_delayedSpawnEnemies);

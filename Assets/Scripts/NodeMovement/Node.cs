@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Node
+namespace NodeMovement
 {
     /// <summary>
     /// Класс для расставления на карте точек, по которым будут двигаться враги.

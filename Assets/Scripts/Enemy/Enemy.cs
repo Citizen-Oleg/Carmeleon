@@ -7,15 +7,18 @@ namespace Enemy
     [RequireComponent(typeof(AttackBehaviour))]
     public class Enemy : MonoBehaviour
     {
-        public CharacteristicsEnemy CharacteristicsEnemy { get; private set; }
-        public MovementEnemyController MovementEnemyController { get; private set; }
-        public AttackBehaviour AttackBehaviour { get; private set; }
+        public CharacteristicsEnemy CharacteristicsEnemy => _characteristicsEnemy;
+        public MovementEnemyController MovementEnemyController => _movementEnemyController;
+        public AttackBehaviour AttackBehaviour => _attackBehaviour;
+        public TypeEnemy TypeEnemy => _typeEnemy;
 
-        private void Awake()
-        {
-            CharacteristicsEnemy = GetComponent<CharacteristicsEnemy>();
-            MovementEnemyController = GetComponent<MovementEnemyController>();
-            AttackBehaviour = GetComponent<AttackBehaviour>();
-        }
+        [SerializeField]
+        private TypeEnemy _typeEnemy;
+        [SerializeField]
+        private CharacteristicsEnemy _characteristicsEnemy;
+        [SerializeField]
+        private MovementEnemyController _movementEnemyController;
+        [SerializeField]
+        private AttackBehaviour _attackBehaviour;
     }
 }

@@ -1,4 +1,5 @@
 using System;
+using NodeMovement;
 using Player;
 using UnityEngine;
 
@@ -15,7 +16,7 @@ namespace Enemy
         private float _distancePointChange = 0.1f;
         
         private CharacteristicsEnemy _characteristicsEnemy;
-        private Node.Node _currentNode;
+        private Node _currentNode;
 
         private void Update()
         {
@@ -25,7 +26,7 @@ namespace Enemy
             }
         }
 
-        public void Initialize(Enemy enemy, Node.Node node)
+        public void Initialize(Enemy enemy, Node node)
         {
             _characteristicsEnemy = enemy.CharacteristicsEnemy;
             _currentNode = node;
