@@ -36,7 +36,7 @@ namespace ResourceManager
             OnResourceChange?.Invoke(resource);
         }
 
-        private bool HasEnough(ResourceType type, int amount)
+        public bool HasEnough(ResourceType type, int amount)
         {
             return _resources[GetIndexResource(type)].Amount >= amount;
         }
