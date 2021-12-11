@@ -1,23 +1,25 @@
 ﻿using System;
+using Enemy;
+using NodeMovement;
 using UnityEngine;
 
 namespace Spawner
 {
     /// <summary>
-    /// Класс хранит в себе врага, его начальный путь и кол-во спавна врага.
+    /// Класс хранит в себе данные необходимые при спавне.
     /// </summary>
     [Serializable]
     public class EnemySpawnData
     {
-        public Node.Node StartNode => _startNode;
+        public Node StartNode => _startNode;
         public int Count => _count;
-        public Enemy.Enemy Enemy => _enemy;
+        public TypeEnemy TypeEnemy => _typeEnemy;
 
         [SerializeField]
-        private Node.Node _startNode;
+        private TypeEnemy _typeEnemy;
+        [SerializeField]
+        private Node _startNode;
         [SerializeField]
         private int _count;
-        [SerializeField]
-        private Enemy.Enemy _enemy;
     }
 }
