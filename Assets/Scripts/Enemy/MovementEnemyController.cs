@@ -1,3 +1,5 @@
+using System;
+using Player;
 using UnityEngine;
 
 namespace Enemy
@@ -7,6 +9,8 @@ namespace Enemy
     /// </summary>
     public class MovementEnemyController : MonoBehaviour
     {
+        public event Action<PlayerBase> OnFinishPoint;
+            
         [SerializeField]
         private float _distancePointChange = 0.1f;
         
@@ -40,6 +44,12 @@ namespace Enemy
 
         private void SetMovementToPoint()
         {
+            if (_currentNode.GetNextNode() == null)
+            {
+                OnFinishPoint?.Invoke(_currentNode.GetComponent<PlayerBase>());
+                return;
+            }
+            
             _currentNode = _currentNode.GetNextNode();
         }
     }
