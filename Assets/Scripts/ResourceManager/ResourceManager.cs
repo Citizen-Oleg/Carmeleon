@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace ResourceManager
 {
+    /// <summary>
+    /// Класс управляющий ресурсами
+    /// </summary>
     public abstract class ResourceManager : MonoBehaviour
     {
         public event Action<Resource> OnResourceChange;
@@ -24,16 +27,13 @@ namespace ResourceManager
 
         public void Pay(ResourceType resourceType, int amount)
         {
-            if (HasEnough(resourceType, amount))
-            {
-                var index = GetIndexResource(resourceType);
-                var resource = _resources[index];
+            var index = GetIndexResource(resourceType);
+            var resource = _resources[index];
 
-                resource.Amount -= amount;
-                _resources[index] = resource;
+            resource.Amount -= amount;
+            _resources[index] = resource;
                 
-                OnResourceChange?.Invoke(resource);
-            }
+            OnResourceChange?.Invoke(resource);
         }
 
         private bool HasEnough(ResourceType type, int amount)

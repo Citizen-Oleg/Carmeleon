@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace Enemy
 {
+    /// <summary>
+    /// Класс отвечает за нанесение урона врагом.
+    /// </summary>
     public class AttackBehaviour : MonoBehaviour
     {
         private Enemy _enemy;
