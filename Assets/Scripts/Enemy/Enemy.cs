@@ -23,10 +23,5 @@ namespace Enemy
         private MovementEnemyController _movementEnemyController;
         [SerializeField]
         private AttackBehaviour _attackBehaviour;
-
-        public override void Reboot()
-        {
-            _characteristicsEnemy.CurrentHp = _characteristicsEnemy.MaxHp;
-        }
     }
 }

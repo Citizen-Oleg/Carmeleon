@@ -12,7 +12,5 @@ namespace Factory
 
         [SerializeField]
         private SpriteRenderer _spriteRenderer;
-        
-        public abstract void Reboot();
     }
 }
