@@ -1,17 +1,20 @@
-﻿using UnityEngine;
+﻿using System;
+using System.ComponentModel;
+using Factory;
+using UnityEngine;
 
 namespace Enemy
 {
     [RequireComponent(typeof(MovementEnemyController))]
     [RequireComponent(typeof(CharacteristicsEnemy))]
     [RequireComponent(typeof(AttackBehaviour))]
-    public class Enemy : MonoBehaviour
+    public class Enemy : Product
     {
         public CharacteristicsEnemy CharacteristicsEnemy => _characteristicsEnemy;
         public MovementEnemyController MovementEnemyController => _movementEnemyController;
         public AttackBehaviour AttackBehaviour => _attackBehaviour;
         public TypeEnemy TypeEnemy => _typeEnemy;
-
+        
         [SerializeField]
         private TypeEnemy _typeEnemy;
         [SerializeField]
@@ -20,5 +23,10 @@ namespace Enemy
         private MovementEnemyController _movementEnemyController;
         [SerializeField]
         private AttackBehaviour _attackBehaviour;
+
+        public override void Reboot()
+        {
+            _characteristicsEnemy.CurrentHp = _characteristicsEnemy.MaxHp;
+        }
     }
 }

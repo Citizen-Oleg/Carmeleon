@@ -7,22 +7,24 @@ using UnityEngine;
 
 namespace Factory
 {
-    public class EnemyFactory : MonoBehaviour
+    /// <summary>
+    /// Класс предназначен для выдачи врага
+    /// </summary>
+    public class EnemyFactory : MonoBehaviour, IFactory<TypeEnemy>
     {
         [SerializeField]
         private Transform _containerEnemy;
         [SerializeField]
+        private Enemy.Enemy _prefabEnemy;
+        [SerializeField]
         private List<Enemy.Enemy> _enemies = new List<Enemy.Enemy>();
 
-        private Dictionary<TypeEnemy, MonoBehaviourPool<Enemy.Enemy>> _enemyPool = new Dictionary<TypeEnemy, MonoBehaviourPool<Enemy.Enemy>>();
+        private MonoBehaviourPool<Enemy.Enemy> _enemyPool;
         private CompositeDisposable _subscriptions;
         
         private void Awake()
         {
-            foreach (var enemy in _enemies)
-            {
-                _enemyPool.Add(enemy.TypeEnemy, new MonoBehaviourPool<Enemy.Enemy>(enemy, _containerEnemy));
-            }
+            _enemyPool = new MonoBehaviourPool<Enemy.Enemy>(_prefabEnemy, _containerEnemy, 10);
 
             _subscriptions = new CompositeDisposable
             {
@@ -34,18 +36,58 @@ namespace Factory
         {
             _subscriptions?.Dispose();
         }
-
-        public Enemy.Enemy GetEnemy(TypeEnemy typeEnemy)
+        
+        public TProduct GetProduct<TProduct>(TypeEnemy typeProduct) where TProduct : Product
         {
-            return _enemyPool.ContainsKey(typeEnemy) ? _enemyPool[typeEnemy].Take() : null;
-        }
+            var enemy = _enemyPool.Take();
 
+            SetSpriteByTypeEnemy(typeProduct, ref enemy);
+            SetCharacteristicsEnemyByType(typeProduct, ref enemy);
+            enemy.Reboot();
+            
+            return (TProduct) (Product) enemy;
+        }
+        
         private void OnEnemyDestroyed(EnemyDestroyedEvent enemyDestroyedEvent)
         {
-            if (_enemyPool.ContainsKey(enemyDestroyedEvent.TypeEnemy))
+            _enemyPool.Release(enemyDestroyedEvent.Enemy);
+        }
+
+        private void SetCharacteristicsEnemyByType(TypeEnemy typeEnemy, ref Enemy.Enemy productEnemy)
+        {
+            foreach (var enemy in _enemies)
             {
-                _enemyPool[enemyDestroyedEvent.TypeEnemy].Release(enemyDestroyedEvent.Enemy);
+                if (enemy.TypeEnemy == typeEnemy)
+                {
+                    var characteristicsEnemy = enemy.CharacteristicsEnemy;
+                    var productCharacteristics = productEnemy.CharacteristicsEnemy;
+
+                    productCharacteristics.Armor = characteristicsEnemy.Armor;
+                    productCharacteristics.Speed = characteristicsEnemy.Speed;
+                    productCharacteristics.AirResistance = characteristicsEnemy.AirResistance;
+                    productCharacteristics.CurrentHp = characteristicsEnemy.CurrentHp;
+                    productCharacteristics.EarthResistance = characteristicsEnemy.EarthResistance;
+                    productCharacteristics.FireResistance = characteristicsEnemy.FireResistance;
+                    productCharacteristics.MaxHp = characteristicsEnemy.MaxHp;
+                    productCharacteristics.WaterResistance = characteristicsEnemy.WaterResistance;
+                    productCharacteristics.DamageToBase = characteristicsEnemy.DamageToBase;
+                }
+            }
+        }
+        
+        private void SetSpriteByTypeEnemy(TypeEnemy typeEnemy, ref Enemy.Enemy productEnemy)
+        {
+            foreach (var enemy in _enemies)
+            {
+                if (enemy.TypeEnemy == typeEnemy)
+                {
+                    var characteristicsEnemy = enemy.SpriteRenderer;
+                    var productCharacteristics = productEnemy.SpriteRenderer;
+
+                    productCharacteristics.color = characteristicsEnemy.color;
+                    productCharacteristics.sprite = characteristicsEnemy.sprite;
+                }
             }
         }
     }
-}
+} 
