@@ -4,8 +4,9 @@ namespace Enemy
 {
     public enum TypeEnemy 
     {
-        Knight = 0,
-        Archer = 1,
-        Magician = 2
+        Nothing = 0,
+        Knight = 1,
+        Archer = 2,
+        Magician = 3
     }
 }

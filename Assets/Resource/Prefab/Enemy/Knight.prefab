@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2328838928154820727}
   - component: {fileID: -4151402454022704107}
   m_Layer: 0
-  m_Name: Circle
+  m_Name: Knight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -98,7 +98,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71d8b188a418b5945a729a621c2a447b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _distancePointChange: 0.1
 --- !u!114 &255524764575009456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,7 +143,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31ae16164415477e9553eb170ea1733c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _typeEnemy: 0
+  _spriteRenderer: {fileID: 5837287484079487288}
+  _typeEnemy: 1
   _characteristicsEnemy: {fileID: 255524764575009456}
   _movementEnemyController: {fileID: 5837287484079487270}
   _attackBehaviour: {fileID: 2328838928154820727}

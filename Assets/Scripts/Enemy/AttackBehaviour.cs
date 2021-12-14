@@ -18,21 +18,19 @@ namespace Enemy
             _enemy = GetComponent<Enemy>();
             _enemy.MovementEnemyController.OnFinishPoint += Attack;
         }
-
-        private void OnEnable()
-        {
-            Start();
-        }
-
+        
         private void Attack(PlayerBase playerBase)
         {
             playerBase.TakeDamage(_enemy.CharacteristicsEnemy.DamageToBase);
-            EventStreams.UserInterface.Publish(new EnemyDestroyedEvent(_enemy.TypeEnemy, _enemy));
+            EventStreams.UserInterface.Publish(new EnemyDestroyedEvent(_enemy));
         }
 
-        private void OnDisable()
+        private void OnDestroy()
         {
-            _enemy.MovementEnemyController.OnFinishPoint -= Attack;
+            if (_enemy != null)
+            {
+                _enemy.MovementEnemyController.OnFinishPoint -= Attack;
+            }
         }
     }
 }

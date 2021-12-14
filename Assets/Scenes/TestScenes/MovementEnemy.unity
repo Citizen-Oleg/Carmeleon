@@ -1433,16 +1433,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f749d4f4d0229e64eab6e3963dcaf85a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _delayedSpawnEnemies: 0.1
+  _delayedSpawnEnemies: 2
   _waveSpawns:
   - _enemySpawnData:
-    - _typeEnemy: 0
-      _startNode: {fileID: 886702605}
-      _count: 3
     - _typeEnemy: 1
       _startNode: {fileID: 886702605}
       _count: 3
-    - _typeEnemy: 0
+    - _typeEnemy: 2
+      _startNode: {fileID: 886702605}
+      _count: 3
+    - _typeEnemy: 1
       _startNode: {fileID: 886702605}
       _count: 3
 --- !u!4 &1669284895
@@ -1472,6 +1472,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _containerEnemy: {fileID: 1961628993}
+  _prefabEnemy: {fileID: 2333355790396330141, guid: 6c885ab92e3778e40881127c1e7088a6, type: 3}
   _enemies:
   - {fileID: -4151402454022704107, guid: 06b7dbb60f6da0c4287aefd3c2dbfb5d, type: 3}
   - {fileID: -4151402454022704107, guid: 342c2c7afc1695b45a70f6bfb434ddae, type: 3}

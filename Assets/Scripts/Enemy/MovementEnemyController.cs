@@ -11,9 +11,8 @@ namespace Enemy
     public class MovementEnemyController : MonoBehaviour
     {
         public event Action<PlayerBase> OnFinishPoint;
-            
-        [SerializeField]
-        private float _distancePointChange = 0.1f;
+        
+        private const float DISTANCE_POINT_CHANGE = 0.1f;
         
         private CharacteristicsEnemy _characteristicsEnemy;
         private Node _currentNode;
@@ -37,7 +36,7 @@ namespace Enemy
             transform.position = Vector3.MoveTowards(transform.position, _currentNode.transform.position,
                 _characteristicsEnemy.Speed * Time.deltaTime);
             
-            if (Vector3.Distance(transform.position, _currentNode.transform.position) <= _distancePointChange)
+            if (Vector3.Distance(transform.position, _currentNode.transform.position) <= DISTANCE_POINT_CHANGE)
             {
                 SetMovementToPoint();
             }
@@ -45,13 +44,14 @@ namespace Enemy
 
         private void SetMovementToPoint()
         {
-            if (_currentNode.GetNextNode() == null)
+            var node = _currentNode.GetNextNode();
+            if (node == null)
             {
                 OnFinishPoint?.Invoke(_currentNode.GetComponent<PlayerBase>());
                 return;
             }
             
-            _currentNode = _currentNode.GetNextNode();
+            _currentNode = node;
         }
     }
 }

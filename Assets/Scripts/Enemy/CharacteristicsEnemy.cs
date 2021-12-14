@@ -47,8 +47,11 @@ namespace Enemy
             get => _airResistance;
             set => _airResistance = value;
         }
-
-        public int DamageToBase => _damageToBase;
+        public int DamageToBase
+        {
+            get => _damageToBase;
+            set => _damageToBase = value;
+        }
 
         [SerializeField]
         private int _maxHP;
