@@ -1,10 +1,11 @@
 using UnityEngine;
 
-namespace Enemy
+namespace EnemyComponent
 {
     /// <summary>
     /// Класс хранящий в себе данные о характеристиках врага
     /// </summary>
+    [RequireComponent(typeof(Enemy))]
     public class CharacteristicsEnemy : MonoBehaviour
     {
         public int MaxHp
@@ -15,7 +16,7 @@ namespace Enemy
         public int CurrentHp
         {
             get => _currentHP;
-            set => Mathf.Clamp(value, 0 , _maxHP);
+            set => _currentHP = Mathf.Clamp(value, 0 , MaxHp);
         }
         public float Speed
         {

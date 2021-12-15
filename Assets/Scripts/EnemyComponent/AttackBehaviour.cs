@@ -1,14 +1,14 @@
-﻿using System;
-using Event;
+﻿using Event;
 using Player;
 using SimpleEventBus;
 using UnityEngine;
 
-namespace Enemy
+namespace EnemyComponent
 {
     /// <summary>
     /// Класс отвечает за нанесение урона врагом.
     /// </summary>
+    [RequireComponent(typeof(Enemy))]
     public class AttackBehaviour : MonoBehaviour
     {
         private Enemy _enemy;

@@ -3,11 +3,11 @@ using SimpleEventBus.Events;
 
 namespace Event
 {
-    public class EnemyDestroyedEvent : EventBase
+    public class EnemyCreatedEvent : EventBase
     {
-        public Enemy Enemy { get; } 
+        public Enemy Enemy { get; }
 
-        public EnemyDestroyedEvent(Enemy enemy)
+        public EnemyCreatedEvent(Enemy enemy)
         {
             Enemy = enemy;
         }

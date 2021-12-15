@@ -3,11 +3,12 @@ using NodeMovement;
 using Player;
 using UnityEngine;
 
-namespace Enemy
+namespace EnemyComponent
 {
     /// <summary>
     /// Класс отвечающий за передвижение врага по установленному пути.
     /// </summary>
+    [RequireComponent(typeof(Enemy))]
     public class MovementEnemyController : MonoBehaviour
     {
         public event Action<PlayerBase> OnFinishPoint;
