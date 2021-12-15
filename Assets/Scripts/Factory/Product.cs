@@ -3,17 +3,9 @@ using UnityEngine;
 
 namespace Factory
 {
-    public abstract class Product : MonoBehaviour
+    public interface IProduct<TTypeEnum> where TTypeEnum : Enum
     {
-        public SpriteRenderer SpriteRenderer
-        {
-            get => _spriteRenderer;
-            set => _spriteRenderer = value;
-        }
-
-        public abstract Enum Type { get; }
-
-        [SerializeField]
-        private SpriteRenderer _spriteRenderer;
+        public SpriteRenderer SpriteRenderer { get; set; }
+        public TTypeEnum TypeEnum { get; }
     }
 }

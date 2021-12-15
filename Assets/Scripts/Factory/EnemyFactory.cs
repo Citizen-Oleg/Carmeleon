@@ -40,29 +40,30 @@ namespace Factory
             _subscriptions?.Dispose();
         }
         
-        public TProduct GetProduct<TProduct>(TypeEnemy typeProduct) where TProduct : Product
+        public TProduct GetProduct<TProduct>(TypeEnemy typeProduct) where TProduct : IProduct<TypeEnemy>
         {
             var enemy = _enemyPool.Take();
             var enemyBlueprint = GetEnemyByType(typeProduct);
-      
+       
             SetSpriteByTypeEnemy(enemyBlueprint, ref enemy);
             SetCharacteristicsEnemyByType(enemyBlueprint, ref enemy);
 
-            return (TProduct)(Product) enemy;
+            return (TProduct) (IProduct<TypeEnemy>) enemy;
         }
         
-        /// <summary>
-        /// Для корректной работы нужно добавить все типы врагов в массив _enemies.
-        /// </summary>
-        /// <param name="enemyDestroyedEvent"></param>
         private void OnEnemyDestroyed(EnemyDestroyedEvent enemyDestroyedEvent)
         {
             _enemyPool.Release(enemyDestroyedEvent.Enemy);
         }
 
+        /// <summary>
+        /// Для корректной работы нужно добавить все типы врагов в массив _enemies.
+        /// </summary>
+        /// <param name="typeEnemy"></param>
+        /// <returns></returns>
         private Enemy GetEnemyByType(TypeEnemy typeEnemy)
         {
-            return _enemies[typeEnemy.GetHashCode()];
+            return _enemies[(int) typeEnemy];
         }
 
         private void SetCharacteristicsEnemyByType(Enemy enemyBlueprint, ref Enemy productEnemy)
@@ -82,7 +83,6 @@ namespace Factory
             productEnemy.OffSetPositionHealthBar = enemyBlueprint.OffSetPositionHealthBar;
         }
         
-        
         private void SetSpriteByTypeEnemy(Enemy enemyBlueprint, ref Enemy productEnemy)
         {
             var characteristicsEnemy = enemyBlueprint.SpriteRenderer;
@@ -95,13 +95,13 @@ namespace Factory
 
     class BubbleSort
     {
-        public List<T> GetSortList<T>(List<T> list) where T : Product
+        public List<T> GetSortList<T>(List<T> list) where T : IProduct<TypeEnemy>
         {
             for (int i = 0; i < list.Count; i++)
             {
                 for (int j = i + 1; j < list.Count ; j++)
                 {
-                    if (list[i].Type.GetHashCode() > list[j].Type.GetHashCode())
+                    if ((int) list[i].TypeEnum > (int)list[j].TypeEnum)
                     {
                         (list[i], list[j]) = (list[j], list[i]);
                     }
