@@ -1671,8 +1671,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f749d4f4d0229e64eab6e3963dcaf85a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _delayedSpawnEnemies: 2
+  _delayedSpawnEnemies: 0.1
   _waveSpawns:
+  - _enemySpawnData:
+    - _typeEnemy: 1
+      _startNode: {fileID: 886702605}
+      _count: 3
+    - _typeEnemy: 2
+      _startNode: {fileID: 886702605}
+      _count: 3
+    - _typeEnemy: 1
+      _startNode: {fileID: 886702605}
+      _count: 3
+  - _enemySpawnData:
+    - _typeEnemy: 1
+      _startNode: {fileID: 886702605}
+      _count: 3
+    - _typeEnemy: 2
+      _startNode: {fileID: 886702605}
+      _count: 3
+    - _typeEnemy: 1
+      _startNode: {fileID: 886702605}
+      _count: 3
   - _enemySpawnData:
     - _typeEnemy: 1
       _startNode: {fileID: 886702605}
