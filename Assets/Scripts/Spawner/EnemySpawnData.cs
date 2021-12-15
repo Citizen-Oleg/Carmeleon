@@ -1,5 +1,5 @@
 ﻿using System;
-using Enemy;
+using EnemyComponent;
 using NodeMovement;
 using UnityEngine;
 

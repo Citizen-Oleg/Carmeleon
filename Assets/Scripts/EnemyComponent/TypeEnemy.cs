@@ -1,6 +1,4 @@
-﻿using Factory;
-
-namespace Enemy
+﻿namespace EnemyComponent
 {
     public enum TypeEnemy 
     {

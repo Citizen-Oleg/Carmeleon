@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Enemy;
+using EnemyComponent;
 using Event;
 using Factory;
 using SimpleEventBus;
@@ -15,6 +15,8 @@ namespace Spawner
     [RequireComponent(typeof(IFactory<TypeEnemy>))]
     public class SpawnerEnemy : MonoBehaviour
     {
+        public bool HasSpawning => _hasSpawning;
+
         [SerializeField]
         private float _delayedSpawnEnemies;
         [SerializeField]
@@ -23,23 +25,29 @@ namespace Spawner
         private int _waveNumber;
         private IDisposable _subscription;
         private IFactory<TypeEnemy> _enemyFactory;
+        private bool _hasSpawning;
 
         private void Awake()
         {
-            _subscription = EventStreams.UserInterface.Subscribe<EventWaveSweep>(StartWave);
             _enemyFactory = GetComponent<EnemyFactory>();
-
+            _subscription = EventStreams.UserInterface.Subscribe<EventWaveSweep>(StartWave);
         }
 
         private void Start()
         {
-            StartCoroutine(Spawn());
+            StartWave(new EventWaveSweep());
+        }
+        
+        private void OnDestroy()
+        {
+            _subscription?.Dispose();
         }
         
         private void StartWave(EventWaveSweep eventWaveSweep)
         {
-            if (_waveNumber > _waveSpawns.Count)
+            if (_waveNumber >= _waveSpawns.Count)
             {
+                Debug.Log("Окно победы");
                //TODO: Эвент на открытие окна победы
             }
             else
@@ -50,24 +58,24 @@ namespace Spawner
         
         private IEnumerator Spawn()
         {
+            _hasSpawning = true;
             var wave = _waveSpawns[_waveNumber++];
 
             foreach (var enemyData in wave.EnemySpawnData)
             {
                 for (var i = 0; i < enemyData.Count; i++)
                 {
-                    var enemy = _enemyFactory.GetProduct<Enemy.Enemy>(enemyData.TypeEnemy);
+                    yield return new WaitForSeconds(_delayedSpawnEnemies);
+                    
+                    var enemy = _enemyFactory.GetProduct<Enemy>(enemyData.TypeEnemy);
                     enemy.transform.position = enemyData.StartNode.transform.position;
                     enemy.MovementEnemyController.Initialize(enemy, enemyData.StartNode);
-
-                    yield return new WaitForSeconds(_delayedSpawnEnemies);
+                    
+                    EventStreams.UserInterface.Publish(new EnemyCreatedEvent(enemy));
                 }
             }
-        }
 
-        private void OnDestroy()
-        {
-            _subscription?.Dispose();
+            _hasSpawning = false;
         }
     }
 }
