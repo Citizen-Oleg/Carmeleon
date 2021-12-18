@@ -1,6 +1,8 @@
-﻿using Event;
+﻿using System;
+using Event;
 using Player;
 using SimpleEventBus;
+using Towers;
 using UnityEngine;
 
 namespace EnemyComponent
@@ -9,8 +11,10 @@ namespace EnemyComponent
     /// Класс отвечает за нанесение урона врагом.
     /// </summary>
     [RequireComponent(typeof(Enemy))]
-    public class AttackBehaviour : MonoBehaviour
+    public class AttackBehaviourEnemy : MonoBehaviour
     {
+        public event Action OnAttackBase; 
+        
         private Enemy _enemy;
 
         private void Start()
@@ -22,7 +26,7 @@ namespace EnemyComponent
         private void Attack(PlayerBase playerBase)
         {
             playerBase.TakeDamage(_enemy.CharacteristicsEnemy.DamageToBase);
-            EventStreams.UserInterface.Publish(new EnemyDestroyedEvent(_enemy));
+            OnAttackBase?.Invoke();
         }
 
         private void OnDestroy()
