@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using EnemyComponent;
 using Event;
+using Interface;
 using SimpleEventBus;
 using SimpleEventBus.Disposables;
 using UnityEngine;
@@ -80,6 +81,7 @@ namespace Factory
             productCharacteristics.CurrentHp = characteristicsEnemy.MaxHp;
             productCharacteristics.WaterResistance = characteristicsEnemy.WaterResistance;
             productCharacteristics.DamageToBase = characteristicsEnemy.DamageToBase;
+            productCharacteristics.IsDeath = false;
             productEnemy.OffSetPositionHealthBar = enemyBlueprint.OffSetPositionHealthBar;
         }
         

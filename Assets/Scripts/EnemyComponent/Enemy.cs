@@ -7,7 +7,7 @@ namespace EnemyComponent
 {
     [RequireComponent(typeof(MovementEnemyController))]
     [RequireComponent(typeof(CharacteristicsEnemy))]
-    [RequireComponent(typeof(AttackBehaviour))]
+    [RequireComponent(typeof(AttackBehaviourEnemy))]
     [RequireComponent(typeof(HealthBehavior))]
     public class Enemy : MonoBehaviour, IProduct<TypeEnemy>
     {
@@ -25,7 +25,7 @@ namespace EnemyComponent
         public TypeEnemy TypeEnum => _typeEnemy;
         public CharacteristicsEnemy CharacteristicsEnemy => _characteristicsEnemy;
         public MovementEnemyController MovementEnemyController => _movementEnemyController;
-        public AttackBehaviour AttackBehaviour => _attackBehaviour;
+        public AttackBehaviourEnemy AttackBehaviour => _attackBehaviour;
         public HealthBehavior HealthBehavior => _healthBehavior;
 
         [SerializeField]
@@ -39,7 +39,7 @@ namespace EnemyComponent
         [SerializeField]
         private MovementEnemyController _movementEnemyController;
         [SerializeField]
-        private AttackBehaviour _attackBehaviour;
+        private AttackBehaviourEnemy _attackBehaviour;
         [SerializeField]
         private HealthBehavior _healthBehavior;
     }

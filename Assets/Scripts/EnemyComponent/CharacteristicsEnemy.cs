@@ -23,27 +23,27 @@ namespace EnemyComponent
             get => _speed;
             set => _speed = value;
         }
-        public float Armor
+        public int Armor
         {
             get => _armor;
             set => _armor = value;
         }
-        public float FireResistance
+        public int FireResistance
         {
             get => _fireResistance;
             set => _fireResistance = value;
         }
-        public float EarthResistance
+        public int EarthResistance
         {
             get => _earthResistance;
             set => _earthResistance = value;
         }
-        public float WaterResistance
+        public int WaterResistance
         {
             get => _waterResistance;
             set => _waterResistance = value;
         }
-        public float AirResistance
+        public int AirResistance
         {
             get => _airResistance;
             set => _airResistance = value;
@@ -52,6 +52,11 @@ namespace EnemyComponent
         {
             get => _damageToBase;
             set => _damageToBase = value;
+        }
+        public bool IsDeath
+        {
+            get => _isDeath;
+            set => _isDeath = value;
         }
 
         [SerializeField]
@@ -62,23 +67,24 @@ namespace EnemyComponent
         private float _speed;
         [SerializeField]
         private int _damageToBase;
+        [SerializeField]
+        private bool _isDeath;
 
-        [Header("Указываются проценты")]
-        [Range(0f, 100f)]
+        [Header("Указываются проценты защиты от типа урона")]
+        [Range(-100, 100)]
         [SerializeField]
-        private float _armor;
-        [Range(0f, 100f)]
+        private int _armor;
+        [Range(-100, 100)]
         [SerializeField]
-        private float _fireResistance;
-        [Range(0f, 100f)]
+        private int _fireResistance;
+        [Range(-100, 100)]
         [SerializeField]
-        private float _earthResistance;
-        [Range(0f, 100f)]
+        private int _earthResistance;
+        [Range(-100, 100)]
         [SerializeField]
-        private float _waterResistance;
-        [Range(0f, 100f)]
+        private int _waterResistance;
+        [Range(-100, 100)]
         [SerializeField]
-        private float _airResistance;
-
+        private int _airResistance;
     }
 }

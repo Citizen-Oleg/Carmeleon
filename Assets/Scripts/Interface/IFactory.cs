@@ -1,6 +1,7 @@
 ﻿using System;
+using Factory;
 
-namespace Factory
+namespace Interface
 {
     public interface IFactory<TTypeProduct> where TTypeProduct : Enum
     {
