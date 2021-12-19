@@ -1,15 +1,32 @@
 ﻿using System;
 using EnemyComponent;
+using Factory;
+using Interface;
 using UnityEngine;
 
 namespace Towers
 {
-    public class Projectile : MonoBehaviour
+    [RequireComponent(typeof(SpriteRenderer))]
+    public class Projectile : MonoBehaviour, IProduct
     {
         private const float DISTANCE_TO_TARGET = 0.1f;
         
+        public float FlightSpeed
+        {
+            get => _flightSpeed;
+            set => _flightSpeed = value;
+        }
+        
+        public SpriteRenderer SpriteRenderer => _spriteRenderer;
+        public int ID => _id;
+
         [SerializeField]
         protected float _flightSpeed;
+
+        [SerializeField]
+        private int _id;
+        [SerializeField]
+        private SpriteRenderer _spriteRenderer;
         
         protected Enemy _target;
         protected Action<Projectile> _callback;

@@ -13,7 +13,7 @@ namespace Spawner
     /// <summary>
     /// Класс отвечает за спавн врагов на карте
     /// </summary>
-    [RequireComponent(typeof(IFactory<TypeEnemy>))]
+    [RequireComponent(typeof(IFactory))]
     public class SpawnerEnemy : MonoBehaviour
     {
         public bool HasSpawning => _hasSpawning;
@@ -25,7 +25,7 @@ namespace Spawner
         
         private int _waveNumber;
         private IDisposable _subscription;
-        private IFactory<TypeEnemy> _enemyFactory;
+        private IFactory _enemyFactory;
         private bool _hasSpawning;
 
         private void Awake()
@@ -68,11 +68,15 @@ namespace Spawner
                 {
                     yield return new WaitForSeconds(_delayedSpawnEnemies);
                     
-                    var enemy = _enemyFactory.GetProduct<Enemy>(enemyData.TypeEnemy);
-                    enemy.transform.position = enemyData.StartNode.transform.position;
-                    enemy.MovementEnemyController.Initialize(enemy, enemyData.StartNode);
+                    var product = _enemyFactory.GetProduct(enemyData.Enemy);
                     
-                    EventStreams.UserInterface.Publish(new EnemyCreatedEvent(enemy));
+                    if (product is Enemy enemy)
+                    {
+                        enemy.transform.position = enemyData.StartNode.transform.position;
+                        enemy.MovementEnemyController.Initialize(enemy, enemyData.StartNode);
+                    
+                        EventStreams.UserInterface.Publish(new EnemyCreatedEvent(enemy));
+                    }
                 }
             }
 

@@ -6,6 +6,12 @@ namespace Towers
 {
     public class SplashProjectile : Projectile
     {
+        public float ExplosionRadius
+        {
+            get => _explosionRadius;
+            set => _explosionRadius = value;
+        }
+
         [SerializeField]
         private float _explosionRadius;
 

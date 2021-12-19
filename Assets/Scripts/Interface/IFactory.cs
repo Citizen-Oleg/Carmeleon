@@ -1,10 +1,8 @@
-﻿using System;
-using Factory;
-
-namespace Interface
+﻿namespace Interface
 {
-    public interface IFactory<TTypeProduct> where TTypeProduct : Enum
+    public interface IFactory
     {
-        public TProduct GetProduct<TProduct>(TTypeProduct typeProduct) where TProduct : IProduct<TTypeProduct>;
+        public IProduct GetProduct(IProduct product);
+        public void ReleaseProduct(IProduct product);
     }
 }

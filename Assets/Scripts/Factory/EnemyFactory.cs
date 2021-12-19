@@ -12,7 +12,7 @@ namespace Factory
     /// <summary>
     /// Класс предназначен для выдачи врага
     /// </summary>
-    public class EnemyFactory : MonoBehaviour, IFactory<TypeEnemy>
+    public class EnemyFactory : MonoBehaviour, IFactory
     {
         [SerializeField]
         private Transform _containerEnemy;
@@ -26,14 +26,14 @@ namespace Factory
         
         private void Awake()
         {
-            _enemyPool = new MonoBehaviourPool<Enemy>(_prefabEnemy, _containerEnemy, 10);
+            _enemyPool = new MonoBehaviourPool<Enemy>(_prefabEnemy, _containerEnemy, 30);
 
             _subscriptions = new CompositeDisposable
             {
                 EventStreams.UserInterface.Subscribe<EnemyDestroyedEvent>(OnEnemyDestroyed)
             };
 
-            _enemies = new BubbleSort().GetSortList(_enemies);
+            _enemies = BubbleSortProduct.GetSortList(_enemies);
         }
 
         private void OnDestroy()
@@ -41,33 +41,38 @@ namespace Factory
             _subscriptions?.Dispose();
         }
         
-        public TProduct GetProduct<TProduct>(TypeEnemy typeProduct) where TProduct : IProduct<TypeEnemy>
+        public IProduct GetProduct(IProduct product)
         {
             var enemy = _enemyPool.Take();
-            var enemyBlueprint = GetEnemyByType(typeProduct);
+            var enemyBlueprint = GetEnemyById(product.ID);
        
-            SetSpriteByTypeEnemy(enemyBlueprint, ref enemy);
-            SetCharacteristicsEnemyByType(enemyBlueprint, ref enemy);
+            SetSpriteEnemy(enemyBlueprint, ref enemy);
+            SetCharacteristicsEnemy(enemyBlueprint, ref enemy);
 
-            return (TProduct) (IProduct<TypeEnemy>) enemy;
+            return enemy;
         }
-        
+
+        public void ReleaseProduct(IProduct product)
+        {
+            _enemyPool.Release((Enemy)product);   
+        }
+
         private void OnEnemyDestroyed(EnemyDestroyedEvent enemyDestroyedEvent)
         {
-            _enemyPool.Release(enemyDestroyedEvent.Enemy);
+            ReleaseProduct(enemyDestroyedEvent.Enemy);
         }
 
         /// <summary>
-        /// Для корректной работы нужно добавить все типы врагов в массив _enemies.
+        /// Для корректной работы нужно добавить всех врагов в массив _enemies.
         /// </summary>
-        /// <param name="typeEnemy"></param>
+        /// <param name="id"></param>
         /// <returns></returns>
-        private Enemy GetEnemyByType(TypeEnemy typeEnemy)
+        private Enemy GetEnemyById(int id)
         {
-            return _enemies[(int) typeEnemy];
+            return _enemies[id];
         }
 
-        private void SetCharacteristicsEnemyByType(Enemy enemyBlueprint, ref Enemy productEnemy)
+        private void SetCharacteristicsEnemy(Enemy enemyBlueprint, ref Enemy productEnemy)
         {
             var characteristicsEnemy = enemyBlueprint.CharacteristicsEnemy;
             var productCharacteristics = productEnemy.CharacteristicsEnemy;
@@ -85,32 +90,13 @@ namespace Factory
             productEnemy.OffSetPositionHealthBar = enemyBlueprint.OffSetPositionHealthBar;
         }
         
-        private void SetSpriteByTypeEnemy(Enemy enemyBlueprint, ref Enemy productEnemy)
+        private void SetSpriteEnemy(Enemy enemyBlueprint, ref Enemy productEnemy)
         {
-            var characteristicsEnemy = enemyBlueprint.SpriteRenderer;
-            var productCharacteristics = productEnemy.SpriteRenderer;
+            var spriteRendererEnemy = enemyBlueprint.SpriteRenderer;
+            var spriteRendererProduct = productEnemy.SpriteRenderer;
 
-            productCharacteristics.color = characteristicsEnemy.color;
-            productCharacteristics.sprite = characteristicsEnemy.sprite;
-        }
-    }
-
-    class BubbleSort
-    {
-        public List<T> GetSortList<T>(List<T> list) where T : IProduct<TypeEnemy>
-        {
-            for (int i = 0; i < list.Count; i++)
-            {
-                for (int j = i + 1; j < list.Count ; j++)
-                {
-                    if ((int) list[i].TypeEnum > (int)list[j].TypeEnum)
-                    {
-                        (list[i], list[j]) = (list[j], list[i]);
-                    }
-                }
-            }
-            
-            return list;
+            spriteRendererProduct.color = spriteRendererEnemy.color;
+            spriteRendererProduct.sprite = spriteRendererEnemy.sprite;
         }
     }
 } 
