@@ -10,17 +10,17 @@ namespace ManagerHB
             switch (damageType)
             {
                 case DamageType.Physical:
-                    return damage - characteristicsEnemy.Armor / 100 * damage;
+                    return damage - (int)(characteristicsEnemy.Armor / 100f * damage);
                 case DamageType.Fire:
-                    return damage - characteristicsEnemy.FireResistance * damage;
+                    return damage - (int)(characteristicsEnemy.FireResistance / 100f * damage);
                 case DamageType.Air:
-                    return damage - characteristicsEnemy.AirResistance * damage;
+                    return damage - (int)(characteristicsEnemy.AirResistance / 100f * damage);
                 case DamageType.Earth:
-                    return damage - characteristicsEnemy.EarthResistance * damage;
+                    return damage - (int)(characteristicsEnemy.EarthResistance / 100f * damage);
                 case DamageType.Water:
-                    return damage - characteristicsEnemy.WaterResistance * damage;
+                    return damage - (int)(characteristicsEnemy.WaterResistance / 100f * damage);
                 default:
-                    return damage - characteristicsEnemy.Armor * damage;
+                    return damage - (int)(characteristicsEnemy.Armor / 100f * damage);
             }
         }
     }

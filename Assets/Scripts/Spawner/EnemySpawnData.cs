@@ -13,10 +13,10 @@ namespace Spawner
     {
         public Node StartNode => _startNode;
         public int Count => _count;
-        public TypeEnemy TypeEnemy => _typeEnemy;
+        public Enemy Enemy => _enemy;
 
         [SerializeField]
-        private TypeEnemy _typeEnemy;
+        private Enemy _enemy;
         [SerializeField]
         private Node _startNode;
         [SerializeField]
