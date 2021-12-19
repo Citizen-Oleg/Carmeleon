@@ -1,5 +1,4 @@
-﻿using System;
-using EnemyComponent;
+﻿using DefaultNamespace;
 using ManagerHB;
 using UnityEngine;
 
@@ -21,7 +20,7 @@ namespace Towers
                 {
                     break;
                 }
-                if (collider.CompareTag("Enemy") && collider.TryGetComponent(out HealthBehavior healthBehavior))
+                if (collider.CompareTag(GlobalConstants.ENEMY_TAG) && collider.TryGetComponent(out HealthBehavior healthBehavior))
                 {
                     healthBehavior.TakeDamage(_damage, _damageType);
                 }
@@ -29,12 +28,6 @@ namespace Towers
             
             _callback?.Invoke(this);
             _target = null;
-        }
-        
-        void OnDrawGizmos()
-        {
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(transform.position, _explosionRadius);
         }
     }
 }
