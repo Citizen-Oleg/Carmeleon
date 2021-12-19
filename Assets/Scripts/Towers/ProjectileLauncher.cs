@@ -28,6 +28,7 @@ namespace Towers
                 if (!_hasTarget && SetTarget() && _attackBehaviour.CanAttack(_currentTarget))
                 {
                     _attackBehaviour.Attack(_currentTarget);
+                    return;
                 }
                 
                 if (_hasTarget && !_attackBehaviour.CanAttack(_currentTarget))
