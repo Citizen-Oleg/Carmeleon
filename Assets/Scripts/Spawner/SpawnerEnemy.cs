@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using EnemyComponent;
 using Event;
 using Factory;
-using Interface;
 using SimpleEventBus;
 using UnityEngine;
 

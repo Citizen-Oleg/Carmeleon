@@ -1,6 +1,5 @@
 using System;
 using EnemyComponent;
-using TMPro;
 using Tools;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,7 +11,7 @@ namespace ManagerHB
         [SerializeField]
         private Slider _healthBarSlider;
         [SerializeField]
-        private TextMeshProUGUI _health;
+        private Text _health;
         
         private int _lastHp = Int32.MinValue;
         private int _lastMaxHp;
@@ -34,8 +33,6 @@ namespace ManagerHB
             _characteristicsEnemy = enemy.CharacteristicsEnemy;
             _offSet = enemy.OffSetPositionHealthBar;
             _lastMaxHp = _characteristicsEnemy.MaxHp;
-            
-            Update();
         }
 
         private void Update()

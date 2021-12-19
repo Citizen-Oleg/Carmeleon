@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 307792353506674965}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: PositionHealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,9 +45,9 @@ GameObject:
   - component: {fileID: 2328838928154820727}
   - component: {fileID: -4151402454022704107}
   - component: {fileID: 1226784501393289295}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Knight
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -142,11 +142,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe88a2b38a674644eb887e6d25d7c6cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHP: 200
-  _currentHP: 200
-  _speed: 2
+  _maxHP: 100
+  _currentHP: 100
+  _speed: 10
   _damageToBase: 5
-  _isDeath: 0
   _armor: 0
   _fireResistance: 0
   _earthResistance: 0
@@ -177,7 +176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spriteRenderer: {fileID: 5837287484079487288}
-  _offSetPositionHealthBar: {x: 0, y: 25}
+  _offSetPositionHealthBar: {x: 0, y: 8}
   _typeEnemy: 1
   _characteristicsEnemy: {fileID: 255524764575009456}
   _movementEnemyController: {fileID: 5837287484079487270}
