@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Interface;
 using Towers;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Factory
 {
@@ -11,9 +12,9 @@ namespace Factory
         [SerializeField]
         private Transform _containerProjectile;
         [SerializeField]
-        private Projectile _prefabProjectile;
+        private Projectile _prefabStandardProjectile;
         [SerializeField]
-        private SplashProjectile _splashProjectile;
+        private SplashProjectile _splashStandardProjectile;
         [SerializeField]
         private List<Projectile> _projectiles = new List<Projectile>();
         
@@ -21,10 +22,10 @@ namespace Factory
 
         private void Awake()
         {
-            var pool = new MonoBehaviourPool<Projectile>(_prefabProjectile, _containerProjectile, 30);
-            _projectilePool.Add(_prefabProjectile, pool);
-            pool = new MonoBehaviourPool<Projectile>(_splashProjectile, _containerProjectile, 30);
-            _projectilePool.Add(_splashProjectile, pool);
+            var pool = new MonoBehaviourPool<Projectile>(_prefabStandardProjectile, _containerProjectile, 30);
+            _projectilePool.Add(_prefabStandardProjectile, pool);
+            pool = new MonoBehaviourPool<Projectile>(_splashStandardProjectile, _containerProjectile, 30);
+            _projectilePool.Add(_splashStandardProjectile, pool);
 
             _projectiles = BubbleSortProduct.GetSortList(_projectiles);
         }
@@ -36,7 +37,7 @@ namespace Factory
             switch (product)
             {
                 case SplashProjectile splashProjectile:
-                    var projectilePool = _projectilePool[_splashProjectile].Take();
+                    var projectilePool = _projectilePool[_splashStandardProjectile].Take();
                     SetProductParametersByBlueprint(splashProjectile, ref projectilePool);
 
                     if (projectilePool is SplashProjectile projectileSplashPool)
@@ -47,7 +48,7 @@ namespace Factory
                     return projectilePool;
                 
                 case Projectile projectile:
-                    projectilePool = _projectilePool[_prefabProjectile].Take();
+                    projectilePool = _projectilePool[_prefabStandardProjectile].Take();
                     SetProductParametersByBlueprint(projectile, ref projectilePool);
                     return projectilePool;
             }
@@ -60,10 +61,10 @@ namespace Factory
             switch (product)
             {
                 case SplashProjectile splashProjectile:
-                    _projectilePool[_splashProjectile].Release(splashProjectile);
+                    _projectilePool[_splashStandardProjectile].Release(splashProjectile);
                     break;
                 case Projectile projectile:
-                    _projectilePool[_prefabProjectile].Release(projectile);
+                    _projectilePool[_prefabStandardProjectile].Release(projectile);
                     break;
             }
         }
