@@ -12,11 +12,11 @@ GameObject:
   - component: {fileID: 2333355790396330139}
   - component: {fileID: 2333355790396330128}
   - component: {fileID: 2333355790396330143}
-  - component: {fileID: 2333355790396330142}
   - component: {fileID: 2333355790396330141}
   - component: {fileID: 4821051085629723548}
   - component: {fileID: 8479447758904453219}
   - component: {fileID: 3979788106090214133}
+  - component: {fileID: 672147811641899633}
   m_Layer: 6
   m_Name: NothingEnemy
   m_TagString: Enemy
@@ -123,18 +123,6 @@ MonoBehaviour:
   _earthResistance: 100
   _waterResistance: 100
   _airResistance: 100
---- !u!114 &2333355790396330142
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2333355790396330138}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97f8b9d9be554e62b5d3a5b632c43c84, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2333355790396330141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,7 +140,7 @@ MonoBehaviour:
   _typeEnemy: 0
   _characteristicsEnemy: {fileID: 2333355790396330143}
   _movementEnemyController: {fileID: 2333355790396330128}
-  _attackBehaviour: {fileID: 2333355790396330142}
+  _attackBehaviour: {fileID: 672147811641899633}
   _healthBehavior: {fileID: 4821051085629723548}
 --- !u!114 &4821051085629723548
 MonoBehaviour:
@@ -213,3 +201,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &672147811641899633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2333355790396330138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fca38c0f1b27fe4dae681960f6bc197, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
