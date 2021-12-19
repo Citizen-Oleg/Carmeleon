@@ -1,22 +1,24 @@
 ﻿using System;
 using EnemyComponent;
+using Interface;
 using UnityEngine;
 
 namespace Towers
 {
+    [RequireComponent(typeof(ITargetProvider))]
     [RequireComponent(typeof(IAttackBehaviour))]
     public class ProjectileLauncher : MonoBehaviour
     {
-        private IAttackBehaviour _attackBehaviour;
-        private NearestTargetProvider _nearestTargetProvider;
-        private Enemy _currentTarget;
-
         private bool _hasTarget => _currentTarget != null;
+        
+        private IAttackBehaviour _attackBehaviour;
+        private ITargetProvider _targetProvider;
+        private Enemy _currentTarget;
 
         private void Awake()
         {
             _attackBehaviour = GetComponent<IAttackBehaviour>();
-            _nearestTargetProvider = new NearestTargetProvider();
+            _targetProvider =  GetComponent<ITargetProvider>();
         }
 
         private void Update()
@@ -42,7 +44,7 @@ namespace Towers
 
         private Enemy GetTarget()
         {
-            return _nearestTargetProvider.GetNearestTarget(LevelManager.EnemyManager.Enemies, transform.position);
+            return _targetProvider.GetTarget();
         }
 
         private bool SetTarget()

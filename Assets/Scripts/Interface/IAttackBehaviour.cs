@@ -1,7 +1,6 @@
-﻿using System;
-using EnemyComponent;
+﻿using EnemyComponent;
 
-namespace Towers
+namespace Interface
 {
     public interface IAttackBehaviour
     {

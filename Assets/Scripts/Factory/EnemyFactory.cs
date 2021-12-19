@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using EnemyComponent;
 using Event;
+using Interface;
 using SimpleEventBus;
 using SimpleEventBus.Disposables;
 using UnityEngine;

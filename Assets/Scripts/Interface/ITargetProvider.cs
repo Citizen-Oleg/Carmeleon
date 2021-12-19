@@ -1,6 +1,6 @@
 ﻿using EnemyComponent;
 
-namespace Towers
+namespace Interface
 {
     public interface ITargetProvider
     {

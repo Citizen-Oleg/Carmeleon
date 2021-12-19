@@ -142,8 +142,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe88a2b38a674644eb887e6d25d7c6cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHP: 100
-  _currentHP: 100
+  _maxHP: 200
+  _currentHP: 200
   _speed: 2
   _damageToBase: 5
   _isDeath: 0
@@ -177,7 +177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spriteRenderer: {fileID: 5837287484079487288}
-  _offSetPositionHealthBar: {x: 0, y: 8}
+  _offSetPositionHealthBar: {x: 0, y: 25}
   _typeEnemy: 1
   _characteristicsEnemy: {fileID: 255524764575009456}
   _movementEnemyController: {fileID: 5837287484079487270}

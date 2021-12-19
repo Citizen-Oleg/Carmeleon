@@ -1,10 +1,11 @@
 ﻿using EnemyComponent;
+using Interface;
 using UnityEngine;
 
 namespace Towers
 {
     [RequireComponent(typeof(Tower))]
-    public class EnemyTargetProvider : MonoBehaviour, ITargetProvider
+    public class TargetProvider : MonoBehaviour, ITargetProvider
     {
         private readonly NearestTargetProvider _nearestTargetProvider = new NearestTargetProvider();
 
