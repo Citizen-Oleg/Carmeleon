@@ -5,12 +5,7 @@ namespace Towers
     [RequireComponent(typeof(Tower))]
     public class TowerCharacteristics : MonoBehaviour
     {
-        void OnDrawGizmos()
-        {
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(transform.position, AttackRadius);
-        }
-        
+
         public float AttackSpeed
         {
             get => _attackSpeed;
