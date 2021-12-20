@@ -43,6 +43,12 @@ namespace Towers
 
         private void Update()
         {
+            if (_target.CharacteristicsEnemy.IsDeath)
+            {
+                _callback?.Invoke(this);
+                _target = null;
+            }
+            
             if (_target != null)
             {
                 MoveToTarget();    
