@@ -13,7 +13,6 @@ namespace Player
         {
             _currentHP -= damage;
             _currentHP = Mathf.Clamp(_currentHP, 0, _maxHP);
-            Debug.Log(_currentHP);
             if (_currentHP <= 0)
             {
                 //TODO: Экран проигрыша

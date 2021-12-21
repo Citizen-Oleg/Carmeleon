@@ -48,8 +48,7 @@ namespace DragController
                 ResetCurrentItem();
             }
         }
-
-
+        
         private void LeftClick()
         {
             var target = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -74,14 +73,15 @@ namespace DragController
             {
                 var tempItemInSlot = _currentItemInSlot;
                 var tempTower = _towerItem;
-
+                
                 _currentItemInSlot = placeInstallationTower.DestroyTower();
                 _towerItem = (TowerItem) _currentItemInSlot.Item;
-                placeInstallationTower.InstallTower(tempItemInSlot, tempTower);
+                
+                InstallTower(placeInstallationTower, tempItemInSlot, tempTower);
             }
             else
             {
-                placeInstallationTower.InstallTower(_currentItemInSlot, _towerItem);
+                InstallTower(placeInstallationTower, _currentItemInSlot, _towerItem);
                 ResetCurrentItem();
             }
         }
@@ -94,6 +94,12 @@ namespace DragController
                 _currentItemInSlot = placeInstallationTower.DestroyTower();
                 _towerItem = (TowerItem) _currentItemInSlot.Item;
             }
+        }
+
+        private void InstallTower(PlaceInstallationTower placeInstallationTower, ItemInSlot itemInSlot, TowerItem towerItem)
+        {
+            towerItem.GhostTower.gameObject.SetActive(false);
+            placeInstallationTower.InstallTower(itemInSlot, towerItem);
         }
 
         private void ResetCurrentItem()

@@ -27,5 +27,10 @@ namespace Inventory
         {
             _slots[0].SetItem(itemInSlot);
         }
+
+        public void AddItemToTwoSlot(ItemInSlot itemInSlot)
+        {
+            _slots[1].SetItem(itemInSlot);
+        }
     }
 }

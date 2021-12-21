@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -5,58 +6,61 @@ using UnityEngine.UI;
 
 namespace Inventory
 {
-    public class Slot : MonoBehaviour, IPointerClickHandler
+    public class Slot : MonoBehaviour, IPointerDownHandler
     {
-        private ItemInSlot ItemInSlot { get; set; }
-        private bool HasItem => ItemInSlot != null;
+        private bool HasItem => _itemInSlot != null;
         
         [SerializeField]
         private Image _itemImage;
         [SerializeField]
         private TextMeshProUGUI _itemAmount;
+        private ItemInSlot _itemInSlot;
+       
+        private InventoryScreen _inventoryScreen;
 
         private void Start()
         {
+            _inventoryScreen = LevelManager.InventoryScreen;
             RefreshUI();
         }
 
         public void SetItem(ItemInSlot itemInSlot)
         {
-            ItemInSlot = itemInSlot;
+            _itemInSlot = itemInSlot;
             RefreshUI();
         }
 
         private void AddItem(ItemInSlot itemInSlot, int amount)
         {
             itemInSlot.Amount -= amount;
-
+            
             if (!HasItem)
             {
-                SetItem(itemInSlot);
+                SetItem(new ItemInSlot(itemInSlot.Item, amount));
             }
             else
             {
-                ItemInSlot.Amount += amount;
+                _itemInSlot.Amount += amount;
                 RefreshUI();
             }
         }
 
         private void ResetItem()
         {
-            ItemInSlot = null;
+            _itemInSlot = null;
             RefreshUI();
         }
 
         private void RefreshUI()
         {
             _itemImage.gameObject.SetActive(HasItem);
-            _itemImage.sprite = ItemInSlot?.Item.Sprite;
+            _itemImage.sprite = _itemInSlot?.Item.Sprite;
             
-            _itemAmount.gameObject.SetActive(HasItem && ItemInSlot.Amount > 1);
-            _itemAmount.text = ItemInSlot?.Amount.ToString();
+            _itemAmount.gameObject.SetActive(HasItem && _itemInSlot?.Amount > 1);
+            _itemAmount.text = _itemInSlot?.Amount.ToString();
         }
         
-        public void OnPointerClick(PointerEventData eventData)
+        public void OnPointerDown(PointerEventData eventData)
         {
             if (eventData.button == PointerEventData.InputButton.Left)
             {
@@ -70,48 +74,107 @@ namespace Inventory
 
         private void LeftClick()
         {
-            var inventoryScreen = LevelManager.InventoryScreen;
-            var currentItem = inventoryScreen.CurrentItemInSlot;
+            var currentItem = _inventoryScreen.CurrentItemInSlot;
 
             if (HasItem)
             {
-                if (currentItem == null || !ItemInSlot.Item.Equals(currentItem.Item))
+                if (currentItem == null)
                 {
-                    inventoryScreen.SetCurrentItem(ItemInSlot);
+                    _inventoryScreen.SetCurrentItem(_itemInSlot);
                     ResetItem();
-                }
-                else
-                {
-                    AddItem(currentItem, currentItem.Amount);
-                    inventoryScreen.CheckCurrentItem();
                     return;
                 }
-            }
-            else
-            {
-                inventoryScreen.ResetCurrentItem();
-            }
 
+                if (!CheckSuitableId(currentItem)) return;
+                if (!_itemInSlot.Item.HasStack) return;
+                if (CheckAmountSuitable(currentItem)) return;
+            }
+           
+            _inventoryScreen.ResetCurrentItem();
             if (currentItem != null)
             {
                 SetItem(currentItem);
             }
         }
 
+        private bool CheckSuitableId(ItemInSlot currentItem)
+        {
+            if (currentItem.Item.ID != _itemInSlot.Item.ID)
+            {
+                _inventoryScreen.SetCurrentItem(_itemInSlot);
+                SetItem(currentItem);
+                return false;
+            }
+
+            return true;
+        }
+
+        private bool CheckAmountSuitable(ItemInSlot currentItem)
+        {
+            var isAmountSuitable = currentItem.Amount + _itemInSlot.Amount <= _itemInSlot.Item.MAXStacks; 
+            switch (isAmountSuitable)
+            {
+                case true:
+                    AddItem(currentItem, currentItem.Amount);
+                    break;
+                case false:
+                {
+                    var freeUnits = _itemInSlot.Item.MAXStacks - _itemInSlot.Amount;
+                    AddItem(currentItem, freeUnits);
+                    break;
+                }
+            }
+            
+            _inventoryScreen.CheckCurrentItem();
+            return true;
+        }
+        
         private void RightClick()
         {
-            var inventoryScreen = LevelManager.InventoryScreen;
-
-            if (!inventoryScreen.HasCurrentItem)
+            if (!_inventoryScreen.HasCurrentItem && !HasItem) return;
+            
+            if (!_inventoryScreen.HasCurrentItem && HasItem)
             {
+                DivideItemSlot();
                 return;
             }
 
-            if (!HasItem || inventoryScreen.CurrentItemInSlot.Item == ItemInSlot.Item)
+            if (_inventoryScreen.HasCurrentItem)
             {
-                AddItem(inventoryScreen.CurrentItemInSlot, 1);
-                inventoryScreen.CheckCurrentItem();
+                DistributeItem();
             }
+        }
+
+        private void DistributeItem()
+        {
+            if (_inventoryScreen.HasCurrentItem && !HasItem)
+            {
+                AddItem(_inventoryScreen.CurrentItemInSlot, 1);
+                _inventoryScreen.CheckCurrentItem();
+                return;
+            }
+
+            var hasItems = _inventoryScreen.HasCurrentItem && HasItem;
+            var isAvailableStack = _itemInSlot.Item.HasStack && _itemInSlot.Amount < _itemInSlot.Item.MAXStacks;
+            if (hasItems && _inventoryScreen.CurrentItemInSlot.Item.ID == _itemInSlot.Item.ID && isAvailableStack)
+            {
+                AddItem(_inventoryScreen.CurrentItemInSlot, 1);
+                _inventoryScreen.CheckCurrentItem();
+            }
+        }
+        
+        private void DivideItemSlot()
+        {
+            if (_itemInSlot.Amount == 1)
+            {
+                return;
+            }
+            
+            var halfAmount = (int) Math.Ceiling((float) _itemInSlot.Amount / 2);
+
+            _itemInSlot.Amount -= halfAmount;
+            _inventoryScreen.SetCurrentItem(new ItemInSlot(_itemInSlot.Item, halfAmount));
+            RefreshUI();
         }
     }
 }

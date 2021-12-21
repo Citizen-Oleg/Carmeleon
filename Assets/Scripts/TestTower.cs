@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using Inventory;
 using JetBrains.Annotations;
-using Towers;
 using UnityEngine;
 
 public class TestTower : MonoBehaviour

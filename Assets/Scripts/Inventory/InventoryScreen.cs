@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,12 +12,15 @@ namespace Inventory
         
         [SerializeField]
         private Image _curentItemImage;
-
+        [SerializeField]
+        private TextMeshProUGUI _textItemAmount;
+        
         private ItemInSlot _currentItemInSlot;
-
+        
         private void Start()
         {
             _curentItemImage.gameObject.SetActive(false);
+            _textItemAmount.gameObject.SetActive(false);
         }
 
         private void Update()
@@ -32,12 +36,14 @@ namespace Inventory
             _currentItemInSlot = itemInSlot;
             _curentItemImage.sprite = _currentItemInSlot.Item.Sprite;
             _curentItemImage.gameObject.SetActive(true);
+            CheckCurrentItem();
         }
 
         public void ResetCurrentItem()
         {
             _currentItemInSlot = null;
             _curentItemImage.gameObject.SetActive(false);
+            _textItemAmount.gameObject.SetActive(false);
         }
 
         public void CheckCurrentItem()
@@ -45,6 +51,23 @@ namespace Inventory
             if (HasCurrentItem && _currentItemInSlot.Amount < 1)
             {
                 ResetCurrentItem();
+            }
+            else
+            {
+                ResetAmountItem();
+            }
+        }
+
+        private void ResetAmountItem()
+        {
+            if (_currentItemInSlot.Amount > 1)
+            {
+                _textItemAmount.gameObject.SetActive(true);
+                _textItemAmount.text = _currentItemInSlot.Amount.ToString();
+            }
+            else
+            {
+                _textItemAmount.gameObject.SetActive(false);
             }
         }
     }
