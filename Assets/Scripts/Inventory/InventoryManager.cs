@@ -11,6 +11,7 @@ namespace Inventory
         [SerializeField]
         private Transform _containerSlots;
 
+        private SlotInteractionController _slotInteractionController = new SlotInteractionController();
         private Slot[] _slots;
 
         private void Awake()
@@ -20,6 +21,7 @@ namespace Inventory
             for (int i = 0; i < _countSlots; i++)
             {
                 _slots[i] = Instantiate(_prefabSlot, _containerSlots, false);
+                _slots[i].Initialize(_slotInteractionController);
             }
         }
 

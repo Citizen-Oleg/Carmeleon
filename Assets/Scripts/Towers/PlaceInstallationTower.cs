@@ -1,7 +1,7 @@
 ﻿using Inventory;
 using UnityEngine;
 
-namespace DragController
+namespace Towers
 {
     [RequireComponent(typeof(Collider2D))]
     public class PlaceInstallationTower : MonoBehaviour
@@ -12,7 +12,6 @@ namespace DragController
         private Transform _installationPosition;
         [SerializeField]
         private GameObject _flag;
-        
         private ItemInSlot _itemInSlot;
         private TowerItem _towerItem;
         
