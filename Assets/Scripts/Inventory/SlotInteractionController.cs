@@ -13,6 +13,7 @@ namespace Inventory
         
         private InventoryScreen _inventoryScreen;
         private Slot _currentSlot;
+        
         public SlotInteractionController()
         {
             _inventoryScreen = LevelManager.InventoryScreen;

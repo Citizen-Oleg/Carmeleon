@@ -488,6 +488,7 @@ GameObject:
   - component: {fileID: 444555035}
   - component: {fileID: 444555037}
   - component: {fileID: 444555039}
+  - component: {fileID: 444555040}
   m_Layer: 0
   m_Name: LevelController
   m_TagString: Untagged
@@ -533,6 +534,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55ecea42d1764274b71fb01b27bc5144, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _towerItemManager: {fileID: 444555040}
   _inventoryScreen: {fileID: 1473805500}
   _projectileFactory: {fileID: 444555039}
   _spawnerEnemy: {fileID: 1669284894}
@@ -572,6 +574,21 @@ MonoBehaviour:
   - {fileID: 5452281146143266271, guid: db2cdb228a0d223449aad38d1f6ee73b, type: 3}
   - {fileID: -3830192996996406871, guid: 7ba5e30f6a5e0f74ba0c2d17cc1cb0fb, type: 3}
   - {fileID: -3830192996996406871, guid: cf7104316479bf14d94ebf8e63fd6446, type: 3}
+--- !u!114 &444555040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 444555034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6a97c4cae824842b7c0e8fa0aff5334, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _towerItems:
+  - {fileID: 11400000, guid: 23090bb7d2b380a478884ba87d9d6421, type: 2}
+  - {fileID: 11400000, guid: 35d45b79d14443a4685d61b2a89afeb6, type: 2}
 --- !u!1 &588819020
 GameObject:
   m_ObjectHideFlags: 0
@@ -2145,6 +2162,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bc132fbe6be9264e973322748fc2d54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _twoItem: {fileID: 11400000, guid: 35d45b79d14443a4685d61b2a89afeb6, type: 2}
+  iTEM: {fileID: 11400000, guid: 23090bb7d2b380a478884ba87d9d6421, type: 2}
   _countSlots: 10
   _prefabSlot: {fileID: 2708498937943520636, guid: e89ac2c11b101fb43947b1c6f37fb9db, type: 3}
   _containerSlots: {fileID: 1258198006}
@@ -2744,6 +2763,36 @@ Transform:
   - {fileID: 908369894}
   m_Father: {fileID: 1683702465}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1628642252
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1628642253}
+  m_Layer: 0
+  m_Name: ContainerTower
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1628642253
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1628642252}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.7047224, y: 0.83069843, z: -3.7148268}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1633994628
 GameObject:

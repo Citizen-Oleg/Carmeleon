@@ -27,13 +27,12 @@ namespace Towers
 
         public ItemInSlot DestroyTower()
         {
-            var itemInSlot = _itemInSlot;
-            
             _towerItem.Tower.gameObject.SetActive(false);
+            _flag.SetActive(true);
+            
+            var itemInSlot = _itemInSlot;   
             _itemInSlot = null;
             _towerItem = null;
-            
-            _flag.SetActive(true);
             return itemInSlot;
         }
     }

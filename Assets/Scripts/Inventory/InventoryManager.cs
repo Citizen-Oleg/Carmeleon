@@ -25,5 +25,36 @@ namespace Inventory
                 _slots[i].Initialize(_slotInteractionController);
             }
         }
+
+        public void AddItemToSlot(Item item)
+        {
+            if (item.HasStack && HasSameItem(item))
+            {
+                return;
+            }
+
+            foreach (var slot in _slots)
+            {
+                if (!slot.HasItem)
+                {
+                    slot.SetItem(new ItemInSlot(item));
+                    break;
+                }
+            }
+        }
+
+        private bool HasSameItem(Item item)
+        {
+            foreach (var slot in _slots)
+            {
+                if (slot.HasItem && slot.ItemInSlot.Item.ID == item.ID && slot.HasFreePlaces)
+                {
+                    slot.AddItem(new ItemInSlot(item));
+                    return true;
+                }
+            }
+
+            return false;
+        }
     }
 }

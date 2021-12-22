@@ -8,6 +8,7 @@ namespace Inventory
     public class Slot : MonoBehaviour, IPointerDownHandler
     {
         public bool HasItem => _itemInSlot != null;
+        public bool HasFreePlaces => HasItem && _itemInSlot.Item.MAXStacks != _itemInSlot.Amount;
         public ItemInSlot ItemInSlot => _itemInSlot;
 
         [SerializeField]
@@ -39,7 +40,7 @@ namespace Inventory
             RefreshUI();
         }
 
-        public void AddItem(ItemInSlot itemInSlot, int amount)
+        public void AddItem(ItemInSlot itemInSlot, int amount = 1)
         {
             itemInSlot.Amount -= amount;
 

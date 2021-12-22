@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using Inventory;
 using Towers;
 using UnityEngine;
@@ -14,7 +13,12 @@ namespace DragController
         
         private ItemInSlot _currentItemInSlot;
         private TowerItem _towerItem;
-        private Coroutine _dragTower;
+        private TowerItemManager _towerItemManager;
+
+        private void Awake()
+        {
+            _towerItemManager = LevelManager.TowerItemManager;
+        }
 
         private void Update()
         {
@@ -37,7 +41,8 @@ namespace DragController
             {
                 _currentItemInSlot = _inventoryScreen.CurrentItemInSlot;
                 _inventoryScreen.ResetCurrentItem();
-                _towerItem = towerItem;
+                _towerItem = _towerItemManager.GetInitializedTowerItem(towerItem);
+                _currentItemInSlot.Item = _towerItem;
             } 
         }
 
@@ -69,8 +74,12 @@ namespace DragController
 
         private void SetTowerByPlace(RaycastHit2D raycastHit2D)
         {
-            if (raycastHit2D.collider.TryGetComponent(out PlaceInstallationTower placeInstallationTower)
-                && placeInstallationTower.HasBusy)
+            if (!raycastHit2D.collider.TryGetComponent(out PlaceInstallationTower placeInstallationTower))
+            {
+                return;
+            }
+            
+            if (placeInstallationTower.HasBusy)
             {
                 var tempItemInSlot = _currentItemInSlot;
                 var tempTower = _towerItem;
