@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -7,6 +8,7 @@ namespace Inventory
 {
     public class Slot : MonoBehaviour, IPointerDownHandler
     {
+        public event Action<Slot> OnChange;
         public bool HasItem => _itemInSlot != null;
         public bool HasFreePlaces => HasItem && _itemInSlot.Item.MAXStacks != _itemInSlot.Amount;
         public ItemInSlot ItemInSlot => _itemInSlot;
@@ -59,6 +61,7 @@ namespace Inventory
         {
             _itemInSlot = null;
             RefreshUI();
+            OnChange?.Invoke(this);
         }
 
         public void RefreshUI()

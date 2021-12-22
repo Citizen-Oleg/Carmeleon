@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -15,17 +16,26 @@ namespace Inventory
 
         private SlotInteractionController _slotInteractionController;
         private Slot[] _slots;
-        private List<Slot> _filledSlotsStacks = new List<Slot>();
+        private readonly List<Slot> _filledSlotsStacks = new List<Slot>();
 
         private void Awake()
         {
             _slotInteractionController = new SlotInteractionController();
             _slots = new Slot[_countSlots];
 
-            for (int i = 0; i < _countSlots; i++)
+            for (int i = 0; i < _slots.Length; i++)
             {
                 _slots[i] = Instantiate(_prefabSlot, _containerSlots, false);
                 _slots[i].Initialize(_slotInteractionController);
+                _slots[i].OnChange += RemoveFilledSlot;
+            }
+        }
+
+        private void OnDestroy()
+        {
+            foreach (var slot in _slots)
+            {
+                slot.OnChange -= RemoveFilledSlot;
             }
         }
 
@@ -39,6 +49,11 @@ namespace Inventory
             var freeSlot = GetFreeSlot();
             if (freeSlot != null)
             {
+                if (item.HasStack)
+                {
+                    _filledSlotsStacks.Add(freeSlot);
+                }
+                
                 freeSlot.SetItem(new ItemInSlot(item));
                 return true;
             }
@@ -51,7 +66,14 @@ namespace Inventory
             return _slots.FirstOrDefault(slot => !slot.HasItem);
         }
 
-
+        private void RemoveFilledSlot(Slot slot)
+        {
+            if (!slot.HasItem)
+            {
+                _filledSlotsStacks.Remove(slot);
+            }
+        }
+        
         private bool AddItemToFilledSlot(Item item)
         {
             foreach (var slot in _filledSlotsStacks)
