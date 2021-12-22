@@ -42,6 +42,11 @@ namespace Towers
                 }
             }
         }
+        
+        private void OnDisable()
+        {
+            _currentTarget = null;
+        }
 
         private Enemy GetTarget()
         {
