@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Inventory
@@ -13,6 +15,7 @@ namespace Inventory
 
         private SlotInteractionController _slotInteractionController;
         private Slot[] _slots;
+        private List<Slot> _filledSlotsStacks = new List<Slot>();
 
         private void Awake()
         {
@@ -26,26 +29,32 @@ namespace Inventory
             }
         }
 
-        public void AddItemToSlot(Item item)
+        public bool AddItemToSlot(Item item)
         {
-            if (item.HasStack && HasSameItem(item))
+            if (item.HasStack && AddItemToFilledSlot(item))
             {
-                return;
+                return true;
             }
 
-            foreach (var slot in _slots)
+            var freeSlot = GetFreeSlot();
+            if (freeSlot != null)
             {
-                if (!slot.HasItem)
-                {
-                    slot.SetItem(new ItemInSlot(item));
-                    break;
-                }
+                freeSlot.SetItem(new ItemInSlot(item));
+                return true;
             }
+
+            return false;
+        }
+ 
+        private Slot GetFreeSlot()
+        {
+            return _slots.FirstOrDefault(slot => !slot.HasItem);
         }
 
-        private bool HasSameItem(Item item)
+
+        private bool AddItemToFilledSlot(Item item)
         {
-            foreach (var slot in _slots)
+            foreach (var slot in _filledSlotsStacks)
             {
                 if (slot.HasItem && slot.ItemInSlot.Item.ID == item.ID && slot.HasFreePlaces)
                 {

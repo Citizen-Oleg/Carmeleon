@@ -15,7 +15,6 @@ namespace Inventory
         public int MAXStacks => _maxStacks;
         public Sprite Sprite => _sprite;
         
-        
         [SerializeField]
         private int _id;
         [SerializeField]

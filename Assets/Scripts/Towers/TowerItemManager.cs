@@ -15,7 +15,6 @@ namespace Towers
 
         private void Awake()
         {
-            
             foreach (var towersItem in _towerItems)
             {
                 _towersPool.Add(towersItem.ID, new Tools.ObjectPool<Tower>(towersItem.Tower, 2));
@@ -52,6 +51,5 @@ namespace Towers
 
             return pool.GetInactiveObject();
         }
-
     }
 }
