@@ -1,3 +1,4 @@
+using ResourceManager;
 using UnityEngine;
 
 namespace Inventory
@@ -5,18 +6,19 @@ namespace Inventory
     [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/Item", order = 0)]
     public class Item : ScriptableObject
     {
-        public int ID
-        {
-            get => _id;
-            set => _id = value;
-        }
-        
+        public int ID => _id;
+        public TypeItem TypeItem => _typeItem;
+        public Resource Price => _price;
         public bool HasStack => _hasStack;
         public int MAXStacks => _maxStacks;
         public Sprite Sprite => _sprite;
         
         [SerializeField]
         private int _id;
+        [SerializeField]
+        private TypeItem _typeItem;
+        [SerializeField]
+        private Resource _price;
         [SerializeField]
         private bool _hasStack;
         [SerializeField]
