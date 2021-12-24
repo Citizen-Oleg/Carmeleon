@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Towers
 {
-    public class TargetsProvider : MonoBehaviour, ITargetsProvider
+    public class RadiusTargetsProvider : MonoBehaviour, ITargetsProvider
     {
         private Collider2D[] _colliders2D = new Collider2D[20];
         private List<Enemy> _targets = new List<Enemy>();
