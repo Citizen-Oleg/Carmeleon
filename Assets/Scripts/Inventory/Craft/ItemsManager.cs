@@ -12,7 +12,13 @@ namespace Inventory.Craft
         
         private void Awake()
         {
-            _itemsWithCraft.ForEach(item => item?.CraftRecipe.Initialize());
+            foreach (var item in _itemsWithCraft)
+            {
+                if (item.HasRecipe)
+                {
+                    item.CraftRecipe.Initialize();
+                }
+            }
         }
     }
 }
