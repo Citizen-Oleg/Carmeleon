@@ -2,6 +2,7 @@
 using EnemyComponent.Manager;
 using Factory;
 using Inventory;
+using Inventory.Craft;
 using ResourceManager;
 using Spawner;
 using Towers;
@@ -16,7 +17,10 @@ public class LevelManager : Singleton<LevelManager>
     public static TowerItemManager TowerItemManager => instance._towerItemManager;
     public static InventoryManager InventoryManager => instance._inventoryManager;
     public static ResourceManagerLevel ResourceManagerLevel => instance._resourceManagerLevel;
+    public static CraftController CraftController => instance._craftController;
 
+    [SerializeField]
+    private CraftController _craftController;
     [SerializeField]
     private ResourceManagerLevel _resourceManagerLevel;
     [SerializeField]

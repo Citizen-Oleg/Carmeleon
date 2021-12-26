@@ -31,7 +31,7 @@ namespace Inventory
             _slotInteractionController = slotInteractionController;
         }
         
-        public void OnPointerDown(PointerEventData eventData)
+        public virtual void OnPointerDown(PointerEventData eventData)
         {
             _slotInteractionController.PointerEventDataHandler(eventData, this);
         }
