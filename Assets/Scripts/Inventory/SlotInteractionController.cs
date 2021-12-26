@@ -42,7 +42,7 @@ namespace Inventory
         }
         
          private void LeftClick()
-        {
+         {
             var currentItem = _inventoryScreen.CurrentItemInSlot;
 
             if (HasItem)
