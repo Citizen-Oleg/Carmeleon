@@ -1,11 +1,13 @@
 ﻿using System;
 using Factory;
 using Interface;
+using Loot;
 using ManagerHB;
 using UnityEngine;
 
 namespace EnemyComponent
 {
+    [RequireComponent(typeof(LootController))]
     [RequireComponent(typeof(MovementEnemyController))]
     [RequireComponent(typeof(CharacteristicsEnemy))]
     [RequireComponent(typeof(AttackBehaviourEnemy))]
@@ -24,12 +26,12 @@ namespace EnemyComponent
         }
 
         public int ID => _id;
-
-        public TypeEnemy TypeEnum => _typeEnemy;
+        
         public CharacteristicsEnemy CharacteristicsEnemy => _characteristicsEnemy;
         public MovementEnemyController MovementEnemyController => _movementEnemyController;
         public AttackBehaviourEnemy AttackBehaviour => _attackBehaviour;
         public HealthBehavior HealthBehavior => _healthBehavior;
+        public LootController LootController => _lootController;
 
         [SerializeField]
         private int _id;
@@ -39,6 +41,8 @@ namespace EnemyComponent
         private Vector2 _offSetPositionHealthBar;
         [SerializeField]
         private TypeEnemy _typeEnemy;
+        [SerializeField]
+        private LootController _lootController;
         [SerializeField]
         private CharacteristicsEnemy _characteristicsEnemy;
         [SerializeField]
