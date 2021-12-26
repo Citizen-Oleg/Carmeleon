@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 4542192732796533096}
   - component: {fileID: 709689092535591033}
   - component: {fileID: 8144313807083766248}
+  - component: {fileID: 8480141305866995873}
   m_Layer: 6
   m_Name: Archer
   m_TagString: Enemy
@@ -138,9 +139,10 @@ MonoBehaviour:
   _spriteRenderer: {fileID: 5837287484079487288}
   _offSetPositionHealthBar: {x: 0, y: 25}
   _typeEnemy: 2
+  _lootController: {fileID: 8480141305866995873}
   _characteristicsEnemy: {fileID: 255524764575009456}
   _movementEnemyController: {fileID: 5837287484079487270}
-  _attackBehaviour: {fileID: 0}
+  _attackBehaviour: {fileID: 709689092535591033}
   _healthBehavior: {fileID: 4542192732796533096}
 --- !u!114 &4542192732796533096
 MonoBehaviour:
@@ -178,3 +180,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fca38c0f1b27fe4dae681960f6bc197, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8480141305866995873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5837287484079487271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76ef0ce8cbf3f324da98922e009df0d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _resource:
+    _type: 0
+    _amount: 5

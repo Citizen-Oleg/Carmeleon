@@ -48,6 +48,7 @@ namespace Factory
        
             SetSpriteEnemy(enemyBlueprint, ref enemy);
             SetCharacteristicsEnemy(enemyBlueprint, ref enemy);
+            SetLootEnemy(enemyBlueprint, ref enemy);
 
             return enemy;
         }
@@ -70,6 +71,14 @@ namespace Factory
         private Enemy GetEnemyById(int id)
         {
             return _enemies[id];
+        }
+
+        private void SetLootEnemy(Enemy enemyBlueprint, ref Enemy productEnemy)
+        {
+            var lootEnemy = enemyBlueprint.LootController;
+            var productLootEnemy = productEnemy.LootController;
+
+            productLootEnemy.Resource = lootEnemy.Resource;
         }
 
         private void SetCharacteristicsEnemy(Enemy enemyBlueprint, ref Enemy productEnemy)

@@ -14,6 +14,11 @@ namespace ResourceManager
         [SerializeField]
         private List<Resource> _resources;
 
+        public void AddResource(Resource resource)
+        {
+            AddResource(resource.Type, resource.Amount);
+        }
+        
         public void AddResource(ResourceType resourceType, int amount)
         {
             var index = GetIndexResource(resourceType);
@@ -22,7 +27,7 @@ namespace ResourceManager
             resource.Amount += amount;
             _resources[index] = resource;
             
-            OnResourceChange?.Invoke(resource);
+            OnResourceChange?.Invoke(_resources[index]);
         }
 
         public void Pay(ResourceType resourceType, int amount)
@@ -33,12 +38,17 @@ namespace ResourceManager
             resource.Amount -= amount;
             _resources[index] = resource;
                 
-            OnResourceChange?.Invoke(resource);
+            OnResourceChange?.Invoke(_resources[index]);
         }
 
         public bool HasEnough(ResourceType type, int amount)
         {
             return _resources[GetIndexResource(type)].Amount >= amount;
+        }
+        
+        public List<Resource> GetResources()
+        {
+            return _resources;
         }
         
         private int GetIndexResource(ResourceType resourceType)
