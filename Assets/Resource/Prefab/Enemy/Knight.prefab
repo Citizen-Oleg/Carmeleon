@@ -45,8 +45,8 @@ GameObject:
   - component: {fileID: -4151402454022704107}
   - component: {fileID: 1226784501393289295}
   - component: {fileID: 4566623930499978553}
-  - component: {fileID: 1749605186529789718}
   - component: {fileID: 7415054481708386178}
+  - component: {fileID: 6039849150255867802}
   m_Layer: 6
   m_Name: Knight
   m_TagString: Enemy
@@ -169,12 +169,12 @@ MonoBehaviour:
   _id: 1
   _spriteRenderer: {fileID: 5837287484079487288}
   _offSetPositionHealthBar: {x: 0, y: 25}
-  _typeEnemy: 1
   _lootController: {fileID: 7415054481708386178}
   _characteristicsEnemy: {fileID: 255524764575009456}
   _movementEnemyController: {fileID: 5837287484079487270}
-  _attackBehaviour: {fileID: 1749605186529789718}
+  _attackBehaviour: {fileID: 4566623930499978553}
   _healthBehavior: {fileID: 1226784501393289295}
+  _enemyBuffController: {fileID: 6039849150255867802}
 --- !u!114 &1226784501393289295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,18 +188,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &4566623930499978553
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5837287484079487271}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fca38c0f1b27fe4dae681960f6bc197, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1749605186529789718
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -226,3 +214,15 @@ MonoBehaviour:
   _resource:
     _type: 0
     _amount: 7
+--- !u!114 &6039849150255867802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5837287484079487271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ee87f13d25b49f99722d649e38cc071, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -1,3 +1,4 @@
+using BuffSystem;
 using UnityEngine;
 
 namespace Towers
@@ -6,8 +7,11 @@ namespace Towers
     public class Tower : MonoBehaviour
     {
         public TowerCharacteristics TowerCharacteristics => _towerCharacteristics;
-        
+        public TowerBuffController TowerBuffController => _towerBuffController;
+
         [SerializeField]
         private TowerCharacteristics _towerCharacteristics;
+        [SerializeField]
+        private TowerBuffController _towerBuffController;
     }
 }

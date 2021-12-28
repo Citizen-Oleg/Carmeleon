@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: -4151402454022704107}
   - component: {fileID: 4542192732796533096}
   - component: {fileID: 709689092535591033}
-  - component: {fileID: 8144313807083766248}
   - component: {fileID: 8480141305866995873}
+  - component: {fileID: 3329133884603054089}
   m_Layer: 6
   m_Name: Archer
   m_TagString: Enemy
@@ -138,12 +138,12 @@ MonoBehaviour:
   _id: 2
   _spriteRenderer: {fileID: 5837287484079487288}
   _offSetPositionHealthBar: {x: 0, y: 25}
-  _typeEnemy: 2
   _lootController: {fileID: 8480141305866995873}
   _characteristicsEnemy: {fileID: 255524764575009456}
   _movementEnemyController: {fileID: 5837287484079487270}
   _attackBehaviour: {fileID: 709689092535591033}
   _healthBehavior: {fileID: 4542192732796533096}
+  _enemyBuffController: {fileID: 6039849150255867802, guid: 342c2c7afc1695b45a70f6bfb434ddae, type: 3}
 --- !u!114 &4542192732796533096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,18 +157,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &709689092535591033
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5837287484079487271}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fca38c0f1b27fe4dae681960f6bc197, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &8144313807083766248
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -195,3 +183,15 @@ MonoBehaviour:
   _resource:
     _type: 0
     _amount: 5
+--- !u!114 &3329133884603054089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5837287484079487271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ee87f13d25b49f99722d649e38cc071, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

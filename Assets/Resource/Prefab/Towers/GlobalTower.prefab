@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 4973757454997715268}
   - component: {fileID: -3366500832375839769}
   - component: {fileID: 1298437344364376834}
+  - component: {fileID: 6544671092379062093}
   m_Layer: 0
   m_Name: GlobalTower
   m_TagString: Tower
@@ -147,6 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _towerCharacteristics: {fileID: 15029584436211727}
+  _towerBuffController: {fileID: 3694867711409856423, guid: d82aea20953aa6647a25e8673eef042f, type: 3}
 --- !u!114 &4973757454997715268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,6 +183,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2760b60cd8344b91bdd6e6ce2c3936cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6544671092379062093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4973757454997715266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31ba8e1aee664bc5a5f57b8bb67f09e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8015746289788824324
