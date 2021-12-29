@@ -143,7 +143,7 @@ MonoBehaviour:
   _movementEnemyController: {fileID: 5837287484079487270}
   _attackBehaviour: {fileID: 709689092535591033}
   _healthBehavior: {fileID: 4542192732796533096}
-  _enemyBuffController: {fileID: 6039849150255867802, guid: 342c2c7afc1695b45a70f6bfb434ddae, type: 3}
+  _enemyBuffController: {fileID: 3329133884603054089}
 --- !u!114 &4542192732796533096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,3 +195,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ee87f13d25b49f99722d649e38cc071, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _buffObject: {fileID: -4151402454022704107}

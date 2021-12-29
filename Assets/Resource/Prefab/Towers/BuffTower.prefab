@@ -341,13 +341,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1100093421704878032}
   - component: {fileID: 1100093421704878036}
-  - component: {fileID: 1100093421704878037}
-  - component: {fileID: 1100093421704878038}
   - component: {fileID: 1100093421704878039}
-  - component: {fileID: 1100093421704878043}
-  - component: {fileID: 3694867711409856423}
+  - component: {fileID: -501343989717923328}
+  - component: {fileID: -3728073230142115816}
+  - component: {fileID: 803151271971696539}
   m_Layer: 0
-  m_Name: Tower
+  m_Name: BuffTower
   m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -380,35 +379,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a50bb344f9a41d09e8b3c2ca78cca11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damageType: 1
-  _damage: 5
-  _attackSpeed: 0.5
-  _attackRadius: 5
---- !u!114 &1100093421704878037
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1100093421704878033}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e00cef9859b4a1c8ddaa16239e92269, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1100093421704878038
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1100093421704878033}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1dc5f44495d645e9a20c4ee5949b22e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _prefabProjectile: {fileID: 5452281146143266271, guid: db2cdb228a0d223449aad38d1f6ee73b, type: 3}
+  _damageType: 0
+  _damage: 0
+  _attackSpeed: 0
+  _attackRadius: 0
 --- !u!114 &1100093421704878039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -422,20 +396,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _towerCharacteristics: {fileID: 1100093421704878036}
-  _towerBuffController: {fileID: 3694867711409856423}
---- !u!114 &1100093421704878043
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1100093421704878033}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfa61905aa174687a7ab651ed2f0f380, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &3694867711409856423
+  _towerBuffController: {fileID: -501343989717923328}
+--- !u!114 &-501343989717923328
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -447,3 +409,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31ba8e1aee664bc5a5f57b8bb67f09e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _buffObject: {fileID: 1100093421704878039}
+--- !u!58 &-3728073230142115816
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1100093421704878033}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 5
+--- !u!114 &803151271971696539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1100093421704878033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 567068703205402fb4e61172d1be124b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _settingsBuff: {fileID: 11400000, guid: 730b5849a213fd74792054bd048103bc, type: 2}

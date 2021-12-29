@@ -1,8 +1,6 @@
-﻿using System;
-using EnemyComponent;
+﻿using EnemyComponent;
 using Factory;
 using Interface;
-using Unity.Mathematics;
 using UnityEngine;
 
 namespace Towers

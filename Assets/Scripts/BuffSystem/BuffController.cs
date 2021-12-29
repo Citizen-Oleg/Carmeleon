@@ -6,43 +6,21 @@ namespace BuffSystem
 {
     public abstract class BuffController<T> : MonoBehaviour
     {
+        [SerializeField]
+        private T _buffObject;
+        
         private readonly Dictionary<SettingsBuff<T>, IPassiveBuff> _passiveBuffs =
             new Dictionary<SettingsBuff<T>, IPassiveBuff>();
         private readonly Dictionary<SettingsBuff<T>, IStackingBuff> _stackingBuffs =
             new Dictionary<SettingsBuff<T>, IStackingBuff>();
         private readonly Dictionary<SettingsBuff<T>, ITemporaryBuff> _temporaryBuffs =
             new Dictionary<SettingsBuff<T>, ITemporaryBuff>();
-
-        private T _buffObject;
-        
-        private void Awake()
-        {
-            _buffObject = GetComponent<T>();
-        }
         
         private void Update()
         {
             foreach (var iTemporaryBuff in _temporaryBuffs)
             {
                 iTemporaryBuff.Value.Update();
-            }
-        }
-
-        private void OnDestroy()
-        {
-            foreach (var passiveBuff in _passiveBuffs)
-            {
-                passiveBuff.Value.OnStopBuff -= StopBuff;
-            }
-
-            foreach (var stackingBuff in _stackingBuffs)
-            {
-                stackingBuff.Value.OnStopBuff -= StopBuff;
-            }
-            
-            foreach (var temporaryBuff in _temporaryBuffs)
-            {
-                temporaryBuff.Value.OnStopBuff -= StopBuff;
             }
         }
 
@@ -54,14 +32,20 @@ namespace BuffSystem
             {
                 buff.Start();
             }
-
-            buff.OnStopBuff += StopBuff;
         }
 
-        private void StopBuff(IPassiveBuff passiveBuff)
+        public void StopBuff(SettingsBuff<T> settingsBuff)
         {
-            passiveBuff.Stop();
-            passiveBuff.OnStopBuff -= StopBuff;
+            if (_passiveBuffs.ContainsKey(settingsBuff))
+            {
+                _passiveBuffs[settingsBuff].Stop();
+            }
+            else
+            {
+                var buff = settingsBuff.GetBuff(_buffObject);
+                AddBuffToCollection(settingsBuff, buff);
+                buff.Stop();
+            }
         }
         
         private bool AddBuffToCollection(SettingsBuff<T> settingsBuff, IPassiveBuff buff)

@@ -22,12 +22,12 @@ namespace Factory
 
         private void Awake()
         {
-            var pool = new MonoBehaviourPool<Projectile>(_prefabStandardProjectile, _containerProjectile, 30);
+            var pool = new MonoBehaviourPool<Projectile>(_prefabStandardProjectile, _containerProjectile, 20);
             _projectilePool.Add(_prefabStandardProjectile, pool);
-            pool = new MonoBehaviourPool<Projectile>(_splashStandardProjectile, _containerProjectile, 30);
+            pool = new MonoBehaviourPool<Projectile>(_splashStandardProjectile, _containerProjectile, 20);
             _projectilePool.Add(_splashStandardProjectile, pool);
-
-            _projectiles = BubbleSortProduct.GetSortList(_projectiles);
+           
+           _projectiles = BubbleSortProduct.GetSortList(_projectiles);
         }
 
         public IProduct GetProduct(IProduct product)

@@ -145,7 +145,7 @@ MonoBehaviour:
   _movementEnemyController: {fileID: 2333355790396330128}
   _attackBehaviour: {fileID: 672147811641899633}
   _healthBehavior: {fileID: 4821051085629723548}
-  _enemyBuffController: {fileID: 6039849150255867802, guid: 342c2c7afc1695b45a70f6bfb434ddae, type: 3}
+  _enemyBuffController: {fileID: -208951707393843213}
 --- !u!114 &4821051085629723548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -244,3 +244,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ee87f13d25b49f99722d649e38cc071, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _buffObject: {fileID: 2333355790396330141}

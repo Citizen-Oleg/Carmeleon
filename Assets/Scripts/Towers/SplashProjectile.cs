@@ -1,4 +1,5 @@
 ﻿using DefaultNamespace;
+using EnemyComponent;
 using ManagerHB;
 using UnityEngine;
 
@@ -26,9 +27,10 @@ namespace Towers
                 {
                     break;
                 }
-                if (collider.CompareTag(GlobalConstants.ENEMY_TAG) && collider.TryGetComponent(out HealthBehavior healthBehavior))
+                if (collider.TryGetComponent(out Enemy enemy))
                 {
-                    healthBehavior.TakeDamage(_damage, _damageType);
+                    ApplyBuffEnemy(enemy);
+                    enemy.HealthBehavior.TakeDamage(_damage, _damageType);
                 }
             }
             

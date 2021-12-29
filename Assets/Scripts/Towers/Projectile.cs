@@ -1,6 +1,6 @@
 ﻿using System;
+using BuffSystem;
 using EnemyComponent;
-using Factory;
 using Interface;
 using UnityEngine;
 
@@ -19,26 +19,30 @@ namespace Towers
         
         public SpriteRenderer SpriteRenderer => _spriteRenderer;
         public int ID => _id;
-
-        [SerializeField]
-        protected float _flightSpeed;
+        
 
         [SerializeField]
         private int _id;
         [SerializeField]
         private SpriteRenderer _spriteRenderer;
+        [SerializeField]
+        private float _flightSpeed;
         
         protected Enemy _target;
         protected Action<Projectile> _callback;
         protected DamageType _damageType;
         protected int _damage;
+        
+        private SettingsBuff<Enemy> _settingsBuff;
 
-        public void Initialize(int damage, Enemy target, Action<Projectile> callback, DamageType damageType = DamageType.Physical)
+        public void Initialize(int damage, Enemy target, Action<Projectile> callback,
+            DamageType damageType = DamageType.Physical, SettingsBuff<Enemy> settingsBuff = null)
         {
             _target = target;
             _callback = callback;
             _damage = damage;
             _damageType = damageType;
+            _settingsBuff = settingsBuff;
         }
 
         private void Update()
@@ -54,6 +58,22 @@ namespace Towers
                 MoveToTarget();    
             }
         }
+        
+        protected virtual void ApplyDamage()
+        {
+            _target.HealthBehavior.TakeDamage(_damage, _damageType);
+            ApplyBuffEnemy(_target);
+            _callback?.Invoke(this);
+            _target = null;
+        }
+        
+        protected void ApplyBuffEnemy(Enemy enemy)
+        {
+            if (_settingsBuff != null)
+            {
+                enemy.EnemyBuffController.AddBuff(_settingsBuff);
+            }
+        }
 
         private void MoveToTarget()
         {
@@ -64,13 +84,6 @@ namespace Towers
             {
                 ApplyDamage();
             }
-        }
-
-        protected virtual void ApplyDamage()
-        {
-            _target.HealthBehavior.TakeDamage(_damage, _damageType);
-            _callback?.Invoke(this);
-            _target = null;
         }
     }
 }
