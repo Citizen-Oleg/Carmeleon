@@ -1,7 +1,7 @@
 ﻿using Interface;
 using UnityEngine;
 
-namespace BuffSystem
+namespace BuffSystem.SettingsBuff
 {
     public abstract class SettingsBuff<T> : ScriptableObject 
     {

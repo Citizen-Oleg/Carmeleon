@@ -11,12 +11,12 @@ namespace Towers
         public bool IsCooldown => _lastShotTime + _towerCharacteristics.AttackSpeed > Time.time;
 
         [SerializeField]
-        private Projectile _prefabProjectile;
+        protected Projectile _prefabProjectile;
     
-        private float _lastShotTime;
+        protected float _lastShotTime;
 
-        private TowerCharacteristics _towerCharacteristics;
-        private ProjectileFactory _projectileFactory;
+        protected TowerCharacteristics _towerCharacteristics;
+        protected ProjectileFactory _projectileFactory;
         
         private void Awake()
         {
@@ -33,7 +33,7 @@ namespace Towers
             return !isEnemyDead && isAttackDistance;
         }
 
-        public void Attack(Enemy enemy)
+        public virtual void Attack(Enemy enemy)
         {
             _lastShotTime = Time.time;
             var product = _projectileFactory.GetProduct(_prefabProjectile);
@@ -45,7 +45,7 @@ namespace Towers
             }
         }
 
-        private void Callback(Projectile projectile)
+        protected void Callback(Projectile projectile)
         {
             _projectileFactory.ReleaseProduct(projectile);
         }

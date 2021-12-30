@@ -31,8 +31,8 @@ namespace BuffSystem.Buffs
 
         public void Stop()
         {
-            IsActive = false;
             _enemy.CharacteristicsEnemy.Speed += _speedReductionNumber;
+            IsActive = false;
         }
     }
 }

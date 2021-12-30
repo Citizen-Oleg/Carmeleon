@@ -1,5 +1,6 @@
 ﻿using System;
 using BuffSystem;
+using BuffSystem.SettingsBuff;
 using EnemyComponent;
 using Interface;
 using UnityEngine;
@@ -20,7 +21,6 @@ namespace Towers
         public SpriteRenderer SpriteRenderer => _spriteRenderer;
         public int ID => _id;
         
-
         [SerializeField]
         private int _id;
         [SerializeField]

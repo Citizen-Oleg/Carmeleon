@@ -1,4 +1,5 @@
 ﻿using BuffSystem;
+using BuffSystem.SettingsBuff;
 using Towers;
 using UnityEngine;
 
@@ -6,6 +7,8 @@ namespace Interface
 {
     public class BuffTowerBehaviour : MonoBehaviour, IBuffBehaviour<Tower>
     {
+        public SettingsBuff<Tower> SettingsBuff => _settingsBuffTower;
+        
         [SerializeField]
         private SettingsBuff<Tower> _settingsBuffTower;
         

@@ -1,4 +1,5 @@
-﻿using EnemyComponent;
+﻿using BuffSystem.SettingsBuff;
+using EnemyComponent;
 using UnityEngine;
 
 namespace BuffSystem

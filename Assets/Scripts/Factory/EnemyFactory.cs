@@ -45,7 +45,8 @@ namespace Factory
         {
             var enemy = _enemyPool.Take();
             var enemyBlueprint = GetEnemyById(product.ID);
-       
+            
+            enemy.EnemyBuffController.ResetBuff();
             SetSpriteEnemy(enemyBlueprint, ref enemy);
             SetCharacteristicsEnemy(enemyBlueprint, ref enemy);
             SetLootEnemy(enemyBlueprint, ref enemy);

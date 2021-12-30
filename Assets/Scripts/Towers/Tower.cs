@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace Towers
 {
+    [RequireComponent(typeof(TowerBuffController))]
     [RequireComponent(typeof(TowerCharacteristics))]
     public class Tower : MonoBehaviour
     {
