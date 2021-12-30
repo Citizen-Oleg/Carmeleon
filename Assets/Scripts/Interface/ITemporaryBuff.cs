@@ -1,4 +1,6 @@
-﻿namespace Interface
+﻿using System;
+
+namespace Interface
 {
     public interface ITemporaryBuff : IPassiveBuff
     {

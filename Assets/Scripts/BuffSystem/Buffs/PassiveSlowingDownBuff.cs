@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace BuffSystem.Buffs
 {
-    public class SlowingDownBuff : IPassiveBuff
+    public class PassiveSlowingDownBuff : IPassiveBuff
     {
         public bool IsActive { get; private set; }
 
@@ -14,7 +14,7 @@ namespace BuffSystem.Buffs
         
         private float _speedReductionNumber;
 
-        public SlowingDownBuff(Enemy enemy, float reductionPercentage)
+        public PassiveSlowingDownBuff(Enemy enemy, float reductionPercentage)
         {
             _enemy = enemy;
             _reductionPercentage = reductionPercentage;

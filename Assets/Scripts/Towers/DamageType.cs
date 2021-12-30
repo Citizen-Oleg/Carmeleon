@@ -6,6 +6,7 @@
         Fire = 1,
         Air = 2,
         Water = 3,
-        Earth = 4 
+        Earth = 4,
+        Clean = 5
     }
 }

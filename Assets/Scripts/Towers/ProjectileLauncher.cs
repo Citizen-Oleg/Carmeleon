@@ -1,5 +1,4 @@
-﻿using System;
-using EnemyComponent;
+﻿using EnemyComponent;
 using Interface;
 using UnityEngine;
 

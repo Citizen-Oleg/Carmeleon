@@ -19,6 +19,8 @@ namespace ManagerHB
                     return damage - (int)(characteristicsEnemy.EarthResistance / 100f * damage);
                 case DamageType.Water:
                     return damage - (int)(characteristicsEnemy.WaterResistance / 100f * damage);
+                case DamageType.Clean:
+                    return damage;
                 default:
                     return damage - (int)(characteristicsEnemy.Armor / 100f * damage);
             }

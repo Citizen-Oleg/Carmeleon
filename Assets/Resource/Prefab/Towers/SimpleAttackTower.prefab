@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: db750325989564987a34393247d883b4, type: 3}
-  m_Color: {r: 0.7892338, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 0, b: 0.9654913, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -92,11 +92,11 @@ GameObject:
   m_Component:
   - component: {fileID: 3036714410080507330}
   - component: {fileID: 7217112072216344287}
-  - component: {fileID: 1626942555522801207}
   - component: {fileID: 4990074867473112414}
   - component: {fileID: 8109051263792225705}
-  - component: {fileID: 7833689397537687525}
-  - component: {fileID: 2689686060383160302}
+  - component: {fileID: 4074397283856335757}
+  - component: {fileID: 301388645960778805}
+  - component: {fileID: 3944085077741605715}
   m_Layer: 0
   m_Name: SimpleAttackTower
   m_TagString: Tower
@@ -132,22 +132,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageType: 1
-  _damage: 5
+  _damage: 0
   _attackSpeed: 0.5
   _attackRadius: 5
---- !u!114 &1626942555522801207
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 615774709391442099}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1dc5f44495d645e9a20c4ee5949b22e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _prefabProjectile: {fileID: -3830192996996406871, guid: 7ba5e30f6a5e0f74ba0c2d17cc1cb0fb, type: 3}
 --- !u!114 &4990074867473112414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,7 +162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _buffObject: {fileID: 4990074867473112414}
---- !u!114 &7833689397537687525
+--- !u!114 &4074397283856335757
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -184,10 +171,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 615774709391442099}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dca0ee9b63c241bb961e6e2a37a49d61, type: 3}
+  m_Script: {fileID: 11500000, guid: 8e00cef9859b4a1c8ddaa16239e92269, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2689686060383160302
+--- !u!114 &301388645960778805
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -196,7 +183,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 615774709391442099}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16a0ca6a06914559aafd90fa36a5200e, type: 3}
+  m_Script: {fileID: 11500000, guid: 6fe2f6b72943489ebd3d6ad6cd7928f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _prefabProjectile: {fileID: -3830192996996406871, guid: 7ba5e30f6a5e0f74ba0c2d17cc1cb0fb, type: 3}
+  _buffEnemy: {fileID: 11400000, guid: 9387f704cb1127c40ae13d75e2fa3750, type: 2}
+--- !u!114 &3944085077741605715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 615774709391442099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfa61905aa174687a7ab651ed2f0f380, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &5210412836263289082
@@ -271,7 +272,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: db750325989564987a34393247d883b4, type: 3}
-  m_Color: {r: 0.7892338, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 0, b: 0.9654913, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -353,7 +354,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: db750325989564987a34393247d883b4, type: 3}
-  m_Color: {r: 0.7892338, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 0, b: 0.9654913, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -438,7 +439,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: db750325989564987a34393247d883b4, type: 3}
-  m_Color: {r: 0.7892338, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 0, b: 0.9654913, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using BuffSystem.SettingsBuff;
 using Interface;
@@ -26,7 +25,10 @@ namespace BuffSystem
         {
             foreach (var iTemporaryBuff in _temporaryBuffs)
             {
-                iTemporaryBuff.Value.Update();
+                if (iTemporaryBuff.Value.IsActive)
+                {
+                    iTemporaryBuff.Value.Update();
+                }
             }
         }
 
@@ -82,7 +84,7 @@ namespace BuffSystem
 
         private bool AddBuffToCollection(SettingsBuff<T> settingsBuff, IPassiveBuff buff)
         {
-            return AddPassiveBuff(settingsBuff, buff) || AddStackingBuff(settingsBuff, buff) || AddTemporaryBuff(settingsBuff, buff);
+            return AddPassiveBuff(settingsBuff, buff) | AddStackingBuff(settingsBuff, buff) | AddTemporaryBuff(settingsBuff, buff);
         }
 
         private bool AddTemporaryBuff(SettingsBuff<T> settingsBuff, IPassiveBuff buff)
@@ -90,17 +92,6 @@ namespace BuffSystem
             if (!(buff is ITemporaryBuff iTemporaryBuff))
             {
                 return false;
-            }
-            
-            if (_temporaryBuffs.TryGetValue(settingsBuff, out var temporaryBuff))
-            {
-                if (temporaryBuff.IsActive)
-                {
-                    temporaryBuff.Refresh();
-                    return false;
-                }
-
-                return true;
             }
             
             _temporaryBuffs.Add(settingsBuff, iTemporaryBuff);
@@ -114,16 +105,6 @@ namespace BuffSystem
                 return false;
             }
             
-            if (_stackingBuffs.TryGetValue(settingsBuff, out var stackingBuff))
-            {
-                if (stackingBuff.IsActive)
-                {
-                    stackingBuff.AddStack();
-                    return false;
-                }
-
-                return true;
-            }
             _stackingBuffs.Add(settingsBuff, iStackingBuff);
             return true;
         }

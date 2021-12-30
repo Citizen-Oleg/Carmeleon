@@ -132,8 +132,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageType: 1
-  _damage: 1
-  _attackSpeed: 1
+  _damage: 0
+  _attackSpeed: 3
   _attackRadius: 5
 --- !u!114 &3231324342226666627
 MonoBehaviour:
@@ -198,7 +198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8774ae98af742eda69d398972c22ca9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyBuff: {fileID: 11400000, guid: 730b5849a213fd74792054bd048103bc, type: 2}
+  _enemyBuff: {fileID: 11400000, guid: 0125caf13d188f347b2e4028a87591e3, type: 2}
 --- !u!1 &8015746289788824324
 GameObject:
   m_ObjectHideFlags: 0

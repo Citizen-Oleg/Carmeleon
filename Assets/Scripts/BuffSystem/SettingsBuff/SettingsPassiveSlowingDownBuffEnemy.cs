@@ -5,8 +5,8 @@ using UnityEngine;
 
 namespace BuffSystem.SettingsBuff
 {
-    [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/BuffSettings/EnemyBuff/SlowingDownEnemy", order = 0)]
-    public class SlowingDownBuffEnemy : SettingsBuff<Enemy>
+    [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/BuffSettings/EnemyBuff/PassiveSlowingDown", order = 0)]
+    public class SettingsPassiveSlowingDownBuffEnemy : SettingsBuff<Enemy>
     {
         [Range(0f, 100f)]
         [SerializeField]
@@ -14,7 +14,7 @@ namespace BuffSystem.SettingsBuff
         
         public override IPassiveBuff GetBuff(Enemy buffObject)
         {
-            return new SlowingDownBuff(buffObject, _reductionPercentage);
+            return new PassiveSlowingDownBuff(buffObject, _reductionPercentage);
         }
     }
 }
