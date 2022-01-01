@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace BuffSystem.Buffs
 {
+    /// <summary>
+    /// Отравление - наносит урона * _currentStack, если время действия закончится то стаки скидываются.
+    /// </summary>
     public class StackingPoisoningBuff : IStackingBuff, ITemporaryBuff
     {
         public bool IsActive { get; private set; }
@@ -32,10 +35,7 @@ namespace BuffSystem.Buffs
         public void Start()
         {
             IsActive = true;
-            _currentStack = 1;
-            _startTime = Time.time;
-            
-            ApplyDamage();
+            AddStack();
         }
 
         public void Stop()
@@ -46,11 +46,9 @@ namespace BuffSystem.Buffs
 
         public void AddStack()
         {
-            if (_currentStack == _maxStack)
-            {
-                Refresh();
-            }
-            else
+            Refresh();
+            
+            if (_maxStack != _currentStack)
             {
                 _currentStack++;
             }

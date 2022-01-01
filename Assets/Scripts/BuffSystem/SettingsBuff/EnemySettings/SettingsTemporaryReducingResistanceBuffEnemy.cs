@@ -9,13 +9,13 @@ namespace BuffSystem.SettingsBuff
     public class SettingsTemporaryReducingResistanceBuffEnemy : SettingsBuff<Enemy>
     {
         [SerializeField]
-        private int _decreaseResistance;
+        private int _increaseResistance;
         [SerializeField]
         private float _timeOfAction;
         
         public override IPassiveBuff GetBuff(Enemy buffObject)
         {
-            return new TemporaryReducingResistanceBuff(buffObject, _decreaseResistance, _timeOfAction);
+            return new TemporaryReducingResistanceBuff(buffObject, _increaseResistance, _timeOfAction);
         }
     }
 }

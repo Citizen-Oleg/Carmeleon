@@ -4,23 +4,26 @@ using UnityEngine;
 
 namespace BuffSystem.Buffs
 {
+    /// <summary>
+    /// Временное снижение всех видов сопротивления у врагов (искл. чистый)
+    /// </summary>
     public class TemporaryReducingResistanceBuff : ITemporaryBuff
     {
         public bool IsActive { get; private set; }
         
-        private bool _hasTimeAction => _startTime + _timeOfAction > Time.time;
+        private bool _hasTimeAction => _startTime + _duration > Time.time;
         
         private readonly Enemy _enemy;
-        private readonly int _reducedArmorNumber;
-        private readonly float _timeOfAction;
+        private readonly int _increaseResistance;
+        private readonly float _duration;
         
         private float _startTime;
 
-        public TemporaryReducingResistanceBuff(Enemy enemy, int reducedArmorNumber, float timeOfAction)
+        public TemporaryReducingResistanceBuff(Enemy enemy, int increaseResistance, float duration)
         {
             _enemy = enemy;
-            _reducedArmorNumber = reducedArmorNumber;
-            _timeOfAction = timeOfAction;
+            _increaseResistance = increaseResistance;
+            _duration = duration;
         }
         
         public void Start()
@@ -30,11 +33,11 @@ namespace BuffSystem.Buffs
 
             var characteristics = _enemy.CharacteristicsEnemy;
 
-            characteristics.Armor -= _reducedArmorNumber;
-            characteristics.AirResistance -= _reducedArmorNumber;
-            characteristics.EarthResistance -= _reducedArmorNumber;
-            characteristics.FireResistance -= _reducedArmorNumber;
-            characteristics.WaterResistance -= _reducedArmorNumber;
+            characteristics.Armor -= _increaseResistance;
+            characteristics.AirResistance -= _increaseResistance;
+            characteristics.EarthResistance -= _increaseResistance;
+            characteristics.FireResistance -= _increaseResistance;
+            characteristics.WaterResistance -= _increaseResistance;
         }
 
         public void Stop()
@@ -43,11 +46,11 @@ namespace BuffSystem.Buffs
             
             var characteristics = _enemy.CharacteristicsEnemy;
 
-            characteristics.Armor += _reducedArmorNumber;
-            characteristics.AirResistance += _reducedArmorNumber;
-            characteristics.EarthResistance += _reducedArmorNumber;
-            characteristics.FireResistance += _reducedArmorNumber;
-            characteristics.WaterResistance += _reducedArmorNumber;
+            characteristics.Armor += _increaseResistance;
+            characteristics.AirResistance += _increaseResistance;
+            characteristics.EarthResistance += _increaseResistance;
+            characteristics.FireResistance += _increaseResistance;
+            characteristics.WaterResistance += _increaseResistance;
         }
 
         public void Update()

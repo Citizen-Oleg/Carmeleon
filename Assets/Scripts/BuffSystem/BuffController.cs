@@ -8,19 +8,22 @@ namespace BuffSystem
     public abstract class BuffController<T> : MonoBehaviour
     {
         public bool HasBuff(SettingsBuff<T> settingsBuff) => _passiveBuffs.ContainsKey(settingsBuff);
+
         public bool IsActiveBuff(SettingsBuff<T> settingsBuff) =>
             HasBuff(settingsBuff) && _passiveBuffs[settingsBuff].IsActive;
 
         [SerializeField]
         private T _buffObject;
-        
+
         private readonly Dictionary<SettingsBuff<T>, IPassiveBuff> _passiveBuffs =
             new Dictionary<SettingsBuff<T>, IPassiveBuff>();
+
         private readonly Dictionary<SettingsBuff<T>, IStackingBuff> _stackingBuffs =
             new Dictionary<SettingsBuff<T>, IStackingBuff>();
+
         private readonly Dictionary<SettingsBuff<T>, ITemporaryBuff> _temporaryBuffs =
             new Dictionary<SettingsBuff<T>, ITemporaryBuff>();
-        
+
         private void Update()
         {
             foreach (var iTemporaryBuff in _temporaryBuffs)
@@ -46,7 +49,7 @@ namespace BuffSystem
                 AddStack(settingsBuff);
                 return;
             }
-            
+
             var buff = settingsBuff.GetBuff(_buffObject);
             if (AddBuffToCollection(settingsBuff, buff))
             {
@@ -56,20 +59,18 @@ namespace BuffSystem
 
         public void StopBuff(SettingsBuff<T> settingsBuff)
         {
-            if (_passiveBuffs.TryGetValue(settingsBuff, out var passiveBuff))
-            {
-                if (passiveBuff.IsActive)
-                {
-                    passiveBuff.Stop();
-                }
-            }
-            else
+            if (!_passiveBuffs.ContainsKey(settingsBuff))
             {
                 var buff = settingsBuff.GetBuff(_buffObject);
                 AddBuffToCollection(settingsBuff, buff);
+            }
+
+            if (_passiveBuffs[settingsBuff].IsActive)
+            {
                 _passiveBuffs[settingsBuff].Stop();
             }
         }
+    
 
         public void ResetBuff()
         {

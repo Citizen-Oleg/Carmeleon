@@ -1199,7 +1199,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.39990234, y: 36}
+  m_AnchoredPosition: {x: -0.39996338, y: 36}
   m_SizeDelta: {x: -64.8361, y: -113.4757}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &811847659
@@ -3748,9 +3748,9 @@ MonoBehaviour:
   _delayedSpawnEnemies: 0.3
   _waveSpawns:
   - _enemySpawnData:
-    - _enemy: {fileID: -4151402454022704107, guid: 342c2c7afc1695b45a70f6bfb434ddae, type: 3}
+    - _enemy: {fileID: -4151402454022704107, guid: 06b7dbb60f6da0c4287aefd3c2dbfb5d, type: 3}
       _startNode: {fileID: 886702605}
-      _count: 30
+      _count: 1
 --- !u!4 &1669284895
 Transform:
   m_ObjectHideFlags: 0
@@ -3778,9 +3778,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _containerEnemy: {fileID: 1961628993}
-  _prefabEnemy: {fileID: 2333355790396330141, guid: 6c885ab92e3778e40881127c1e7088a6, type: 3}
   _enemies:
-  - {fileID: 2333355790396330141, guid: 6c885ab92e3778e40881127c1e7088a6, type: 3}
   - {fileID: -4151402454022704107, guid: 342c2c7afc1695b45a70f6bfb434ddae, type: 3}
   - {fileID: -4151402454022704107, guid: 06b7dbb60f6da0c4287aefd3c2dbfb5d, type: 3}
 --- !u!1 &1683702463

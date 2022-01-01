@@ -17,16 +17,19 @@ namespace Factory
         [SerializeField]
         private Transform _containerEnemy;
         [SerializeField]
-        private Enemy _prefabEnemy;
-        [SerializeField]
         private List<Enemy> _enemies = new List<Enemy>();
 
-        private MonoBehaviourPool<Enemy> _enemyPool;
+        private Dictionary<int, MonoBehaviourPool<Enemy>> _enemyPool =
+            new Dictionary<int, MonoBehaviourPool<Enemy>>();
         private CompositeDisposable _subscriptions;
         
         private void Awake()
         {
-            _enemyPool = new MonoBehaviourPool<Enemy>(_prefabEnemy, _containerEnemy, 30);
+            foreach (var enemy in _enemies)
+            {
+                var pool = new MonoBehaviourPool<Enemy>(enemy, _containerEnemy, 10);
+                _enemyPool.Add(enemy.ID, pool);
+            }
 
             _subscriptions = new CompositeDisposable
             {
@@ -43,70 +46,30 @@ namespace Factory
         
         public IProduct GetProduct(IProduct product)
         {
-            var enemy = _enemyPool.Take();
-            var enemyBlueprint = GetEnemyById(product.ID);
-            
+            var enemy = _enemyPool[product.ID].Take();
             enemy.EnemyBuffController.ResetBuff();
-            SetSpriteEnemy(enemyBlueprint, ref enemy);
-            SetCharacteristicsEnemy(enemyBlueprint, ref enemy);
-            SetLootEnemy(enemyBlueprint, ref enemy);
-
+            ResetCharacteristics(enemy);
             return enemy;
         }
 
+        private void ResetCharacteristics(Enemy enemy)
+        {
+            var characteristics = enemy.CharacteristicsEnemy;
+
+            characteristics.CurrentHp = characteristics.MaxHp;
+            characteristics.IsDeath = false;
+            characteristics.IsMoving = true;
+        }
+        
         public void ReleaseProduct(IProduct product)
         {
-            _enemyPool.Release((Enemy)product);   
+            var enemy = (Enemy) product;
+            _enemyPool[product.ID].Release(enemy);   
         }
 
         private void OnEnemyDestroyed(EnemyDestroyedEvent enemyDestroyedEvent)
         {
             ReleaseProduct(enemyDestroyedEvent.Enemy);
-        }
-
-        /// <summary>
-        /// Для корректной работы нужно добавить всех врагов в массив _enemies.
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        private Enemy GetEnemyById(int id)
-        {
-            return _enemies[id];
-        }
-
-        private void SetLootEnemy(Enemy enemyBlueprint, ref Enemy productEnemy)
-        {
-            var lootEnemy = enemyBlueprint.LootController;
-            var productLootEnemy = productEnemy.LootController;
-
-            productLootEnemy.Resource = lootEnemy.Resource;
-        }
-
-        private void SetCharacteristicsEnemy(Enemy enemyBlueprint, ref Enemy productEnemy)
-        {
-            var characteristicsEnemy = enemyBlueprint.CharacteristicsEnemy;
-            var productCharacteristics = productEnemy.CharacteristicsEnemy;
-            
-            productCharacteristics.Armor = characteristicsEnemy.Armor;
-            productCharacteristics.Speed = characteristicsEnemy.Speed;
-            productCharacteristics.AirResistance = characteristicsEnemy.AirResistance;
-            productCharacteristics.EarthResistance = characteristicsEnemy.EarthResistance;
-            productCharacteristics.FireResistance = characteristicsEnemy.FireResistance;
-            productCharacteristics.MaxHp = characteristicsEnemy.MaxHp;
-            productCharacteristics.CurrentHp = characteristicsEnemy.MaxHp;
-            productCharacteristics.WaterResistance = characteristicsEnemy.WaterResistance;
-            productCharacteristics.DamageToBase = characteristicsEnemy.DamageToBase;
-            productCharacteristics.IsDeath = false;
-            productEnemy.OffSetPositionHealthBar = enemyBlueprint.OffSetPositionHealthBar;
-        }
-        
-        private void SetSpriteEnemy(Enemy enemyBlueprint, ref Enemy productEnemy)
-        {
-            var spriteRendererEnemy = enemyBlueprint.SpriteRenderer;
-            var spriteRendererProduct = productEnemy.SpriteRenderer;
-
-            spriteRendererProduct.color = spriteRendererEnemy.color;
-            spriteRendererProduct.sprite = spriteRendererEnemy.sprite;
         }
     }
 } 

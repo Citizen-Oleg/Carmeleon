@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace BuffSystem.Buffs
 {
+    /// <summary>
+    /// Пассивное уменьшение скорости врага.
+    /// </summary>
     public class PassiveSlowingDownBuff : IPassiveBuff
     {
         public bool IsActive { get; private set; }
@@ -12,7 +15,6 @@ namespace BuffSystem.Buffs
         private readonly Enemy _enemy;
         private readonly float _reductionPercentage;
         
-        private float _speedReductionNumber;
 
         public PassiveSlowingDownBuff(Enemy enemy, float reductionPercentage)
         {
@@ -23,15 +25,13 @@ namespace BuffSystem.Buffs
         public void Start()
         {
             IsActive = true;
-            
-            _speedReductionNumber = _enemy.CharacteristicsEnemy.Speed * (_reductionPercentage / 100f);
-            _enemy.CharacteristicsEnemy.Speed -= _speedReductionNumber;
 
+            _enemy.CharacteristicsEnemy.PercentageSpeedReduction += _reductionPercentage;
         }
 
         public void Stop()
         {
-            _enemy.CharacteristicsEnemy.Speed += _speedReductionNumber;
+            _enemy.CharacteristicsEnemy.PercentageSpeedReduction -= _reductionPercentage;
             IsActive = false;
         }
     }

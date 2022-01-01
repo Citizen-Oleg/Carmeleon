@@ -117,9 +117,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHP: 99999
   _currentHP: 99999
-  _speed: 99999
+  _baseSpeed: 5
   _damageToBase: 99999
   _isDeath: 0
+  _isMoving: 1
   _armor: 100
   _fireResistance: 100
   _earthResistance: 100

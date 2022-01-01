@@ -5,17 +5,20 @@ using UnityEngine;
 
 namespace BuffSystem.Buffs
 {
+    /// <summary>
+    /// Поджигание - наносит урон в течении _duration, каждые _tickTime.
+    /// </summary>
     public class ArsonBuff : ITemporaryBuff
     {
         public bool IsActive { get; private set; }
 
-        private bool _hasTimeAction => _startTime + _timeOfAction > Time.time;
+        private bool _hasTimeAction => _startTime + _duration > Time.time;
         private bool _isTickTime => _lastTickTime + _tickTime < Time.time;
 
         private Enemy _enemy;
         
         private float _startTime;
-        private readonly float _timeOfAction;
+        private readonly float _duration;
 
         private float _lastTickTime;
         private readonly float _tickTime;
@@ -24,10 +27,10 @@ namespace BuffSystem.Buffs
         private readonly DamageType _damageType;
 
 
-        public ArsonBuff(Enemy enemy, float timeOfAction, float tickTime, int damage, DamageType damageType)
+        public ArsonBuff(Enemy enemy, float duration, float tickTime, int damage, DamageType damageType)
         {
             _enemy = enemy;
-            _timeOfAction = timeOfAction;
+            _duration = duration;
             _tickTime = tickTime;
             _damage = damage;
             _damageType = damageType;

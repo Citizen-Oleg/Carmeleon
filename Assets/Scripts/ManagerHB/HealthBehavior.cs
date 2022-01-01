@@ -11,6 +11,7 @@ namespace ManagerHB
     public class HealthBehavior : MonoBehaviour
     {
         public event Action<Enemy> OnDead;
+        public event Action OnReceivedDamage;
         
         private Enemy _enemy;
         private readonly DamageCalculator _damageCalculator = new DamageCalculator();
@@ -35,9 +36,11 @@ namespace ManagerHB
             {
                 return;
             }
+            
             var calculatedDamage = _damageCalculator.GetCalculatedDamage(_enemy.CharacteristicsEnemy, damageType, damage);
             _enemy.CharacteristicsEnemy.CurrentHp -= calculatedDamage;
-
+            OnReceivedDamage?.Invoke();
+            
             if (_enemy.CharacteristicsEnemy.CurrentHp <= 0)
             {
                 Dead();

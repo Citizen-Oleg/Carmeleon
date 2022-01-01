@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace EnemyComponent
 {
@@ -17,11 +18,6 @@ namespace EnemyComponent
         {
             get => _currentHP;
             set => _currentHP = Mathf.Clamp(value, 0 , MaxHp);
-        }
-        public float Speed
-        {
-            get => _speed;
-            set => _speed = value;
         }
         public int Armor
         {
@@ -59,16 +55,93 @@ namespace EnemyComponent
             set => _isDeath = value;
         }
 
+        public bool IsMoving
+        {
+            get => _isMoving && !_isFrozen;
+            set => _isMoving = value;
+        }
+
+        public float BaseSpeed
+        {
+            get => _baseSpeed;
+            set => _baseSpeed = value;
+        }
+
+        public float PercentageSpeedReduction
+        {
+            get => _percentageSpeedReduction;
+            set => _percentageSpeedReduction = Mathf.Clamp(value, 0, 100f);
+        }
+
+        public float PercentageIncreaseSpeed
+        {
+            get => _percentageIncreaseSpeed;
+            set => _percentageIncreaseSpeed = Mathf.Clamp(value, 0, 100f);
+        }
+
+        public bool HasImmunityPhysical
+        {
+            get => _hasImmunityPhysical;
+            set => _hasImmunityPhysical = value;
+        }
+
+        public bool HasImmunityWater
+        {
+            get => _hasImmunityWater;
+            set => _hasImmunityWater = value;
+        }
+
+        public bool HasImmunityEarth
+        {
+            get => _hasImmunityEarth;
+            set => _hasImmunityEarth = value;
+        }
+
+        public bool HasImmunityFire
+        {
+            get => _hasImmunityFire;
+            set => _hasImmunityFire = value;
+        }
+
+        public bool HasImmunityAir
+        {
+            get => _hasImmunityAir;
+            set => _hasImmunityAir = value;
+        }
+
+        public bool IsFrozen
+        {
+            get => _isFrozen;
+            set => _isFrozen = value;
+        }
+
+        public float Speed => _baseSpeed * (1 + PercentageIncreaseSpeed / 100f) * (1 - PercentageSpeedReduction / 100f);
+        
         [SerializeField]
         private int _maxHP;
         [SerializeField]
         private int _currentHP;
         [SerializeField]
-        private float _speed;
+        private float _baseSpeed;
         [SerializeField]
         private int _damageToBase;
         [SerializeField]
         private bool _isDeath;
+        [SerializeField]
+        private bool _isMoving = true;
+        [SerializeField]
+        private bool _isFrozen;
+        [SerializeField]
+        private bool _hasImmunityPhysical;
+        [SerializeField]
+        private bool _hasImmunityWater;
+        [SerializeField]
+        private bool _hasImmunityEarth;
+        [SerializeField]
+        private bool _hasImmunityFire;
+        [SerializeField]
+        private bool _hasImmunityAir;
+
 
         [Header("Указываются проценты защиты от типа урона")]
         [Range(-100, 100)]
@@ -86,5 +159,8 @@ namespace EnemyComponent
         [Range(-100, 100)]
         [SerializeField]
         private int _airResistance;
+
+        private float _percentageIncreaseSpeed;
+        private float _percentageSpeedReduction;
     }
 }

@@ -8,6 +8,8 @@ using UnityEngine;
 
 namespace EnemyComponent
 {
+    [RequireComponent(typeof(Rigidbody2D))]
+    [RequireComponent(typeof(Collider2D))]
     [RequireComponent(typeof(EnemyBuffController))]
     [RequireComponent(typeof(LootController))]
     [RequireComponent(typeof(MovementEnemyController))]

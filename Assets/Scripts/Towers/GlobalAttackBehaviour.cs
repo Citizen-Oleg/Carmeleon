@@ -1,4 +1,5 @@
-﻿using EnemyComponent;
+﻿using System;
+using EnemyComponent;
 using Interface;
 using UnityEngine;
 
@@ -15,7 +16,7 @@ namespace Towers
         {
             _towerCharacteristics = GetComponent<TowerCharacteristics>();
         }
-
+        
         public virtual bool CanAttack(Enemy enemy)
         {
             var isEnemyDead = enemy == null || enemy.CharacteristicsEnemy.IsDeath;
