@@ -4,6 +4,9 @@ using Towers;
 
 namespace BuffSystem.Buffs
 {
+    /// <summary>
+    /// Бафф, повышающий конкрутный тип урона у башни
+    /// </summary>
     public class IncreasedDamageTypeBuff : IPassiveBuff
     {
         public bool IsActive { get; private set; }

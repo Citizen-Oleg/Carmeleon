@@ -5,6 +5,9 @@ using UnityEngine.EventSystems;
 
 namespace DragController
 {
+    /// <summary>
+    /// Класс отвечающий за перемещение башен из инвентаря на поле и обратно.
+    /// </summary>
     public class TowerDragController : MonoBehaviour, IPointerExitHandler, IPointerEnterHandler
     {
         [SerializeField]

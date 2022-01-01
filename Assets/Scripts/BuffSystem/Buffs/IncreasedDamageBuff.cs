@@ -3,6 +3,9 @@ using Towers;
 
 namespace BuffSystem.Buffs
 {
+    /// <summary>
+    /// Бафф повышающий урон башни
+    /// </summary>
     public class IncreasedDamageBuff : IPassiveBuff
     {
         public bool IsActive { get; private set; }

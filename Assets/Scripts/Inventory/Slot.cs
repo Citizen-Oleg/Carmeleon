@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 namespace Inventory
 {
+    /// <summary>
+    /// Класс, хранящий в себе предмет.
+    /// </summary>
     public class Slot : MonoBehaviour, IPointerDownHandler
     {
         public event Action<Slot> OnChange;

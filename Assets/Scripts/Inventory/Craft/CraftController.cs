@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace Inventory.Craft
 {
+    /// <summary>
+    /// Класс отвечающий за крафт предметов.
+    /// </summary>
     public class CraftController : MonoBehaviour
     {
         private const int TALKING_RESOURCES_FOR_CRAFTING = 1;

@@ -10,13 +10,11 @@ namespace Towers
             get => _attackRadius;
             set => _attackRadius = value;
         }
-       
         public float PercentageDamageReduction
         {
             get => _percentageDamageReduction;
             set => _percentageDamageReduction = Mathf.Clamp(value, 0, 100f);
         }
-
         public float PercentageIncreaseDamage
         {
             get => _percentageIncreaseDamage;
@@ -27,7 +25,6 @@ namespace Towers
             get => _percentageAttackSpeedReduction;
             set => _percentageAttackSpeedReduction = Mathf.Clamp(value, 0, 100f);
         }
-
         public float PercentageIncreaseAttackSpeed
         {
             get => _percentageIncreaseAttackSpeed;

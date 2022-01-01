@@ -5,7 +5,7 @@ using UnityEngine;
 namespace BuffSystem.Buffs
 {
     /// <summary>
-    /// Стакающийся бафф, после N стаков цель замораживается, по замороженной цели урон увеличивается.
+    /// Бафф замораживающий врага на _freezeDuration времени
     /// </summary>
     public class FreezingBuff : ITemporaryBuff
     {

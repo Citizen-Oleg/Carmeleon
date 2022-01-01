@@ -7,6 +7,9 @@ using UnityEngine.Serialization;
 
 namespace Factory
 {
+    /// <summary>
+    /// Класс хранящий в себе пулл пуль для выдачи башням.
+    /// </summary>
     public class ProjectileFactory : MonoBehaviour, IFactory
     {
         [SerializeField]

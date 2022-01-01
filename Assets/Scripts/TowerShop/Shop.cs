@@ -71,10 +71,6 @@ namespace TowerShop
             {
                 _resourceManagerLevel.Pay(item.Price.Type, item.Price.Amount);
             }
-            else
-            {
-                Debug.Log("Недостаточно денег типа - " + item.Price.Type);
-            }
 
             if (buyButton.IsReplaceableItems)
             {

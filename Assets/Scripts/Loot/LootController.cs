@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace Loot
 {
+    /// <summary>
+    /// Класс отвечающий за получение лута с убитого врага.
+    /// </summary>
     [RequireComponent(typeof(Enemy))]
     public class LootController : MonoBehaviour
     {

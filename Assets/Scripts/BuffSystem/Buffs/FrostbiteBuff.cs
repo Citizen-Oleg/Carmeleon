@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace BuffSystem.Buffs
 {
+    /// <summary>
+    /// Стакающийся бафф, при максимальном стаке на цель вешается бафф заморозки.
+    /// </summary>
     public class FrostbiteBuff : IStackingBuff, ITemporaryBuff
     {
         public bool IsActive { get; private set; }
@@ -49,7 +52,6 @@ namespace BuffSystem.Buffs
             {
                 Stop();
                 _enemy.EnemyBuffController.AddBuff(_settingsTemporaryFreezingBuff);
-                
             }
         }
 

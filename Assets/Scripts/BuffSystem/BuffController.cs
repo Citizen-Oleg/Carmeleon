@@ -5,6 +5,10 @@ using UnityEngine;
 
 namespace BuffSystem
 {
+    /// <summary>
+    /// Базовый класс отвечающий за обработку баффов на объекте.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public abstract class BuffController<T> : MonoBehaviour
     {
         public bool HasBuff(SettingsBuff<T> settingsBuff) => _passiveBuffs.ContainsKey(settingsBuff);
