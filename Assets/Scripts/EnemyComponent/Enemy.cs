@@ -1,4 +1,5 @@
 ﻿using System;
+using BuffSystem;
 using Factory;
 using Interface;
 using Loot;
@@ -7,6 +8,9 @@ using UnityEngine;
 
 namespace EnemyComponent
 {
+    [RequireComponent(typeof(Rigidbody2D))]
+    [RequireComponent(typeof(Collider2D))]
+    [RequireComponent(typeof(EnemyBuffController))]
     [RequireComponent(typeof(LootController))]
     [RequireComponent(typeof(MovementEnemyController))]
     [RequireComponent(typeof(CharacteristicsEnemy))]
@@ -26,12 +30,12 @@ namespace EnemyComponent
         }
 
         public int ID => _id;
-        
         public CharacteristicsEnemy CharacteristicsEnemy => _characteristicsEnemy;
         public MovementEnemyController MovementEnemyController => _movementEnemyController;
         public AttackBehaviourEnemy AttackBehaviour => _attackBehaviour;
         public HealthBehavior HealthBehavior => _healthBehavior;
         public LootController LootController => _lootController;
+        public EnemyBuffController EnemyBuffController => _enemyBuffController;
 
         [SerializeField]
         private int _id;
@@ -39,8 +43,6 @@ namespace EnemyComponent
         private SpriteRenderer _spriteRenderer;
         [SerializeField]
         private Vector2 _offSetPositionHealthBar;
-        [SerializeField]
-        private TypeEnemy _typeEnemy;
         [SerializeField]
         private LootController _lootController;
         [SerializeField]
@@ -51,5 +53,7 @@ namespace EnemyComponent
         private AttackBehaviourEnemy _attackBehaviour;
         [SerializeField]
         private HealthBehavior _healthBehavior;
+        [SerializeField]
+        private EnemyBuffController _enemyBuffController;
     }
 }

@@ -27,7 +27,7 @@ namespace Towers
             return !isEnemyDead && isAttackDistance;
         }
 
-        public void Attack(Enemy enemy)
+        public virtual void Attack(Enemy enemy)
         {
             _lastShotTime = Time.time;
             enemy.HealthBehavior.TakeDamage(_towerCharacteristics.Damage, _towerCharacteristics.DamageType);

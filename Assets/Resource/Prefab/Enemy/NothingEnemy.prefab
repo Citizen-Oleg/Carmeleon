@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 3979788106090214133}
   - component: {fileID: 672147811641899633}
   - component: {fileID: 6831814743100082878}
+  - component: {fileID: -208951707393843213}
   m_Layer: 6
   m_Name: NothingEnemy
   m_TagString: Enemy
@@ -116,9 +117,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHP: 99999
   _currentHP: 99999
-  _speed: 99999
+  _baseSpeed: 5
   _damageToBase: 99999
   _isDeath: 0
+  _isMoving: 1
   _armor: 100
   _fireResistance: 100
   _earthResistance: 100
@@ -139,12 +141,12 @@ MonoBehaviour:
   _id: 0
   _spriteRenderer: {fileID: 2333355790396330139}
   _offSetPositionHealthBar: {x: 0, y: 25}
-  _typeEnemy: 0
   _lootController: {fileID: 6831814743100082878}
   _characteristicsEnemy: {fileID: 2333355790396330143}
   _movementEnemyController: {fileID: 2333355790396330128}
   _attackBehaviour: {fileID: 672147811641899633}
   _healthBehavior: {fileID: 4821051085629723548}
+  _enemyBuffController: {fileID: -208951707393843213}
 --- !u!114 &4821051085629723548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,3 +233,16 @@ MonoBehaviour:
   _resource:
     _type: 0
     _amount: 5
+--- !u!114 &-208951707393843213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2333355790396330138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ee87f13d25b49f99722d649e38cc071, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _buffObject: {fileID: 2333355790396330141}

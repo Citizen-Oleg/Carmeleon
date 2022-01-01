@@ -20,7 +20,7 @@ namespace EnemyComponent
 
         private void Update()
         {
-            if (_currentNode != null)
+            if (_currentNode != null && _characteristicsEnemy.IsMoving)
             {
                 MoveToThePoint();
             }

@@ -54,9 +54,20 @@ namespace Inventory
                     return;
                 }
 
-                if (!CheckSuitableId(currentItem)) return;
-                if (!ItemInSlot.Item.HasStack) return;
-                if (CheckAmountSuitable(currentItem)) return;
+                if (!CheckSuitableId(currentItem))
+                {
+                    return;
+                }
+
+                if (!ItemInSlot.Item.HasStack)
+                {
+                    return;
+                }
+
+                if (CheckAmountSuitable(currentItem))
+                {
+                    return;
+                }
             }
            
             _inventoryScreen.ResetCurrentItem();
@@ -65,6 +76,25 @@ namespace Inventory
                 _currentSlot.SetItem(currentItem);
             }
         }
+         
+         private void RightClick()
+         {
+             if (!_inventoryScreen.HasCurrentItem && !HasItem)
+             {
+                 return;
+             }
+            
+             if (!_inventoryScreen.HasCurrentItem && HasItem)
+             {
+                 DivideItemSlot();
+                 return;
+             }
+
+             if (_inventoryScreen.HasCurrentItem)
+             {
+                 DistributeItem();
+             }
+         }
 
         private bool CheckSuitableId(ItemInSlot currentItem)
         {
@@ -93,22 +123,6 @@ namespace Inventory
             
             _inventoryScreen.CheckCurrentItem();
             return true;
-        }
-        
-        private void RightClick()
-        {
-            if (!_inventoryScreen.HasCurrentItem && !HasItem) return;
-            
-            if (!_inventoryScreen.HasCurrentItem && HasItem)
-            {
-                DivideItemSlot();
-                return;
-            }
-
-            if (_inventoryScreen.HasCurrentItem)
-            {
-                DistributeItem();
-            }
         }
 
         private void DistributeItem()

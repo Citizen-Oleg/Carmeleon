@@ -16,14 +16,14 @@ namespace Towers
         {
             _towerCharacteristics = GetComponent<TowerCharacteristics>();
         }
-
-        public bool CanAttack(Enemy enemy)
+        
+        public virtual bool CanAttack(Enemy enemy)
         {
             var isEnemyDead = enemy == null || enemy.CharacteristicsEnemy.IsDeath;
             return !isEnemyDead;
         }
 
-        public void Attack(Enemy enemy)
+        public virtual void Attack(Enemy enemy)
         {
             _lastShotTime = Time.time;
             enemy.HealthBehavior.TakeDamage(_towerCharacteristics.Damage, _towerCharacteristics.DamageType);

@@ -11,17 +11,19 @@ namespace ResourceView
         private List<ResourceLabel> _resourceLabels;
 
         private List<Resource> _resources;
+        private ResourceManagerLevel _resourceManagerLevel;
         
         private void Start()
         {
-            _resources = LevelManager.ResourceManagerLevel.GetResources();
-            LevelManager.ResourceManagerLevel.OnResourceChange += OnResourceAmountChanged;
+            _resourceManagerLevel = LevelManager.ResourceManagerLevel;
+            _resources = _resourceManagerLevel.GetResources();
+            _resourceManagerLevel.OnResourceChange += OnResourceAmountChanged;
             UpdateResourcesAmount();
         }
 
         private void OnDestroy()
         {
-            LevelManager.ResourceManagerLevel.OnResourceChange -= OnResourceAmountChanged;
+            _resourceManagerLevel.OnResourceChange -= OnResourceAmountChanged;
         }
 
         private void OnResourceAmountChanged(Resource resource)

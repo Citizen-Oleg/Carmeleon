@@ -20,8 +20,8 @@ namespace ManagerHB
         private RectTransform _parent;
 
         private Vector2 _offSet;
-        private CharacteristicsEnemy _characteristicsEnemy;
-        
+        private Enemy _enemy;
+
         private void Awake()
         {
             _healthBarSlider.interactable = false;
@@ -29,28 +29,44 @@ namespace ManagerHB
             _parent = _transform.parent as RectTransform;
         }
 
-        public void Initialize(Enemy enemy)
-        {
-            _characteristicsEnemy = enemy.CharacteristicsEnemy;
-            _offSet = enemy.OffSetPositionHealthBar;
-            _lastMaxHp = _characteristicsEnemy.MaxHp;
-            
-            Update();
-        }
-
         private void Update()
         {
-            _transform.anchoredPosition = UIUtility.WorldToCanvasPosition(_parent, _characteristicsEnemy.transform);
+            _transform.anchoredPosition = UIUtility.WorldToCanvasPosition(_parent, _enemy.CharacteristicsEnemy.transform);
             _transform.anchoredPosition += _offSet;
-            if (_characteristicsEnemy != null && (_lastHp != _characteristicsEnemy.CurrentHp 
-                                                  || _lastMaxHp != _characteristicsEnemy.MaxHp))
-            {
-                _health.text = $"{_characteristicsEnemy.CurrentHp} / " +
-                               $"{_characteristicsEnemy.MaxHp}";
-                
-                _healthBarSlider.value = (float) _characteristicsEnemy.CurrentHp / _characteristicsEnemy.MaxHp;
+        }
 
-                _lastHp = _characteristicsEnemy.CurrentHp;
+        private void OnDestroy()
+        {
+            if (_enemy != null)
+            {
+                _enemy.HealthBehavior.OnReceivedDamage -= RefreshUI;
+            }
+        }
+
+        public void Initialize(Enemy enemy)
+        {
+            _enemy = enemy;
+            _offSet = enemy.OffSetPositionHealthBar;
+            _lastMaxHp = _enemy.CharacteristicsEnemy.MaxHp;
+            
+            Update();
+            RefreshUI();
+
+            _enemy.HealthBehavior.OnReceivedDamage += RefreshUI;
+        }
+
+        private void RefreshUI()
+        {
+            var characteristicsEnemy = _enemy.CharacteristicsEnemy;
+            if (characteristicsEnemy != null && (_lastHp != characteristicsEnemy.CurrentHp 
+                                                  || _lastMaxHp != characteristicsEnemy.MaxHp))
+            {
+                _health.text = $"{characteristicsEnemy.CurrentHp} / " +
+                               $"{characteristicsEnemy.MaxHp}";
+                
+                _healthBarSlider.value = (float) characteristicsEnemy.CurrentHp / characteristicsEnemy.MaxHp;
+
+                _lastHp = characteristicsEnemy.CurrentHp;
             }
         }
     }

@@ -25,7 +25,7 @@ namespace Towers
                 {
                     break;
                 }
-                if (collider.CompareTag(GlobalConstants.ENEMY_TAG) && collider.TryGetComponent(out Enemy enemy))
+                if (collider.TryGetComponent(out Enemy enemy))
                 {
                     _targets.Add(enemy);
                 }

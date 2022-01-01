@@ -6,7 +6,7 @@ namespace Towers
 {
     public class NearestTargetProvider
     {
-        public Enemy GetNearestTarget(List<Enemy> targets, Vector2 position, float aggressionDistance = float.MaxValue)
+        public Enemy GetNearestTarget(List<Enemy> targets, Vector2 position, float radius = float.MaxValue)
         {
             if (targets.Count == 0)
             {
@@ -30,7 +30,7 @@ namespace Towers
             
             var distanceToNearestTarget = Vector2.Distance(targets[minIndex].transform.position, position);
 
-            return distanceToNearestTarget <= aggressionDistance ? targets[minIndex] : null;
+            return distanceToNearestTarget <= radius ? targets[minIndex] : null;
         }
     }
 }
