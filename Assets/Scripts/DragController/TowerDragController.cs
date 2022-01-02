@@ -1,4 +1,6 @@
-﻿using Inventory;
+﻿using Interface;
+using Inventory;
+using PlaceInstallation;
 using Towers;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -81,17 +83,7 @@ namespace DragController
                 return;
             }
             
-            if (placeInstallationTower.HasBusy)
-            {
-                var tempItemInSlot = _currentItemInSlot;
-                var tempTower = _towerItem;
-                
-                _currentItemInSlot = placeInstallationTower.DestroyTower();
-                _towerItem = (TowerItem) _currentItemInSlot.Item;
-                
-                InstallTower(placeInstallationTower, tempItemInSlot, tempTower);
-            }
-            else
+            if (placeInstallationTower.HasFreePlaceInstallation(_towerItem))
             {
                 InstallTower(placeInstallationTower, _currentItemInSlot, _towerItem);
                 ResetCurrentItem();
@@ -100,8 +92,12 @@ namespace DragController
 
         private void GetTowerFromPlace(RaycastHit2D raycastHit2D)
         {
-            if (raycastHit2D.collider.TryGetComponent(out PlaceInstallationTower placeInstallationTower) 
-                && placeInstallationTower.HasBusy)
+            if (!raycastHit2D.collider.TryGetComponent(out PlaceInstallationTower placeInstallationTower))
+            {
+                return;
+            }
+
+            if (placeInstallationTower.IsAvailableForDemolition(_towerItem))
             {
                 _currentItemInSlot = placeInstallationTower.DestroyTower();
                 _towerItem = (TowerItem) _currentItemInSlot.Item;
