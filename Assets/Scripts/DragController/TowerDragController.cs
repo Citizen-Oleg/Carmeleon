@@ -1,4 +1,6 @@
-﻿using Inventory;
+﻿using Interface;
+using Inventory;
+using PlaceInstallation;
 using Towers;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -81,7 +83,7 @@ namespace DragController
                 return;
             }
             
-            if (!placeInstallationTower.HasBusy && !placeInstallationTower.HasBlock)
+            if (placeInstallationTower.HasFreePlaceInstallation(_towerItem))
             {
                 InstallTower(placeInstallationTower, _currentItemInSlot, _towerItem);
                 ResetCurrentItem();
@@ -95,7 +97,7 @@ namespace DragController
                 return;
             }
 
-            if (placeInstallationTower.HasBusy)
+            if (placeInstallationTower.IsAvailableForDemolition(_towerItem))
             {
                 _currentItemInSlot = placeInstallationTower.DestroyTower();
                 _towerItem = (TowerItem) _currentItemInSlot.Item;

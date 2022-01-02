@@ -1,12 +1,12 @@
-﻿using Inventory;
+﻿using Interface;
+using Inventory;
 using UnityEngine;
 
-namespace Towers
+namespace PlaceInstallation
 {
-    [RequireComponent(typeof(Collider2D))]
-    public class PlaceInstallationTower : MonoBehaviour
+    public class BehaviorPlaceInstallation : MonoBehaviour, IBehaviorPlaceInstallation
     {
-        public bool HasBusy => _itemInSlot != null && _towerItem != null;
+        public virtual bool HasBusy(TowerItem towerItem) => _itemInSlot != null && _towerItem != null;
         public bool HasBlock => _blockTime > Time.time;
         
         [SerializeField]
@@ -17,11 +17,11 @@ namespace Towers
         private float _blockDuration;
         
         private ItemInSlot _itemInSlot;
-        private TowerItem _towerItem;
+        protected TowerItem _towerItem;
 
         private float _blockTime;
-        
-        public void InstallTower(ItemInSlot itemInSlot, TowerItem towerItem)
+
+        public virtual void InstallTower(ItemInSlot itemInSlot, TowerItem towerItem)
         {
             _itemInSlot = itemInSlot;
             _towerItem = towerItem;
@@ -31,7 +31,7 @@ namespace Towers
             _towerItem.Tower.gameObject.SetActive(true);
         }
 
-        public ItemInSlot DestroyTower()
+        public virtual ItemInSlot DestroyTower()
         {
             _blockTime = Time.time + _blockDuration;
             
