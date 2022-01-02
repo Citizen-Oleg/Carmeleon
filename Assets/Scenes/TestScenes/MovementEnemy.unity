@@ -1695,7 +1695,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 966974383}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.26, y: 3.75, z: 0}
+  m_LocalPosition: {x: -1.26, y: 3.71, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1896569836}
@@ -2082,7 +2082,6 @@ GameObject:
   - component: {fileID: 1316335731}
   - component: {fileID: 1316335733}
   - component: {fileID: 1316335732}
-  - component: {fileID: 1316335734}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
@@ -2684,22 +2683,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!114 &1316335734
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1316335730}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_OverrideArea: 1
-  m_Area: 1
-  m_IgnoreFromBuild: 0
-  m_AffectedAgents: ffffffff
 --- !u!1 &1359641568
 GameObject:
   m_ObjectHideFlags: 0
@@ -3246,7 +3229,6 @@ GameObject:
   - component: {fileID: 1562206585}
   - component: {fileID: 1562206587}
   - component: {fileID: 1562206586}
-  - component: {fileID: 1562206588}
   m_Layer: 0
   m_Name: Road
   m_TagString: Untagged
@@ -3508,22 +3490,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!114 &1562206588
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1562206584}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_OverrideArea: 1
-  m_Area: 0
-  m_IgnoreFromBuild: 0
-  m_AffectedAgents: ffffffff
 --- !u!1 &1573686180
 GameObject:
   m_ObjectHideFlags: 0
@@ -3759,12 +3725,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f749d4f4d0229e64eab6e3963dcaf85a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _delayedSpawnEnemies: 0.5
+  _delayedSpawnEnemies: 1
   _waveSpawns:
   - _enemySpawnData:
     - _enemy: {fileID: -4151402454022704107, guid: 06b7dbb60f6da0c4287aefd3c2dbfb5d, type: 3}
       _startNode: {fileID: 886702605}
-      _count: 30
+      _count: 1
 --- !u!4 &1669284895
 Transform:
   m_ObjectHideFlags: 0

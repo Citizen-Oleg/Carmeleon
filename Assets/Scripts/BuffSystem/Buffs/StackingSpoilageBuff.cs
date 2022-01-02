@@ -6,42 +6,34 @@ using UnityEngine;
 namespace BuffSystem.Buffs
 {
     /// <summary>
-    /// Отравление - наносит урон * _currentStack раз в тик, если время действия закончится то стаки скидываются.
+    /// Порча - урон * кол-во стаков наносится при накладывании эффекта
     /// </summary>
-    public class StackingPoisoningBuff : IStackingBuff, ITemporaryBuff
+    public class StackingSpoilageBuff : IStackingBuff, ITemporaryBuff
     {
         public bool IsActive { get; private set; }
 
         private bool _hasTimeAction => _startTime + _duration > Time.time;
-        private bool _hasTimeTick => _startTimeTick + _tickTime > Time.time;
         
         private readonly float _duration;
         private readonly DamageType _damageType;
         private readonly int _damage;
-        private readonly int _maxStack;
         private readonly Enemy _enemy;
-        private readonly float _tickTime;
         
         private int _currentStack;
-        
         private float _startTime;
-        private float _startTimeTick;
 
-        public StackingPoisoningBuff(Enemy enemy, int damage, DamageType damageType, int maxStack, float duration, float tickTime)
+        public StackingSpoilageBuff(Enemy enemy, int damage, DamageType damageType, float duration)
         {
             _enemy = enemy;
             _damage = damage;
             _damageType = damageType;
-            _maxStack = maxStack;
             _duration = duration;
-            _tickTime = tickTime;
         }
         
         public void Start()
         {
             IsActive = true;
             AddStack();
-            Refresh();
         }
 
         public void Stop()
@@ -52,23 +44,13 @@ namespace BuffSystem.Buffs
 
         public void AddStack()
         {
-            if (_maxStack != _currentStack)
-            {
-                _currentStack++;
-            }
+            _currentStack++;
+            ApplyDamage();
         }
 
         public void Update()
         {
-            if (_hasTimeAction)
-            {
-                if (!_hasTimeTick)
-                {
-                    ApplyDamage();
-                    _startTimeTick = Time.time;
-                }
-            }
-            else
+            if (!_hasTimeAction)
             {
                 Stop();
             }

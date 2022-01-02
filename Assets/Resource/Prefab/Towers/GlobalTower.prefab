@@ -134,8 +134,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageType: 1
-  _baseDamage: 1
-  _baseAttackSpeed: 2
+  _baseDamage: 0
+  _baseAttackSpeed: 1
   _attackRadius: 5
 --- !u!114 &3231324342226666627
 MonoBehaviour:
@@ -200,7 +200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8774ae98af742eda69d398972c22ca9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyBuff: {fileID: 11400000, guid: 31eafe4decfca3e478af50456d94c78b, type: 2}
+  _enemyBuff: {fileID: 11400000, guid: 9387f704cb1127c40ae13d75e2fa3750, type: 2}
 --- !u!50 &2168359442739454867
 Rigidbody2D:
   serializedVersion: 4

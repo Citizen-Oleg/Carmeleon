@@ -16,11 +16,13 @@ namespace BuffSystem.SettingsBuff
         [SerializeField]
         private int _maxStack;
         [SerializeField]
-        private float _timeOfAction;
+        private float _duration;
+        [SerializeField]
+        private float _tickTime;
         
         public override IPassiveBuff GetBuff(Enemy buffObject)
         {
-            return new StackingPoisoningBuff(buffObject, _damage, _damageType, _maxStack, _timeOfAction);
+            return new StackingPoisoningBuff(buffObject, _damage, _damageType, _maxStack, _duration, _tickTime);
         }
     }
 }
