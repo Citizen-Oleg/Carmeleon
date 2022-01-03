@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace BuffSystem.SettingsBuff.EnemySettings
 {
-    [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/BuffSettings/EnemyBuff/Frostbite", order = 10)]
+    [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/BuffSettings/EnemyBuff/Frostbite", order = 11)]
     public class SettingsFrostbiteBuff : SettingsBuff<Enemy>
     {
         [SerializeField]
