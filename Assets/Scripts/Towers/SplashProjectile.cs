@@ -1,5 +1,4 @@
-﻿using DefaultNamespace;
-using EnemyComponent;
+﻿using EnemyComponent;
 using ManagerHB;
 using UnityEngine;
 

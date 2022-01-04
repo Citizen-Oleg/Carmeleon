@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using DefaultNamespace;
 using EnemyComponent;
 using Interface;
 using UnityEngine;

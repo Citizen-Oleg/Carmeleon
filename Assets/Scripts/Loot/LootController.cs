@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using EnemyComponent;
+using Level;
 using ResourceManager;
 using UnityEngine;
 
@@ -10,15 +12,20 @@ namespace Loot
     [RequireComponent(typeof(Enemy))]
     public class LootController : MonoBehaviour
     {
-        public Resource Resource
+        public float ChanceReagentDrop
         {
-            get => _resource;
-            set => _resource = value;
+            get => _chanceReagentDrop;
+            set => _chanceReagentDrop = value;
         }
 
         [SerializeField]
         private Resource _resource;
-
+        [Range(0f, 100f)]
+        [SerializeField]
+        private float _chanceReagentDrop;
+        [SerializeField]
+        private List<Reagent> _droppedReagent = new List<Reagent>();
+        
         private Enemy _enemy;
         private ResourceManagerLevel _resourceManagerLevel;
 
@@ -33,6 +40,28 @@ namespace Loot
         private void AwardAccrual(Enemy enemy)
         {
             _resourceManagerLevel.AddResource(_resource);
+            if (HasDropChance())
+            {
+                DropReagent();
+            }
+        }
+
+        private void DropReagent()
+        {
+            var reagent = LevelManager.ReagentPool.GetReagent(GetRandomReagent());
+            reagent.transform.position = transform.position;
+        }
+
+        private bool HasDropChance()
+        {
+            var randomNumber = Random.Range(0, 100);
+            return randomNumber <= _chanceReagentDrop;
+        }
+
+        private Reagent GetRandomReagent()
+        {
+            var randomNumber = Random.Range(0, _droppedReagent.Count);
+            return _droppedReagent[randomNumber];
         }
 
         private void OnDestroy()

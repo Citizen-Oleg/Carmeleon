@@ -1,4 +1,5 @@
 ﻿using EnemyComponent;
+using Level;
 using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
