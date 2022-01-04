@@ -17,6 +17,7 @@ namespace Spawner
     public class SpawnerEnemy : MonoBehaviour
     {
         public bool HasSpawning => _hasSpawning;
+        public List<WaveSpawn> WaveSpawns => _waveSpawns;
 
         [SerializeField]
         private float _delayedSpawnEnemies;

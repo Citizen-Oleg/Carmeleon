@@ -29,10 +29,16 @@ namespace Level
         {
             DragCamera();
             
-            if (!_drag)
+            if (!_drag && MouseInside())
             {
                 PanWithScreenCoordinates();
             }
+        }
+
+        private bool MouseInside()
+        {
+            var mousePos = Input.mousePosition;
+            return mousePos.x >= 0 && mousePos.x < Screen.width && mousePos.y >= 0 && mousePos.y < Screen.height;
         }
 
         private void DragCamera()
