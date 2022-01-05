@@ -1,4 +1,5 @@
-﻿using EnemyComponent;
+﻿using System;
+using EnemyComponent;
 using Interface;
 using UnityEngine;
 
@@ -39,6 +40,11 @@ namespace Towers
                 {
                     _attackBehaviour.Attack(_currentTarget);
                 }
+            }
+
+            if (_currentTarget != null)
+            {
+                Debug.DrawLine(transform.position, _currentTarget.transform.position, Color.yellow);
             }
         }
         

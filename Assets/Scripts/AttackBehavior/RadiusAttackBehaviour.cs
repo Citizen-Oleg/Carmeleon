@@ -1,9 +1,9 @@
-﻿using System;
-using EnemyComponent;
+﻿using EnemyComponent;
 using Interface;
+using Towers;
 using UnityEngine;
 
-namespace Towers
+namespace AttackBehavior
 {
     [RequireComponent(typeof(TowerCharacteristics))]
     public class RadiusAttackBehaviour : MonoBehaviour, IAttackBehaviour

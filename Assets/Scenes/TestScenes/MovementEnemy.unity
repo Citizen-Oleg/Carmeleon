@@ -243,7 +243,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 3.0960388}
+  m_AnchoredPosition: {x: 0, y: 3.0960693}
   m_SizeDelta: {x: 0, y: -184.664}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &90891534
@@ -5144,7 +5144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f749d4f4d0229e64eab6e3963dcaf85a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _delayedSpawnEnemies: 1
+  _delayedSpawnEnemies: 0.5
   _waveSpawns:
   - _enemySpawnData:
     - _enemy: {fileID: -4151402454022704107, guid: 06b7dbb60f6da0c4287aefd3c2dbfb5d, type: 3}

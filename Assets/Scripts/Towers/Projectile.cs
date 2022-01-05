@@ -47,7 +47,7 @@ namespace Towers
 
         private void Update()
         {
-            if (_target.CharacteristicsEnemy.IsDeath)
+            if (_target.CharacteristicsEnemy.IsDeath || !_target.isActiveAndEnabled)
             {
                 _callback?.Invoke(this);
                 _target = null;
@@ -84,6 +84,12 @@ namespace Towers
             {
                 ApplyDamage();
             }
+        }
+
+        private void ResetProjectile()
+        {
+            _callback?.Invoke(this);
+            _target = null;
         }
     }
 }

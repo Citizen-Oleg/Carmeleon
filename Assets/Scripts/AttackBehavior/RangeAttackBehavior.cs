@@ -1,10 +1,12 @@
-﻿using EnemyComponent;
+﻿using System.Runtime.CompilerServices;
+using EnemyComponent;
 using Factory;
 using Interface;
 using Level;
+using Towers;
 using UnityEngine;
 
-namespace Towers
+namespace AttackBehavior
 {
     [RequireComponent(typeof(TowerCharacteristics))]
     public class RangeAttackBehavior : MonoBehaviour, IAttackBehaviour

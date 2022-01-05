@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Towers
 {
@@ -9,7 +10,12 @@ namespace Towers
         private const float MAXIMUM_ATTACK_SPEED_REDUCTION = 90;
         private const float MAXIMUM_DAMAGE_INCREASE = 100;
         private const float MAXIMUM_DAMAGE_REDUCTION = 90;
-        
+
+        private void OnDrawGizmos()
+        {
+            Gizmos.DrawWireSphere(transform.position, _attackRadius);
+        }
+
         public float AttackRadius
         {
             get => _attackRadius;

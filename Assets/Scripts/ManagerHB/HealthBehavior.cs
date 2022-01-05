@@ -36,7 +36,7 @@ namespace ManagerHB
             {
                 return;
             }
-            
+            Debug.Log("Получил урон");
             var calculatedDamage = _damageCalculator.GetCalculatedDamage(_enemy.CharacteristicsEnemy, damageType, damage);
             _enemy.CharacteristicsEnemy.CurrentHp -= calculatedDamage;
             OnReceivedDamage?.Invoke();

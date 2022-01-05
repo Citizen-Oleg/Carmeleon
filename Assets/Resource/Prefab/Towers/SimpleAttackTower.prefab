@@ -95,10 +95,10 @@ GameObject:
   - component: {fileID: 4990074867473112414}
   - component: {fileID: 8109051263792225705}
   - component: {fileID: 4074397283856335757}
-  - component: {fileID: 301388645960778805}
   - component: {fileID: 3944085077741605715}
   - component: {fileID: 8944652695636734939}
   - component: {fileID: 8270662381562207972}
+  - component: {fileID: 7104382083128440664}
   m_Layer: 0
   m_Name: SimpleAttackTower
   m_TagString: Tower
@@ -134,9 +134,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageType: 2
-  _baseDamage: 0
-  _baseAttackSpeed: 0.25
-  _attackRadius: 5
+  _baseDamage: 9
+  _baseAttackSpeed: 3
+  _attackRadius: 4
 --- !u!114 &4990074867473112414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,20 +176,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e00cef9859b4a1c8ddaa16239e92269, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &301388645960778805
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 615774709391442099}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fe2f6b72943489ebd3d6ad6cd7928f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _prefabProjectile: {fileID: -3830192996996406871, guid: 7ba5e30f6a5e0f74ba0c2d17cc1cb0fb, type: 3}
-  _buffEnemy: {fileID: 11400000, guid: 9387f704cb1127c40ae13d75e2fa3750, type: 2}
 --- !u!114 &3944085077741605715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,6 +235,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &7104382083128440664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 615774709391442099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a29f2e05d7664ef0bde8bbbaa4b2f734, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _prefabProjectile: {fileID: 5452281146143266271, guid: db2cdb228a0d223449aad38d1f6ee73b, type: 3}
+  _numberShells: 3
+  _delayShot: 0.1
+  _chanceApplyBuff: 50
+  _enemyBuff: {fileID: 11400000, guid: 31eafe4decfca3e478af50456d94c78b, type: 2}
+  _lastShotBuff: {fileID: 5452281146143266271, guid: db2cdb228a0d223449aad38d1f6ee73b, type: 3}
 --- !u!1 &5210412836263289082
 GameObject:
   m_ObjectHideFlags: 0
