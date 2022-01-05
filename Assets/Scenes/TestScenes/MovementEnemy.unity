@@ -498,7 +498,6 @@ GameObject:
   - component: {fileID: 193134722}
   - component: {fileID: 193134721}
   - component: {fileID: 193134723}
-  - component: {fileID: 193134724}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -669,7 +668,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 193134724}
+      - m_Target: {fileID: 1454089331}
         m_TargetAssemblyTypeName: View.GameSpeedView, Assembly-CSharp
         m_MethodName: SetSpeedGame
         m_Mode: 3
@@ -681,18 +680,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &193134724
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 193134719}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b546da2397ec41cb8cd9c2fb64bdd0f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &203561928
 GameObject:
   m_ObjectHideFlags: 0
@@ -1712,7 +1699,6 @@ GameObject:
   - component: {fileID: 725198169}
   - component: {fileID: 725198168}
   - component: {fileID: 725198167}
-  - component: {fileID: 725198170}
   m_Layer: 5
   m_Name: Text (TMP) (3)
   m_TagString: Untagged
@@ -1783,7 +1769,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 725198170}
+      - m_Target: {fileID: 1454089331}
         m_TargetAssemblyTypeName: View.GameSpeedView, Assembly-CSharp
         m_MethodName: SetSpeedGame
         m_Mode: 3
@@ -1892,18 +1878,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 725198165}
   m_CullTransparentMesh: 1
---- !u!114 &725198170
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 725198165}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b546da2397ec41cb8cd9c2fb64bdd0f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &811847657
 GameObject:
   m_ObjectHideFlags: 0
@@ -2573,7 +2547,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 1088516964}
-  _screenPanThreshold: 50
+  _screenPanThreshold: 10
   _panSpeed: 20
   _upperBound: 8
   _bottomBound: -8
@@ -2698,7 +2672,6 @@ GameObject:
   - component: {fileID: 1144280915}
   - component: {fileID: 1144280914}
   - component: {fileID: 1144280913}
-  - component: {fileID: 1144280916}
   m_Layer: 5
   m_Name: Text (TMP) (1)
   m_TagString: Untagged
@@ -2769,7 +2742,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1144280916}
+      - m_Target: {fileID: 1454089331}
         m_TargetAssemblyTypeName: View.GameSpeedView, Assembly-CSharp
         m_MethodName: SetSpeedGame
         m_Mode: 3
@@ -2881,18 +2854,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1144280911}
   m_CullTransparentMesh: 1
---- !u!114 &1144280916
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1144280911}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b546da2397ec41cb8cd9c2fb64bdd0f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1172693720
 GameObject:
   m_ObjectHideFlags: 0
@@ -4152,6 +4113,7 @@ GameObject:
   - component: {fileID: 1454089330}
   - component: {fileID: 1454089333}
   - component: {fileID: 1454089332}
+  - component: {fileID: 1454089331}
   m_Layer: 5
   m_Name: SpeedGame
   m_TagString: Untagged
@@ -4182,6 +4144,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -84.1}
   m_SizeDelta: {x: 0, y: -184.664}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1454089331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1454089329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b546da2397ec41cb8cd9c2fb64bdd0f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1454089332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6177,7 +6151,6 @@ GameObject:
   - component: {fileID: 1977925336}
   - component: {fileID: 1977925335}
   - component: {fileID: 1977925334}
-  - component: {fileID: 1977925337}
   m_Layer: 5
   m_Name: Text (TMP) (2)
   m_TagString: Untagged
@@ -6248,7 +6221,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1977925337}
+      - m_Target: {fileID: 1454089331}
         m_TargetAssemblyTypeName: View.GameSpeedView, Assembly-CSharp
         m_MethodName: SetSpeedGame
         m_Mode: 3
@@ -6359,18 +6332,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1977925332}
   m_CullTransparentMesh: 1
---- !u!114 &1977925337
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1977925332}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b546da2397ec41cb8cd9c2fb64bdd0f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2044185500
 GameObject:
   m_ObjectHideFlags: 0

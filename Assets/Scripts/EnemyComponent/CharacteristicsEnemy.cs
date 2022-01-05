@@ -9,6 +9,9 @@ namespace EnemyComponent
     [RequireComponent(typeof(Enemy))]
     public class CharacteristicsEnemy : MonoBehaviour
     {
+        private const float MAXIMUM_ACCELERATION_PERCENTAGE = 200f;
+        private const float MAXIMUM_DECELERATION = 80f;
+        
         public int MaxHp
         {
             get => _maxHP;
@@ -70,13 +73,13 @@ namespace EnemyComponent
         public float PercentageSpeedReduction
         {
             get => _percentageSpeedReduction;
-            set => _percentageSpeedReduction = Mathf.Clamp(value, 0, 100f);
+            set => _percentageSpeedReduction = Mathf.Clamp(value, 0, MAXIMUM_DECELERATION);
         }
 
         public float PercentageIncreaseSpeed
         {
             get => _percentageIncreaseSpeed;
-            set => _percentageIncreaseSpeed = Mathf.Clamp(value, 0, 100f);
+            set => _percentageIncreaseSpeed = Mathf.Clamp(value, 0, MAXIMUM_ACCELERATION_PERCENTAGE);
         }
 
         public bool HasImmunityPhysical
