@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using EnemyComponent;
 using Level;
 using ResourceManager;
+using ScriptsLevels.Level;
 using UnityEngine;
 
 namespace Loot

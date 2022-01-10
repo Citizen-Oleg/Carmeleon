@@ -3,6 +3,7 @@ using System.Linq;
 using EnemyComponent.Manager;
 using Event;
 using Level;
+using ScriptsLevels.Level;
 using SimpleEventBus;
 using TMPro;
 using UnityEngine;

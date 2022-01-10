@@ -1,5 +1,6 @@
 ﻿using System;
 using Level;
+using ScriptsLevels.Level;
 using UnityEngine.EventSystems;
 
 namespace Inventory

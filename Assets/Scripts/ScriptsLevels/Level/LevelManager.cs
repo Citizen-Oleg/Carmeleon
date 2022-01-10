@@ -1,15 +1,15 @@
-﻿using EnemyComponent;
-using EnemyComponent.Manager;
+﻿using EnemyComponent.Manager;
 using Factory;
 using Inventory;
 using Inventory.Craft;
 using Loot;
 using ResourceManager;
 using Spawner;
+using Tools;
 using Towers;
 using UnityEngine;
 
-namespace Level
+namespace ScriptsLevels.Level
 {
     public class LevelManager : Singleton<LevelManager>
     {

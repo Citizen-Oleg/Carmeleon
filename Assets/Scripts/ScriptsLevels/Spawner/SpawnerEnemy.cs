@@ -49,6 +49,9 @@ namespace Spawner
         {
             if (_waveNumber >= _waveSpawns.Count)
             {
+                var currentLevel = GameManager.instance.CurrentLevel;
+                currentLevel.LevelData.IsPassedEasyLevel = true;
+                GameManager.PlayerData.AddPassedLevel(currentLevel);
                 Debug.Log("Окно победы");
                //TODO: Эвент на открытие окна победы
             }

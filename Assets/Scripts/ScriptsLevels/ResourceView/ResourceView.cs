@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Level;
 using ResourceManager;
+using ScriptsLevels.Level;
 using UnityEngine;
 
 namespace ResourceView
