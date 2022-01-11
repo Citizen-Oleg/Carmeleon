@@ -7,5 +7,7 @@
     public enum ScreenType
     {
         None = 0,
+        VictoryScreen = 1,
+        LoseScreen = 2
     }
 }

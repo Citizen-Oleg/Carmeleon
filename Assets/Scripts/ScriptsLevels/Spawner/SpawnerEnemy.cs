@@ -5,6 +5,7 @@ using EnemyComponent;
 using Event;
 using Factory;
 using Interface;
+using ScriptsLevels.Event;
 using SimpleEventBus;
 using UnityEngine;
 
@@ -49,11 +50,7 @@ namespace Spawner
         {
             if (_waveNumber >= _waveSpawns.Count)
             {
-                var currentLevel = GameManager.instance.CurrentLevel;
-                currentLevel.LevelData.IsPassedEasyLevel = true;
-                GameManager.PlayerData.AddPassedLevel(currentLevel);
-                Debug.Log("Окно победы");
-               //TODO: Эвент на открытие окна победы
+                EventStreams.UserInterface.Publish(new EventCompletingLevel());
             }
             else
             {

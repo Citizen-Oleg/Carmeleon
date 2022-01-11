@@ -1,4 +1,5 @@
-﻿using EnemyComponent.Manager;
+﻿using System;
+using EnemyComponent.Manager;
 using Factory;
 using Inventory;
 using Inventory.Craft;
@@ -41,5 +42,10 @@ namespace ScriptsLevels.Level
         private SpawnerEnemy _spawnerEnemy;
         [SerializeField]
         private EnemyManager _enemyManager;
+
+        private void Start()
+        {
+            Time.timeScale = 1;
+        }
     }
 }

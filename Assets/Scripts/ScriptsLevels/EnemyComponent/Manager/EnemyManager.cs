@@ -43,7 +43,6 @@ namespace EnemyComponent.Manager
 
             if (_enemies.Count == 0 && !_spawnerEnemy.HasSpawning)
             {
-                Debug.Log("Все враги убиты");
                 EventStreams.UserInterface.Publish(new EventWaveSweep());
             }
         }

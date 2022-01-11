@@ -16,6 +16,7 @@ namespace ScriptsMenu.Map
         [SerializeField]
         private List<Level> _levels = new List<Level>();
         
+        [SerializeField]
         private bool _isOpen;
         
         public void TerritoryDiscovery()

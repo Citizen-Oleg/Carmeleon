@@ -17,6 +17,8 @@ namespace ScriptsMenu.Map
             set => _levelData = value;
         }
 
+        public Level NextLevel => _nextLevel;
+
         [SerializeField]
         private Image _goldOutline;
         [SerializeField]
