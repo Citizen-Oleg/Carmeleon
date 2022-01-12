@@ -1,4 +1,6 @@
 using System;
+using ScriptsLevels.Event;
+using SimpleEventBus;
 using UnityEngine;
 
 namespace Player
@@ -22,7 +24,7 @@ namespace Player
             OnDamage?.Invoke();
             if (_currentHP <= 0)
             {
-                //TODO: Экран проигрыша
+                EventStreams.UserInterface.Publish(new EventCompletingLevel());
             }
         }
     }

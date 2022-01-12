@@ -82,6 +82,14 @@ namespace ScreenManager
             _screenStack.Clear();
         }
 
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                CloseTopScreen();
+            }
+        }
+
         private bool IsScreenOpened(ScreenType screenType)
         {
             foreach (var screen in _screenStack)

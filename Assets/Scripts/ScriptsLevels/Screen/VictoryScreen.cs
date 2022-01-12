@@ -1,4 +1,3 @@
-using System;
 using JetBrains.Annotations;
 using ScreenManager;
 using ScriptsLevels.ContextScreen;
@@ -52,7 +51,9 @@ namespace ScriptsLevels.Screen
         [UsedImplicitly]
         public void NextLevel()
         {
-            SceneManager.LoadScene(GameManager.instance.CurrentLevel.NextLevel.LevelData.NameScene);
+            var nextLevel = GameManager.instance.CurrentLevel.NextLevel;
+            SceneManager.LoadScene(nextLevel != null ? nextLevel.LevelData.NameScene : GlobalConstant.NAME_START_SCENE);
+
             _screenManager.CloseTopScreen();
         }
     }

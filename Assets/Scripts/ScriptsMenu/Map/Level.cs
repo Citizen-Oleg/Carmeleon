@@ -1,7 +1,7 @@
-﻿using JetBrains.Annotations;
+﻿using ScreenManager;
+using ScriptsMenu.ContextScreen;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace ScriptsMenu.Map
@@ -18,34 +18,43 @@ namespace ScriptsMenu.Map
         }
 
         public Level NextLevel => _nextLevel;
+        public Sprite LevelMap => _levelMap;
 
         [SerializeField]
         private Image _goldOutline;
         [SerializeField]
+        private Sprite _levelMap;
+        [SerializeField]
         private LevelData _levelData;
         [SerializeField]
         private Level _nextLevel;
+        [Header("UI data")]
+        [SerializeField]
+        private Image _level;
+        [SerializeField]
+        private Color _lockColor;
+        [SerializeField]
+        private Color _defaultColor;
 
         private void Start()
         {
-           // _goldOutline.gameObject.SetActive(false);
-        }
-
-        [UsedImplicitly]
-        public void StartGame()
-        {
-            GameManager.instance.CurrentLevel = this;
-            SceneManager.LoadScene(LevelData.NameScene);
+           _goldOutline.gameObject.SetActive(_levelData.HasGoldBorder);
+           _level.color = _levelData.IsOpen ? _defaultColor : _lockColor;
+           Refresh();
         }
 
         public void OpenLevel()
         {
             _levelData.IsOpen = true;
+            Refresh();
         }
 
         private void OpenNextLevel()
         {
-            _nextLevel.OpenLevel();
+            if (_nextLevel != null)
+            {
+                _nextLevel.OpenLevel();
+            }
         }
 
         public void Refresh()
@@ -55,15 +64,16 @@ namespace ScriptsMenu.Map
                 OpenNextLevel();
             }
 
-            if (_levelData.IsPassedHighLevel)
-            {
-                //_goldOutline.gameObject.SetActive(true);
-            }
+            _level.color = _levelData.IsOpen ? _defaultColor : _lockColor;
+            _goldOutline.gameObject.SetActive(_levelData.HasGoldBorder);
         }
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            StartGame();
+            if (_levelData.IsOpen)
+            {
+                GameManager.ScreenManager.OpenScreenWithContext(ScreenType.LevelScreen, new LevelContext(this));
+            }
         }
     }
 }

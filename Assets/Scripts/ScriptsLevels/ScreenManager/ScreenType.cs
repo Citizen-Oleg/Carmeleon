@@ -8,6 +8,7 @@
     {
         None = 0,
         VictoryScreen = 1,
-        LoseScreen = 2
+        LoseScreen = 2,
+        LevelScreen = 3
     }
 }
