@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
+using ScreenManager;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace ScriptsMenu.Map
 {
-    public class Map : MonoBehaviour
+    public class Map : MonoBehaviour, IPointerClickHandler
     {
         [SerializeField]
         private Region _startRegion;
@@ -76,6 +78,14 @@ namespace ScriptsMenu.Map
         private void SortLevels()
         {
             _levels = _bubbleSortLevels.Sort(_levels);
+        }
+
+        public void OnPointerClick(PointerEventData eventData)
+        {
+            if (GameManager.ScreenManager.IsScreenOpened(ScreenType.LevelScreen))
+            {
+                GameManager.ScreenManager.CloseTopScreen();
+            }
         }
     }
 
