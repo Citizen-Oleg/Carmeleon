@@ -5,6 +5,7 @@ using EnemyComponent;
 using Event;
 using Factory;
 using Interface;
+using NodeMovement;
 using ScriptsLevels.Event;
 using SimpleEventBus;
 using UnityEngine;
@@ -19,7 +20,10 @@ namespace Spawner
     {
         public bool HasSpawning => _hasSpawning;
         public List<WaveSpawn> WaveSpawns => _waveSpawns;
+        public Node DefaultStartNode => _defaultStartNode;
 
+        [SerializeField]
+        private Node _defaultStartNode;
         [SerializeField]
         private float _delayedSpawnEnemies;
         [SerializeField]
@@ -40,10 +44,10 @@ namespace Spawner
         {
             StartWave(new EventWaveSweep());
         }
-        
-        private void OnDestroy()
+
+        public void AddWave(WaveSpawn waveSpawn)
         {
-            _subscription?.Dispose();
+            _waveSpawns.Add(waveSpawn);
         }
         
         private void StartWave(EventWaveSweep eventWaveSweep)
@@ -74,7 +78,7 @@ namespace Spawner
                     if (product is Enemy enemy)
                     {
                         enemy.transform.position = enemyData.StartNode.transform.position;
-                        enemy.MovementEnemyController.Initialize(enemy, enemyData.StartNode);
+                        enemy.MovementEnemyController.Initialize(enemy, enemyData.StartNode == null ? _defaultStartNode : enemyData.StartNode);
                     
                         EventStreams.UserInterface.Publish(new EnemyCreatedEvent(enemy));
                     }
@@ -82,6 +86,11 @@ namespace Spawner
             }
 
             _hasSpawning = false;
+        }
+        
+        private void OnDestroy()
+        {
+            _subscription?.Dispose();
         }
     }
 }

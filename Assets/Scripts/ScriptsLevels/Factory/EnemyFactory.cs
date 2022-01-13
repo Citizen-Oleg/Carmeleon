@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using EnemyComponent;
 using Event;
 using Interface;
+using ScriptsLevels.Level;
 using SimpleEventBus;
 using SimpleEventBus.Disposables;
+using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
 
 namespace Factory
@@ -56,6 +58,11 @@ namespace Factory
         {
             var characteristics = enemy.CharacteristicsEnemy;
 
+            var levelSettings = LevelManager.LevelSettings;
+
+            characteristics.PercentageIncreaseSpeed = levelSettings.EnemySpeedIncreasePercentage;
+            characteristics.PercentageIncreaseMaxHp = levelSettings.PercentageIncreaseHealth;
+            
             characteristics.CurrentHp = characteristics.MaxHp;
             characteristics.IsDeath = false;
             characteristics.IsMoving = true;

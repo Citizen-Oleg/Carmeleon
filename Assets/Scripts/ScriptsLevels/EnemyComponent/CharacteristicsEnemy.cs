@@ -9,13 +9,19 @@ namespace EnemyComponent
     [RequireComponent(typeof(Enemy))]
     public class CharacteristicsEnemy : MonoBehaviour
     {
+        private const float MAXIMUM_HEALTH_INCREASE = 200f;
         private const float MAXIMUM_ACCELERATION_PERCENTAGE = 200f;
         private const float MAXIMUM_DECELERATION = 80f;
         
-        public int MaxHp
+        public int BaseMaxHp
         {
             get => _maxHP;
             set => _maxHP = value;
+        }
+        public float PercentageIncreaseMaxHp
+        {
+            get => _percentageIncreaseMaxHp;
+            set => _percentageIncreaseMaxHp = Mathf.Clamp(value, 0, MAXIMUM_HEALTH_INCREASE);
         }
         public int CurrentHp
         {
@@ -119,6 +125,7 @@ namespace EnemyComponent
         }
 
         public float Speed => _baseSpeed * (1 + PercentageIncreaseSpeed / 100f) * (1 - PercentageSpeedReduction / 100f);
+        public int MaxHp => (int) (_maxHP * (1 + PercentageIncreaseMaxHp / 100f));
         
         [SerializeField]
         private int _maxHP;
@@ -163,6 +170,7 @@ namespace EnemyComponent
         [SerializeField]
         private int _airResistance;
 
+        private float _percentageIncreaseMaxHp;
         private float _percentageIncreaseSpeed;
         private float _percentageSpeedReduction;
     }

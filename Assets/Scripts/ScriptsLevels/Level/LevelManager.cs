@@ -23,6 +23,7 @@ namespace ScriptsLevels.Level
         public static ResourceManagerLevel ResourceManagerLevel => instance._resourceManagerLevel;
         public static CraftController CraftController => instance._craftController;
         public static ReagentPool ReagentPool => instance._reagentPool;
+        public static LevelSettings LevelSettings => instance._levelSettings;
 
         [SerializeField]
         private ReagentPool _reagentPool;
@@ -42,6 +43,8 @@ namespace ScriptsLevels.Level
         private SpawnerEnemy _spawnerEnemy;
         [SerializeField]
         private EnemyManager _enemyManager;
+        [SerializeField]
+        private LevelSettings _levelSettings;
 
         private void Start()
         {

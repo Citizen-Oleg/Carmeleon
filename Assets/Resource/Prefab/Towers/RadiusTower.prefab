@@ -212,6 +212,7 @@ GameObject:
   - component: {fileID: 6565999668154536527}
   - component: {fileID: 7205604786375089150}
   - component: {fileID: 5426514479807156594}
+  - component: {fileID: 9026046931342529295}
   m_Layer: 0
   m_Name: RadiusTower
   m_TagString: Tower
@@ -247,8 +248,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageType: 3
-  _baseDamage: 0
-  _baseAttackSpeed: 0
+  _baseDamage: 5
+  _baseAttackSpeed: 1
   _attackRadius: 5
 --- !u!114 &633900276708333650
 MonoBehaviour:
@@ -324,6 +325,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &9026046931342529295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6461325650832970079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3e3d79585ea4f6a94175a2632b3d067, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _buffEnemy: {fileID: 11400000, guid: 6195eed37a810e14aa02c7d70d930fc0, type: 2}
 --- !u!1 &6746472136075954127
 GameObject:
   m_ObjectHideFlags: 0

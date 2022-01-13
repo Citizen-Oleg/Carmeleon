@@ -1148,6 +1148,7 @@ GameObject:
   - component: {fileID: 444555041}
   - component: {fileID: 444555042}
   - component: {fileID: 444555043}
+  - component: {fileID: 444555044}
   m_Layer: 0
   m_Name: LevelController
   m_TagString: Untagged
@@ -1202,6 +1203,7 @@ MonoBehaviour:
   _projectileFactory: {fileID: 444555039}
   _spawnerEnemy: {fileID: 1669284894}
   _enemyManager: {fileID: 444555036}
+  _levelSettings: {fileID: 444555044}
 --- !u!4 &444555038
 Transform:
   m_ObjectHideFlags: 0
@@ -1296,6 +1298,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerBase: {fileID: 1550243037}
+--- !u!114 &444555044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 444555034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99501157f23f44a69b820de62ea586b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _destructionSiteInstallationTower:
+  - {fileID: 1836183807}
 --- !u!1 &563137231
 GameObject:
   m_ObjectHideFlags: 0
@@ -5304,6 +5320,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f749d4f4d0229e64eab6e3963dcaf85a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _defaultStartNode: {fileID: 886702605}
   _delayedSpawnEnemies: 1
   _waveSpawns:
   - _enemySpawnData:

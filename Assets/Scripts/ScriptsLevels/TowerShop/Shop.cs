@@ -22,7 +22,7 @@ namespace TowerShop
         private ResourceManagerLevel _resourceManagerLevel;
         private PlayerData _playerData;
         
-        private void Awake()
+        private void Start()
         {
             _inventoryManager = LevelManager.InventoryManager;
             _resourceManagerLevel = LevelManager.ResourceManagerLevel;

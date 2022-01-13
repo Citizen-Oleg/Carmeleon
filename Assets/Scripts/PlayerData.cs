@@ -1,11 +1,12 @@
 using System.Collections.Generic;
 using Inventory;
+using Towers;
 using UnityEngine;
 
 public class PlayerData : MonoBehaviour
 {
-    public List<TowerItem> StandardTowerLevel => _standardTowerLevel;
-    public List<TowerItem> ImprovedLevelTowers => _improvedLevelTowers;
+    public List<TowerItem> StandardTowerLevel { get; private set; }
+    public List<TowerItem> ImprovedLevelTowers { get; private set; }
     public List<Item> ReagentsLevel => _reagentsLevel;
     public int ReagentShopSize => _reagentShopSize;
     public int ImprovedTowersSize => _improvedTowersSize;
@@ -16,6 +17,7 @@ public class PlayerData : MonoBehaviour
     private int _reagentShopSize;
     [SerializeField]
     private int _improvedTowersSize;
+    
     [SerializeField]
     private List<TowerItem> _standardTowerLevel = new List<TowerItem>();
     [SerializeField]
@@ -28,5 +30,11 @@ public class PlayerData : MonoBehaviour
     public void AddPassedLevel(ScriptsMenu.Map.Level passedLevel)
     {
         _passedLevel.Add(passedLevel);
+    }
+    
+    public void SetTowersForTheLevel()
+    {
+        StandardTowerLevel = new List<TowerItem>(_standardTowerLevel);
+        ImprovedLevelTowers = new List<TowerItem>(_improvedLevelTowers);
     }
 }

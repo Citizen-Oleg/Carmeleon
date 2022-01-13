@@ -41,7 +41,7 @@ namespace Loot
         private void AwardAccrual(Enemy enemy)
         {
             _resourceManagerLevel.AddResource(_resource);
-            if (HasDropChance())
+            if (_droppedReagent.Count != 0 && HasDropChance())
             {
                 DropReagent();
             }

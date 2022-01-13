@@ -11,9 +11,23 @@ namespace Spawner
     [Serializable]
     public class EnemySpawnData
     {
-        public Node StartNode => _startNode;
-        public int Count => _count;
-        public Enemy Enemy => _enemy;
+        public Node StartNode
+        {
+            get => _startNode;
+            set => _startNode = value;
+        }
+
+        public Enemy Enemy
+        {
+            get => _enemy;
+            set => _enemy = value;
+        }
+
+        public int Count
+        {
+            get => _count;
+            set => _count = value;
+        }
 
         [SerializeField]
         private Enemy _enemy;

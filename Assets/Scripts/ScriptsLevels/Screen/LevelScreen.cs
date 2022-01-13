@@ -56,6 +56,7 @@ namespace ScriptsLevels.Screen
         public void StartGame()
         {
             GameManager.instance.CurrentLevel = _level;
+            GameManager.PlayerData.SetTowersForTheLevel();
             GameManager.ScreenManager.CloseTopScreen();
             SceneManager.LoadScene(_level.LevelData.NameScene);
         }

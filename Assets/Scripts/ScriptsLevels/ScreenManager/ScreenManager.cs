@@ -90,7 +90,7 @@ namespace ScreenManager
             }
         }
 
-        private bool IsScreenOpened(ScreenType screenType)
+        public bool IsScreenOpened(ScreenType screenType)
         {
             foreach (var screen in _screenStack)
             {

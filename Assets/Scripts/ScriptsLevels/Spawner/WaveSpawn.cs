@@ -10,7 +10,11 @@ namespace Spawner
     [Serializable]
     public class WaveSpawn
     {
-        public List<EnemySpawnData> EnemySpawnData => _enemySpawnData;
+        public List<EnemySpawnData> EnemySpawnData
+        {
+            get => _enemySpawnData;
+            set => _enemySpawnData = value;
+        }
 
         [SerializeField]
         private List<EnemySpawnData> _enemySpawnData = new List<EnemySpawnData>();

@@ -36,8 +36,11 @@ namespace ScriptsMenu.Map
         [SerializeField]
         private Color _defaultColor;
 
+        private ScreenManager.ScreenManager _screenManager;
+
         private void Start()
         {
+            _screenManager = GameManager.ScreenManager;
            _goldOutline.gameObject.SetActive(_levelData.HasGoldBorder);
            _level.color = _levelData.IsOpen ? _defaultColor : _lockColor;
            Refresh();
@@ -70,9 +73,16 @@ namespace ScriptsMenu.Map
 
         public void OnPointerClick(PointerEventData eventData)
         {
+            if (_screenManager.IsScreenOpened(ScreenType.LevelScreen) && _levelData.IsOpen)
+            {
+                _screenManager.CloseTopScreen();
+                _screenManager.OpenScreenWithContext(ScreenType.LevelScreen, new LevelContext(this));
+                return;
+            }
+            
             if (_levelData.IsOpen)
             {
-                GameManager.ScreenManager.OpenScreenWithContext(ScreenType.LevelScreen, new LevelContext(this));
+                _screenManager.OpenScreenWithContext(ScreenType.LevelScreen, new LevelContext(this));
             }
         }
     }

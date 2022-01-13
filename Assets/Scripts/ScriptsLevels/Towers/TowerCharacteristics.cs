@@ -5,8 +5,8 @@ namespace Towers
     [RequireComponent(typeof(Tower))]
     public class TowerCharacteristics : MonoBehaviour
     {
-        private const float MAXIMUM_ATTACK_SPEED_INCREASE = 100;
-        private const float MAXIMUM_ATTACK_SPEED_REDUCTION = 90;
+        private const float MAXIMUM_ATTACK_SPEED_INCREASE = 50;
+        private const float MAXIMUM_ATTACK_SPEED_REDUCTION = 100;
         private const float MAXIMUM_DAMAGE_INCREASE = 100;
         private const float MAXIMUM_DAMAGE_REDUCTION = 90;
         
