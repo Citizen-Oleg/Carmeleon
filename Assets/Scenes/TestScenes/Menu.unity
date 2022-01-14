@@ -515,8 +515,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1796218037}
+  m_Children: []
   m_Father: {fileID: 756174333}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -615,6 +614,7 @@ Transform:
   - {fileID: 2134713589}
   - {fileID: 1712307232}
   - {fileID: 1988518989}
+  - {fileID: 1796218037}
   m_Father: {fileID: 801717391}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1041,7 +1041,7 @@ MonoBehaviour:
   _levelMap: {fileID: -1374051481591985200, guid: 9e0dfac28a4986940af115e1244bea69, type: 3}
   _levelData:
     _id: 1
-    _nameScene: 
+    _nameScene: MovementEnemy
     _isOpen: 0
     _isPassedEasyLevel: 0
     _isPassedAverageLevel: 0
@@ -1079,17 +1079,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1796218036}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 21.766369}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1392991995}
-  m_Father: {fileID: 1127217517}
-  m_RootOrder: 0
+  m_Father: {fileID: 1207382082}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1, y: -84.25}
+  m_AnchoredPosition: {x: -11.799988, y: 28.32074}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1796218038
@@ -1146,7 +1146,7 @@ MonoBehaviour:
   _levelMap: {fileID: -3625601954756411111, guid: 9e0dfac28a4986940af115e1244bea69, type: 3}
   _levelData:
     _id: 3
-    _nameScene: 
+    _nameScene: MovementEnemy
     _isOpen: 0
     _isPassedEasyLevel: 0
     _isPassedAverageLevel: 0
@@ -1326,7 +1326,7 @@ MonoBehaviour:
   _levelMap: {fileID: 6928490370576310758, guid: 9e0dfac28a4986940af115e1244bea69, type: 3}
   _levelData:
     _id: 2
-    _nameScene: 
+    _nameScene: MovementEnemy
     _isOpen: 0
     _isPassedEasyLevel: 0
     _isPassedAverageLevel: 0
@@ -1334,7 +1334,7 @@ MonoBehaviour:
     _modifiers: []
     _nameLevel: Three level
     _description: "\u0422\u0443\u0442 \u043A\u0442\u043E-\u0442\u043E \u043F\u0438\u0441\u0430\u043B"
-  _nextLevel: {fileID: 1796218040}
+  _nextLevel: {fileID: 0}
   _level: {fileID: 1988518990}
   _lockColor: {r: 0.5471698, g: 0.5471698, b: 0.5471698, a: 1}
   _defaultColor: {r: 1, g: 1, b: 1, a: 1}

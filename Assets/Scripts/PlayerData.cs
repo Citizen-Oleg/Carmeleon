@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Inventory;
+using ScriptsMenu.Tree;
 using Towers;
 using UnityEngine;
 
@@ -12,6 +13,7 @@ public class PlayerData : MonoBehaviour
     public int ImprovedTowersSize => _improvedTowersSize;
 
     public List<ScriptsMenu.Map.Level> PassedLevel => _passedLevel;
+    public List<TalentNode> ActivatedTalentNodes => _activatedTalentNodesNodes;
 
     [SerializeField]
     private int _reagentShopSize;
@@ -26,10 +28,21 @@ public class PlayerData : MonoBehaviour
     private List<Item> _reagentsLevel = new List<Item>();
 
     private readonly List<ScriptsMenu.Map.Level> _passedLevel = new List<ScriptsMenu.Map.Level>();
+    private readonly List<TalentNode> _activatedTalentNodesNodes = new List<TalentNode>();
 
     public void AddPassedLevel(ScriptsMenu.Map.Level passedLevel)
     {
         _passedLevel.Add(passedLevel);
+    }
+
+    public void AddActivatedNode(TalentNode talentNode)
+    {
+        _activatedTalentNodesNodes.Add(talentNode);
+    }
+
+    public void ClearActivatedNode()
+    {
+        _activatedTalentNodesNodes.Clear();
     }
     
     public void SetTowersForTheLevel()

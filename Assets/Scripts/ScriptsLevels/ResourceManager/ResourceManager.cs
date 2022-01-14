@@ -45,6 +45,11 @@ namespace ResourceManager
         {
             return _resources[GetIndexResource(type)].Amount >= amount;
         }
+
+        public bool HasEnough(Resource resource)
+        {
+            return HasEnough(resource.Type, resource.Amount);
+        }
         
         public List<Resource> GetResources()
         {

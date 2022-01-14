@@ -14,20 +14,15 @@ namespace ScriptsMenu.Map
         private List<Region> _regions;
         [SerializeField]
         private List<Level> _levels;
-
-        private BubbleSortLevels _bubbleSortLevels;
         
         private void Awake()
         {
-            _bubbleSortLevels = new BubbleSortLevels();
-            SortLevels();
+            _levels = new BubbleSortLevels().Sort(_levels);
             OpeningStartLocation();
-            
-            var passedLevels = GameManager.PlayerData.PassedLevel;
-            SetPassedLevels(passedLevels);
+            SetPassedLevels(GameManager.PlayerData.PassedLevel);
             OpeningRegions();
         }
-
+        
         private void SetPassedLevels(List<Level> passedLevels)
         {
             foreach (var passedLevel in passedLevels)
@@ -36,7 +31,9 @@ namespace ScriptsMenu.Map
                 if (levelData.ID == _levels[levelData.ID].LevelData.ID)
                 {
                     var level = _levels[levelData.ID];
-                    level.LevelData = levelData;
+                    SetMatchLevelData(level.LevelData, levelData);
+                    level.OpenLevel();
+                    level.OpenNextLevel();
                     level.Refresh();
                 }
                 else
@@ -53,10 +50,22 @@ namespace ScriptsMenu.Map
                 if (passedLevel.LevelData.ID == _levels[i].LevelData.ID)
                 {
                     var level = _levels[i];
-                    level.LevelData = passedLevel.LevelData;
+                    SetMatchLevelData(level.LevelData, passedLevel.LevelData);
+                    level.OpenLevel();
+                    level.OpenNextLevel();
                     level.Refresh();
+                    return;
                 }
             }
+        }
+
+        private void SetMatchLevelData(LevelData level, LevelData passedLevel)
+        {
+            level.IsOpen = passedLevel.IsOpen;
+            level.IsPassedEasyLevel = passedLevel.IsPassedEasyLevel;
+            level.IsPassedAverageLevel = passedLevel.IsPassedAverageLevel;
+            level.IsPassedHighLevel = passedLevel.IsPassedHighLevel;
+            level.HasGoldBorder = passedLevel.HasGoldBorder;
         }
 
         private void OpeningRegions()
@@ -73,11 +82,6 @@ namespace ScriptsMenu.Map
         private void OpeningStartLocation()
         {
             _startRegion.TerritoryDiscovery();
-        }
-
-        private void SortLevels()
-        {
-            _levels = _bubbleSortLevels.Sort(_levels);
         }
 
         public void OnPointerClick(PointerEventData eventData)
