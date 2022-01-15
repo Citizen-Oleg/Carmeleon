@@ -21,17 +21,9 @@ namespace ScriptsMenu.Tree
         public void ActivatedTalent(TalentNode talentNode)
         {
             talentNode.TalentData.IsActive = true;
-            //talentNode.TalentData.Talent.ActivateTalent();
+            talentNode.TalentData.Talent.ActivateTalent();
             talentNode.Refresh();
             talentNode.OpenNextTalent();
-        }
-
-        public void DeactivateTalent(TalentNode talentNode)
-        {
-            talentNode.TalentData.IsActive = false;
-            talentNode.TalentData.Talent.DeactivateTalent();
-            talentNode.CloseTalent();
-            talentNode.Refresh();
         }
 
         public void DeactivateTalent(List<TalentNode> talentNodes)
@@ -40,6 +32,8 @@ namespace ScriptsMenu.Tree
             {
                 DeactivateTalent(talentNode);
             }
+            
+            OpenStartTalentNodes();
         }
         
         public void ActivatedTalent(List<TalentNode> talentNodes)
@@ -48,6 +42,14 @@ namespace ScriptsMenu.Tree
             {
                 ActivatedTalent(talentNode);
             }
+        }
+        
+        private void DeactivateTalent(TalentNode talentNode)
+        {
+            talentNode.TalentData.IsActive = false;
+            talentNode.TalentData.Talent.DeactivateTalent();
+            talentNode.CloseTalent();
+            talentNode.Refresh();
         }
 
         private void OpenStartTalentNodes()

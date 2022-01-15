@@ -98,14 +98,17 @@ namespace TowerShop
         
         private void BuyItem(Item item, BuyButton buyButton)
         {
-            if (_resourceManagerLevel.HasEnough(item.Price.Type, item.Price.Amount) && _inventoryManager.AddItemToSlot(item))
+            var discount = item.Price.Amount * (GameManager.PlayerData.StoreDiscount / 100);
+            var price = (int) (item.Price.Amount - discount);
+            if (_resourceManagerLevel.HasEnough(item.Price.Type, price) && _inventoryManager.AddItemToSlot(item))
             {
-                _resourceManagerLevel.Pay(item.Price.Type, item.Price.Amount);
-            }
-
-            if (buyButton.IsReplaceableItems)
-            {
-                buyButton.SetNewItem(ReplaceItem(item.TypeItem));
+                _resourceManagerLevel.Pay(item.Price.Type, price);
+                
+                
+                if (buyButton.IsReplaceableItems)
+                {
+                    buyButton.SetNewItem(ReplaceItem(item.TypeItem));
+                }
             }
         }
 

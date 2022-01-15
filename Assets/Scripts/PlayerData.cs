@@ -21,7 +21,7 @@ public class PlayerData : MonoBehaviour
         set => _inventorySize = value;
     }
     
-    public int StoreDiscount { get; set; }
+    public float StoreDiscount { get; set; }
     
     public List<TowerItem> StandardTowerLevel { get; private set; }
     public List<TowerItem> ImprovedLevelTowers { get; private set; }
@@ -66,5 +66,15 @@ public class PlayerData : MonoBehaviour
     {
         StandardTowerLevel = new List<TowerItem>(_standardTowerLevel);
         ImprovedLevelTowers = new List<TowerItem>(_improvedLevelTowers);
+    }
+
+    public void AddImprovedTower(TowerItem towerItem)
+    {
+        _improvedLevelTowers.Add(towerItem);
+    }
+
+    public void RemoveImprovedTower(TowerItem towerItem)
+    {
+        _improvedLevelTowers.Remove(towerItem);
     }
 }

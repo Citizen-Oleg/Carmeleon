@@ -34,9 +34,7 @@ namespace TowerShop
                 _callback = callback;
                 _item = item;
                 _isReplaceableItems = isReplaceableItems;
-
-                _itemSprite.sprite = _item.Sprite;
-                _itemPrice.text = _item.Price.Amount.ToString();
+                RefreshUI();
             }
             else
             {
@@ -49,8 +47,15 @@ namespace TowerShop
         public void SetNewItem(Item item)
         {
             _item = item;
+            RefreshUI();
+        }
+
+        private void RefreshUI()
+        {
             _itemSprite.sprite = _item.Sprite;
-            _itemPrice.text = _item.Price.Amount.ToString();
+            var discount = _item.Price.Amount * (GameManager.PlayerData.StoreDiscount / 100);
+            var price = (int) (_item.Price.Amount - discount);
+            _itemPrice.text = price.ToString();
         }
 
         [UsedImplicitly]

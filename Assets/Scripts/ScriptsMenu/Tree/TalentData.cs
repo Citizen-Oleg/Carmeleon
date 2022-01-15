@@ -1,4 +1,5 @@
 ﻿using System;
+using ScriptsMenu.Tree.TalentScriptableObject;
 using UnityEngine;
 
 namespace ScriptsMenu.Tree
