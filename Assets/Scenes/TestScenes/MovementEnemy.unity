@@ -2509,7 +2509,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 1088516964}
-  _screenPanThreshold: 10
+  _screenPanThreshold: 0.02
   _panSpeed: 20
   _upperBound: 8
   _bottomBound: -8
@@ -4060,8 +4060,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f9edcf21a7346ea8fd4d9c2fd9a5944, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _sizeStandatdTower: 4
   _containerStandardTower: {fileID: 1464083068}
+  _sizeReagents: 4
   _containerReagents: {fileID: 1821848511}
+  _sizeImprovedTowers: 4
   _containerImprovedTowers: {fileID: 97215940}
   _buyButtonPrefab: {fileID: 3544002673361273575, guid: 3c0392e2f59ad2045b60a6d902210902, type: 3}
 --- !u!1 &1454089329

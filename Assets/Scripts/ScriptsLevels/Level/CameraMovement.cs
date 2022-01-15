@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Level
 {
@@ -43,7 +44,7 @@ namespace Level
 
         private void DragCamera()
         {
-            if (Input.GetMouseButton(1))
+            if (Input.GetMouseButton(1) && !EventSystem.current.IsPointerOverGameObject())
             {
                 _difference = _camera.ScreenToWorldPoint(Input.mousePosition) - _camera.transform.position;
 
@@ -69,7 +70,7 @@ namespace Level
         {
             var mousePosition = Input.mousePosition;
             var positionCamera = _camera.transform.position;
-            var speed = _panSpeed * Time.deltaTime;
+            var speed = _panSpeed * Time.fixedTime;
             
             if (mousePosition.x > Screen.width - _screenPanThreshold)
             {
