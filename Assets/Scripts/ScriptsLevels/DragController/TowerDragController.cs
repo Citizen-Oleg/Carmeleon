@@ -35,7 +35,7 @@ namespace DragController
                 _towerItem.GhostTower.transform.position = position;
             }
             
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
             {
                 LeftClick();
             }
