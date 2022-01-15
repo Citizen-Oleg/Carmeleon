@@ -20,14 +20,16 @@ namespace Inventory
 
         private void Awake()
         {
+            var playerData = GameManager.PlayerData;
             _slotInteractionController = new SlotInteractionController();
             _slots = new Slot[_countSlots];
 
             for (int i = 0; i < _slots.Length; i++)
             {
                 _slots[i] = Instantiate(_prefabSlot, _containerSlots, false);
-                _slots[i].Initialize(_slotInteractionController);
                 _slots[i].OnChange += RemoveFilledSlot;
+
+                _slots[i].Initialize(_slotInteractionController, i < playerData.InventorySize);
             }
         }
 
@@ -63,7 +65,7 @@ namespace Inventory
  
         private Slot GetFreeSlot()
         {
-            return _slots.FirstOrDefault(slot => !slot.HasItem);
+            return _slots.FirstOrDefault(slot => !slot.HasItem && slot.IsOpen);
         }
 
         private void RemoveFilledSlot(Slot slot)

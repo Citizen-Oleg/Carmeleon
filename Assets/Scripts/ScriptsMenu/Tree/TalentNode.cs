@@ -54,7 +54,10 @@ namespace ScriptsMenu.Tree
         
         public void OpenNextTalent()
         {
-            _nextTalentNode.OpenTalent();
+            if (_nextTalentNode != null)
+            {
+                _nextTalentNode.OpenTalent();
+            }
         }
     }
 }

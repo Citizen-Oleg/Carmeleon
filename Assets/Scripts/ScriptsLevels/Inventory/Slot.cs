@@ -12,6 +12,7 @@ namespace Inventory
     public class Slot : MonoBehaviour, IPointerDownHandler
     {
         public event Action<Slot> OnChange;
+        public bool IsOpen => _isOpen;
         public bool HasItem => _itemInSlot != null;
         public bool HasFreePlaces => HasItem && _itemInSlot.Item.MAXStacks != _itemInSlot.Amount;
         public ItemInSlot ItemInSlot => _itemInSlot;
@@ -19,8 +20,13 @@ namespace Inventory
         [SerializeField]
         private Image _itemImage;
         [SerializeField]
+        private Image _slotImage;
+        [SerializeField]
+        private Sprite _closingSprite;
+        [SerializeField]
         private TextMeshProUGUI _itemAmount;
 
+        private bool _isOpen;
         private ItemInSlot _itemInSlot;
         private SlotInteractionController _slotInteractionController;
 
@@ -29,9 +35,15 @@ namespace Inventory
             RefreshUI();
         }
         
-        public void Initialize(SlotInteractionController slotInteractionController)
+        public void Initialize(SlotInteractionController slotInteractionController, bool isOpen)
         {
             _slotInteractionController = slotInteractionController;
+            _isOpen = isOpen;
+
+            if (!isOpen)
+            {
+                _slotImage.sprite = _closingSprite;
+            }
         }
         
         public virtual void OnPointerDown(PointerEventData eventData)

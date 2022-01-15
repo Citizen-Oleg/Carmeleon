@@ -773,7 +773,7 @@ MonoBehaviour:
   _itemsManager: {fileID: 1473805499}
   _craftSlotPrefab: {fileID: 2763426188419031514, guid: a2469282961524a4e81d6777e60a02d9, type: 3}
   _craftGrid: {fileID: 2119364247}
-  _resultSlot: {fileID: 622619573113746877}
+  _resultSlot: {fileID: 8980834052422877781, guid: d7b49514ef702cb458fb066f8ae9c3f7, type: 3}
 --- !u!1 &283151989
 GameObject:
   m_ObjectHideFlags: 0
@@ -6789,17 +6789,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4689353867856361788, guid: d7b49514ef702cb458fb066f8ae9c3f7, type: 3}
   m_PrefabInstance: {fileID: 622619573113746875}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &622619573113746877 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8980834052422877781, guid: d7b49514ef702cb458fb066f8ae9c3f7, type: 3}
-  m_PrefabInstance: {fileID: 622619573113746875}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 982beea597df47228a6a526373a86638, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1549568729843138114
 PrefabInstance:
   m_ObjectHideFlags: 0

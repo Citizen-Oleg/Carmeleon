@@ -38,7 +38,7 @@ namespace Inventory.Craft
                 for (int j = 0; j < CraftTable.GetLength(1); j++)
                 {
                     CraftTable[i, j] = Instantiate(_craftSlotPrefab, _craftGrid, false);
-                    CraftTable[i, j].Initialize(_slotInteractionController);
+                    CraftTable[i, j].Initialize(_slotInteractionController, true);
                 }
             }
         }
