@@ -773,7 +773,7 @@ MonoBehaviour:
   _itemsManager: {fileID: 1473805499}
   _craftSlotPrefab: {fileID: 2763426188419031514, guid: a2469282961524a4e81d6777e60a02d9, type: 3}
   _craftGrid: {fileID: 2119364247}
-  _resultSlot: {fileID: 622619573113746877}
+  _resultSlot: {fileID: 8980834052422877781, guid: d7b49514ef702cb458fb066f8ae9c3f7, type: 3}
 --- !u!1 &283151989
 GameObject:
   m_ObjectHideFlags: 0
@@ -2509,7 +2509,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 1088516964}
-  _screenPanThreshold: 10
+  _screenPanThreshold: 0.02
   _panSpeed: 20
   _upperBound: 8
   _bottomBound: -8
@@ -4060,8 +4060,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f9edcf21a7346ea8fd4d9c2fd9a5944, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _sizeStandatdTower: 4
   _containerStandardTower: {fileID: 1464083068}
+  _sizeReagents: 4
   _containerReagents: {fileID: 1821848511}
+  _sizeImprovedTowers: 4
   _containerImprovedTowers: {fileID: 97215940}
   _buyButtonPrefab: {fileID: 3544002673361273575, guid: 3c0392e2f59ad2045b60a6d902210902, type: 3}
 --- !u!1 &1454089329
@@ -6789,17 +6792,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4689353867856361788, guid: d7b49514ef702cb458fb066f8ae9c3f7, type: 3}
   m_PrefabInstance: {fileID: 622619573113746875}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &622619573113746877 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8980834052422877781, guid: d7b49514ef702cb458fb066f8ae9c3f7, type: 3}
-  m_PrefabInstance: {fileID: 622619573113746875}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 982beea597df47228a6a526373a86638, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1549568729843138114
 PrefabInstance:
   m_ObjectHideFlags: 0

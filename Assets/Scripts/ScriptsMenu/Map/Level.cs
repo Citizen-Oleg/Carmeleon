@@ -11,12 +11,7 @@ namespace ScriptsMenu.Map
     /// </summary>
     public class Level : MonoBehaviour, IPointerClickHandler
     {
-        public LevelData LevelData
-        {
-            get => _levelData;
-            set => _levelData = value;
-        }
-
+        public LevelData LevelData => _levelData;
         public Level NextLevel => _nextLevel;
         public Sprite LevelMap => _levelMap;
 
@@ -41,18 +36,15 @@ namespace ScriptsMenu.Map
         private void Start()
         {
             _screenManager = GameManager.ScreenManager;
-           _goldOutline.gameObject.SetActive(_levelData.HasGoldBorder);
-           _level.color = _levelData.IsOpen ? _defaultColor : _lockColor;
-           Refresh();
+            Refresh();
         }
 
         public void OpenLevel()
         {
             _levelData.IsOpen = true;
-            Refresh();
         }
 
-        private void OpenNextLevel()
+        public void OpenNextLevel()
         {
             if (_nextLevel != null)
             {
@@ -62,11 +54,6 @@ namespace ScriptsMenu.Map
 
         public void Refresh()
         {
-            if (_levelData.IsPassedEasyLevel && _nextLevel != null)
-            {
-                OpenNextLevel();
-            }
-
             _level.color = _levelData.IsOpen ? _defaultColor : _lockColor;
             _goldOutline.gameObject.SetActive(_levelData.HasGoldBorder);
         }

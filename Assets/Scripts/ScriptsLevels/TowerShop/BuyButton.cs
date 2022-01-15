@@ -14,33 +14,57 @@ namespace TowerShop
         [SerializeField]
         private Image _itemSprite;
         [SerializeField]
+        private Image _imageButton;
+        [SerializeField]
+        private Sprite _closingSprite;
+        [SerializeField]
         private TextMeshProUGUI _itemPrice;
 
         private Action<Item, BuyButton> _callback;
         private bool _isReplaceableItems;
         private Item _item;
+        private bool _isOpen;
 
-        public void Initialize(Action<Item, BuyButton> callback, Item item, bool isReplaceableItems = true)
+        public void Initialize(Action<Item, BuyButton> callback, bool isOpen, Item item, bool isReplaceableItems = true)
         {
-            _callback = callback;
-            _item = item;
-            _isReplaceableItems = isReplaceableItems;
+            _isOpen = isOpen;
 
-            _itemSprite.sprite = _item.Sprite;
-            _itemPrice.text = _item.Price.Amount.ToString();
+            if (_isOpen)
+            {
+                _callback = callback;
+                _item = item;
+                _isReplaceableItems = isReplaceableItems;
+                RefreshUI();
+            }
+            else
+            {
+                _itemPrice.gameObject.SetActive(isOpen);
+                _itemSprite.gameObject.SetActive(isOpen);
+                _imageButton.sprite = _closingSprite;
+            }
         }
 
         public void SetNewItem(Item item)
         {
             _item = item;
+            RefreshUI();
+        }
+
+        private void RefreshUI()
+        {
             _itemSprite.sprite = _item.Sprite;
-            _itemPrice.text = _item.Price.Amount.ToString();
+            var discount = _item.Price.Amount * (GameManager.PlayerData.StoreDiscount / 100);
+            var price = (int) (_item.Price.Amount - discount);
+            _itemPrice.text = price.ToString();
         }
 
         [UsedImplicitly]
         public void BuyItem()
         {
-            _callback?.Invoke(_item, this);
+            if (_isOpen)
+            {
+                _callback?.Invoke(_item, this);
+            }
         }
     }
 }

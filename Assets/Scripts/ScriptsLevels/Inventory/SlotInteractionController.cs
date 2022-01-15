@@ -32,6 +32,11 @@ namespace Inventory
 
         public void PointerEventDataHandler(PointerEventData eventData, Slot slot)
         {
+            if (!slot.IsOpen)
+            {
+                return;
+            }
+            
             _currentSlot = slot;
             if (eventData.button == PointerEventData.InputButton.Left)
             {
@@ -56,17 +61,7 @@ namespace Inventory
                     return;
                 }
 
-                if (!CheckSuitableId(currentItem))
-                {
-                    return;
-                }
-
-                if (!ItemInSlot.Item.HasStack)
-                {
-                    return;
-                }
-
-                if (CheckAmountSuitable(currentItem))
+                if (!CheckSuitableId(currentItem) || !ItemInSlot.Item.HasStack || CheckAmountSuitable(currentItem))
                 {
                     return;
                 }

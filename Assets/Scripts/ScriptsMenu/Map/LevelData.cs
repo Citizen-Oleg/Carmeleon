@@ -8,11 +8,6 @@ namespace ScriptsMenu.Map
     [Serializable]
     public class LevelData
     {
-        public int ID
-        {
-            get => _id;
-            set => _id = value;
-        }
         public string NameScene
         {
             get => _nameScene;
@@ -47,6 +42,7 @@ namespace ScriptsMenu.Map
             set => _modifiers = value;
         }
 
+        public int ID => _id;
         public string NameLevel => _nameLevel;
         public string Description => _description;
 
