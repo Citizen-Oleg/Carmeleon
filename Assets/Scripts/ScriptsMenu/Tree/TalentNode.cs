@@ -25,6 +25,8 @@ namespace ScriptsMenu.Tree
         [SerializeField]
         private Image _imageTalent;
         [SerializeField]
+        private TextMeshProUGUI _textPrice;
+        [SerializeField]
         private TextMeshProUGUI _descriptionTalent;
         [SerializeField]
         private Color _activeColor;
@@ -41,6 +43,7 @@ namespace ScriptsMenu.Tree
 
             _descriptionTalent.text = _talentData.Talent.Description;
             _imageTalent.sprite = _talentData.Talent.IconTalent;
+            _textPrice.text = _price.Amount.ToString();
             
             Refresh();
         }
@@ -53,6 +56,7 @@ namespace ScriptsMenu.Tree
                 {
                     _treeTalent.ActivatedTalent(this);
                     GameManager.PlayerData.AddActivatedNode(this);
+                    _resourceManagerGame.Pay(_price);
                 }
             }
         }

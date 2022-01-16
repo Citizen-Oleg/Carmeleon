@@ -41,6 +41,11 @@ namespace ResourceManager
             OnResourceChange?.Invoke(_resources[index]);
         }
 
+        public void Pay(Resource resource)
+        {
+            Pay(resource.Type, resource.Amount);
+        }
+
         public bool HasEnough(ResourceType type, int amount)
         {
             return _resources[GetIndexResource(type)].Amount >= amount;
