@@ -9,6 +9,7 @@
         None = 0,
         VictoryScreen = 1,
         LoseScreen = 2,
-        LevelScreen = 3
+        LevelScreen = 3,
+        Menu = 4
     }
 }

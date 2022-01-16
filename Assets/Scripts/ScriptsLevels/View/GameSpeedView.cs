@@ -1,4 +1,5 @@
 ﻿using JetBrains.Annotations;
+using ScriptsLevels.Level;
 using UnityEngine;
 
 namespace View
@@ -8,7 +9,15 @@ namespace View
         [UsedImplicitly]
         public void SetSpeedGame(int speed)
         {
-            Time.timeScale = speed;
+            if (speed == 0)
+            {
+                LevelManager.instance.SetState(StateLevel.Pause);
+            }
+            else
+            {
+                LevelManager.instance.SetState(StateLevel.Normal, speed);
+            }
+            
         }
     }
 }

@@ -5,6 +5,7 @@ using Inventory;
 using Inventory.Craft;
 using Loot;
 using ResourceManager;
+using ScreenManager;
 using Spawner;
 using Tools;
 using Towers;
@@ -24,6 +25,8 @@ namespace ScriptsLevels.Level
         public static CraftController CraftController => instance._craftController;
         public static ReagentPool ReagentPool => instance._reagentPool;
         public static LevelSettings LevelSettings => instance._levelSettings;
+
+        public StateLevel StateLevel => _stateLevel;
 
         [SerializeField]
         private ReagentPool _reagentPool;
@@ -46,9 +49,41 @@ namespace ScriptsLevels.Level
         [SerializeField]
         private LevelSettings _levelSettings;
 
+        private StateLevel _stateLevel;
+
         private void Start()
         {
-            Time.timeScale = 1;
+            SetState(StateLevel.Normal);
+        }
+
+        public void SetState(StateLevel newState, float speed = 1f)
+        {
+            _stateLevel = newState;
+
+            switch (newState)
+            {
+                case StateLevel.Normal:
+                    Time.timeScale = speed;
+                    break;
+                case StateLevel.Pause:
+                    Time.timeScale = 0;
+                    break;
+            }
+        }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                GameManager.ScreenManager.OpenScreen(ScreenType.Menu);
+            }
+        }
+
+        protected override void OnDestroy()
+        {
+            base.OnDestroy();
+            
+            SetState(StateLevel.Normal);
         }
     }
 }

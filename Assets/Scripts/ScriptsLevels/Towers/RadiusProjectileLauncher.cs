@@ -1,5 +1,6 @@
 ﻿using System;
 using Interface;
+using ScriptsLevels.Level;
 using UnityEngine;
 
 namespace Towers
@@ -22,7 +23,7 @@ namespace Towers
 
         private void Update()
         {
-            if (!_attackBehaviour.IsCooldown)
+            if (!_attackBehaviour.IsCooldown && LevelManager.instance.StateLevel != StateLevel.Pause)
             {
                 foreach (var enemy in _targetsProvider.GetTargets(_towerCharacteristics.AttackRadius))
                 {

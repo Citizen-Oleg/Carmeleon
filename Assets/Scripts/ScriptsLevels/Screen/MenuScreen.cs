@@ -5,32 +5,33 @@ using UnityEngine.SceneManagement;
 
 namespace ScriptsLevels.Screen
 {
-    public class LoseScreen : BaseScreen
+    public class MenuScreen : BaseScreen
     {
-        private ScreenManager.ScreenManager _screenManager;
-        private void Start()
-        {
-            _screenManager = GameManager.ScreenManager;
-            LevelManager.instance.SetState(StateLevel.Pause);
-        }
-        
         public override void Initialize(ScreenType screenType)
         {
+            LevelManager.instance.SetState(StateLevel.Pause);
             ScreenType = screenType;
+        }
+
+        [UsedImplicitly]
+        public void Continue()
+        {
+            GameManager.ScreenManager.CloseTopScreen();
+            LevelManager.instance.SetState(StateLevel.Normal);
         }
 
         [UsedImplicitly]
         public void Restart()
         {
+            GameManager.ScreenManager.CloseTopScreen();
             SceneManager.LoadScene(GameManager.instance.CurrentLevel.LevelData.NameScene);
-            _screenManager.CloseTopScreen();
         }
 
         [UsedImplicitly]
-        public void BackToMenu()
+        public void ReturnToMenu()
         {
+            GameManager.ScreenManager.CloseTopScreen();
             SceneManager.LoadScene(GlobalConstant.NAME_START_SCENE);
-            _screenManager.CloseTopScreen();
         }
     }
 }

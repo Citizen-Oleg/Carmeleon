@@ -1,6 +1,7 @@
 using JetBrains.Annotations;
 using ScreenManager;
 using ScriptsLevels.ContextScreen;
+using ScriptsLevels.Level;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -20,6 +21,7 @@ namespace ScriptsLevels.Screen
         private void Start()
         {
             _screenManager = GameManager.ScreenManager;
+            LevelManager.instance.SetState(StateLevel.Pause);
         }
 
         public override void ApplyContext(VictoryScreenContext context)

@@ -1,5 +1,6 @@
 ﻿using EnemyComponent;
 using Interface;
+using ScriptsLevels.Level;
 using UnityEngine;
 
 namespace Towers
@@ -22,7 +23,7 @@ namespace Towers
 
         private void Update()
         {
-            if (!_attackBehaviour.IsCooldown)
+            if (!_attackBehaviour.IsCooldown && LevelManager.instance.StateLevel != StateLevel.Pause)
             {
                 if (!_hasTarget && SetTarget() && _attackBehaviour.CanAttack(_currentTarget))
                 {

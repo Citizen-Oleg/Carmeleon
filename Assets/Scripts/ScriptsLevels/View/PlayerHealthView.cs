@@ -12,7 +12,7 @@ namespace View
         [SerializeField]
         private PlayerBase _playerBase;
 
-        private void Awake()
+        private void Start()
         {
             _playerBase.OnDamage += RefreshUI;
             RefreshUI();

@@ -21,7 +21,7 @@ namespace View
         private EnemyManager _enemyManager;
         private IDisposable _subscription;
         
-        private void Awake()
+        private void Start()
         {
             _subscription = EventStreams.UserInterface.Subscribe<EnemyDestroyedEvent>(RefreshUI);
 
