@@ -1,4 +1,5 @@
 ﻿using Inventory;
+using ScriptsLevels.Inventory;
 
 namespace Interface
 {

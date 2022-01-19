@@ -1,17 +1,13 @@
 ﻿using TMPro;
 using UnityEngine;
 
-namespace View
+namespace ScriptsLevels.ExplanationObject
 {
     public class ViewExplanation : MonoBehaviour
     {
         public bool IsOpen => gameObject.activeSelf;
-        public RectTransform RectTransform
-        {
-            get => _rectTransform;
-            set => _rectTransform = value;
-        }
-
+        public RectTransform RectTransform => _rectTransform;
+        
         [SerializeField]
         private TextMeshProUGUI _text;
         [SerializeField]

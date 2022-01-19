@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Inventory;
 using Level.ScriptsMenu.Interface;
+using ScriptsLevels.Inventory;
 using Towers;
 
 namespace ScriptsMenu.Modifiers.LevelsModifier.Modifiers

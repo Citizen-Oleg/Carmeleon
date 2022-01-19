@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Inventory;
+using ScriptsLevels.Inventory;
 using ScriptsMenu.Tree;
 using UnityEngine;
 

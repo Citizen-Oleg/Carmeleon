@@ -1,7 +1,8 @@
-﻿using Towers;
+﻿using Inventory;
+using Towers;
 using UnityEngine;
 
-namespace Inventory
+namespace ScriptsLevels.Inventory
 {
     [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/TowerItem", order = 1)]
     public class TowerItem : Item

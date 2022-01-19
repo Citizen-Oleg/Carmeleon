@@ -10,6 +10,7 @@
         VictoryScreen = 1,
         LoseScreen = 2,
         LevelScreen = 3,
-        Menu = 4
+        Menu = 4,
+        BestiaryScreen = 5
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Inventory;
 using Level;
 using ResourceManager;
+using ScriptsLevels.Inventory;
 using ScriptsLevels.Level;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -106,19 +107,19 @@ namespace TowerShop
                 
                 if (buyButton.IsReplaceableItems)
                 {
-                    buyButton.SetNewItem(ReplaceItem(item.TypeItem));
+                    buyButton.SetNewItem(ReplaceItem(item));
                 }
             }
         }
 
-        private Item ReplaceItem(TypeItem typeItem)
+        private Item ReplaceItem(Item item)
         {
-            switch (typeItem)
+            switch (item)
             {
-                case TypeItem.Reagent:
+                case TowerItem towerItem:
                     var lenght = _playerData.ReagentsLevel.Count;
                     return _playerData.ReagentsLevel[GetRandomIndex(lenght)];
-                case TypeItem.Tower:
+                case ReagentItem reagentItem:
                     lenght = _playerData.ImprovedLevelTowers.Count;
                     return _playerData.ImprovedLevelTowers[GetRandomIndex(lenght)];
                 default:
