@@ -6,12 +6,18 @@ using UnityEngine;
 
 namespace Loot
 {
-    public class Reagent : MonoBehaviour, IDropItem
+    public class Reagent : MonoBehaviour, IDropItem, IExplanationObject
     {
         public int ID => _id;
-
+        public string Explanation => _name;
+        public Transform Position => _positionExplanationUI;
+        
         [SerializeField]
         private int _id;
+        [SerializeField]
+        private string _name;
+        [SerializeField]
+        private Transform _positionExplanationUI;
         [SerializeField]
         private Item _item;
 

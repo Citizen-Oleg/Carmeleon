@@ -16,7 +16,7 @@ namespace EnemyComponent
     [RequireComponent(typeof(CharacteristicsEnemy))]
     [RequireComponent(typeof(AttackBehaviourEnemy))]
     [RequireComponent(typeof(HealthBehavior))]
-    public class Enemy : MonoBehaviour, IProduct
+    public class Enemy : MonoBehaviour, IProduct, IExplanationObject
     {
         public Vector2 OffSetPositionHealthBar
         {
@@ -30,6 +30,8 @@ namespace EnemyComponent
         }
 
         public int ID => _id;
+        public string Explanation => _name;
+        public Transform Position => _positionExplanationUI;
         public CharacteristicsEnemy CharacteristicsEnemy => _characteristicsEnemy;
         public MovementEnemyController MovementEnemyController => _movementEnemyController;
         public AttackBehaviourEnemy AttackBehaviour => _attackBehaviour;
@@ -39,6 +41,10 @@ namespace EnemyComponent
 
         [SerializeField]
         private int _id;
+        [SerializeField]
+        private string _name;
+        [SerializeField]
+        private Transform _positionExplanationUI;
         [SerializeField]
         private SpriteRenderer _spriteRenderer;
         [SerializeField]

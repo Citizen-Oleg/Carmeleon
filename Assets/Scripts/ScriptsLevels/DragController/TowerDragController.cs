@@ -66,7 +66,10 @@ namespace DragController
             var target = Camera.main.ScreenPointToRay(Input.mousePosition);
             var raycastHit = Physics2D.Raycast(target.origin, target.direction);
 
-            if (raycastHit.collider == null) return;
+            if (raycastHit.collider == null)
+            {
+                return;
+            }
 
             if (_currentItemInSlot != null)
             {

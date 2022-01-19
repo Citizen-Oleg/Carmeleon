@@ -104,7 +104,6 @@ namespace TowerShop
             {
                 _resourceManagerLevel.Pay(item.Price.Type, price);
                 
-                
                 if (buyButton.IsReplaceableItems)
                 {
                     buyButton.SetNewItem(ReplaceItem(item.TypeItem));

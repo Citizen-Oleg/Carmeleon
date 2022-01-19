@@ -8,6 +8,7 @@ namespace Inventory
     public class Item : ScriptableObject
     {
         public int ID => _id;
+        public string Name => _name;
         public TypeItem TypeItem => _typeItem;
         public Resource Price => _price;
         public bool HasStack => _hasStack;
@@ -18,6 +19,8 @@ namespace Inventory
         
         [SerializeField]
         private int _id;
+        [SerializeField]
+        private string _name;
         [SerializeField]
         private TypeItem _typeItem;
         [SerializeField]

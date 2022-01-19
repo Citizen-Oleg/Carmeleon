@@ -3,13 +3,14 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using View;
 
 namespace Inventory
 {
     /// <summary>
     /// Класс, хранящий в себе предмет.
     /// </summary>
-    public class Slot : MonoBehaviour, IPointerDownHandler
+    public class Slot : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler
     {
         public event Action<Slot> OnChange;
         public bool IsOpen => _isOpen;
@@ -25,6 +26,8 @@ namespace Inventory
         private Sprite _closingSprite;
         [SerializeField]
         private TextMeshProUGUI _itemAmount;
+        [SerializeField]
+        private ViewExplanation _viewExplanation;
 
         private bool _isOpen;
         private ItemInSlot _itemInSlot;
@@ -49,6 +52,19 @@ namespace Inventory
         public virtual void OnPointerDown(PointerEventData eventData)
         {
             _slotInteractionController.PointerEventDataHandler(eventData, this);
+        }
+        
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            if (HasItem)
+            {
+                _viewExplanation.Show(_itemInSlot.Item.Name);
+            }
+        }
+
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            _viewExplanation.Close();
         }
 
         public void SetItem(ItemInSlot itemInSlot)
