@@ -7,6 +7,13 @@ namespace ScriptsLevels.Screen
 {
     public class MenuScreen : BaseScreen
     {
+        private ScreenManager.ScreenManager _screenManager;
+        
+        private void Awake()
+        {
+            _screenManager = GameManager.ScreenManager;
+        }
+
         public override void Initialize(ScreenType screenType)
         {
             LevelManager.instance.SetState(StateLevel.Pause);
@@ -16,21 +23,27 @@ namespace ScriptsLevels.Screen
         [UsedImplicitly]
         public void Continue()
         {
-            GameManager.ScreenManager.CloseTopScreen();
+            _screenManager.CloseTopScreen();
             LevelManager.instance.SetState(StateLevel.Normal);
+        }
+
+        [UsedImplicitly]
+        public void OpenBestiary()
+        {
+            _screenManager.OpenScreen(ScreenType.BestiaryScreen);
         }
 
         [UsedImplicitly]
         public void Restart()
         {
-            GameManager.ScreenManager.CloseTopScreen();
+            _screenManager.CloseTopScreen();
             SceneManager.LoadScene(GameManager.instance.CurrentLevel.LevelData.NameScene);
         }
 
         [UsedImplicitly]
         public void ReturnToMenu()
         {
-            GameManager.ScreenManager.CloseTopScreen();
+            _screenManager.CloseTopScreen();
             SceneManager.LoadScene(GlobalConstant.NAME_START_SCENE);
         }
     }

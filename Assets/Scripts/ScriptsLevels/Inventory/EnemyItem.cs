@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace ScriptsLevels.Inventory
 {
-    [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/EnemyItem", order = 3)]
+    [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/Items/EnemyItem", order = 3)]
     public class EnemyItem : Item
     {
         public Enemy Enemy => _enemy;

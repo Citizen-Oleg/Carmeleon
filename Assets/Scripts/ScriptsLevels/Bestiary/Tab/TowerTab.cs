@@ -1,4 +1,5 @@
-﻿using ScriptsLevels.Inventory;
+﻿using ScriptsLevels.Bestiary.Tab;
+using ScriptsLevels.Inventory;
 using Towers;
 
 namespace ScriptsLevels.Bestiary

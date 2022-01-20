@@ -1,18 +1,16 @@
-using System;
 using Inventory;
+using ScriptsLevels.Bestiary.Tab;
 using TMPro;
 using UnityEngine;
 
-namespace ScriptsLevels.Bestiary
+namespace ScriptsLevels.Bestiary.FindField
 {
-    public class FindField : MonoBehaviour
+    public abstract class FindField<T, TB> : MonoBehaviour
+        where T : Item
+        where TB : BestiaryItem<T>
     {
-        public Tab<Item, BestiaryItem<Item>> Tab
-        {
-            set => _tab = value;
-        }
-
-        private Tab<Item, BestiaryItem<Item>> _tab;
+        [SerializeField]
+        private Tab<T, TB> _tab;
 
         [SerializeField]
         private TMP_InputField _tmpInputField;

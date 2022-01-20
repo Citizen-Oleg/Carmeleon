@@ -7,13 +7,10 @@ namespace ScriptsLevels.Bestiary
     {
         public string Description => _description;
         public Sprite Art => _art;
-        public Sprite SpriteCraftItem => _spriteCraftItem;
         public T Item => _item;
 
         [SerializeField]
         private string _description;
-        [SerializeField]
-        private Sprite _spriteCraftItem;
         [SerializeField]
         private Sprite _art;
         [SerializeField]

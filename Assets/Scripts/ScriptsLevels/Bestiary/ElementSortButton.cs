@@ -11,10 +11,26 @@ namespace ScriptsLevels.Bestiary
         [SerializeField]
         private DamageType _damageType;
 
+        private bool _isActive; 
+        
         [UsedImplicitly]
-        public void Click()
+        public void SortByDamageType()
         {
-            _towerTab.DamageTypeSimilaritySearch(_damageType);
+            if (_isActive)
+            {
+                _isActive = false;
+                ResetSort();
+            }
+            else
+            {
+                _isActive = true;
+                _towerTab.DamageTypeSimilaritySearch(_damageType);
+            }
+        }
+        
+        private void ResetSort()
+        {
+            _towerTab.ResetSorting();
         }
     }
 }

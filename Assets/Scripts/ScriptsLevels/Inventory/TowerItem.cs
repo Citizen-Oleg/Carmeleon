@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace ScriptsLevels.Inventory
 {
-    [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/TowerItem", order = 1)]
+    [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/Items/TowerItem", order = 1)]
     public class TowerItem : Item
     {
         public Tower Tower
