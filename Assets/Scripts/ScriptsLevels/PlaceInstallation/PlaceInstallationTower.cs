@@ -1,6 +1,7 @@
 ﻿using System;
 using Interface;
 using Inventory;
+using ScriptsLevels.Inventory;
 using UnityEngine;
 
 namespace PlaceInstallation

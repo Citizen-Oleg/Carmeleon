@@ -4,12 +4,11 @@ using UnityEngine;
 
 namespace Inventory
 {
-    [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/Item", order = 0)]
+    [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/Items/Item", order = 0)]
     public class Item : ScriptableObject
     {
         public int ID => _id;
         public string Name => _name;
-        public TypeItem TypeItem => _typeItem;
         public Resource Price => _price;
         public bool HasStack => _hasStack;
         public bool HasRecipe => CraftRecipe != null;
@@ -21,8 +20,6 @@ namespace Inventory
         private int _id;
         [SerializeField]
         private string _name;
-        [SerializeField]
-        private TypeItem _typeItem;
         [SerializeField]
         private Resource _price;
         [SerializeField]

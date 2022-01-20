@@ -1,4 +1,5 @@
 ﻿using Inventory;
+using ScriptsLevels.Inventory;
 using UnityEngine;
 
 namespace ScriptsMenu.Tree.TalentScriptableObject

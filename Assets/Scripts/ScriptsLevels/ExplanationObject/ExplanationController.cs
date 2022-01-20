@@ -35,11 +35,16 @@ namespace ScriptsLevels.ExplanationObject
             if (raycastHit.collider.TryGetComponent(out IExplanationObject explanationObject))
             {
                 _currentObject = explanationObject;
-                _viewExplanation.Show(explanationObject.Explanation); 
+
+                if (!_viewExplanation.IsOpen)
+                {
+                    _viewExplanation.Show(explanationObject.Explanation);
+                } 
             }
             else
             {
                 _viewExplanation.Close();
+                return;
             }
             
 
