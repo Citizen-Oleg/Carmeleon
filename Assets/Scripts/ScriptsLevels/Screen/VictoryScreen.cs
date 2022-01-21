@@ -49,14 +49,5 @@ namespace ScriptsLevels.Screen
             SceneManager.LoadScene(GameManager.instance.CurrentLevel.LevelData.NameScene);
             _screenManager.CloseTopScreen();
         }
-
-        [UsedImplicitly]
-        public void NextLevel()
-        {
-            var nextLevel = GameManager.instance.CurrentLevel.NextLevel;
-            SceneManager.LoadScene(nextLevel != null ? nextLevel.LevelData.NameScene : GlobalConstant.NAME_START_SCENE);
-
-            _screenManager.CloseTopScreen();
-        }
     }
 }

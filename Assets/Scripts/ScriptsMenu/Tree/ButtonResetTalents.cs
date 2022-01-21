@@ -12,7 +12,7 @@ namespace ScriptsMenu.Tree
         public void ResetTalent()
         {
             var playerData = GameManager.PlayerData;
-            var talents = playerData.ActivatedTalentNodes;
+            var talents = playerData.ActivatedTalentDatas;
             
             _treeTalent.DeactivateTalent(talents);
             playerData.ClearActivatedTalent();
