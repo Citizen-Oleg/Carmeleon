@@ -10,6 +10,10 @@ namespace PlaceInstallation
     [RequireComponent(typeof(Collider2D))]
     public class PlaceInstallationTower : MonoBehaviour
     {
+        public event Action<PlaceInstallationTower> OnDestroyTower;
+
+        public IBehaviorPlaceInstallation BehaviorPlaceInstallation => _behaviorPlaceInstallation;
+
         private IBehaviorPlaceInstallation _behaviorPlaceInstallation;
         
         private void Awake()
@@ -36,6 +40,7 @@ namespace PlaceInstallation
 
         public ItemInSlot DestroyTower()
         {
+            OnDestroyTower?.Invoke(this);
             return _behaviorPlaceInstallation.DestroyTower();
         }
     }
