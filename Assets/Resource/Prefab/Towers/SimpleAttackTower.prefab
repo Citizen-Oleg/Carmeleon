@@ -166,8 +166,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageType: 1
-  _baseDamage: 5
-  _baseAttackSpeed: 0.25
+  _baseDamage: 2
+  _baseAttackSpeed: 0.5
   _attackRadius: 5
 --- !u!114 &4990074867473112414
 MonoBehaviour:
@@ -181,7 +181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28a4010d1b3273a4f91adbe0a9c2c9b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: "\u0420\u043E\u0437\u043E\u0432\u0430\u044F \u0431\u0430\u0448\u043D\u044F"
+  _name: "\u041E\u0433\u043D\u0435\u043D\u043D\u0430\u044F \u0431\u0430\u0448\u043D\u044F"
   _positionExplanationUI: {fileID: 8019663716933400608}
   _towerCharacteristics: {fileID: 7217112072216344287}
   _towerBuffController: {fileID: 8109051263792225705}
@@ -223,7 +223,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _prefabProjectile: {fileID: -3830192996996406871, guid: 7ba5e30f6a5e0f74ba0c2d17cc1cb0fb, type: 3}
-  _buffEnemy: {fileID: 11400000, guid: 9387f704cb1127c40ae13d75e2fa3750, type: 2}
+  _buffEnemy: {fileID: 11400000, guid: 730b5849a213fd74792054bd048103bc, type: 2}
 --- !u!114 &3944085077741605715
 MonoBehaviour:
   m_ObjectHideFlags: 0

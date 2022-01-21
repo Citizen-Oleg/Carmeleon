@@ -32,8 +32,11 @@ namespace Loot
 
         public void PickUp()
         {
-            _reagentPool.ReleaseReagent(this);
-            _inventoryManager.AddItemToSlot(_item);
+            if (_inventoryManager.AddItemToSlot(_item))
+            {
+                _reagentPool.ReleaseReagent(this);
+            }
+
         }
     }
 }
