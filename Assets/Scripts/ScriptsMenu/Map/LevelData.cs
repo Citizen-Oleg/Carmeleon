@@ -8,6 +8,7 @@ namespace ScriptsMenu.Map
     [Serializable]
     public class LevelData
     {
+        [Newtonsoft.Json.JsonIgnore]
         public string NameScene
         {
             get => _nameScene;
@@ -36,13 +37,19 @@ namespace ScriptsMenu.Map
 
         public bool HasGoldBorder { get; set; }
 
+        [Newtonsoft.Json.JsonIgnore]
         public List<Modifier> Modifiers
         {
             get => _modifiers;
             set => _modifiers = value;
         }
 
-        public int ID => _id;
+        public int ID
+        {
+            get => _id;
+            set => _id = value;
+        }
+
         public string NameLevel => _nameLevel;
         public string Description => _description;
 
@@ -58,6 +65,7 @@ namespace ScriptsMenu.Map
         private bool _isPassedAverageLevel;
         [SerializeField]
         private bool _isPassedHighLevel;
+        [Newtonsoft.Json.JsonIgnore]
         [SerializeField]
         private List<Modifier> _modifiers = new List<Modifier>();
         

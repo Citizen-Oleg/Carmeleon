@@ -60,6 +60,11 @@ namespace ResourceManager
         {
             return _resources;
         }
+
+        public void SetResource(List<Resource> resources)
+        {
+            _resources = new List<Resource>(resources);
+        }
         
         private int GetIndexResource(ResourceType resourceType)
         {

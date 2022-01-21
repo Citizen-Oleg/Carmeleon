@@ -15,7 +15,7 @@ namespace ScriptsMenu.Map
         [SerializeField]
         private List<Level> _levels;
         
-        private void Awake()
+        private void Start()
         {
             _levels = new BubbleSortLevels().Sort(_levels);
             OpeningStartLocation();

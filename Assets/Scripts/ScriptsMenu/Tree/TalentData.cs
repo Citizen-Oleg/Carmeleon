@@ -18,14 +18,19 @@ namespace ScriptsMenu.Tree
             get => _isActive;
             set => _isActive = value;
         }
-
+        
+        [Newtonsoft.Json.JsonIgnore]
         public Talent Talent
         {
             get => _talent;
             set => _talent = value;
         }
 
-        public int ID => _id;
+        public int ID
+        {
+            get => _id;
+            set => _id = value;
+        }
 
         [SerializeField]
         private int _id;
@@ -33,6 +38,7 @@ namespace ScriptsMenu.Tree
         private bool _isOpen;
         [SerializeField]
         private bool _isActive;
+        [Newtonsoft.Json.JsonIgnore]
         [SerializeField]
         private Talent _talent;
     }

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using ScriptsLevels.Inventory;
+using ScriptsMenu;
 using ScriptsMenu.Map;
 using ScriptsMenu.Tree;
 using UnityEngine;
@@ -29,7 +30,7 @@ public class PlayerData : MonoBehaviour
 
     public List<InventoryItem> ReagentsLevel => _reagentsLevel;
     public List<LevelData> PassedLevel => _passedLevel;
-    public List<TalentData> ActivatedTalentNodes => _activatedTalentData;
+    public List<TalentData> ActivatedTalentDatas => _activatedTalentData;
 
     [SerializeField]
     private int _reagentShopSize = 2;
@@ -45,8 +46,18 @@ public class PlayerData : MonoBehaviour
     [SerializeField]
     private List<InventoryItem> _reagentsLevel = new List<InventoryItem>();
 
-    private readonly List<LevelData> _passedLevel = new List<LevelData>();
-    private readonly List<TalentData> _activatedTalentData = new List<TalentData>();
+    private List<LevelData> _passedLevel = new List<LevelData>();
+    private List<TalentData> _activatedTalentData = new List<TalentData>();
+    
+    private void Start()
+    {
+        var loadManager = GameManager.LoadManager;
+        
+        _passedLevel = loadManager.LoadLevelPassed();
+        _activatedTalentData = loadManager.LoadTalent();
+        GameManager.ResourceManagerGame.SetResource(loadManager.LoadResource());
+        MenuManager.TreeTalent.ActivatedTalent(_activatedTalentData);
+    }
 
     public void AddPassedLevel(LevelData passedLevelData)
     {

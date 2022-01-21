@@ -107,6 +107,7 @@ namespace ScriptsMenu.Tree
             if (_nextTalentNode != null)
             {
                 _nextTalentNode.CloseTalent();
+                _nextTalentNode.Refresh();
             }
         }
     }

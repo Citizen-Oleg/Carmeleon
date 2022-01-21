@@ -19,7 +19,7 @@ namespace ScriptsMenu.Tree
             _resourceManagerGame = GameManager.ResourceManagerGame;
             
             OpenStartTalentNodes();
-            SetOpenTalents(GameManager.PlayerData.ActivatedTalentNodes);
+            SetOpenTalents(GameManager.PlayerData.ActivatedTalentDatas);
         }
 
         public void ActivatedTalent(TalentNode talentNode)
@@ -66,11 +66,19 @@ namespace ScriptsMenu.Tree
             }
         }
         
-        public void ActivatedTalent(List<TalentNode> talentNodes)
+        public void ActivatedTalent(List<TalentData> talentDatas)
         {
-            foreach (var talentNode in talentNodes)
+            foreach (var talantData in talentDatas)
             {
-                ActivatedTalent(talentNode);
+                if (talantData.ID == _talentNodes[talantData.ID].TalentData.ID)
+                {
+                    var talent = _talentNodes[talantData.ID];
+                    ActivatedTalent(talent);
+                }
+                else
+                {
+                    SetActivateTalent(talantData);
+                }
             }
         }
         
@@ -105,12 +113,12 @@ namespace ScriptsMenu.Tree
                 }
                 else
                 {
-                    SetActivatedTalent(talantData);
+                    SetOpenTalent(talantData);
                 }
             }
         }
 
-        private void SetActivatedTalent(TalentData talentData)
+        private void SetOpenTalent(TalentData talentData)
         {
             for (int i = talentData.ID; i < _talentNodes.Count; i++)
             {
@@ -118,6 +126,18 @@ namespace ScriptsMenu.Tree
                 {
                     var talent = _talentNodes[i];
                     OpenActivatedTalent(talent);
+                }
+            }
+        }
+        
+        private void SetActivateTalent(TalentData talentData)
+        {
+            for (int i = talentData.ID; i < _talentNodes.Count; i++)
+            {
+                if (talentData.ID == _talentNodes[i].TalentData.ID)
+                {
+                    var talent = _talentNodes[i];
+                    ActivatedTalent(talent);
                 }
             }
         }

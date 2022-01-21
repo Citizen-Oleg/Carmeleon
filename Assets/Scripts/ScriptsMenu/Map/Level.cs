@@ -12,7 +12,6 @@ namespace ScriptsMenu.Map
     public class Level : MonoBehaviour, IPointerClickHandler
     {
         public LevelData LevelData => _levelData;
-        public Level NextLevel => _nextLevel;
         public Sprite LevelMap => _levelMap;
 
         [SerializeField]
