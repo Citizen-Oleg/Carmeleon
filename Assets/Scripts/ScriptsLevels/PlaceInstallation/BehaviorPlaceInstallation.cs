@@ -8,8 +8,9 @@ namespace PlaceInstallation
     public class BehaviorPlaceInstallation : MonoBehaviour, IBehaviorPlaceInstallation
     {
         public virtual bool HasBusy(TowerItem towerItem) => _itemInSlot != null && _towerItem != null;
+        public float BlockDuration => _blockDuration;
         public bool HasBlock => _blockTime > Time.time;
-        
+
         [SerializeField]
         private Transform _installationPosition;
         [SerializeField]

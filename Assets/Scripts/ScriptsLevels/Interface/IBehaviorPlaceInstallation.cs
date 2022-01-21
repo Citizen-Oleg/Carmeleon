@@ -7,6 +7,7 @@ namespace Interface
     {
         bool HasBlock { get; }
         bool HasBusy(TowerItem towerItem);
+        float BlockDuration { get; }
 
         void InstallTower(ItemInSlot itemInSlot, TowerItem towerItem);
         ItemInSlot DestroyTower();

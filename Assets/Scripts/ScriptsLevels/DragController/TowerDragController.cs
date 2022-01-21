@@ -7,6 +7,7 @@ using ScriptsLevels.Level;
 using Towers;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
 
 namespace DragController
 {
@@ -17,6 +18,8 @@ namespace DragController
     {
         [SerializeField]
         private InventoryScreen _inventoryScreen;
+        [SerializeField]
+        private LayerMask _layerPlaceInstallation;
         
         private ItemInSlot _currentItemInSlot;
         private TowerItem _towerItem;
@@ -65,7 +68,7 @@ namespace DragController
         private void LeftClick()
         {
             var target = Camera.main.ScreenPointToRay(Input.mousePosition);
-            var raycastHit = Physics2D.Raycast(target.origin, target.direction);
+            var raycastHit = Physics2D.Raycast(target.origin, target.direction, 100f , _layerPlaceInstallation);
 
             if (raycastHit.collider == null)
             {
