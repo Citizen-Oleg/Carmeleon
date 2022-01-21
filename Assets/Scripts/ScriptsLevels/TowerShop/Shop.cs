@@ -46,9 +46,11 @@ namespace TowerShop
         {
             for (int i = 0; i < _sizeStandatdTower; i++)
             {
-                if (i >= _playerData.StandardTowerLevel.Count)
+                var cantPostItem = i >= _playerData.StandardTowerLevel.Count || _playerData.StandardTowerLevel.Count == 0;
+                
+                if (cantPostItem)
                 {
-                    PlaceGoods<Item>(null, _containerStandardTower, false);
+                    PlaceGoods<InventoryItem>(null, _containerStandardTower, false);
                 }
                 else
                 {
@@ -61,9 +63,13 @@ namespace TowerShop
         {
             for (int i = 0; i < _sizeReagents; i++)
             {
-                if (i >= _playerData.ReagentShopSize)
+                var cantPostItem = i >= _playerData.ReagentShopSize
+                                   || i >= _playerData.ReagentsLevel.Count
+                                   || _playerData.ReagentsLevel.Count == 0;
+                
+                if (cantPostItem)
                 {
-                    PlaceGoods<Item>(null, _containerReagents, false);
+                    PlaceGoods<InventoryItem>(null, _containerReagents, false);
                 }
                 else
                 {
@@ -78,9 +84,13 @@ namespace TowerShop
         {
             for (int i = 0; i < _sizeImprovedTowers; i++)
             {
-                if (i >= _playerData.ImprovedTowersSize)
+                var cantPostItem = i >= _playerData.ImprovedTowersSize
+                                   || i >= _playerData.ImprovedLevelTowers.Count
+                                   || _playerData.ImprovedLevelTowers.Count == 0;
+                
+                if (cantPostItem)
                 {
-                    PlaceGoods<Item>(null, _containerImprovedTowers, false);
+                    PlaceGoods<InventoryItem>(null, _containerImprovedTowers, false);
                 }   
                 else
                 {
@@ -91,13 +101,13 @@ namespace TowerShop
             }
         }
 
-        private void PlaceGoods<T>(T item, Transform container, bool isOpen, bool isReplaceableItems = true) where T : Item
+        private void PlaceGoods<T>(T item, Transform container, bool isOpen, bool isReplaceableItems = true) where T : InventoryItem
         {
             var buyButton = Instantiate(_buyButtonPrefab, container);
             buyButton.Initialize(BuyItem, isOpen, item, isReplaceableItems);
         }
         
-        private void BuyItem(Item item, BuyButton buyButton)
+        private void BuyItem(InventoryItem item, BuyButton buyButton)
         {
             var discount = item.Price.Amount * (GameManager.PlayerData.StoreDiscount / 100);
             var price = (int) (item.Price.Amount - discount);
@@ -112,16 +122,16 @@ namespace TowerShop
             }
         }
 
-        private Item ReplaceItem(Item item)
+        private InventoryItem ReplaceItem(InventoryItem inventoryItem)
         {
-            switch (item)
+            switch (inventoryItem.Item)
             {
                 case TowerItem towerItem:
-                    var lenght = _playerData.ReagentsLevel.Count;
-                    return _playerData.ReagentsLevel[GetRandomIndex(lenght)];
-                case ReagentItem reagentItem:
-                    lenght = _playerData.ImprovedLevelTowers.Count;
+                    var lenght = _playerData.ImprovedLevelTowers.Count;
                     return _playerData.ImprovedLevelTowers[GetRandomIndex(lenght)];
+                case ReagentItem reagentItem:
+                    lenght = _playerData.ReagentsLevel.Count;
+                    return _playerData.ReagentsLevel[GetRandomIndex(lenght)];
                 default:
                     lenght = _playerData.StandardTowerLevel.Count;
                     return _playerData.StandardTowerLevel[GetRandomIndex(lenght)];

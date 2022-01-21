@@ -349,7 +349,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1702162882430573125, guid: dd8854a099cd09d4aaca0bebf506268a, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -585
+      value: -569
       objectReference: {fileID: 0}
     - target: {fileID: 1702162882430573125, guid: dd8854a099cd09d4aaca0bebf506268a, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -483,6 +483,10 @@ PrefabInstance:
     - target: {fileID: 1702162882430573122, guid: dd8854a099cd09d4aaca0bebf506268a, type: 3}
       propertyPath: m_Name
       value: TalentNode (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1702162882430573122, guid: dd8854a099cd09d4aaca0bebf506268a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1702162882430573124, guid: dd8854a099cd09d4aaca0bebf506268a, type: 3}
       propertyPath: _treeTalent
@@ -1095,6 +1099,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TalentNode (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1702162882430573122, guid: dd8854a099cd09d4aaca0bebf506268a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1702162882430573124, guid: dd8854a099cd09d4aaca0bebf506268a, type: 3}
       propertyPath: _treeTalent
       value: 
@@ -1181,7 +1189,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1702162882430573125, guid: dd8854a099cd09d4aaca0bebf506268a, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -311
+      value: -301
       objectReference: {fileID: 0}
     - target: {fileID: 1702162882430573125, guid: dd8854a099cd09d4aaca0bebf506268a, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -2006,12 +2014,20 @@ MonoBehaviour:
   _improvedTowersSize: 2
   _inventorySize: 4
   _standardTowerLevel:
-  - {fileID: 11400000, guid: 23090bb7d2b380a478884ba87d9d6421, type: 2}
+  - {fileID: 11400000, guid: 4d85cdc4e4b928a4aa66dbba5d61c5ca, type: 2}
+  - {fileID: 11400000, guid: 4d85cdc4e4b928a4aa66dbba5d61c5ca, type: 2}
+  - {fileID: 11400000, guid: 4d85cdc4e4b928a4aa66dbba5d61c5ca, type: 2}
+  - {fileID: 11400000, guid: 4d85cdc4e4b928a4aa66dbba5d61c5ca, type: 2}
   _improvedLevelTowers:
-  - {fileID: 11400000, guid: 6032745c72c25624eb75129bc2deb989, type: 2}
+  - {fileID: 11400000, guid: 7b67d00dcdbbb5b4eb3225c021f33ea8, type: 2}
+  - {fileID: 11400000, guid: 7b67d00dcdbbb5b4eb3225c021f33ea8, type: 2}
+  - {fileID: 11400000, guid: 7b67d00dcdbbb5b4eb3225c021f33ea8, type: 2}
+  - {fileID: 11400000, guid: 7b67d00dcdbbb5b4eb3225c021f33ea8, type: 2}
   _reagentsLevel:
-  - {fileID: 11400000, guid: a49bd3efb8880404bbf8f068a2e2c9da, type: 2}
-  - {fileID: 11400000, guid: 9f26fcd8ebf87cd4ca008a9f2fa414de, type: 2}
+  - {fileID: 11400000, guid: d891bb31f15706543aff3cac25b6d45a, type: 2}
+  - {fileID: 11400000, guid: 0581b6531081a5949b4afe73dc08a643, type: 2}
+  - {fileID: 11400000, guid: 3ec4a9b2b47b291468de585e05b5abe6, type: 2}
+  - {fileID: 11400000, guid: 3ec4a9b2b47b291468de585e05b5abe6, type: 2}
 --- !u!114 &1594880469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2357,6 +2373,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TalentNode (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1702162882430573122, guid: dd8854a099cd09d4aaca0bebf506268a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1702162882430573124, guid: dd8854a099cd09d4aaca0bebf506268a, type: 3}
       propertyPath: _treeTalent
       value: 
@@ -2612,6 +2632,10 @@ PrefabInstance:
     - target: {fileID: 1702162882430573122, guid: dd8854a099cd09d4aaca0bebf506268a, type: 3}
       propertyPath: m_Name
       value: TalentNode (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1702162882430573122, guid: dd8854a099cd09d4aaca0bebf506268a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1702162882430573124, guid: dd8854a099cd09d4aaca0bebf506268a, type: 3}
       propertyPath: _treeTalent
@@ -3190,7 +3214,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2095202751
 RectTransform:
   m_ObjectHideFlags: 0

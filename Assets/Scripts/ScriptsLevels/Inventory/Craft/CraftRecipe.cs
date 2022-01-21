@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using ScriptsLevels.Inventory;
 using UnityEngine;
 
 namespace Inventory.Craft
@@ -8,7 +9,7 @@ namespace Inventory.Craft
     public class CraftRecipe : ScriptableObject
     {
         public int Amount => _amount;
-        public Item[] ItemsOrder { get; private set; }
+        public InventoryItem[] ItemsOrder { get; private set; }
         
         [SerializeField]
         private int _amount;
@@ -19,7 +20,7 @@ namespace Inventory.Craft
         {
             var count = _rowItemsRecipes.Sum(rowItemsRecipe => rowItemsRecipe.Items.Count);
             
-            ItemsOrder = new Item[count];
+            ItemsOrder = new InventoryItem[count];
             var orderId = 0;
             foreach (var rowItemsRecipe in _rowItemsRecipes)
             {

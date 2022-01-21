@@ -8,7 +8,7 @@ namespace ScriptsMenu.Tree.TalentScriptableObject
     public class TowerUnlockTalent : Talent
     {
         [SerializeField]
-        private TowerItem _towerItem;
+        private InventoryItem _towerItem;
 
         public override void ActivateTalent()
         {

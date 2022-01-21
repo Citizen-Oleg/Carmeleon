@@ -2175,7 +2175,10 @@ MonoBehaviour:
   _viewBestiaryItem: {fileID: 6232870934254643747, guid: 6a0e6d738ccba5b4dbab85eac466a564, type: 3}
   _container: {fileID: 7227996273272437713}
   _gridLayoutGroup: {fileID: 3105764323446679091}
-  _bestiaryItems: []
+  _bestiaryItems:
+  - {fileID: 11400000, guid: 6e93f7f7d7c3473449421751c613e1ff, type: 2}
+  - {fileID: 11400000, guid: 55029db95a509e9419705f2760ffd9ea, type: 2}
+  - {fileID: 11400000, guid: 3fc73fded09a833418c3da18ae491ea1, type: 2}
 --- !u!1 &1402335990524004717
 GameObject:
   m_ObjectHideFlags: 0
@@ -11229,7 +11232,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.00052754476}
+  m_AnchoredPosition: {x: 0, y: 0.000107943444}
   m_SizeDelta: {x: 0, y: 104.0648}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &4108600643946375826
@@ -12043,3 +12046,4 @@ MonoBehaviour:
   _gridLayoutGroup: {fileID: 4626531627274192693}
   _bestiaryItems:
   - {fileID: 11400000, guid: 8688713fe0736ce48933b0bbe197f88d, type: 2}
+  - {fileID: 11400000, guid: e8df594bb813b0b4e9964a7de1d1a44d, type: 2}

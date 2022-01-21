@@ -30,7 +30,7 @@ namespace EnemyComponent
         }
 
         public int ID => _id;
-        public string Explanation => _name;
+        public string Name => _name;
         public Transform Position => _positionExplanationUI;
         public CharacteristicsEnemy CharacteristicsEnemy => _characteristicsEnemy;
         public MovementEnemyController MovementEnemyController => _movementEnemyController;

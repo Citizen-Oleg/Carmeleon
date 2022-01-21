@@ -11,7 +11,7 @@ namespace Towers
     [RequireComponent(typeof(TowerCharacteristics))]
     public class Tower : MonoBehaviour, IExplanationObject
     {
-        public string Explanation => _name;
+        public string Name => _name;
         public Transform Position => _positionExplanationUI;
         public TowerCharacteristics TowerCharacteristics => _towerCharacteristics;
         public TowerBuffController TowerBuffController => _towerBuffController;

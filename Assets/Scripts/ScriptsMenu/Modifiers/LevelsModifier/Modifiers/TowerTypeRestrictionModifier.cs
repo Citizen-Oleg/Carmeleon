@@ -26,11 +26,12 @@ namespace ScriptsMenu.Modifiers.LevelsModifier.Modifiers
             RemoveTowersWrongType(improvedTowers);
         }
 
-        private void RemoveTowersWrongType(List<TowerItem> towerItems)
+        private void RemoveTowersWrongType(List<InventoryItem> towerItems)
         {
             for (int i = 0; i < towerItems.Count; i++)
             {
-                if (towerItems[i].Tower.TowerCharacteristics.DamageType != _damageType)
+                var item = (TowerItem) towerItems[i].Item;
+                if (item.Tower.TowerCharacteristics.DamageType != _damageType)
                 {
                     towerItems.RemoveAt(i);
                     i--;

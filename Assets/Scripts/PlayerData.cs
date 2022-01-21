@@ -1,6 +1,6 @@
 using System.Collections.Generic;
-using Inventory;
 using ScriptsLevels.Inventory;
+using ScriptsMenu.Map;
 using ScriptsMenu.Tree;
 using UnityEngine;
 
@@ -24,12 +24,12 @@ public class PlayerData : MonoBehaviour
     
     public float StoreDiscount { get; set; }
     
-    public List<TowerItem> StandardTowerLevel { get; private set; }
-    public List<TowerItem> ImprovedLevelTowers { get; private set; }
+    public List<InventoryItem> StandardTowerLevel { get; private set; }
+    public List<InventoryItem> ImprovedLevelTowers { get; private set; }
 
-    public List<Item> ReagentsLevel => _reagentsLevel;
-    public List<ScriptsMenu.Map.Level> PassedLevel => _passedLevel;
-    public List<TalentNode> ActivatedTalentNodes => _activatedTalentNodesNodes;
+    public List<InventoryItem> ReagentsLevel => _reagentsLevel;
+    public List<LevelData> PassedLevel => _passedLevel;
+    public List<TalentData> ActivatedTalentNodes => _activatedTalentData;
 
     [SerializeField]
     private int _reagentShopSize = 2;
@@ -39,42 +39,42 @@ public class PlayerData : MonoBehaviour
     private int _inventorySize = 4;
     
     [SerializeField]
-    private List<TowerItem> _standardTowerLevel = new List<TowerItem>();
+    private List<InventoryItem> _standardTowerLevel = new List<InventoryItem>();
     [SerializeField]
-    private List<TowerItem> _improvedLevelTowers = new List<TowerItem>();
+    private List<InventoryItem> _improvedLevelTowers = new List<InventoryItem>();
     [SerializeField]
-    private List<Item> _reagentsLevel = new List<Item>();
+    private List<InventoryItem> _reagentsLevel = new List<InventoryItem>();
 
-    private readonly List<ScriptsMenu.Map.Level> _passedLevel = new List<ScriptsMenu.Map.Level>();
-    private readonly List<TalentNode> _activatedTalentNodesNodes = new List<TalentNode>();
+    private readonly List<LevelData> _passedLevel = new List<LevelData>();
+    private readonly List<TalentData> _activatedTalentData = new List<TalentData>();
 
-    public void AddPassedLevel(ScriptsMenu.Map.Level passedLevel)
+    public void AddPassedLevel(LevelData passedLevelData)
     {
-        _passedLevel.Add(passedLevel);
+        _passedLevel.Add(passedLevelData);
     }
 
-    public void AddActivatedNode(TalentNode talentNode)
+    public void AddActivatedNode(TalentData talentData)
     {
-        _activatedTalentNodesNodes.Add(talentNode);
+        _activatedTalentData.Add(talentData);
     }
 
-    public void ClearActivatedNode()
+    public void ClearActivatedTalent()
     {
-        _activatedTalentNodesNodes.Clear();
+        _activatedTalentData.Clear();
     }
     
     public void SetTowersForTheLevel()
     {
-        StandardTowerLevel = new List<TowerItem>(_standardTowerLevel);
-        ImprovedLevelTowers = new List<TowerItem>(_improvedLevelTowers);
+        StandardTowerLevel = new List<InventoryItem>(_standardTowerLevel);
+        ImprovedLevelTowers = new List<InventoryItem>(_improvedLevelTowers);
     }
 
-    public void AddImprovedTower(TowerItem towerItem)
+    public void AddImprovedTower(InventoryItem towerItem)
     {
         _improvedLevelTowers.Add(towerItem);
     }
 
-    public void RemoveImprovedTower(TowerItem towerItem)
+    public void RemoveImprovedTower(InventoryItem towerItem)
     {
         _improvedLevelTowers.Remove(towerItem);
     }

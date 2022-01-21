@@ -1,6 +1,7 @@
 ﻿using System;
 using Inventory;
 using JetBrains.Annotations;
+using ScriptsLevels.Inventory;
 using TMPro;
 using UnityEngine;
 using Image = UnityEngine.UI.Image;
@@ -20,12 +21,12 @@ namespace TowerShop
         [SerializeField]
         private TextMeshProUGUI _itemPrice;
 
-        private Action<Item, BuyButton> _callback;
+        private Action<InventoryItem, BuyButton> _callback;
         private bool _isReplaceableItems;
-        private Item _item;
+        private InventoryItem _item;
         private bool _isOpen;
 
-        public void Initialize(Action<Item, BuyButton> callback, bool isOpen, Item item, bool isReplaceableItems = true)
+        public void Initialize(Action<InventoryItem, BuyButton> callback, bool isOpen, InventoryItem item, bool isReplaceableItems = true)
         {
             _isOpen = isOpen;
 
@@ -44,9 +45,9 @@ namespace TowerShop
             }
         }
 
-        public void SetNewItem(Item item)
+        public void SetNewItem(InventoryItem inventoryItem)
         {
-            _item = item;
+            _item = inventoryItem;
             RefreshUI();
         }
 

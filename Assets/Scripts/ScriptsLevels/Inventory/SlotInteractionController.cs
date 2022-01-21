@@ -61,7 +61,7 @@ namespace Inventory
                     return;
                 }
 
-                if (!CheckSuitableId(currentItem) || !ItemInSlot.Item.HasStack || CheckAmountSuitable(currentItem))
+                if (!CheckSuitableId(currentItem) || !ItemInSlot.InventoryItem.HasStack || CheckAmountSuitable(currentItem))
                 {
                     return;
                 }
@@ -95,7 +95,7 @@ namespace Inventory
 
         private bool CheckSuitableId(ItemInSlot currentItem)
         {
-            if (currentItem.Item.ID != ItemInSlot.Item.ID)
+            if (currentItem.InventoryItem.Item.ID != ItemInSlot.InventoryItem.Item.ID)
             {
                 _inventoryScreen.SetCurrentItem(ItemInSlot);
                _currentSlot.SetItem(currentItem);
@@ -107,14 +107,14 @@ namespace Inventory
 
         private bool CheckAmountSuitable(ItemInSlot currentItem)
         {
-            var isAmountSuitable = currentItem.Amount + ItemInSlot.Amount <= ItemInSlot.Item.MAXStacks;
+            var isAmountSuitable = currentItem.Amount + ItemInSlot.Amount <= ItemInSlot.InventoryItem.MAXStacks;
             if (isAmountSuitable)
             {
                 _currentSlot.AddItem(currentItem, currentItem.Amount);
             }
             else
             {
-                var freeUnits = ItemInSlot.Item.MAXStacks - ItemInSlot.Amount;
+                var freeUnits = ItemInSlot.InventoryItem.MAXStacks - ItemInSlot.Amount;
                 _currentSlot.AddItem(currentItem, freeUnits);
             }
             
@@ -126,16 +126,17 @@ namespace Inventory
         {
             if (_inventoryScreen.HasCurrentItem && !HasItem)
             {
-                _currentSlot.AddItem(_inventoryScreen.CurrentItemInSlot, 1);
+                _currentSlot.AddItem(_inventoryScreen.CurrentItemInSlot);
                 _inventoryScreen.CheckCurrentItem();
                 return;
             }
 
             var hasItems = _inventoryScreen.HasCurrentItem && HasItem;
-            var isAvailableStack = ItemInSlot.Item.HasStack && ItemInSlot.Amount < ItemInSlot.Item.MAXStacks;
-            if (hasItems && _inventoryScreen.CurrentItemInSlot.Item.ID == ItemInSlot.Item.ID && isAvailableStack)
+            var isAvailableStack = ItemInSlot.InventoryItem.HasStack && ItemInSlot.Amount < ItemInSlot.InventoryItem.MAXStacks;
+            if (hasItems && _inventoryScreen.CurrentItemInSlot.InventoryItem.Item.ID == ItemInSlot.InventoryItem.Item.ID 
+                         && isAvailableStack)
             {
-                _currentSlot.AddItem(_inventoryScreen.CurrentItemInSlot, 1);
+                _currentSlot.AddItem(_inventoryScreen.CurrentItemInSlot);
                 _inventoryScreen.CheckCurrentItem();
             }
         }
@@ -150,7 +151,7 @@ namespace Inventory
             var halfAmount = (int) Math.Ceiling((float) ItemInSlot.Amount / 2);
 
             ItemInSlot.Amount -= halfAmount;
-            _inventoryScreen.SetCurrentItem(new ItemInSlot(ItemInSlot.Item, halfAmount));
+            _inventoryScreen.SetCurrentItem(new ItemInSlot(ItemInSlot.InventoryItem, halfAmount));
             _currentSlot.RefreshUI();
         }
     }

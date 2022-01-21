@@ -38,7 +38,7 @@ namespace ScriptsLevels.ExplanationObject
 
                 if (!_viewExplanation.IsOpen)
                 {
-                    _viewExplanation.Show(explanationObject.Explanation);
+                    _viewExplanation.Show(explanationObject.Name);
                 } 
             }
             else

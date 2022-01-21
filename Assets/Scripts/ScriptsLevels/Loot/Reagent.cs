@@ -1,6 +1,7 @@
 ﻿using Interface;
 using Inventory;
 using Level;
+using ScriptsLevels.Inventory;
 using ScriptsLevels.Level;
 using UnityEngine;
 
@@ -9,7 +10,7 @@ namespace Loot
     public class Reagent : MonoBehaviour, IDropItem, IExplanationObject
     {
         public int ID => _id;
-        public string Explanation => _name;
+        public string Name => _name;
         public Transform Position => _positionExplanationUI;
         
         [SerializeField]
@@ -19,7 +20,7 @@ namespace Loot
         [SerializeField]
         private Transform _positionExplanationUI;
         [SerializeField]
-        private Item _item;
+        private InventoryItem _item;
 
         private ReagentPool _reagentPool;
         private InventoryManager _inventoryManager;
@@ -36,7 +37,6 @@ namespace Loot
             {
                 _reagentPool.ReleaseReagent(this);
             }
-
         }
     }
 }

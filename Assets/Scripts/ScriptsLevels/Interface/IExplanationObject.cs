@@ -5,7 +5,7 @@ namespace Interface
 {
     public interface IExplanationObject
     {
-        string Explanation { get; }
+        string Name { get; }
         Transform Position { get; }
     }
 }

@@ -44,12 +44,12 @@ namespace DragController
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            if (_inventoryScreen.HasCurrentItem && _inventoryScreen.CurrentItemInSlot.Item is TowerItem towerItem)
+            if (_inventoryScreen.HasCurrentItem && _inventoryScreen.CurrentItemInSlot.InventoryItem.Item is TowerItem towerItem)
             {
                 _currentItemInSlot = _inventoryScreen.CurrentItemInSlot;
                 _inventoryScreen.ResetCurrentItem();
                 _towerItem = _towerItemManager.GetInitializedTowerItem(towerItem);
-                _currentItemInSlot.Item = _towerItem;
+                _currentItemInSlot.InventoryItem.Item = _towerItem;
             } 
         }
 
@@ -106,7 +106,7 @@ namespace DragController
             if (placeInstallationTower.IsAvailableForDemolition(_towerItem))
             {
                 _currentItemInSlot = placeInstallationTower.DestroyTower();
-                _towerItem = (TowerItem) _currentItemInSlot.Item;
+                _towerItem = (TowerItem) _currentItemInSlot.InventoryItem.Item;
             }
         }
 

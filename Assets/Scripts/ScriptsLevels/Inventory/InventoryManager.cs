@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using ScriptsLevels.Inventory;
 using UnityEngine;
 
 namespace Inventory
@@ -41,9 +42,9 @@ namespace Inventory
             }
         }
 
-        public bool AddItemToSlot(Item item)
+        public bool AddItemToSlot(InventoryItem inventoryItem)
         {
-            if (item.HasStack && AddItemToFilledSlot(item))
+            if (inventoryItem.HasStack && AddItemToFilledSlot(inventoryItem))
             {
                 return true;
             }
@@ -51,12 +52,12 @@ namespace Inventory
             var freeSlot = GetFreeSlot();
             if (freeSlot != null)
             {
-                if (item.HasStack)
+                if (inventoryItem.HasStack)
                 {
                     _filledSlotsStacks.Add(freeSlot);
                 }
                 
-                freeSlot.SetItem(new ItemInSlot(item));
+                freeSlot.SetItem(new ItemInSlot(inventoryItem));
                 return true;
             }
 
@@ -76,13 +77,13 @@ namespace Inventory
             }
         }
         
-        private bool AddItemToFilledSlot(Item item)
+        private bool AddItemToFilledSlot(InventoryItem inventoryItem)
         {
             foreach (var slot in _filledSlotsStacks)
             {
-                if (slot.HasItem && slot.ItemInSlot.Item.ID == item.ID && slot.HasFreePlaces)
+                if (slot.HasItem && slot.ItemInSlot.InventoryItem.Item.ID == inventoryItem.Item.ID && slot.HasFreePlaces)
                 {
-                    slot.AddItem(new ItemInSlot(item));
+                    slot.AddItem(new ItemInSlot(inventoryItem));
                     return true;
                 }
             }

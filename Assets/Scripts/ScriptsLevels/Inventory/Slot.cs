@@ -16,7 +16,7 @@ namespace Inventory
         public event Action<Slot> OnChange;
         public bool IsOpen => _isOpen;
         public bool HasItem => _itemInSlot != null;
-        public bool HasFreePlaces => HasItem && _itemInSlot.Item.MAXStacks != _itemInSlot.Amount;
+        public bool HasFreePlaces => HasItem && _itemInSlot.InventoryItem.MAXStacks != _itemInSlot.Amount;
         public ItemInSlot ItemInSlot => _itemInSlot;
 
         [SerializeField]
@@ -59,7 +59,7 @@ namespace Inventory
         {
             if (HasItem)
             {
-                _viewExplanation.Show(_itemInSlot.Item.Name);
+                _viewExplanation.Show(_itemInSlot.InventoryItem.Item.Name);
             }
         }
 
@@ -80,7 +80,7 @@ namespace Inventory
 
             if (!HasItem)
             {
-                SetItem(new ItemInSlot(itemInSlot.Item, amount));
+                SetItem(new ItemInSlot(itemInSlot.InventoryItem, amount));
             }
             else
             {
@@ -99,7 +99,7 @@ namespace Inventory
         public void RefreshUI()
         {
             _itemImage.gameObject.SetActive(HasItem);
-            _itemImage.sprite = _itemInSlot?.Item.Sprite;
+            _itemImage.sprite = _itemInSlot?.InventoryItem.Sprite;
 
             _itemAmount.gameObject.SetActive(HasItem && _itemInSlot?.Amount > 1);
             _itemAmount.text = _itemInSlot?.Amount.ToString();

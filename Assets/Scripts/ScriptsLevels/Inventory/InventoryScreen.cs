@@ -34,7 +34,7 @@ namespace Inventory
         public void SetCurrentItem(ItemInSlot itemInSlot)
         {
             _currentItemInSlot = itemInSlot;
-            _curentItemImage.sprite = _currentItemInSlot.Item.Sprite;
+            _curentItemImage.sprite = _currentItemInSlot.InventoryItem.Sprite;
             _curentItemImage.gameObject.SetActive(true);
             CheckCurrentItem();
         }

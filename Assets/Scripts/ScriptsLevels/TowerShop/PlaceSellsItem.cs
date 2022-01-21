@@ -26,7 +26,7 @@ namespace TowerShop
         {
             if (eventData.button == PointerEventData.InputButton.Left && _inventoryScreen.HasCurrentItem)
             {
-                var item = _inventoryScreen.CurrentItemInSlot.Item;
+                var item = _inventoryScreen.CurrentItemInSlot.InventoryItem;
                 var amount = item.Price.Amount * (_moneyBackPercentage / 100);
                 _resourceManagerLevel.AddResource(item.Price.Type, (int) amount);
                 _inventoryScreen.ResetCurrentItem();

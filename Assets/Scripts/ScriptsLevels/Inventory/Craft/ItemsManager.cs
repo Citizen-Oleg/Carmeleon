@@ -1,14 +1,15 @@
 ﻿using System.Collections.Generic;
+using ScriptsLevels.Inventory;
 using UnityEngine;
 
 namespace Inventory.Craft
 {
     public class ItemsManager : MonoBehaviour
     {
-        public List<Item> ItemsWithCraft => _itemsWithCraft;
+        public List<InventoryItem> ItemsWithCraft => _itemsWithCraft;
 
         [SerializeField]
-        private List<Item> _itemsWithCraft;
+        private List<InventoryItem> _itemsWithCraft;
         
         private void Awake()
         {
