@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using Towers;
 using UnityEngine;
 using UnityEngine.UI;
@@ -20,17 +21,16 @@ namespace ScriptsLevels.Bestiary
 
         [Header("Buff info")]
         [SerializeField]
-        private GameObject _fon;
+        private ViewBuffInfo _viewDebuffInfoEnemy;
         [SerializeField]
-        private Image _imageBuff;
-        [SerializeField]
-        private TextMeshProUGUI _nameBuff;
-        [SerializeField]
-        private TextMeshProUGUI _descriptionBuff;
-        
+        private ViewBuffInfo _viewBuffInfoTower;
+
         public void Initialize(BestiaryItemTower bestiaryItemTower)
         {
             gameObject.SetActive(true);
+            _viewBuffInfoTower.gameObject.SetActive(false);
+            _viewDebuffInfoEnemy.gameObject.SetActive(false);
+            
             var characteristics = bestiaryItemTower.Item.Tower.TowerCharacteristics;
             
             _textAttackSpeed.text = characteristics.AttackSpeed.ToString();
@@ -39,14 +39,16 @@ namespace ScriptsLevels.Bestiary
             _textRadius.text = characteristics.AttackRadius == 0 ? "Глобальный" : characteristics.AttackRadius.ToString();
             _imageCraft.sprite = bestiaryItemTower.SpriteCraftItem;
             
-            var isBuff = bestiaryItemTower.SettingsBuff != null;
-            _fon.gameObject.SetActive(isBuff);
-            
-            if (isBuff)
+            if (bestiaryItemTower.SettingsDebuffEnemy != null)
             {
-                _imageBuff.sprite = bestiaryItemTower.SettingsBuff.Sprite;
-                _nameBuff.text = bestiaryItemTower.SettingsBuff.Name;
-                _descriptionBuff.text = bestiaryItemTower.SettingsBuff.Description;
+                var buff = bestiaryItemTower.SettingsDebuffEnemy;
+                _viewDebuffInfoEnemy.Initialize(buff.Sprite, buff.Name, buff.Description);
+            }
+
+            if (bestiaryItemTower.SettingsBuffTower != null)
+            {
+                var buff = bestiaryItemTower.SettingsBuffTower;
+                _viewBuffInfoTower.Initialize(buff.Sprite, buff.Name, buff.Description);
             }
         }
 

@@ -25,17 +25,16 @@ namespace ScriptsLevels.Bestiary
 
         [Header("Buff info")]
         [SerializeField]
-        private GameObject _fon;
+        private ViewBuffInfo _viewBuffInfoTower;
         [SerializeField]
-        private Image _imageBuff;
-        [SerializeField]
-        private TextMeshProUGUI _nameBuff;
-        [SerializeField]
-        private TextMeshProUGUI _descriptionBuff;
+        private ViewBuffInfo _viewBuffInfoEnemy;
         
         public void Initialize(BestiaryItemEnemy bestiaryItemEnemy)
         {
             gameObject.SetActive(true);
+            _viewBuffInfoTower.gameObject.SetActive(false);
+            _viewBuffInfoEnemy.gameObject.SetActive(false);
+            
             var characteristics = bestiaryItemEnemy.Item.Enemy.CharacteristicsEnemy;
 
             _textHP.text = characteristics.BaseMaxHp.ToString();
@@ -46,15 +45,17 @@ namespace ScriptsLevels.Bestiary
             _textEarthResistance.text = characteristics.EarthResistance.ToString();
             _textDamageToBase.text = characteristics.DamageToBase.ToString();
             _textSpeed.text = characteristics.BaseSpeed.ToString();
-            
-            var isBuff = bestiaryItemEnemy.SettingsBuff != null;
-            _fon.gameObject.SetActive(isBuff);
-            
-            if (isBuff)
+
+            if (bestiaryItemEnemy.SettingsBuffEnemy != null)
             {
-                _imageBuff.sprite = bestiaryItemEnemy.SettingsBuff.Sprite;
-                _nameBuff.text = bestiaryItemEnemy.SettingsBuff.Name;
-                _descriptionBuff.text = bestiaryItemEnemy.SettingsBuff.Description;
+                var buff = bestiaryItemEnemy.SettingsBuffEnemy;
+                _viewBuffInfoEnemy.Initialize(buff.Sprite, buff.Name, buff.Description);
+            }
+
+            if (bestiaryItemEnemy.SettingsDebuffTower != null)
+            {
+                var buff = bestiaryItemEnemy.SettingsDebuffTower;
+                _viewBuffInfoTower.Initialize(buff.Sprite, buff.Name, buff.Description);
             }
         }
     }
