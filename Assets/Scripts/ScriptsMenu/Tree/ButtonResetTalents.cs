@@ -15,7 +15,7 @@ namespace ScriptsMenu.Tree
             var talents = playerData.ActivatedTalentNodes;
             
             _treeTalent.DeactivateTalent(talents);
-            playerData.ClearActivatedNode();
+            playerData.ClearActivatedTalent();
         }
     }
 }

@@ -56,7 +56,7 @@ namespace ScriptsMenu.Tree
                 if (_talentData.IsOpen && !_talentData.IsActive && _resourceManagerGame.HasEnough(_price))
                 {
                     _treeTalent.ActivatedTalent(this);
-                    GameManager.PlayerData.AddActivatedNode(this);
+                    GameManager.PlayerData.AddActivatedNode(_talentData);
                     _resourceManagerGame.Pay(_price);
                 }
             }
@@ -65,13 +65,11 @@ namespace ScriptsMenu.Tree
         public void OpenTalent()
         {
             _talentData.IsOpen = true;
-            Refresh();
         }
 
         public void CloseTalent()
         {
             _talentData.IsOpen = false;
-            Refresh();
         }
 
         public void Refresh()
@@ -100,6 +98,7 @@ namespace ScriptsMenu.Tree
             if (_nextTalentNode != null)
             {
                 _nextTalentNode.OpenTalent();
+                _nextTalentNode.Refresh();
             }
         }
 

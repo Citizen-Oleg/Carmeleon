@@ -23,11 +23,10 @@ namespace ScriptsMenu.Map
             OpeningRegions();
         }
         
-        private void SetPassedLevels(List<Level> passedLevels)
+        private void SetPassedLevels(List<LevelData> passedLevelsDatas)
         {
-            foreach (var passedLevel in passedLevels)
+            foreach (var levelData in passedLevelsDatas)
             {
-                var levelData = passedLevel.LevelData;
                 if (levelData.ID == _levels[levelData.ID].LevelData.ID)
                 {
                     var level = _levels[levelData.ID];
@@ -38,19 +37,19 @@ namespace ScriptsMenu.Map
                 }
                 else
                 {
-                    SetPassedLevel(passedLevel);
+                    SetPassedLevel(levelData);
                 }
             }
         }
         
-        private void SetPassedLevel(Level passedLevel)
+        private void SetPassedLevel(LevelData levelData)
         {
-            for (int i = passedLevel.LevelData.ID; i < _levels.Count; i++)
+            for (int i = levelData.ID; i < _levels.Count; i++)
             {
-                if (passedLevel.LevelData.ID == _levels[i].LevelData.ID)
+                if (levelData.ID == _levels[i].LevelData.ID)
                 {
                     var level = _levels[i];
-                    SetMatchLevelData(level.LevelData, passedLevel.LevelData);
+                    SetMatchLevelData(level.LevelData, levelData);
                     level.OpenLevel();
                     level.OpenNextLevel();
                     level.Refresh();

@@ -19,25 +19,51 @@ namespace ScriptsMenu.Tree
             _resourceManagerGame = GameManager.ResourceManagerGame;
             
             OpenStartTalentNodes();
-            SetActivatedTalents(GameManager.PlayerData.ActivatedTalentNodes);
+            SetOpenTalents(GameManager.PlayerData.ActivatedTalentNodes);
         }
 
         public void ActivatedTalent(TalentNode talentNode)
         {
-            talentNode.TalentData.IsActive = true;
+            OpenActivatedTalent(talentNode);
             talentNode.TalentData.Talent.ActivateTalent();
-            talentNode.Refresh();
-            talentNode.OpenNextTalent();
         }
 
-        public void DeactivateTalent(List<TalentNode> talentNodes)
+        public void OpenActivatedTalent(TalentNode talentNode)
         {
-            foreach (var talentNode in talentNodes)
+            talentNode.TalentData.IsActive = true;
+            talentNode.OpenTalent();
+            talentNode.OpenNextTalent();
+            talentNode.Refresh();
+        }
+
+        public void DeactivateTalent(List<TalentData> talentDatas)
+        {
+            foreach (var talentData in talentDatas)
             {
-                DeactivateTalent(talentNode);
+                if (talentData.ID == _talentNodes[talentData.ID].TalentData.ID)
+                {
+                    var talent = _talentNodes[talentData.ID];
+                    DeactivateTalent(talent);
+                }
+                else
+                {
+                    DeactivateTalent(talentData);
+                }
             }
             
             OpenStartTalentNodes();
+        }
+        
+        private void DeactivateTalent(TalentData talentData)
+        {
+            for (int i = talentData.ID; i < _talentNodes.Count; i++)
+            {
+                if (talentData.ID == _talentNodes[i].TalentData.ID)
+                {
+                    var talent = _talentNodes[i];
+                    DeactivateTalent(talent);
+                }
+            }
         }
         
         public void ActivatedTalent(List<TalentNode> talentNodes)
@@ -64,36 +90,34 @@ namespace ScriptsMenu.Tree
             foreach (var talentNode in _startTalentNodes)
             {
                 talentNode.OpenTalent();
+                talentNode.Refresh();
             }
         }
 
-        private void SetActivatedTalents(List<TalentNode> activatedNodes)
+        private void SetOpenTalents(List<TalentData> talentDatas)
         {
-            foreach (var activatedNode in activatedNodes)
+            foreach (var talantData in talentDatas)
             {
-                var talentData = activatedNode.TalentData;
-                if (talentData.ID == _talentNodes[talentData.ID].TalentData.ID)
+                if (talantData.ID == _talentNodes[talantData.ID].TalentData.ID)
                 {
-                    var talent = _talentNodes[talentData.ID];
-                    talent.OpenTalent();
-                    ActivatedTalent(talent);
+                    var talent = _talentNodes[talantData.ID];
+                    OpenActivatedTalent(talent);
                 }
                 else
                 {
-                    SetActivatedTalent(activatedNode);
+                    SetActivatedTalent(talantData);
                 }
             }
         }
 
-        private void SetActivatedTalent(TalentNode talentNode)
+        private void SetActivatedTalent(TalentData talentData)
         {
-            for (int i = talentNode.TalentData.ID; i < _talentNodes.Count; i++)
+            for (int i = talentData.ID; i < _talentNodes.Count; i++)
             {
-                if (talentNode.TalentData.ID == _talentNodes[i].TalentData.ID)
+                if (talentData.ID == _talentNodes[i].TalentData.ID)
                 {
                     var talent = _talentNodes[i];
-                    ActivatedTalent(talent);
-                    talent.OpenTalent();
+                    OpenActivatedTalent(talent);
                 }
             }
         }

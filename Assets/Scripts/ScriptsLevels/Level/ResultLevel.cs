@@ -56,7 +56,7 @@ namespace ScriptsLevels.Level
 
             CheckPatencyGoldStroke(levelData);
             
-            GameManager.PlayerData.AddPassedLevel(GameManager.instance.CurrentLevel);
+            GameManager.PlayerData.AddPassedLevel(GameManager.instance.CurrentLevel.LevelData);
             
             var context = new VictoryScreenContext(
                 CheckEasyPatencyLevel(levelData), CheckAveragePatencyLevel(levelData), CheckHighPatencyLevel(levelData));
