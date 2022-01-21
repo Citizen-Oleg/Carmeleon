@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using ResourceManager;
 using UnityEngine;
 
 namespace ScriptsMenu.Tree
@@ -9,10 +10,13 @@ namespace ScriptsMenu.Tree
         private List<TalentNode> _startTalentNodes = new List<TalentNode>();
         [SerializeField]
         private List<TalentNode> _talentNodes = new List<TalentNode>();
+
+        private ResourceManagerGame _resourceManagerGame;
         
         private void Awake()
         {
             _talentNodes = new BubbleSortTalentNode().Sort(_talentNodes);
+            _resourceManagerGame = GameManager.ResourceManagerGame;
             
             OpenStartTalentNodes();
             SetActivatedTalents(GameManager.PlayerData.ActivatedTalentNodes);
@@ -46,9 +50,12 @@ namespace ScriptsMenu.Tree
         
         private void DeactivateTalent(TalentNode talentNode)
         {
+            _resourceManagerGame.AddResource(talentNode.Price);
+            
             talentNode.TalentData.IsActive = false;
             talentNode.TalentData.Talent.DeactivateTalent();
             talentNode.CloseTalent();
+            talentNode.CloseNextTalent();
             talentNode.Refresh();
         }
 

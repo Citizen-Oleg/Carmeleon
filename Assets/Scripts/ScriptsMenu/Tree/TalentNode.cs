@@ -9,6 +9,7 @@ namespace ScriptsMenu.Tree
     public class TalentNode : MonoBehaviour, IPointerClickHandler
     {
         public TalentData TalentData => _talentData;
+        public Resource Price => _price;
 
         [SerializeField]
         private Resource _price;
@@ -99,6 +100,14 @@ namespace ScriptsMenu.Tree
             if (_nextTalentNode != null)
             {
                 _nextTalentNode.OpenTalent();
+            }
+        }
+
+        public void CloseNextTalent()
+        {
+            if (_nextTalentNode != null)
+            {
+                _nextTalentNode.CloseTalent();
             }
         }
     }
