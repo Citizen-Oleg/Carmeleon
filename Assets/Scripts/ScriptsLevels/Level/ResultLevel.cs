@@ -5,6 +5,7 @@ using ResourceManager;
 using ScreenManager;
 using ScriptsLevels.ContextScreen;
 using ScriptsLevels.Event;
+using ScriptsLevels.Providers;
 using ScriptsMenu.Map;
 using SimpleEventBus;
 using UnityEngine;
@@ -53,8 +54,6 @@ namespace ScriptsLevels.Level
             {
                 modifier.IsPassed = true;
             }
-
-            CheckPatencyGoldStroke(levelData);
             
             var context = new VictoryScreenContext(
                 CheckEasyPatencyLevel(levelData), CheckAveragePatencyLevel(levelData), CheckHighPatencyLevel(levelData));
@@ -62,53 +61,55 @@ namespace ScriptsLevels.Level
             GameManager.ScreenManager.OpenScreenWithContext(ScreenType.VictoryScreen, context);
         }
 
-        private bool CheckEasyPatencyLevel(LevelData levelData)
+        private SpriteType CheckEasyPatencyLevel(LevelData levelData)
         {
-            if (!levelData.IsPassedEasyLevel)
+            if (levelData.IsPassedEasyLevel)
             {
-                levelData.IsPassedEasyLevel = true;
-                AwardAccrual();
-                return true;
+                return SpriteType.ReceivedCrystal;
             }
 
-            return false;
+            levelData.IsPassedEasyLevel = true;
+            AwardAccrual();
+            return SpriteType.ReceivedCrystalReward;
         }
         
-        private bool CheckAveragePatencyLevel(LevelData levelData)
+        private SpriteType CheckAveragePatencyLevel(LevelData levelData)
         {
             var hasLostHP = _playerBase.CurrentHp < _playerBase.MAXHp;
+
             if (!hasLostHP && !levelData.IsPassedAverageLevel)
             {
                 levelData.IsPassedAverageLevel = true;
                 AwardAccrual();
-                return true;
+                return SpriteType.ReceivedCrystalReward;
             }
-            return false;
+            
+            if (!hasLostHP && levelData.IsPassedAverageLevel)
+            {
+                return SpriteType.ReceivedCrystal;
+            }
+            
+            return SpriteType.NotReceivedCrystal;
         }
         
-        private bool CheckHighPatencyLevel(LevelData levelData)
+        private SpriteType CheckHighPatencyLevel(LevelData levelData)
         {
             var hasLostHP = _playerBase.CurrentHp < _playerBase.MAXHp;
-            if (levelData.Modifiers.Count(modifier => modifier.IsActive) >= NUMBER_OF_MODIFICATORS_TO_START_ADVANCED_LEVEL 
-                && !hasLostHP && !levelData.IsPassedHighLevel)
-            {
-                levelData.IsPassedHighLevel = true;
-                AwardAccrual();
-                return true;
-            }
-            return false;
-        }
+            var isMaxModificator = levelData.Modifiers.Count(modifier => modifier.IsActive) >= NUMBER_OF_MODIFICATORS_TO_START_ADVANCED_LEVEL;
 
-        private bool CheckPatencyGoldStroke(LevelData levelData)
-        {
-            var hasLostHP = _playerBase.CurrentHp < _playerBase.MAXHp;
-            if (levelData.Modifiers.Count(modifier => modifier.IsActive) == NUMBER_OF_MODIFICATORS_FOR_GOLDEN_RIMS && !hasLostHP)
+            if (isMaxModificator && !hasLostHP && levelData.IsPassedHighLevel)
+            {
+                return SpriteType.ReceivedCrystal;
+            }
+            
+            if (isMaxModificator && !hasLostHP && !levelData.IsPassedHighLevel)
             {
                 levelData.HasGoldBorder = true;
-                return true;
+                levelData.IsPassedHighLevel = true;
+                AwardAccrual();
+                return SpriteType.ReceivedCrystalReward;
             }
-
-            return false;
+            return SpriteType.NotReceivedCrystal;
         }
 
         private void AwardAccrual()

@@ -2556,6 +2556,7 @@ GameObject:
   - component: {fileID: 1594880471}
   - component: {fileID: 1594880473}
   - component: {fileID: 1594880472}
+  - component: {fileID: 1594880474}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2622,6 +2623,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3efa0de209874f1a93a6d417d0eebe04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _spriteProvider: {fileID: 1594880474}
   _resourceManagerGame: {fileID: 1594880467}
   _screenManager: {fileID: 1594880471}
   _playerData: {fileID: 1594880468}
@@ -2686,6 +2688,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6977ad117759834d9710679dc91aaad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1594880474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1594880466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd2f92c3f39905046bb063160c6c06c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spriteDatas:
+  - _spriteType: 0
+    _sprite: {fileID: 21300000, guid: 3a018e8581f80d14bb219ead1e32030d, type: 3}
+  - _spriteType: 1
+    _sprite: {fileID: 21300000, guid: 82973094e703f2b47bb936d4b7f15459, type: 3}
+  - _spriteType: 2
+    _sprite: {fileID: 21300000, guid: 86205b05edcbb4f4d9817358b60cf5a0, type: 3}
 --- !u!1 &1621175282
 GameObject:
   m_ObjectHideFlags: 0

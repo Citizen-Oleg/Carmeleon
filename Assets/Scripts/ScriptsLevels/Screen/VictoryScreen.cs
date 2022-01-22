@@ -26,9 +26,10 @@ namespace ScriptsLevels.Screen
 
         public override void ApplyContext(VictoryScreenContext context)
         {
-            _easySplinter.gameObject.SetActive(context.IsPassedEasyLevel);
-            _averageSplinter.gameObject.SetActive(context.IsPassedAverageLevel);
-            _highSplinter.gameObject.SetActive(context.IsPassedHighLevel);
+            var spriteProvider = GameManager.SpriteProvider;
+            _easySplinter.sprite = spriteProvider.GetSpriteByType(context.EasyLevel);
+            _averageSplinter.sprite = spriteProvider.GetSpriteByType(context.AverageLevel);
+            _highSplinter.sprite = spriteProvider.GetSpriteByType(context.HighLevel);
         }
 
         public override void Initialize(ScreenType screenType)

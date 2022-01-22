@@ -1,6 +1,7 @@
 ﻿using System;
 using ResourceManager;
 using SaveSystem;
+using ScriptsLevels.Providers;
 using Tools;
 using UnityEditor;
 using UnityEngine;
@@ -12,9 +13,12 @@ public class GameManager : PersistentSingleton<GameManager>
     public static ResourceManagerGame ResourceManagerGame => instance._resourceManagerGame;
     public static LoadManager LoadManager => instance._loadManager;
     public static SaveManager SaveManager => instance._saveManager;
+    public static SpriteProvider SpriteProvider => instance._spriteProvider;
     
     public ScriptsMenu.Map.Level CurrentLevel { get; set; }
-    
+
+    [SerializeField]
+    private SpriteProvider _spriteProvider;
     [SerializeField]
     private ResourceManagerGame _resourceManagerGame;
     [SerializeField]

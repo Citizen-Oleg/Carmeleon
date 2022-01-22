@@ -1,18 +1,19 @@
 ﻿using ScreenManager;
+using ScriptsLevels.Providers;
 
 namespace ScriptsLevels.ContextScreen
 {
     public class VictoryScreenContext : BaseContext
     {
-        public bool IsPassedEasyLevel { get; private set; }
-        public bool IsPassedAverageLevel { get; private set; }
-        public bool IsPassedHighLevel { get; private set; }
+        public SpriteType EasyLevel { get; }
+        public SpriteType AverageLevel { get; }
+        public SpriteType HighLevel { get; }
 
-        public VictoryScreenContext(bool isPassedEasyLevel, bool isPassedAverageLevel, bool isPassedHighLevel)
+        public VictoryScreenContext(SpriteType easyLevel, SpriteType averageLevel, SpriteType hghLevel)
         {
-            IsPassedEasyLevel = isPassedEasyLevel;
-            IsPassedAverageLevel = isPassedAverageLevel;
-            IsPassedHighLevel = isPassedHighLevel;
+            EasyLevel = easyLevel;
+            AverageLevel = averageLevel;
+            HighLevel = hghLevel;
         }
     }
 }
