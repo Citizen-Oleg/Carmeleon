@@ -9,8 +9,11 @@ namespace SaveSystem
 {
     public class LoadManager : MonoBehaviour
     {
+        public DefaultSave DefaultSave => _defaultSave;
+
         [SerializeField]
         private DefaultSave _defaultSave;
+        
         public List<Resource> LoadResource()
         {
             var resourceSave = PlayerPrefs.GetString(GlobalConstant.SAVE_RESOURCE);
