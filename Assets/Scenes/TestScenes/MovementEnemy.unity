@@ -2806,15 +2806,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _defaultStartNode: {fileID: 886702605}
-  _delayedSpawnEnemies: 2
+  _delayedSpawnEnemies: 1
   _waveSpawns:
   - _enemySpawnData:
     - _enemy: {fileID: -4151402454022704107, guid: 06b7dbb60f6da0c4287aefd3c2dbfb5d, type: 3}
       _startNode: {fileID: 886702605}
-      _count: 10
-    - _enemy: {fileID: -4151402454022704107, guid: 06b7dbb60f6da0c4287aefd3c2dbfb5d, type: 3}
-      _startNode: {fileID: 886702605}
-      _count: 10
+      _count: 2
 --- !u!4 &1669284895
 Transform:
   m_ObjectHideFlags: 0
