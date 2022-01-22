@@ -1,14 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
 using JetBrains.Annotations;
 using ScreenManager;
+using UnityEditor;
 using UnityEngine;
 
-public class MainMenu : MonoBehaviour
+namespace ScriptsLevels
 {
-    [UsedImplicitly]
-    public void OpenBestiary()
+    public class MainMenu : MonoBehaviour
     {
-        GameManager.ScreenManager.OpenScreen(ScreenType.BestiaryScreen);
+        [UsedImplicitly]
+        public void OpenBestiary()
+        {
+            GameManager.ScreenManager.OpenScreen(ScreenType.BestiaryScreen);
+        }
+
+        [UsedImplicitly]
+        public void Exit()
+        {
+#if UNITY_EDITOR
+           EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
+        }
     }
 }

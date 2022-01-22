@@ -1281,6 +1281,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _containerReagent: {fileID: 563137232}
   _reagents:
+  - {fileID: 7209583451981731166, guid: 51b1069777969ec4aacc41791fd0ab0e, type: 3}
+  - {fileID: 7209583451981731166, guid: 64b4b5ef213f57a4f9e3fecded289903, type: 3}
   - {fileID: 7209583451981731166, guid: f178549b94c413f498d9c00b235989b5, type: 3}
 --- !u!114 &444555043
 MonoBehaviour:
@@ -5535,9 +5537,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _defaultStartNode: {fileID: 886702605}
-  _delayedSpawnEnemies: 1
+  _delayedSpawnEnemies: 2
   _waveSpawns:
   - _enemySpawnData:
+    - _enemy: {fileID: -4151402454022704107, guid: 06b7dbb60f6da0c4287aefd3c2dbfb5d, type: 3}
+      _startNode: {fileID: 886702605}
+      _count: 10
     - _enemy: {fileID: -4151402454022704107, guid: 06b7dbb60f6da0c4287aefd3c2dbfb5d, type: 3}
       _startNode: {fileID: 886702605}
       _count: 10
