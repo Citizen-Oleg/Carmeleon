@@ -32,10 +32,12 @@ public class GameManager : PersistentSingleton<GameManager>
         _saveManager.SaveLevel();
         _saveManager.SaveTalent();
     }
-
+    
+#if UNITY_EDITOR
     [MenuItem("Tools/ClearSave")]
     public static void ClearSave()
     {
         PlayerPrefs.DeleteAll();
     }
+#endif
 }
