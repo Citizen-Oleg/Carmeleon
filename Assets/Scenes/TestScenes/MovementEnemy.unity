@@ -848,7 +848,7 @@ MonoBehaviour:
   _itemsManager: {fileID: 1473805499}
   _craftSlotPrefab: {fileID: 2763426188419031514, guid: a2469282961524a4e81d6777e60a02d9, type: 3}
   _craftGrid: {fileID: 2119364247}
-  _resultSlot: {fileID: 8980834052422877781, guid: d7b49514ef702cb458fb066f8ae9c3f7, type: 3}
+  _resultSlot: {fileID: 622619573113746877}
 --- !u!1 &283151989
 GameObject:
   m_ObjectHideFlags: 0
@@ -4760,7 +4760,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a5a7449bc3841afae6b54964f3cfa8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemsWithCraft: []
+  _itemsWithCraft:
+  - {fileID: 11400000, guid: 5fb9d53f46bd23f42aad462ce3d57f78, type: 2}
 --- !u!114 &1473805500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7128,6 +7129,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 203561929}
     m_Modifications:
+    - target: {fileID: 244957155515970315, guid: d7b49514ef702cb458fb066f8ae9c3f7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3729528971420405594, guid: d7b49514ef702cb458fb066f8ae9c3f7, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -7198,7 +7203,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4689353867856361788, guid: d7b49514ef702cb458fb066f8ae9c3f7, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -76.5
+      value: -78.2
       objectReference: {fileID: 0}
     - target: {fileID: 4689353867856361788, guid: d7b49514ef702cb458fb066f8ae9c3f7, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -7216,6 +7221,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6309091261800158794, guid: d7b49514ef702cb458fb066f8ae9c3f7, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8336541693804939258, guid: d7b49514ef702cb458fb066f8ae9c3f7, type: 3}
       propertyPath: m_Name
       value: ResultCraftSlot
@@ -7227,6 +7236,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4689353867856361788, guid: d7b49514ef702cb458fb066f8ae9c3f7, type: 3}
   m_PrefabInstance: {fileID: 622619573113746875}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &622619573113746877 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8980834052422877781, guid: d7b49514ef702cb458fb066f8ae9c3f7, type: 3}
+  m_PrefabInstance: {fileID: 622619573113746875}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 982beea597df47228a6a526373a86638, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1549568729843138114
 PrefabInstance:
   m_ObjectHideFlags: 0

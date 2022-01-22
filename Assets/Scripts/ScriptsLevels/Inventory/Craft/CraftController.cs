@@ -84,7 +84,7 @@ namespace Inventory.Craft
                 }
             }
             
-            var craftOrder = new InventoryItem[currentRecipeH * currentRecipeW];
+            var craftOrder = new Item[currentRecipeH * currentRecipeW];
 
             var orderIndex = 0;
             
@@ -92,7 +92,7 @@ namespace Inventory.Craft
             {
                 for (int j = currentRecipeWStartIndex; j < currentRecipeWStartIndex + currentRecipeW; j++)
                 {
-                    craftOrder[orderIndex++] = CraftTable[i,j].ItemInSlot?.InventoryItem;
+                    craftOrder[orderIndex++] = CraftTable[i,j].ItemInSlot?.InventoryItem.Item;
                 }
             }
             ItemInSlot craftItem = null;
