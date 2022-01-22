@@ -1,4 +1,5 @@
-﻿using Inventory;
+﻿using System;
+using Inventory;
 using Level;
 using ResourceManager;
 using ScriptsLevels.Level;
@@ -20,7 +21,15 @@ namespace TowerShop
         {
             _inventoryScreen = LevelManager.InventoryScreen;
             _resourceManagerLevel = LevelManager.ResourceManagerLevel;
+
+            _inventoryScreen.OnChangingItem += Display;
         }
+
+        private void Display(bool hasMapping)
+        {
+            gameObject.SetActive(hasMapping);
+        }
+        
         
         public void OnPointerClick(PointerEventData eventData)
         {
@@ -31,6 +40,11 @@ namespace TowerShop
                 _resourceManagerLevel.AddResource(item.Price.Type, (int) amount);
                 _inventoryScreen.ResetCurrentItem();
             }
+        }
+
+        private void OnDestroy()
+        {
+            _inventoryScreen.OnChangingItem -= Display;
         }
     }
 }

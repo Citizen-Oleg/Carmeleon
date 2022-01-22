@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,6 +7,8 @@ namespace Inventory
 {
     public class InventoryScreen : MonoBehaviour
     {
+        public event Action<bool> OnChangingItem;
+
         public ItemInSlot CurrentItemInSlot => _currentItemInSlot;
 
         public bool HasCurrentItem => _currentItemInSlot != null;
@@ -19,8 +22,7 @@ namespace Inventory
         
         private void Start()
         {
-            _curentItemImage.gameObject.SetActive(false);
-            _textItemAmount.gameObject.SetActive(false);
+            ResetCurrentItem();
         }
 
         private void Update()
@@ -33,6 +35,7 @@ namespace Inventory
 
         public void SetCurrentItem(ItemInSlot itemInSlot)
         {
+            OnChangingItem?.Invoke(true);
             _currentItemInSlot = itemInSlot;
             _curentItemImage.sprite = _currentItemInSlot.InventoryItem.Sprite;
             _curentItemImage.gameObject.SetActive(true);
@@ -41,6 +44,7 @@ namespace Inventory
 
         public void ResetCurrentItem()
         {
+            OnChangingItem?.Invoke(false);
             _currentItemInSlot = null;
             _curentItemImage.gameObject.SetActive(false);
             _textItemAmount.gameObject.SetActive(false);
