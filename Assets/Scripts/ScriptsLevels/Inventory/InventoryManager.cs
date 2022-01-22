@@ -8,8 +8,9 @@ namespace Inventory
 {
     public class InventoryManager : MonoBehaviour
     {
+        [Range(0, 12)]
         [SerializeField]
-        private int _countSlots;
+        private int _countSlots = 12;
         [SerializeField]
         private Slot _prefabSlot;
         [SerializeField]

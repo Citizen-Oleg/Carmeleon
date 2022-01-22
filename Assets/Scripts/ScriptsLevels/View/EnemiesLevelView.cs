@@ -26,8 +26,9 @@ namespace View
             _subscription = EventStreams.UserInterface.Subscribe<EnemyDestroyedEvent>(RefreshUI);
 
             var waves = LevelManager.SpawnerEnemy.WaveSpawns;
-            var amountEnemiesLevel = waves.SelectMany(WaveSpawn => WaveSpawn.EnemySpawnData).Sum(spawnData => spawnData.Count);
+            var amountEnemiesLevel = waves.SelectMany(waveSpawn => waveSpawn.EnemySpawnData).Sum(spawnData => spawnData.Count);
             _maxNumberEnemies.text = amountEnemiesLevel.ToString();
+            _currentNumberEnemies.text = "0";
         }
 
         private void OnDestroy()

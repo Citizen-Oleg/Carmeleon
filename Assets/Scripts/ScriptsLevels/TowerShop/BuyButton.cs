@@ -1,14 +1,16 @@
 ﻿using System;
 using Inventory;
 using JetBrains.Annotations;
+using ScriptsLevels.ExplanationObject;
 using ScriptsLevels.Inventory;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using Image = UnityEngine.UI.Image;
 
 namespace TowerShop
 {
-    public class BuyButton : MonoBehaviour
+    public class BuyButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         public bool IsReplaceableItems => _isReplaceableItems;
 
@@ -20,6 +22,8 @@ namespace TowerShop
         private Sprite _closingSprite;
         [SerializeField]
         private TextMeshProUGUI _itemPrice;
+        [SerializeField]
+        private ViewExplanation _viewExplanation;
 
         private Action<InventoryItem, BuyButton> _callback;
         private bool _isReplaceableItems;
@@ -65,6 +69,22 @@ namespace TowerShop
             if (_isOpen)
             {
                 _callback?.Invoke(_item, this);
+            }
+        }
+
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            if (_isOpen)
+            {
+                _viewExplanation.Show(_item.Item.Name);
+            }
+        }
+
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            if (_isOpen)
+            {
+                _viewExplanation.Close();
             }
         }
     }
