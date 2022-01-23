@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEditor;
+using UnityEngine;
 
 namespace Towers
 {
@@ -53,6 +55,14 @@ namespace Towers
         private float _percentageAttackSpeedReduction;
         private float _percentageIncreaseDamage;
         private float _percentageDamageReduction;
+
+#if UNITY_EDITOR
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, _attackRadius);
+        }
+#endif
 
     }
 }
