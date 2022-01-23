@@ -12,7 +12,7 @@ namespace ScriptsLevels
         public void NewGame()
         {
             GameManager.PlayerData.StartNewLevel();
-            SceneManager.LoadScene(GlobalConstant.NAME_START_SCENE);
+            GameManager.LoadingController.StartLoad(GlobalConstant.NAME_START_SCENE);
         }
         
         [UsedImplicitly]

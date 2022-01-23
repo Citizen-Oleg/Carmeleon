@@ -1,4 +1,5 @@
 ﻿using System;
+using DefaultNamespace;
 using ResourceManager;
 using SaveSystem;
 using ScriptsLevels.Providers;
@@ -14,6 +15,7 @@ public class GameManager : PersistentSingleton<GameManager>
     public static LoadManager LoadManager => instance._loadManager;
     public static SaveManager SaveManager => instance._saveManager;
     public static SpriteProvider SpriteProvider => instance._spriteProvider;
+    public static LoadingController LoadingController => instance._loadingController;
     
     public ScriptsMenu.Map.Level CurrentLevel { get; set; }
 
@@ -29,6 +31,8 @@ public class GameManager : PersistentSingleton<GameManager>
     private LoadManager _loadManager;
     [SerializeField]
     private SaveManager _saveManager;
+    [SerializeField]
+    private LoadingController _loadingController;
 
     private void OnApplicationQuit()
     {

@@ -40,14 +40,14 @@ namespace ScriptsLevels.Screen
         [UsedImplicitly]
         public void BackToMenu()
         {
-            SceneManager.LoadScene(GlobalConstant.NAME_START_SCENE);
+            GameManager.LoadingController.StartLoad(GlobalConstant.NAME_START_SCENE);
             _screenManager.CloseTopScreen();
         }
 
         [UsedImplicitly]
         public void Restart()
         {
-            SceneManager.LoadScene(GameManager.instance.CurrentLevel.LevelData.NameScene);
+            GameManager.LoadingController.StartLoad(GameManager.instance.CurrentLevel.LevelData.NameScene);
             _screenManager.CloseTopScreen();
         }
     }

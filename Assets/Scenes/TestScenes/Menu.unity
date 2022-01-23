@@ -2557,6 +2557,7 @@ GameObject:
   - component: {fileID: 1594880473}
   - component: {fileID: 1594880472}
   - component: {fileID: 1594880474}
+  - component: {fileID: 1594880475}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2629,6 +2630,7 @@ MonoBehaviour:
   _playerData: {fileID: 1594880468}
   _loadManager: {fileID: 1594880472}
   _saveManager: {fileID: 1594880473}
+  _loadingController: {fileID: 1594880475}
 --- !u!4 &1594880470
 Transform:
   m_ObjectHideFlags: 0
@@ -2663,6 +2665,7 @@ MonoBehaviour:
   - {fileID: 5752359253191319895, guid: 6fa13eb43cdad12499522185f78d1087, type: 3}
   - {fileID: 2392438066528843904, guid: 2359602dd6d8b2d4d8bb458e2c9df881, type: 3}
   - {fileID: 3122990565262871484, guid: 239a1fe6d1e9fc046893cb31925c86d0, type: 3}
+  - {fileID: 3009808898447583174, guid: d462101df02f32f478682dc9c6bcf972, type: 3}
 --- !u!114 &1594880472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2707,6 +2710,18 @@ MonoBehaviour:
     _sprite: {fileID: 21300000, guid: 82973094e703f2b47bb936d4b7f15459, type: 3}
   - _spriteType: 2
     _sprite: {fileID: 21300000, guid: 86205b05edcbb4f4d9817358b60cf5a0, type: 3}
+--- !u!114 &1594880475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1594880466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d79dba393cc348e8bb890d5c4fc5e2e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1621175282
 GameObject:
   m_ObjectHideFlags: 0
