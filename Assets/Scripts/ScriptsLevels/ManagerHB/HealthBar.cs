@@ -19,7 +19,7 @@ namespace ManagerHB
         private RectTransform _transform;
         private RectTransform _parent;
 
-        private Vector2 _offSet;
+        
         private Enemy _enemy;
 
         private void Awake()
@@ -31,8 +31,7 @@ namespace ManagerHB
 
         private void Update()
         {
-            _transform.anchoredPosition = UIUtility.WorldToCanvasPosition(_parent, _enemy.CharacteristicsEnemy.transform);
-            _transform.anchoredPosition += _offSet;
+            _transform.anchoredPosition = UIUtility.WorldToCanvasPosition(_parent, _enemy.PositionHealthBar);
         }
 
         private void OnDestroy()
@@ -46,7 +45,6 @@ namespace ManagerHB
         public void Initialize(Enemy enemy)
         {
             _enemy = enemy;
-            _offSet = enemy.OffSetPositionHealthBar;
             _lastMaxHp = _enemy.CharacteristicsEnemy.MaxHp;
             
             Update();

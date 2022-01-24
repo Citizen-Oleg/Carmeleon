@@ -22,14 +22,6 @@ namespace ManagerHB
             _enemy.AttackBehaviour.OnAttackBase += Dead;
         }
 
-        private void OnDestroy()
-        {
-            if (_enemy != null)
-            {
-                _enemy.AttackBehaviour.OnAttackBase -= Dead;
-            }
-        }
-
         public void TakeDamage(int damage, DamageType damageType)
         {
             if (_enemy.CharacteristicsEnemy.IsDeath)
@@ -43,13 +35,17 @@ namespace ManagerHB
             
             if (_enemy.CharacteristicsEnemy.CurrentHp <= 0)
             {
-                Dead();
+                _enemy.CharacteristicsEnemy.IsDeath = true;
+                _enemy.EnemyAnimationController.SetAnimationDead();
             }
         }
         
         public void RestoreHealth(int recovery)
         {
-            _enemy.CharacteristicsEnemy.CurrentHp += recovery;
+            if (!_enemy.CharacteristicsEnemy.IsDeath)
+            {
+                _enemy.CharacteristicsEnemy.CurrentHp += recovery;
+            }
         }
         
         private void Dead()
@@ -57,6 +53,14 @@ namespace ManagerHB
             _enemy.CharacteristicsEnemy.IsDeath = true;
             OnDead?.Invoke(_enemy);
             EventStreams.UserInterface.Publish(new EnemyDestroyedEvent(_enemy));
+        }
+        
+        private void OnDestroy()
+        {
+            if (_enemy != null)
+            {
+                _enemy.AttackBehaviour.OnAttackBase -= Dead;
+            }
         }
     }
 }

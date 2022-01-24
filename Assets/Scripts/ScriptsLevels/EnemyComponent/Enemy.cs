@@ -8,6 +8,7 @@ using UnityEngine;
 
 namespace EnemyComponent
 {
+    [RequireComponent(typeof(Animator))]
     [RequireComponent(typeof(Rigidbody2D))]
     [RequireComponent(typeof(Collider2D))]
     [RequireComponent(typeof(EnemyBuffController))]
@@ -18,10 +19,10 @@ namespace EnemyComponent
     [RequireComponent(typeof(HealthBehavior))]
     public class Enemy : MonoBehaviour, IProduct, IExplanationObject
     {
-        public Vector2 OffSetPositionHealthBar
+        public Transform PositionHealthBar
         {
-            get => _offSetPositionHealthBar;
-            set => _offSetPositionHealthBar = value;
+            get => _positionHealthBar;
+            set => _positionHealthBar = value;
         }
         public SpriteRenderer SpriteRenderer
         {
@@ -38,6 +39,8 @@ namespace EnemyComponent
         public HealthBehavior HealthBehavior => _healthBehavior;
         public LootController LootController => _lootController;
         public EnemyBuffController EnemyBuffController => _enemyBuffController;
+        public EnemyAnimationController EnemyAnimationController => _enemyAnimationController;
+        public Transform PositionBody => _positionBody != null ? _positionBody : transform;
 
         [SerializeField]
         private int _id;
@@ -48,7 +51,9 @@ namespace EnemyComponent
         [SerializeField]
         private SpriteRenderer _spriteRenderer;
         [SerializeField]
-        private Vector2 _offSetPositionHealthBar;
+        private Transform _positionBody;
+        [SerializeField]
+        private Transform _positionHealthBar;
         [SerializeField]
         private LootController _lootController;
         [SerializeField]
@@ -61,5 +66,12 @@ namespace EnemyComponent
         private HealthBehavior _healthBehavior;
         [SerializeField]
         private EnemyBuffController _enemyBuffController;
+
+        private EnemyAnimationController _enemyAnimationController;
+
+        private void Awake()
+        {
+            _enemyAnimationController = new EnemyAnimationController(GetComponent<Animator>());
+        }
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -67,7 +68,11 @@ namespace EnemyComponent
         public bool IsMoving
         {
             get => _isMoving && !_isFrozen;
-            set => _isMoving = value;
+            set
+            {
+                _enemy.EnemyAnimationController.SetAnimationStan(!value);
+                _isMoving = value;   
+            }
         }
 
         public float BaseSpeed
@@ -173,5 +178,12 @@ namespace EnemyComponent
         private float _percentageIncreaseMaxHp;
         private float _percentageIncreaseSpeed;
         private float _percentageSpeedReduction;
+
+        private Enemy _enemy;
+        
+        private void Awake()
+        {
+            _enemy = GetComponent<Enemy>();
+        }
     }
 }

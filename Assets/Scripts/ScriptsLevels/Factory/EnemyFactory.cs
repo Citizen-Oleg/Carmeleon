@@ -66,6 +66,8 @@ namespace Factory
             characteristics.CurrentHp = characteristics.MaxHp;
             characteristics.IsDeath = false;
             characteristics.IsMoving = true;
+            
+            enemy.EnemyAnimationController.DefaultState();
         }
         
         public void ReleaseProduct(IProduct product)
