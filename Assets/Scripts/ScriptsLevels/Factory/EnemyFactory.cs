@@ -21,12 +21,17 @@ namespace Factory
         [SerializeField]
         private List<Enemy> _enemies = new List<Enemy>();
 
-        private Dictionary<int, MonoBehaviourPool<Enemy>> _enemyPool =
+        private readonly Dictionary<int, MonoBehaviourPool<Enemy>> _enemyPool =
             new Dictionary<int, MonoBehaviourPool<Enemy>>();
         private CompositeDisposable _subscriptions;
         
         private void Awake()
         {
+            for (int i = 0; i < _enemies.Count; i++)
+            {
+                _enemies[i].ID = i;
+            }
+            
             foreach (var enemy in _enemies)
             {
                 var pool = new MonoBehaviourPool<Enemy>(enemy, _containerEnemy, 10);
@@ -37,8 +42,6 @@ namespace Factory
             {
                 EventStreams.UserInterface.Subscribe<EnemyDestroyedEvent>(OnEnemyDestroyed)
             };
-
-            _enemies = BubbleSortProduct.GetSortList(_enemies);
         }
 
         private void OnDestroy()

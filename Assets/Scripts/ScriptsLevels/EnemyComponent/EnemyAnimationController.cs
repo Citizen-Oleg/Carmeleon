@@ -16,8 +16,7 @@ namespace EnemyComponent
 
         public void DefaultState()
         {
-            _animator.SetBool(IsStan, false);
-            _animator.SetBool(IsDead, false);
+            _animator.Rebind();
         }
 
         public void SetAnimationDead()

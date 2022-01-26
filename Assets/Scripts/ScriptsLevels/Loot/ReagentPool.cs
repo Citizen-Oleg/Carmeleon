@@ -15,6 +15,11 @@ namespace Loot
 
         private void Awake()
         {
+            for (int i = 0; i < _reagents.Count; i++)
+            {
+                _reagents[i].ID = i;
+            }
+            
             foreach (var reagent in _reagents)
             {
                 var pool = new MonoBehaviourPool<Reagent>(reagent, _containerReagent);

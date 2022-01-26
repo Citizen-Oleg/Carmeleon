@@ -62,6 +62,5 @@ namespace Towers
             Gizmos.DrawWireSphere(transform.position, _attackRadius);
         }
 #endif
-
     }
 }

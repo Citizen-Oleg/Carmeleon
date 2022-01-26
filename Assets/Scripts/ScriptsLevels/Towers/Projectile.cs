@@ -19,10 +19,13 @@ namespace Towers
         }
         
         public SpriteRenderer SpriteRenderer => _spriteRenderer;
-        public int ID => _id;
+
+        public int ID
+        {
+            get => _id;
+            set => _id = value;
+        }
         
-        [SerializeField]
-        private int _id;
         [SerializeField]
         private SpriteRenderer _spriteRenderer;
         [SerializeField]
@@ -33,6 +36,7 @@ namespace Towers
         protected DamageType _damageType;
         protected int _damage;
         
+        private int _id;
         private SettingsBuff<Enemy> _settingsBuff;
 
         public void Initialize(int damage, Enemy target, Action<Projectile> callback,
@@ -77,7 +81,7 @@ namespace Towers
 
         private void MoveToTarget()
         {
-            transform.position = Vector3.MoveTowards(transform.position, _target.transform.position,
+            transform.position = Vector3.MoveTowards(transform.position, _target.PositionBody.position,
                 _flightSpeed * Time.deltaTime);
 
             transform.right = _target.transform.position - transform.position;

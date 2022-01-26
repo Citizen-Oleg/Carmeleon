@@ -25,12 +25,15 @@ namespace Factory
 
         private void Awake()
         {
+            for (int i = 0; i < _projectiles.Count; i++)
+            {
+                _projectiles[i].ID = i;
+            }
+            
             var pool = new MonoBehaviourPool<Projectile>(_prefabStandardProjectile, _containerProjectile, 20);
             _projectilePool.Add(_prefabStandardProjectile, pool);
             pool = new MonoBehaviourPool<Projectile>(_splashStandardProjectile, _containerProjectile, 20);
             _projectilePool.Add(_splashStandardProjectile, pool);
-           
-           _projectiles = BubbleSortProduct.GetSortList(_projectiles);
         }
 
         public IProduct GetProduct(IProduct product)

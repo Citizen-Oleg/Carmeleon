@@ -1,11 +1,7 @@
-﻿using UnityEngine;
-
-namespace Interface
+﻿namespace Interface
 {
     public interface IProduct
     {
-        public SpriteRenderer SpriteRenderer { get; }
-        public int ID { get; }
-
+        public int ID { get; set; }
     }
 }

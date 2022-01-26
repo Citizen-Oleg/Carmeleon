@@ -9,14 +9,17 @@ using UnityEngine;
 namespace Loot
 {
     [RequireComponent(typeof(Animator))]
-    public class Reagent : MonoBehaviour, IDropItem, IExplanationObject
+    public class Reagent : MonoBehaviour, IDropItem, IExplanationObject, IProduct
     {
-        public int ID => _id;
+        public int ID
+        {
+            get => _id;
+            set => _id = value;
+        }
+        
         public string Name => _name;
         public Transform Position => _positionExplanationUI;
         
-        [SerializeField]
-        private int _id;
         [SerializeField]
         private string _name;
         [SerializeField]
@@ -31,6 +34,7 @@ namespace Loot
         [SerializeField]
         private float _fadeAnimationPercentage;
 
+        private int _id;
         private float _fadeStartTime;
         
         private ReagentAnimationController _reagentAnimationController;

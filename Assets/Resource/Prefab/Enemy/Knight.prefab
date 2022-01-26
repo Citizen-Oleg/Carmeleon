@@ -784,8 +784,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe88a2b38a674644eb887e6d25d7c6cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHP: 100
-  _currentHP: 100
+  _maxHP: 200
+  _currentHP: 200
   _baseSpeed: 1
   _damageToBase: 1
   _isDeath: 0
@@ -837,7 +837,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31ae16164415477e9553eb170ea1733c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _id: 0
+  _id: 2
   _name: "\u0420\u044B\u0446\u0430\u0440\u044C"
   _positionExplanationUI: {fileID: 9165010238193022483}
   _spriteRenderer: {fileID: 5863414857631339481}
@@ -1338,8 +1338,8 @@ MonoBehaviour:
   - {fileID: 2855326586829042833}
   - {fileID: 4395568654927892204}
   m_Bounds:
-    m_Center: {x: 0.00023502111, y: -0.0011050999, z: 0}
-    m_Extent: {x: 0.25943506, y: 0.41299504, z: 0}
+    m_Center: {x: -0.000223279, y: -0.0009510517, z: 0}
+    m_Extent: {x: 0.2593761, y: 0.412831, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &7265470734519364315
@@ -1395,14 +1395,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8430682517361152910}
-  m_LocalRotation: {x: -0, y: -0, z: -0.68966573, w: 0.72412795}
+  m_LocalRotation: {x: -0, y: -0, z: -0.69144034, w: 0.72243357}
   m_LocalPosition: {x: -0.09146719, y: 0.15787649, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2855326586829042833}
   m_Father: {fileID: 6366847520566144602}
   m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -87.488}
 --- !u!1 &8445322296540175696
 GameObject:
   m_ObjectHideFlags: 0

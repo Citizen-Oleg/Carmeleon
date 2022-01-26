@@ -30,7 +30,12 @@ namespace EnemyComponent
             set => _spriteRenderer = value;
         }
 
-        public int ID => _id;
+        public int ID
+        {
+            get => _id;
+            set => _id = value;
+        }
+        
         public string Name => _name;
         public Transform Position => _positionExplanationUI;
         public CharacteristicsEnemy CharacteristicsEnemy => _characteristicsEnemy;
