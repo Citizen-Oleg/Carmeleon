@@ -4,7 +4,6 @@ using UnityEngine;
 
 namespace Towers
 {
-    [RequireComponent(typeof(Tower))]
     public class TowerCharacteristics : MonoBehaviour
     {
         private const float MAXIMUM_ATTACK_SPEED_INCREASE = 50;

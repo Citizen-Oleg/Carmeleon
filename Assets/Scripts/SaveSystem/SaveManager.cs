@@ -25,5 +25,11 @@ namespace SaveSystem
             var serializeLevel = JsonConvert.SerializeObject(passedLevel);
             PlayerPrefs.SetString(GlobalConstant.SAVE_LEVEL, serializeLevel);
         }
+
+        public void SaveSettings()
+        {
+            var hasHealthDisplay = GameManager.SettingsGame.HasHealthDisplay;
+            PlayerPrefs.SetInt(GlobalConstant.SAVE_SETTINGS, hasHealthDisplay ? 1 : 0);
+        }
     }
 }

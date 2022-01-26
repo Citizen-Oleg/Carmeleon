@@ -67,7 +67,7 @@ namespace EnemyComponent
 
         public bool IsMoving
         {
-            get => _isMoving && !_isFrozen;
+            get => _isMoving && !_isFrozen && !_isDeath;
             set
             {
                 _enemy.EnemyAnimationController.SetAnimationStan(!value);

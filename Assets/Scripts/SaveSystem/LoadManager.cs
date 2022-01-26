@@ -40,5 +40,10 @@ namespace SaveSystem
                 : JsonConvert.DeserializeObject<List<TalentData>>(talentSave);
             return activeTalent;
         }
+
+        public bool LoadSettings()
+        {
+            return PlayerPrefs.GetInt(GlobalConstant.SAVE_SETTINGS) == 1;
+        }
     }
 }

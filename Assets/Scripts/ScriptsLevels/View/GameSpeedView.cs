@@ -17,7 +17,6 @@ namespace View
             {
                 LevelManager.instance.SetState(StateLevel.Normal, speed);
             }
-            
         }
     }
 }

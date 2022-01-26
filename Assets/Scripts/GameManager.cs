@@ -3,6 +3,7 @@ using DefaultNamespace;
 using ResourceManager;
 using SaveSystem;
 using ScriptsLevels.Providers;
+using ScriptsMenu.Settings;
 using Tools;
 using UnityEditor;
 using UnityEngine;
@@ -16,9 +17,12 @@ public class GameManager : PersistentSingleton<GameManager>
     public static SaveManager SaveManager => instance._saveManager;
     public static SpriteProvider SpriteProvider => instance._spriteProvider;
     public static LoadingController LoadingController => instance._loadingController;
+    public static SettingsGame SettingsGame => instance._settingsGame;
     
     public ScriptsMenu.Map.Level CurrentLevel { get; set; }
 
+    [SerializeField]
+    private SettingsGame _settingsGame;
     [SerializeField]
     private SpriteProvider _spriteProvider;
     [SerializeField]
@@ -39,6 +43,7 @@ public class GameManager : PersistentSingleton<GameManager>
         _saveManager.SaveResource();
         _saveManager.SaveLevel();
         _saveManager.SaveTalent();
+        _saveManager.SaveSettings();
     }
     
 #if UNITY_EDITOR

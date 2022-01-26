@@ -1,9 +1,14 @@
 using System;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using EnemyComponent;
+using EnemyComponent.Manager;
 using Event;
+using ScriptsLevels.Level;
+using ScriptsMenu.Settings;
 using SimpleEventBus;
 using SimpleEventBus.Disposables;
+using Spawner;
 using UnityEngine;
 
 namespace ManagerHB
@@ -18,26 +23,48 @@ namespace ManagerHB
         private readonly Dictionary<Enemy, HealthBar> _enemyHealthBars = new Dictionary<Enemy, HealthBar>();
         private MonoBehaviourPool<HealthBar> _healthBarPool;
         private CompositeDisposable _subscriptions;
+        private SettingsGame _settingsGame;
+        private EnemyManager _enemyManager;
 
         private void Awake()
         {
+            _settingsGame = GameManager.SettingsGame;
+            _enemyManager = LevelManager.EnemyManager;
             _healthBarPool = new MonoBehaviourPool<HealthBar>(_prefabHealthBar, _container, 10);
 
+            _settingsGame.OnChangeHealthDisplay += DisplayHealthBar;
+            
             _subscriptions = new CompositeDisposable
             {
                 EventStreams.UserInterface.Subscribe<EnemyCreatedEvent>(OnEnemyCreated),
                 EventStreams.UserInterface.Subscribe<EnemyDestroyedEvent>(OnEnemyDestroy)
             };
         }
-
-        private void OnDestroy()
+        
+        private void DisplayHealthBar(bool hasHealthDisplay)
         {
-            _subscriptions?.Dispose();
+            if (hasHealthDisplay)
+            {
+                foreach (var enemy in _enemyManager.Enemies)
+                {
+                    CreateHealthBar(enemy);
+                }
+            }
+            else
+            {
+                foreach (var enemy in _enemyManager.Enemies)
+                {
+                    DestroyHealthBar(enemy);
+                }
+            }
         }
-
+        
         private void OnEnemyCreated(EnemyCreatedEvent enemyCreatedEvent)
         {
-            CreateHealthBar(enemyCreatedEvent.Enemy);
+            if (_settingsGame.HasHealthDisplay)
+            {
+                CreateHealthBar(enemyCreatedEvent.Enemy);
+            }
         }
 
         private void CreateHealthBar(Enemy enemy)
@@ -49,12 +76,24 @@ namespace ManagerHB
 
         private void OnEnemyDestroy(EnemyDestroyedEvent enemyDestroyedEvent)
         {
-            var enemy = enemyDestroyedEvent.Enemy;
+            if (_settingsGame.HasHealthDisplay)
+            {
+                DestroyHealthBar(enemyDestroyedEvent.Enemy);
+            }
+        }
 
+        private void DestroyHealthBar(Enemy enemy)
+        {
             if (_enemyHealthBars.ContainsKey(enemy))
             {
                 _healthBarPool.Release(_enemyHealthBars[enemy]);
             }
+        }
+        
+        private void OnDestroy()
+        {
+            _settingsGame.OnChangeHealthDisplay -= DisplayHealthBar;
+            _subscriptions?.Dispose();
         }
     }
 }

@@ -55,16 +55,20 @@ public class PlayerData : MonoBehaviour
         
         _passedLevel = loadManager.LoadLevelPassed();
         _activatedTalentData = loadManager.LoadTalent();
+        
         GameManager.ResourceManagerGame.SetResource(loadManager.LoadResource());
+        GameManager.SettingsGame.HasHealthDisplay = loadManager.LoadSettings();
         MenuManager.TreeTalent.ActivatedTalent(_activatedTalentData);
     }
 
     public void StartNewLevel()
     {
         MenuManager.TreeTalent.DeactivateTalent(_activatedTalentData);
+        
         var loadManager = GameManager.LoadManager;
         _passedLevel = new List<LevelData>();
         _activatedTalentData = new List<TalentData>();
+        
         GameManager.ResourceManagerGame.SetResource(loadManager.DefaultSave.Resources);
         MenuManager.TreeTalent.ActivatedTalent(_activatedTalentData);
     }
