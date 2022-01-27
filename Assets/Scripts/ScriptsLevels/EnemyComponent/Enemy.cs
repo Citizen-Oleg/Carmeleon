@@ -19,22 +19,9 @@ namespace EnemyComponent
     [RequireComponent(typeof(HealthBehavior))]
     public class Enemy : MonoBehaviour, IProduct, IExplanationObject
     {
-        public Transform PositionHealthBar
-        {
-            get => _positionHealthBar;
-            set => _positionHealthBar = value;
-        }
-        public SpriteRenderer SpriteRenderer
-        {
-            get => _spriteRenderer;
-            set => _spriteRenderer = value;
-        }
-
-        public int ID
-        {
-            get => _id;
-            set => _id = value;
-        }
+        public Transform PositionHealthBar => _positionHealthBar;
+        
+        public int ID => _id;
         
         public string Name => _name;
         public Transform Position => _positionExplanationUI;
@@ -46,15 +33,13 @@ namespace EnemyComponent
         public EnemyBuffController EnemyBuffController => _enemyBuffController;
         public EnemyAnimationController EnemyAnimationController => _enemyAnimationController;
         public Transform PositionBody => _positionBody != null ? _positionBody : transform;
-
+        
         [SerializeField]
         private int _id;
         [SerializeField]
         private string _name;
         [SerializeField]
         private Transform _positionExplanationUI;
-        [SerializeField]
-        private SpriteRenderer _spriteRenderer;
         [SerializeField]
         private Transform _positionBody;
         [SerializeField]
@@ -71,7 +56,7 @@ namespace EnemyComponent
         private HealthBehavior _healthBehavior;
         [SerializeField]
         private EnemyBuffController _enemyBuffController;
-
+        
         private EnemyAnimationController _enemyAnimationController;
 
         private void Awake()

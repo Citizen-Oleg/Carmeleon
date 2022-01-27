@@ -765,11 +765,8 @@ MonoBehaviour:
   _prefabStandardProjectile: {fileID: 5452281146143266271, guid: db2cdb228a0d223449aad38d1f6ee73b, type: 3}
   _splashStandardProjectile: {fileID: -3830192996996406871, guid: 7ba5e30f6a5e0f74ba0c2d17cc1cb0fb, type: 3}
   _projectiles:
-  - {fileID: 5452281146143266271, guid: db2cdb228a0d223449aad38d1f6ee73b, type: 3}
-  - {fileID: -3830192996996406871, guid: 7ba5e30f6a5e0f74ba0c2d17cc1cb0fb, type: 3}
-  - {fileID: -3830192996996406871, guid: cf7104316479bf14d94ebf8e63fd6446, type: 3}
-  - {fileID: 2229132269620780212, guid: 3235802c79abe634bbeb473be45252c5, type: 3}
   - {fileID: 8737750500861165839, guid: 4d43ed5a760d633478d55b821c505be3, type: 3}
+  - {fileID: 2229132269620780212, guid: 3235802c79abe634bbeb473be45252c5, type: 3}
 --- !u!114 &444555040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12984,18 +12981,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f749d4f4d0229e64eab6e3963dcaf85a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _startDelay: 2
+  _waveChangeDelay: 3
+  _delayedSpawnEnemies: 0.5
   _defaultStartNode: {fileID: 886702605}
-  _delayedSpawnEnemies: 1
   _waveSpawns:
   - _enemySpawnData:
-    - _enemy: {fileID: 8829678805715054816, guid: 640c3d419be8fd54884d36326309453e, type: 3}
+    - _enemy: {fileID: 8819482705024783350, guid: cde6bdf4c3f012148bad7c96fcb49472, type: 3}
       _startNode: {fileID: 886702605}
-      _count: 30
-  - _enemySpawnData:
-    - _enemy: {fileID: 8829678805715054816, guid: 640c3d419be8fd54884d36326309453e, type: 3}
-      _startNode: {fileID: 886702605}
-      _count: 60
-  - _enemySpawnData:
+      _count: 100
     - _enemy: {fileID: 8829678805715054816, guid: 640c3d419be8fd54884d36326309453e, type: 3}
       _startNode: {fileID: 886702605}
       _count: 100
@@ -13027,9 +13021,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _containerEnemy: {fileID: 1961628993}
   _enemies:
-  - {fileID: -4151402454022704107, guid: 342c2c7afc1695b45a70f6bfb434ddae, type: 3}
-  - {fileID: -4151402454022704107, guid: 06b7dbb60f6da0c4287aefd3c2dbfb5d, type: 3}
   - {fileID: 8829678805715054816, guid: 640c3d419be8fd54884d36326309453e, type: 3}
+  - {fileID: 8819482705024783350, guid: cde6bdf4c3f012148bad7c96fcb49472, type: 3}
 --- !u!1001 &1685516406
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13790,6 +13783,10 @@ PrefabInstance:
     - target: {fileID: 2863730151427542164, guid: 575bb2822b548714c9e1eb7833751e64, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2863730151427542166, guid: 575bb2822b548714c9e1eb7833751e64, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2863730151427542167, guid: 575bb2822b548714c9e1eb7833751e64, type: 3}
       propertyPath: m_Camera

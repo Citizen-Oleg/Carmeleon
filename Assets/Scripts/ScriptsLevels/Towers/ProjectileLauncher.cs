@@ -5,25 +5,28 @@ using UnityEngine;
 
 namespace Towers
 {
+    [RequireComponent(typeof(TowerCharacteristics))]
     [RequireComponent(typeof(ITargetProvider))]
     [RequireComponent(typeof(IAttackBehaviour))]
     public class ProjectileLauncher : MonoBehaviour
     {
         private bool _hasTarget => _currentTarget != null;
-        
+
+        private TowerCharacteristics _towerCharacteristics;
         private IAttackBehaviour _attackBehaviour;
         private ITargetProvider _targetProvider;
         private Enemy _currentTarget;
 
         private void Awake()
         {
+            _towerCharacteristics = GetComponent<TowerCharacteristics>();
             _attackBehaviour = GetComponent<IAttackBehaviour>();
             _targetProvider =  GetComponent<ITargetProvider>();
         }
 
         private void Update()
         {
-            if (!_attackBehaviour.IsCooldown && LevelManager.instance.StateLevel != StateLevel.Pause)
+            if (!_attackBehaviour.IsCooldown && LevelManager.instance.StateLevel != StateLevel.Pause && _towerCharacteristics.CanAttack)
             {
                 if (!_hasTarget && SetTarget() && _attackBehaviour.CanAttack(_currentTarget))
                 {

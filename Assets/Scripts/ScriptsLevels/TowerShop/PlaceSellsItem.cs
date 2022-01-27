@@ -21,8 +21,8 @@ namespace TowerShop
         {
             _inventoryScreen = LevelManager.InventoryScreen;
             _resourceManagerLevel = LevelManager.ResourceManagerLevel;
-
             _inventoryScreen.OnChangingItem += Display;
+            gameObject.SetActive(false);
         }
 
         private void Display(bool hasMapping)

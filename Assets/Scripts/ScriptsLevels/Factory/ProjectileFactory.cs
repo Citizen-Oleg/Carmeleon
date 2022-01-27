@@ -21,15 +21,10 @@ namespace Factory
         [SerializeField]
         private List<Projectile> _projectiles = new List<Projectile>();
         
-        private Dictionary<Projectile, MonoBehaviourPool<Projectile>> _projectilePool = new Dictionary<Projectile, MonoBehaviourPool<Projectile>>();
+        private readonly Dictionary<Projectile, MonoBehaviourPool<Projectile>> _projectilePool = new Dictionary<Projectile, MonoBehaviourPool<Projectile>>();
 
         private void Awake()
         {
-            for (int i = 0; i < _projectiles.Count; i++)
-            {
-                _projectiles[i].ID = i;
-            }
-            
             var pool = new MonoBehaviourPool<Projectile>(_prefabStandardProjectile, _containerProjectile, 20);
             _projectilePool.Add(_prefabStandardProjectile, pool);
             pool = new MonoBehaviourPool<Projectile>(_splashStandardProjectile, _containerProjectile, 20);

@@ -36,6 +36,11 @@ namespace Towers
             get => _percentageIncreaseAttackSpeed;
             set => _percentageIncreaseAttackSpeed = Mathf.Clamp(value, 0, MAXIMUM_ATTACK_SPEED_INCREASE);
         }
+        public bool CanAttack
+        {
+            get => _canAttack;
+            set => _canAttack = value;
+        }
 
         public int Damage => (int) (_baseDamage * (1 + _percentageIncreaseDamage / 100f) * (1 - _percentageDamageReduction / 100f));
         public float AttackSpeed => _baseAttackSpeed * (1 + _percentageIncreaseAttackSpeed / 100f) * (1 - _percentageAttackSpeedReduction / 100f);
@@ -49,6 +54,8 @@ namespace Towers
         private float _baseAttackSpeed;
         [SerializeField]
         private float _attackRadius;
+        [SerializeField]
+        private bool _canAttack = true;
 
         private float _percentageIncreaseAttackSpeed;
         private float _percentageAttackSpeedReduction;

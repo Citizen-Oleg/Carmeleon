@@ -67,11 +67,21 @@ namespace EnemyComponent
 
         public bool IsMoving
         {
-            get => _isMoving && !_isFrozen && !_isDeath;
+            get => _isMoving && !_isFrozen && !_isDeath && !IsStan;
             set
             {
-                _enemy.EnemyAnimationController.SetAnimationStan(!value);
+                _enemy.EnemyAnimationController.SetMoving(value);
                 _isMoving = value;   
+            }
+        }
+
+        public bool IsStan
+        {
+            get => _isStan;
+            set
+            {
+                _enemy.EnemyAnimationController.SetAnimationStan(value);
+                _isStan = value;
             }
         }
 
@@ -133,6 +143,9 @@ namespace EnemyComponent
         public int MaxHp => (int) (_maxHP * (1 + PercentageIncreaseMaxHp / 100f));
         
         [SerializeField]
+        private Enemy _enemy;
+        [Space]
+        [SerializeField]
         private int _maxHP;
         [SerializeField]
         private int _currentHP;
@@ -147,6 +160,8 @@ namespace EnemyComponent
         [SerializeField]
         private bool _isFrozen;
         [SerializeField]
+        private bool _isStan;
+        [SerializeField]
         private bool _hasImmunityPhysical;
         [SerializeField]
         private bool _hasImmunityWater;
@@ -156,7 +171,6 @@ namespace EnemyComponent
         private bool _hasImmunityFire;
         [SerializeField]
         private bool _hasImmunityAir;
-
 
         [Header("Указываются проценты защиты от типа урона")]
         [Range(-100, 100)]
@@ -178,12 +192,5 @@ namespace EnemyComponent
         private float _percentageIncreaseMaxHp;
         private float _percentageIncreaseSpeed;
         private float _percentageSpeedReduction;
-
-        private Enemy _enemy;
-        
-        private void Awake()
-        {
-            _enemy = GetComponent<Enemy>();
-        }
     }
 }

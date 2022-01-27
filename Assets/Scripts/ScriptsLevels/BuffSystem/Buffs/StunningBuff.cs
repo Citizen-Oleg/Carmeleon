@@ -28,13 +28,13 @@ namespace BuffSystem.Buffs
         {
             IsActive = true;
             _startTime = Time.time;
-            _enemy.CharacteristicsEnemy.IsMoving = false;
+            _enemy.CharacteristicsEnemy.IsStan = true;
         }
 
         public void Stop()
         {
             IsActive = false;
-            _enemy.CharacteristicsEnemy.IsMoving = true;
+            _enemy.CharacteristicsEnemy.IsStan = false;
         }
 
         public void Update()

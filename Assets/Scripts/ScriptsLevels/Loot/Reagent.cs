@@ -11,15 +11,12 @@ namespace Loot
     [RequireComponent(typeof(Animator))]
     public class Reagent : MonoBehaviour, IDropItem, IExplanationObject, IProduct
     {
-        public int ID
-        {
-            get => _id;
-            set => _id = value;
-        }
-        
+        public int ID => _id;
         public string Name => _name;
         public Transform Position => _positionExplanationUI;
         
+        [SerializeField]
+        private int _id;
         [SerializeField]
         private string _name;
         [SerializeField]
@@ -33,8 +30,7 @@ namespace Loot
         [Range(10f, 70f)]
         [SerializeField]
         private float _fadeAnimationPercentage;
-
-        private int _id;
+        
         private float _fadeStartTime;
         
         private ReagentAnimationController _reagentAnimationController;

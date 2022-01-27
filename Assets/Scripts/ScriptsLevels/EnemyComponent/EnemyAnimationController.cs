@@ -6,6 +6,7 @@ namespace EnemyComponent
     {
         private static readonly int IsStan = Animator.StringToHash("IsStan");
         private static readonly int IsDead = Animator.StringToHash("IsDead");
+        private static readonly int IsMoving = Animator.StringToHash("IsMoving");
         
         private readonly Animator _animator;
         
@@ -17,6 +18,11 @@ namespace EnemyComponent
         public void DefaultState()
         {
             _animator.Rebind();
+        }
+
+        public void SetMoving(bool isMoving)
+        {
+            _animator.SetBool(IsMoving, isMoving);
         }
 
         public void SetAnimationDead()

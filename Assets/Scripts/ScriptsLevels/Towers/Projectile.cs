@@ -20,12 +20,10 @@ namespace Towers
         
         public SpriteRenderer SpriteRenderer => _spriteRenderer;
 
-        public int ID
-        {
-            get => _id;
-            set => _id = value;
-        }
+        public int ID => _id;
         
+        [SerializeField]
+        private int _id;
         [SerializeField]
         private SpriteRenderer _spriteRenderer;
         [SerializeField]
@@ -35,8 +33,6 @@ namespace Towers
         protected Action<Projectile> _callback;
         protected DamageType _damageType;
         protected int _damage;
-        
-        private int _id;
         private SettingsBuff<Enemy> _settingsBuff;
 
         public void Initialize(int damage, Enemy target, Action<Projectile> callback,

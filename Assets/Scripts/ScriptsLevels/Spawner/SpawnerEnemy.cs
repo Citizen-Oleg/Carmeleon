@@ -23,9 +23,13 @@ namespace Spawner
         public Node DefaultStartNode => _defaultStartNode;
 
         [SerializeField]
-        private Node _defaultStartNode;
+        private float _startDelay;
+        [SerializeField]
+        private float _waveChangeDelay;
         [SerializeField]
         private float _delayedSpawnEnemies;
+        [SerializeField]
+        private Node _defaultStartNode;
         [SerializeField]
         private List<WaveSpawn> _waveSpawns = new List<WaveSpawn>();
         
@@ -67,12 +71,12 @@ namespace Spawner
             _hasSpawning = true;
             var wave = _waveSpawns[_waveNumber++];
 
+            yield return new WaitForSeconds(_startDelay);
+            
             foreach (var enemyData in wave.EnemySpawnData)
             {
                 for (var i = 0; i < enemyData.Count; i++)
                 {
-                    yield return new WaitForSeconds(_delayedSpawnEnemies);
-                    
                     var product = _enemyFactory.GetProduct(enemyData.Enemy);
                     
                     if (product is Enemy enemy)
@@ -82,7 +86,11 @@ namespace Spawner
                     
                         EventStreams.UserInterface.Publish(new EnemyCreatedEvent(enemy));
                     }
+                    
+                    yield return new WaitForSeconds(_delayedSpawnEnemies);
                 }
+
+                yield return new WaitForSeconds(_waveChangeDelay);
             }
 
             _hasSpawning = false;

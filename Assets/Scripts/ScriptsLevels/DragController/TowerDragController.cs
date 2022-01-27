@@ -94,7 +94,7 @@ namespace DragController
             
             if (placeInstallationTower.HasFreePlaceInstallation(_towerItem))
             {
-                InstallTower(placeInstallationTower, _currentItemInSlot, _towerItem);
+                InstallTower(placeInstallationTower);
                 ResetCurrentItem();
             }
         }
@@ -113,10 +113,10 @@ namespace DragController
             }
         }
 
-        private void InstallTower(PlaceInstallationTower placeInstallationTower, ItemInSlot itemInSlot, TowerItem towerItem)
+        private void InstallTower(PlaceInstallationTower placeInstallationTower)
         {
-            towerItem.GhostTower.gameObject.SetActive(false);
-            placeInstallationTower.InstallTower(itemInSlot, towerItem);
+            _towerItem.GhostTower.gameObject.SetActive(false);
+            placeInstallationTower.InstallTower(_currentItemInSlot, _towerItem);
         }
 
         private void ResetCurrentItem()

@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using EnemyComponent;
 using Event;
 using Interface;
 using ScriptsLevels.Level;
 using SimpleEventBus;
 using SimpleEventBus.Disposables;
-using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
 
 namespace Factory
@@ -27,11 +25,6 @@ namespace Factory
         
         private void Awake()
         {
-            for (int i = 0; i < _enemies.Count; i++)
-            {
-                _enemies[i].ID = i;
-            }
-            
             foreach (var enemy in _enemies)
             {
                 var pool = new MonoBehaviourPool<Enemy>(enemy, _containerEnemy, 10);
@@ -67,16 +60,17 @@ namespace Factory
             characteristics.PercentageIncreaseMaxHp = levelSettings.PercentageIncreaseHealth;
             
             characteristics.CurrentHp = characteristics.MaxHp;
+
+            enemy.EnemyAnimationController.DefaultState();
+            
             characteristics.IsDeath = false;
             characteristics.IsMoving = true;
-            
-            enemy.EnemyAnimationController.DefaultState();
         }
         
         public void ReleaseProduct(IProduct product)
         {
             var enemy = (Enemy) product;
-            _enemyPool[product.ID].Release(enemy);   
+            _enemyPool[product.ID].Release(enemy);
         }
 
         private void OnEnemyDestroyed(EnemyDestroyedEvent enemyDestroyedEvent)
