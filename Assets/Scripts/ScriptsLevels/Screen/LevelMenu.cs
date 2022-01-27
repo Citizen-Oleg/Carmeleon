@@ -41,13 +41,13 @@ namespace ScriptsLevels.Screen
         [UsedImplicitly]
         public void RestartLevel()
         {
-            GameManager.LoadingController.StartLoad(GameManager.instance.CurrentLevel.LevelData.NameScene);
+            GameManager.ScreenManager.OpenScreen(ScreenType.RestartView);
         }
 
         [UsedImplicitly]
         public void ExitToMenu()
         {
-            GameManager.LoadingController.StartLoad(GlobalConstant.NAME_START_SCENE);
+            GameManager.ScreenManager.OpenScreen(ScreenType.ExitView);
         }
     }
 }

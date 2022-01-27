@@ -11,8 +11,7 @@ namespace ScriptsLevels
         [UsedImplicitly]
         public void NewGame()
         {
-            GameManager.PlayerData.StartNewLevel();
-            GameManager.LoadingController.StartLoad(GlobalConstant.NAME_START_SCENE);
+            GameManager.ScreenManager.OpenScreen(ScreenType.ResetGameView);
         }
         
         [UsedImplicitly]

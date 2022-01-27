@@ -10,8 +10,10 @@
         VictoryScreen = 1,
         LoseScreen = 2,
         LevelScreen = 3,
-        Menu = 4,
+        RestartView = 4,
         BestiaryScreen = 5,
-        LoadingScreen = 6
+        LoadingScreen = 6,
+        ExitView = 7,
+        ResetGameView = 8
     }
 }

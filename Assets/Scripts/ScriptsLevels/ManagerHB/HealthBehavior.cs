@@ -1,6 +1,7 @@
 using System;
 using EnemyComponent;
 using Event;
+using JetBrains.Annotations;
 using SimpleEventBus;
 using Towers;
 using UnityEngine;
@@ -48,6 +49,7 @@ namespace ManagerHB
             }
         }
         
+        [UsedImplicitly]
         private void Dead()
         {
             _enemy.CharacteristicsEnemy.IsDeath = true;

@@ -75,7 +75,7 @@ namespace ScriptsLevels.Level
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                GameManager.ScreenManager.OpenScreen(ScreenType.Menu);
+                GameManager.ScreenManager.OpenScreen(ScreenType.ExitView);
             }
         }
 

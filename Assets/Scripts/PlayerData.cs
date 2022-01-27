@@ -71,6 +71,8 @@ public class PlayerData : MonoBehaviour
         
         GameManager.ResourceManagerGame.SetResource(loadManager.DefaultSave.Resources);
         MenuManager.TreeTalent.ActivatedTalent(_activatedTalentData);
+        
+        GameManager.LoadingController.StartLoad(GlobalConstant.NAME_START_SCENE);
     }
 
     public void AddPassedLevel(LevelData passedLevelData)
