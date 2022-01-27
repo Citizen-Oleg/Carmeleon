@@ -12,7 +12,7 @@ namespace ManagerHB
     public class HealthBehavior : MonoBehaviour
     {
         public event Action<Enemy> OnDead;
-        public event Action OnReceivedDamage;
+        public event Action OnHealthСhanges;
         
         private Enemy _enemy;
         private readonly DamageCalculator _damageCalculator = new DamageCalculator();
@@ -32,7 +32,7 @@ namespace ManagerHB
             
             var calculatedDamage = _damageCalculator.GetCalculatedDamage(_enemy.CharacteristicsEnemy, damageType, damage);
             _enemy.CharacteristicsEnemy.CurrentHp -= calculatedDamage;
-            OnReceivedDamage?.Invoke();
+            OnHealthСhanges?.Invoke();
             
             if (_enemy.CharacteristicsEnemy.CurrentHp <= 0)
             {
@@ -46,6 +46,7 @@ namespace ManagerHB
             if (!_enemy.CharacteristicsEnemy.IsDeath)
             {
                 _enemy.CharacteristicsEnemy.CurrentHp += recovery;
+                OnHealthСhanges?.Invoke();
             }
         }
         

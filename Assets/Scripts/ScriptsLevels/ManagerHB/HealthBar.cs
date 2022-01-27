@@ -38,7 +38,7 @@ namespace ManagerHB
         {
             if (_enemy != null)
             {
-                _enemy.HealthBehavior.OnReceivedDamage -= RefreshUI;
+                _enemy.HealthBehavior.OnHealthСhanges -= RefreshUI;
             }
         }
 
@@ -50,7 +50,7 @@ namespace ManagerHB
             Update();
             RefreshUI();
 
-            _enemy.HealthBehavior.OnReceivedDamage += RefreshUI;
+            _enemy.HealthBehavior.OnHealthСhanges += RefreshUI;
         }
 
         private void RefreshUI()
