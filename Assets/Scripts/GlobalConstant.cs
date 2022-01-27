@@ -6,4 +6,6 @@
     public const string SAVE_TALENT = "TALENT";
     public const string SAVE_LEVEL = "LEVEL";
     public const string SAVE_SETTINGS = "SETTINGS";
+
+    public const int DEFAULT_SIZE_COLLIDERS_ARRAY = 30;
 }

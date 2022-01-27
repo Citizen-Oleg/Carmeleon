@@ -67,7 +67,7 @@ namespace EnemyComponent
 
         public bool IsMoving
         {
-            get => _isMoving && !_isFrozen && !_isDeath && !IsStan;
+            get => _isMoving && !_isFrozen && !_isDeath && !IsStan && !IsCast;
             set
             {
                 _enemy.EnemyAnimationController.SetMoving(value);
@@ -84,6 +84,9 @@ namespace EnemyComponent
                 _isStan = value;
             }
         }
+
+        public bool IsCast { get; set; }
+
 
         public float BaseSpeed
         {
@@ -158,10 +161,6 @@ namespace EnemyComponent
         [SerializeField]
         private bool _isMoving = true;
         [SerializeField]
-        private bool _isFrozen;
-        [SerializeField]
-        private bool _isStan;
-        [SerializeField]
         private bool _hasImmunityPhysical;
         [SerializeField]
         private bool _hasImmunityWater;
@@ -188,6 +187,9 @@ namespace EnemyComponent
         [Range(-100, 100)]
         [SerializeField]
         private int _airResistance;
+
+        private bool _isFrozen;
+        private bool _isStan;
 
         private float _percentageIncreaseMaxHp;
         private float _percentageIncreaseSpeed;

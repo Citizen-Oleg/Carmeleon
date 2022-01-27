@@ -25,8 +25,6 @@ namespace Spawner
         [SerializeField]
         private float _startDelay;
         [SerializeField]
-        private float _waveChangeDelay;
-        [SerializeField]
         private float _delayedSpawnEnemies;
         [SerializeField]
         private Node _defaultStartNode;
@@ -89,8 +87,6 @@ namespace Spawner
                     
                     yield return new WaitForSeconds(_delayedSpawnEnemies);
                 }
-
-                yield return new WaitForSeconds(_waveChangeDelay);
             }
 
             _hasSpawning = false;

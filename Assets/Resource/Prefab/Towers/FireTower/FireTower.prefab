@@ -46,9 +46,9 @@ GameObject:
   - component: {fileID: 591811166957292892}
   - component: {fileID: 591811166957292883}
   - component: {fileID: 591811166957292882}
-  - component: {fileID: 591811166957292893}
-  - component: {fileID: 591811166957292894}
-  - component: {fileID: 33745022767437989}
+  - component: {fileID: 962145240787893085}
+  - component: {fileID: 6536120143199256155}
+  - component: {fileID: 3553158434603226949}
   m_Layer: 0
   m_Name: FireTower
   m_TagString: Untagged
@@ -241,7 +241,7 @@ MonoBehaviour:
   _positionExplanationUI: {fileID: 591811166956156800}
   _towerCharacteristics: {fileID: 591811166957292883}
   _towerBuffController: {fileID: 591811166957292892}
---- !u!114 &591811166957292893
+--- !u!114 &962145240787893085
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -250,10 +250,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 591811166957292884}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfa61905aa174687a7ab651ed2f0f380, type: 3}
+  m_Script: {fileID: 11500000, guid: 568195e8a1d343c48af8c987d60d0dea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &591811166957292894
+--- !u!114 &6536120143199256155
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -262,11 +262,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 591811166957292884}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1dc5f44495d645e9a20c4ee5949b22e9, type: 3}
+  m_Script: {fileID: 11500000, guid: 2760b60cd8344b91bdd6e6ce2c3936cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prefabProjectile: {fileID: 8737750500861165839, guid: 4d43ed5a760d633478d55b821c505be3, type: 3}
---- !u!114 &33745022767437989
+--- !u!114 &3553158434603226949
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -275,6 +274,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 591811166957292884}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e00cef9859b4a1c8ddaa16239e92269, type: 3}
+  m_Script: {fileID: 11500000, guid: dca0ee9b63c241bb961e6e2a37a49d61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

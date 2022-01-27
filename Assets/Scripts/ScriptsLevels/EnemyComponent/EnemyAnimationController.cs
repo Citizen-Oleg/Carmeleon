@@ -7,6 +7,7 @@ namespace EnemyComponent
         private static readonly int IsStan = Animator.StringToHash("IsStan");
         private static readonly int IsDead = Animator.StringToHash("IsDead");
         private static readonly int IsMoving = Animator.StringToHash("IsMoving");
+        private static readonly int IsCast = Animator.StringToHash("IsCast");
         
         private readonly Animator _animator;
         
@@ -33,6 +34,16 @@ namespace EnemyComponent
         public void SetAnimationStan(bool isStan)
         {
             _animator.SetBool(IsStan, isStan);
+        }
+
+        public void CastBuff()
+        {
+            _animator.SetTrigger(IsCast);
+        }
+
+        public void ResetCast()
+        {
+            _animator.ResetTrigger(IsCast);
         }
     }
 }

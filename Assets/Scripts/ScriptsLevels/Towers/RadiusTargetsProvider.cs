@@ -7,7 +7,7 @@ namespace Towers
 {
     public class RadiusTargetsProvider : MonoBehaviour, ITargetsProvider
     {
-        private Collider2D[] _colliders2D = new Collider2D[20];
+        private readonly Collider2D[] _colliders2D = new Collider2D[GlobalConstant.DEFAULT_SIZE_COLLIDERS_ARRAY];
         private List<Enemy> _targets = new List<Enemy>();
         
         public List<Enemy> GetTargets(float radius)

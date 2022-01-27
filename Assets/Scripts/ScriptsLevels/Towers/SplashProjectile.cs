@@ -15,7 +15,7 @@ namespace Towers
         [SerializeField]
         private float _explosionRadius;
 
-        private Collider2D[] _colliders2D = new Collider2D[30];
+        private readonly Collider2D[] _colliders2D = new Collider2D[GlobalConstant.DEFAULT_SIZE_COLLIDERS_ARRAY];
         
         protected override void ApplyDamage()
         {

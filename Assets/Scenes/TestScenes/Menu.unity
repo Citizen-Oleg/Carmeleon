@@ -2531,10 +2531,10 @@ RectTransform:
   m_Father: {fileID: 801717391}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -750.56226, y: 0}
-  m_SizeDelta: {x: -1501.1245, y: 0}
+  m_SizeDelta: {x: 418.8755, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &989328757
 MonoBehaviour:
@@ -6120,8 +6120,6 @@ MonoBehaviour:
     _height: 768
   - _width: 1280
     _height: 720
-  - _width: 800
-    _height: 600
   _dropdown: {fileID: 1915391119}
   _toggleFullScreen: {fileID: 1904697269}
   _toggleHealthDisplay: {fileID: 2009066668}
