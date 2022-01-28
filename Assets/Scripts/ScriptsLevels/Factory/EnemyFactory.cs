@@ -64,6 +64,7 @@ namespace Factory
             enemy.EnemyAnimationController.DefaultState();
             
             characteristics.IsDeath = false;
+            characteristics.IsCast = false;
             characteristics.IsMoving = true;
         }
         
