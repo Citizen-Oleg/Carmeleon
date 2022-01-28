@@ -33,7 +33,7 @@ namespace ScriptsLevels.BuffSystem
 
         private void Update()
         {
-            if (!IsCooldown)
+            if (!IsCooldown && _enemy.CharacteristicsEnemy.IsMoving)
             {
                 _enemy.CharacteristicsEnemy.IsCast = true;
                 _enemy.EnemyAnimationController.CastBuff();

@@ -80,6 +80,11 @@ namespace EnemyComponent
             get => _isStan;
             set
             {
+                if (value)
+                {
+                    IsCast = false;
+                }
+                
                 _enemy.EnemyAnimationController.SetAnimationStan(value);
                 _isStan = value;
             }
