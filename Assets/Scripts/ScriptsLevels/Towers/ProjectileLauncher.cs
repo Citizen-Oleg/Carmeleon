@@ -1,36 +1,48 @@
 ﻿using EnemyComponent;
 using Interface;
+using JetBrains.Annotations;
 using ScriptsLevels.Level;
 using UnityEngine;
 
 namespace Towers
 {
-    [RequireComponent(typeof(TowerCharacteristics))]
+    [RequireComponent(typeof(Tower))]
     [RequireComponent(typeof(ITargetProvider))]
     [RequireComponent(typeof(IAttackBehaviour))]
     public class ProjectileLauncher : MonoBehaviour
     {
         private bool _hasTarget => _currentTarget != null;
 
-        private TowerCharacteristics _towerCharacteristics;
+        private Tower _tower;
         private IAttackBehaviour _attackBehaviour;
         private ITargetProvider _targetProvider;
         private Enemy _currentTarget;
 
         private void Awake()
         {
-            _towerCharacteristics = GetComponent<TowerCharacteristics>();
+            _tower = GetComponent<Tower>();
             _attackBehaviour = GetComponent<IAttackBehaviour>();
             _targetProvider =  GetComponent<ITargetProvider>();
         }
 
         private void Update()
         {
-            if (!_attackBehaviour.IsCooldown && LevelManager.instance.StateLevel != StateLevel.Pause && _towerCharacteristics.CanAttack)
+            if (LevelManager.instance.StateLevel == StateLevel.Pause)
+            {
+                return;
+            }
+            
+            RotationTower();
+            
+            var canShoot =  !_attackBehaviour.IsCooldown
+                            && _tower.TowerCharacteristics.CanAttack
+                            && !_tower.TowerAnimationController.IsActiveAnimationAttack();
+
+            if (canShoot)
             {
                 if (!_hasTarget && SetTarget() && _attackBehaviour.CanAttack(_currentTarget))
                 {
-                    _attackBehaviour.Attack(_currentTarget);
+                    _tower.TowerAnimationController.Attack();
                     return;
                 }
                 
@@ -41,8 +53,28 @@ namespace Towers
 
                 if (_hasTarget && _attackBehaviour.CanAttack(_currentTarget))
                 {
-                    _attackBehaviour.Attack(_currentTarget);
+                    _tower.TowerAnimationController.Attack();
                 }
+            }
+        }
+
+        private void RotationTower()
+        {
+            if (_hasTarget)
+            {
+                var turn = _currentTarget.transform.position.x < transform.position.x ? 180 : 0;
+                transform.eulerAngles = Vector3.up * turn;
+            }
+        }
+
+        [UsedImplicitly]
+        private void AttackEvent()
+        {
+            _tower.TowerAnimationController.ResetAttack();
+            
+            if (_hasTarget)
+            {
+                _attackBehaviour.Attack(_currentTarget);
             }
         }
         

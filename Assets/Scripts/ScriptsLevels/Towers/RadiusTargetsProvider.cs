@@ -7,8 +7,11 @@ namespace Towers
 {
     public class RadiusTargetsProvider : MonoBehaviour, ITargetsProvider
     {
+        [SerializeField]
+        private LayerMask _enemyLayer;
+        
         private readonly Collider2D[] _colliders2D = new Collider2D[GlobalConstant.DEFAULT_SIZE_COLLIDERS_ARRAY];
-        private List<Enemy> _targets = new List<Enemy>();
+        private readonly List<Enemy> _targets = new List<Enemy>();
         
         public List<Enemy> GetTargets(float radius)
         {
@@ -17,14 +20,20 @@ namespace Towers
                 _targets.Clear();
             }
             
-            Physics2D.OverlapCircleNonAlloc(transform.position, radius, _colliders2D);
-            foreach (var collider in _colliders2D)
+            var count = Physics2D.OverlapCircleNonAlloc(transform.position, radius, _colliders2D, _enemyLayer);
+
+            if (count == 0)
             {
-                if (collider == null)
+                return _targets;
+            }
+            
+            for (var i = 0; i < count; i++)
+            {
+                if (_colliders2D[i] == null)
                 {
                     break;
                 }
-                if (collider.TryGetComponent(out Enemy enemy))
+                if (_colliders2D[i].TryGetComponent(out Enemy enemy))
                 {
                     _targets.Add(enemy);
                 }

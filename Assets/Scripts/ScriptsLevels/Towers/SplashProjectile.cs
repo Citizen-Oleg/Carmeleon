@@ -14,19 +14,23 @@ namespace Towers
 
         [SerializeField]
         private float _explosionRadius;
+        [SerializeField]
+        private LayerMask _enemyLayer;
 
         private readonly Collider2D[] _colliders2D = new Collider2D[GlobalConstant.DEFAULT_SIZE_COLLIDERS_ARRAY];
         
         protected override void ApplyDamage()
         {
-            Physics2D.OverlapCircleNonAlloc(transform.position, _explosionRadius, _colliders2D);
-            foreach (var collider in _colliders2D)
+            var count = Physics2D.OverlapCircleNonAlloc(transform.position, _explosionRadius, _colliders2D, _enemyLayer);
+            
+            for (var i = 0; i < count; i++)
             {
-                if (collider == null)
+                if (_colliders2D[i] == null)
                 {
                     break;
                 }
-                if (collider.TryGetComponent(out Enemy enemy))
+                
+                if (_colliders2D[i].TryGetComponent(out Enemy enemy))
                 {
                     ApplyBuffEnemy(enemy);
                     enemy.HealthBehavior.TakeDamage(_damage, _damageType);

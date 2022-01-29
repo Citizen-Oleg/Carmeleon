@@ -43,14 +43,15 @@ namespace ScriptsLevels.BuffSystem
         [UsedImplicitly]
         private void ApplyBuff()
         {
-            Physics2D.OverlapCircleNonAlloc(transform.position, _radiusBuff, _colliders2D, _enemyLayer);
-            foreach (var collider in _colliders2D)
+            var count = Physics2D.OverlapCircleNonAlloc(transform.position, _radiusBuff, _colliders2D, _enemyLayer);
+            for (var i = 0; i < count; i++)
             {
-                if (collider == null)
+                if (_colliders2D[i] == null)
                 {
                     break;
                 }
-                if (collider.TryGetComponent(out Enemy enemy))
+                
+                if (_colliders2D[i].TryGetComponent(out Enemy enemy))
                 {
                     enemy.EnemyBuffController.AddBuff(_settingsBuff);
                 }

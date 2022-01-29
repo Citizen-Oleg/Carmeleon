@@ -14,7 +14,9 @@ namespace Towers
 
         [SerializeField]
         protected Projectile _prefabProjectile;
-    
+        [SerializeField]
+        protected Transform _projectileLaunchPosition;
+        
         protected float _lastShotTime;
 
         protected TowerCharacteristics _towerCharacteristics;
@@ -42,7 +44,7 @@ namespace Towers
             
             if (product is Projectile projectile)
             {
-                projectile.transform.position = transform.position;
+                projectile.transform.position = _projectileLaunchPosition.position;
                 projectile.Initialize(_towerCharacteristics.Damage, enemy, Callback, _towerCharacteristics.DamageType);
             }
         }

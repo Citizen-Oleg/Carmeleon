@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace Towers
 {
+    [RequireComponent(typeof(Animator))]
     [RequireComponent(typeof(Collider2D))]
     [RequireComponent(typeof(Rigidbody2D))]
     [RequireComponent(typeof(TowerBuffController))]
@@ -15,7 +16,8 @@ namespace Towers
         public Transform Position => _positionExplanationUI;
         public TowerCharacteristics TowerCharacteristics => _towerCharacteristics;
         public TowerBuffController TowerBuffController => _towerBuffController;
-        
+        public TowerAnimationController TowerAnimationController => _towerAnimationController;
+
         [SerializeField]
         private string _name;
         [SerializeField]
@@ -25,10 +27,18 @@ namespace Towers
         [SerializeField]
         private TowerBuffController _towerBuffController;
 
+        private TowerAnimationController _towerAnimationController;
+
         private void Awake()
         {
+            _towerAnimationController = new TowerAnimationController(GetComponent<Animator>());
             GetComponent<Rigidbody2D>().isKinematic = true;
             GetComponent<Collider2D>().isTrigger = true;
+        }
+
+        private void OnEnable()
+        {
+            _towerAnimationController.ResetAttack();
         }
     }
 }

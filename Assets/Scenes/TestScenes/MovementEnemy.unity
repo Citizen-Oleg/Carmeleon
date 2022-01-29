@@ -767,6 +767,7 @@ MonoBehaviour:
   _projectiles:
   - {fileID: 8737750500861165839, guid: 4d43ed5a760d633478d55b821c505be3, type: 3}
   - {fileID: 2229132269620780212, guid: 3235802c79abe634bbeb473be45252c5, type: 3}
+  - {fileID: 2883211231895526961, guid: 0d47a70e19dfb9940bd7496fc7b91405, type: 3}
 --- !u!114 &444555040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -781,9 +782,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _towerItems:
   - {fileID: 11400000, guid: 48013e186cf0c7945b83909fbdda2cfc, type: 2}
-  - {fileID: 11400000, guid: 3e09cda70e185b44ca10f3e0798a98ce, type: 2}
-  - {fileID: 11400000, guid: 0f749d9a17adb25489b4711c2417a2a2, type: 2}
   - {fileID: 11400000, guid: 795a069936d83de4d992f170a1769fc7, type: 2}
+  - {fileID: 11400000, guid: e447ceda9eedc0946a8c28ce4962fcd4, type: 2}
+  - {fileID: 11400000, guid: a7ccc64ae92a4e349978c3d6b7df45e3, type: 2}
+  - {fileID: 11400000, guid: a9df9f0d8b49d0d48abd0d1d8d3d2103, type: 2}
 --- !u!114 &444555041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2217,7 +2219,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 917c1ea41aef0574d8890a5dbecae240, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -12986,19 +12988,18 @@ MonoBehaviour:
   _defaultStartNode: {fileID: 886702605}
   _waveSpawns:
   - _enemySpawnData:
+    - _enemy: {fileID: 8819482705024783350, guid: cde6bdf4c3f012148bad7c96fcb49472, type: 3}
+      _startNode: {fileID: 886702605}
+      _count: 30
+    - _enemy: {fileID: 6049734068123040749, guid: bd250cd45dc8ac9418ca52c34990c781, type: 3}
+      _startNode: {fileID: 886702605}
+      _count: 30
     - _enemy: {fileID: 1042755478590133905, guid: f2847d254cfbd28499d97660030754f1, type: 3}
       _startNode: {fileID: 886702605}
-      _count: 5
-  - _enemySpawnData:
+      _count: 30
     - _enemy: {fileID: 8829678805715054816, guid: 640c3d419be8fd54884d36326309453e, type: 3}
       _startNode: {fileID: 886702605}
-      _count: 5
-    - _enemy: {fileID: 1253331085873337210, guid: fbe24c79b1acb204dad2fea7c572e340, type: 3}
-      _startNode: {fileID: 886702605}
-      _count: 1
-    - _enemy: {fileID: 8829678805715054816, guid: 640c3d419be8fd54884d36326309453e, type: 3}
-      _startNode: {fileID: 886702605}
-      _count: 5
+      _count: 30
 --- !u!4 &1669284895
 Transform:
   m_ObjectHideFlags: 0
