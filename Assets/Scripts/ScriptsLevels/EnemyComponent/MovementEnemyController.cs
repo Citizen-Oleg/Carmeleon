@@ -36,7 +36,7 @@ namespace EnemyComponent
         {
             transform.position = Vector3.MoveTowards(transform.position, _currentNode.transform.position,
                 _enemy.CharacteristicsEnemy.Speed * Time.deltaTime);
-
+            
             if (Vector3.Distance(transform.position, _currentNode.transform.position) <= DISTANCE_POINT_CHANGE)
             {
                 SetMovementToPoint();
