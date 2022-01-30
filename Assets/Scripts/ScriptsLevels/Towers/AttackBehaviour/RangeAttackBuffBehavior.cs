@@ -8,8 +8,6 @@ namespace Towers
 {
     public class RangeAttackBuffBehavior : RangeAttackBehavior, IBuffBehaviour<Enemy>
     {
-        public SettingsBuff<Enemy> SettingsBuff => _buffEnemy;
-        
         [SerializeField]
         private SettingsBuff<Enemy> _buffEnemy;
 

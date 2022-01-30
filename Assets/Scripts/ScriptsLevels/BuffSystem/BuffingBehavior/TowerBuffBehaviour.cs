@@ -1,22 +1,15 @@
-﻿using BuffSystem;
-using BuffSystem.SettingsBuff;
+﻿using BuffSystem.SettingsBuff;
+using Interface;
 using Towers;
 using UnityEngine;
 
-namespace Interface
+namespace ScriptsLevels.BuffSystem.BuffingBehavior
 {
-    public class BuffTowerBehaviour : MonoBehaviour, IBuffBehaviour<Tower>
+    public class TowerBuffBehaviour : MonoBehaviour, IBuffBehaviour<Tower>
     {
-        public SettingsBuff<Tower> SettingsBuff => _settingsBuffTower;
-        
         [SerializeField]
         private SettingsBuff<Tower> _settingsBuffTower;
-        
-        public bool CanBuff(Tower target)
-        {
-            return target != null && target.gameObject.activeSelf;
-        }
-
+ 
         public void BuffTarget(Tower target)
         {
             target.TowerBuffController.AddBuff(_settingsBuffTower);

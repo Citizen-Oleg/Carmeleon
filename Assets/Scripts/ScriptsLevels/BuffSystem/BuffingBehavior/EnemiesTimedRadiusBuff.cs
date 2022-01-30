@@ -1,18 +1,18 @@
 ﻿using System;
 using BuffSystem.SettingsBuff;
 using EnemyComponent;
+using Interface;
 using JetBrains.Annotations;
 using UnityEngine;
 
 namespace ScriptsLevels.BuffSystem
 {
+    [RequireComponent(typeof(IBuffBehaviour<Enemy>))]
     [RequireComponent(typeof(Enemy))]
     public class EnemiesTimedRadiusBuff : MonoBehaviour
     {
         [SerializeField]
         private LayerMask _enemyLayer;
-        [SerializeField]
-        private SettingsBuff<Enemy> _settingsBuff;
         [SerializeField]
         private float _cooldownBuff;
         [SerializeField]
@@ -23,10 +23,12 @@ namespace ScriptsLevels.BuffSystem
         private readonly Collider2D[] _colliders2D = new Collider2D[GlobalConstant.DEFAULT_SIZE_COLLIDERS_ARRAY];
         private float _startTime;
 
+        private IBuffBehaviour<Enemy> _buffBehaviour;
         private Enemy _enemy;
 
         private void Start()
         {
+            _buffBehaviour = GetComponent<IBuffBehaviour<Enemy>>();
             _enemy = GetComponent<Enemy>();
             _startTime = Time.time;
         }
@@ -53,7 +55,7 @@ namespace ScriptsLevels.BuffSystem
                 
                 if (_colliders2D[i].TryGetComponent(out Enemy enemy))
                 {
-                    enemy.EnemyBuffController.AddBuff(_settingsBuff);
+                    _buffBehaviour.BuffTarget(enemy);
                 }
             }
 

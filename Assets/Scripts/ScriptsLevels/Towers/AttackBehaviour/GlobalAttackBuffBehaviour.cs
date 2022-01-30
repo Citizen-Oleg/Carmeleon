@@ -6,13 +6,11 @@ using UnityEngine;
 
 namespace Towers
 {
-    public class RadiusAttackBuffBehaviour : RadiusAttackBehaviour, IBuffBehaviour<Enemy>
+    public class GlobalAttackBuffBehaviour : GlobalAttackBehaviour, IBuffBehaviour<Enemy>
     {
-        public SettingsBuff<Enemy> SettingsBuff => _buffEnemy;
-        
         [SerializeField]
-        private SettingsBuff<Enemy> _buffEnemy;
-
+        private SettingsBuff<Enemy> _enemyBuff;
+        
         public override void Attack(Enemy enemy)
         {
             base.Attack(enemy);
@@ -21,12 +19,12 @@ namespace Towers
 
         public void BuffTarget(Enemy target)
         {
-            target.EnemyBuffController.AddBuff(_buffEnemy);
+            target.EnemyBuffController.AddBuff(_enemyBuff);
         }
 
         public void StopBuffTarget(Enemy target)
         {
-            target.EnemyBuffController.StopBuff(_buffEnemy);
+            target.EnemyBuffController.StopBuff(_enemyBuff);
         }
     }
 }
