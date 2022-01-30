@@ -63,9 +63,7 @@ namespace TowerShop
         {
             for (int i = 0; i < _sizeReagents; i++)
             {
-                var cantPostItem = i >= _playerData.ReagentShopSize
-                                   || i >= _playerData.ReagentsLevel.Count
-                                   || _playerData.ReagentsLevel.Count == 0;
+                var cantPostItem = i >= _playerData.ReagentShopSize || _playerData.ReagentsLevel.Count == 0;
                 
                 if (cantPostItem)
                 {
@@ -84,9 +82,7 @@ namespace TowerShop
         {
             for (int i = 0; i < _sizeImprovedTowers; i++)
             {
-                var cantPostItem = i >= _playerData.ImprovedTowersSize
-                                   || i >= _playerData.ImprovedLevelTowers.Count
-                                   || _playerData.ImprovedLevelTowers.Count == 0;
+                var cantPostItem = i >= _playerData.ImprovedTowersSize || _playerData.ImprovedLevelTowers.Count == 0;
                 
                 if (cantPostItem)
                 {
