@@ -8,23 +8,34 @@ namespace Towers
 {
     public class RangeAttackBuffBehavior : RangeAttackBehavior, IBuffBehaviour<Enemy>
     {
+        [Range(0, 100)]
+        [SerializeField]
+        private int _buffChance;
         [SerializeField]
         private SettingsBuff<Enemy> _buffEnemy;
 
         public override void Attack(Enemy enemy)
         {
-            Debug.Log("Атака у поведения");
-            _lastShotTime = Time.time;
-            var product = _projectileFactory.GetProduct(_prefabProjectile);
-            
-            if (product is Projectile projectile)
+            if (!IsBuffProjectile())
             {
-                projectile.transform.position = _projectileLaunchPosition.position;
-                projectile.Initialize(_towerCharacteristics.Damage, enemy, Callback, _towerCharacteristics.DamageType,
-                    _buffEnemy);
+                base.Attack(enemy);
+                return;
             }
+            
+            _lastShotTime = Time.time;
+            
+            var projectile = GetProjectile();
+            projectile.transform.position = _projectileLaunchPosition.position;
+            projectile.Initialize(_towerCharacteristics.Damage, enemy, Callback, _towerCharacteristics.DamageType,
+                    _buffEnemy);
         }
-        
+
+        private bool IsBuffProjectile()
+        {
+            var randomNumber = Random.Range(0, 100);
+            return randomNumber <= _buffChance;
+        }
+
         public void BuffTarget(Enemy target)
         {
             target.EnemyBuffController.AddBuff(_buffEnemy);

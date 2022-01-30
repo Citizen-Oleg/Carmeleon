@@ -11,8 +11,6 @@ namespace ScriptsLevels.ManagerPlaceInstallationView
         [SerializeField]
         private RectTransform _container;
         [SerializeField]
-        private Vector2 _offSetView;
-        [SerializeField]
         private ViewPlaceInstallation _viewPlaceInstallationPrefab;
 
         [SerializeField]
@@ -47,7 +45,7 @@ namespace ScriptsLevels.ManagerPlaceInstallationView
 
         private Vector2 GetViewPosition(PlaceInstallationTower placeInstallationTower)
         {
-            return UIUtility.WorldToCanvasPosition(_container, placeInstallationTower.transform) + _offSetView;
+            return UIUtility.WorldToCanvasPosition(_container, placeInstallationTower.transform);
         }
 
         private void ShowViewPlaceInstallation(PlaceInstallationTower placeInstallationTower)

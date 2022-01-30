@@ -40,13 +40,15 @@ namespace Towers
         public virtual void Attack(Enemy enemy)
         {
             _lastShotTime = Time.time;
-            var product = _projectileFactory.GetProduct(_prefabProjectile);
+            var projectile = GetProjectile();
             
-            if (product is Projectile projectile)
-            {
-                projectile.transform.position = _projectileLaunchPosition.position;
-                projectile.Initialize(_towerCharacteristics.Damage, enemy, Callback, _towerCharacteristics.DamageType);
-            }
+            projectile.transform.position = _projectileLaunchPosition.position;
+            projectile.Initialize(_towerCharacteristics.Damage, enemy, Callback, _towerCharacteristics.DamageType);
+        }
+
+        protected Projectile GetProjectile()
+        {
+            return _projectileFactory.GetProduct(_prefabProjectile) as Projectile;
         }
 
         protected void Callback(Projectile projectile)

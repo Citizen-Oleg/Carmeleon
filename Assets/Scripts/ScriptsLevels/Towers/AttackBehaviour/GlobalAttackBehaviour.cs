@@ -2,6 +2,7 @@
 using EnemyComponent;
 using Interface;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Towers
 { 
