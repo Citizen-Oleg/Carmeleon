@@ -65,6 +65,11 @@ namespace ScriptsMenu.Map
             level.IsPassedAverageLevel = passedLevel.IsPassedAverageLevel;
             level.IsPassedHighLevel = passedLevel.IsPassedHighLevel;
             level.HasGoldBorder = passedLevel.HasGoldBorder;
+
+            for (var i = 0; i < passedLevel.Modifiers.Count; i++)
+            {
+                level.Modifiers[i].IsPassed = passedLevel.Modifiers[i].IsPassed;
+            }
         }
 
         private void OpeningRegions()

@@ -36,9 +36,8 @@ namespace ScriptsMenu.Map
         }
 
         public bool HasGoldBorder { get; set; }
-
-        [Newtonsoft.Json.JsonIgnore]
-        public List<Modifier> Modifiers
+        
+        public List<ModifierData> Modifiers
         {
             get => _modifiers;
             set => _modifiers = value;
@@ -67,7 +66,7 @@ namespace ScriptsMenu.Map
         private bool _isPassedHighLevel;
         [Newtonsoft.Json.JsonIgnore]
         [SerializeField]
-        private List<Modifier> _modifiers = new List<Modifier>();
+        private List<ModifierData> _modifiers = new List<ModifierData>();
         
         [Header("UI data")]
         [SerializeField]

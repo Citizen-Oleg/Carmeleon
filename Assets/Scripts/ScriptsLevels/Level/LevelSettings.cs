@@ -22,7 +22,7 @@ namespace ScriptsLevels.Level
 
             foreach (var modifier in modifiers.Where(modifier => modifier.IsActive))
             { 
-                modifier.GetModificator().Activate();
+                modifier.Modifier.GetModificator().Activate();
             }
         }
     }

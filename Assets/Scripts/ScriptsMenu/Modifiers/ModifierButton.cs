@@ -1,6 +1,7 @@
-using System;
+    using System;
 using JetBrains.Annotations;
-using TMPro;
+    using ScriptsLevels.Providers;
+    using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -11,34 +12,56 @@ namespace ScriptsMenu.Modifiers
     {
         [SerializeField]
         private Image _imageButton;
-        [SerializeField]
-        private Color _selectedColor;
+     
         [Header("Description view")]
         [SerializeField]
         private TextMeshProUGUI _textDescription;
         [SerializeField]
         private GameObject _description;
         
-        private Color _defaultColor;
-        private Modifier _modifier;
-
-
-        public void Initialize(Modifier modifier)
+        private ModifierData _modifier;
+        
+        public void Initialize(ModifierData modifier)
         {
             _modifier = modifier;
             _modifier.IsActive = false;
 
-            _defaultColor = _imageButton.color;
-
-            _textDescription.text = _modifier.Description;
+            _textDescription.text = _modifier.Modifier.Description;
             _description.SetActive(false);
+            
+            SetSpriteModifier();
         }
 
         [UsedImplicitly]
         public void Click()
         {
             _modifier.IsActive = !_modifier.IsActive;
-            _imageButton.color = _modifier.IsActive ? _selectedColor : _defaultColor;
+            SetSpriteModifier();
+        }
+
+        private void SetSpriteModifier()
+        {
+            var spriteProvider = GameManager.SpriteProvider;
+            
+            switch (_modifier.IsActive)
+            {
+                case true when !_modifier.IsPassed:
+                    _imageButton.sprite = spriteProvider.GetSpriteByType(SpriteType.FailedSelectedModifier);
+                    break;
+                case false when _modifier.IsPassed:
+                    _imageButton.sprite = spriteProvider.GetSpriteByType(SpriteType.PassedModifier);
+                    break;
+            }
+
+            switch (_modifier.IsActive)
+            {
+                case true when _modifier.IsPassed:
+                    _imageButton.sprite = spriteProvider.GetSpriteByType(SpriteType.PassedSelectedModifier);
+                    break;
+                case false when !_modifier.IsPassed:
+                    _imageButton.sprite = spriteProvider.GetSpriteByType(SpriteType.FailedModifier);
+                    break;
+            }
         }
 
         public void OnPointerEnter(PointerEventData eventData)

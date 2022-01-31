@@ -1,4 +1,5 @@
 ﻿using ScreenManager;
+using ScriptsLevels.Providers;
 using ScriptsMenu.ContextScreen;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -13,9 +14,7 @@ namespace ScriptsMenu.Map
     {
         public LevelData LevelData => _levelData;
         public Sprite LevelMap => _levelMap;
-
-        [SerializeField]
-        private Image _goldOutline;
+        
         [SerializeField]
         private Sprite _levelMap;
         [SerializeField]
@@ -25,10 +24,6 @@ namespace ScriptsMenu.Map
         [Header("UI data")]
         [SerializeField]
         private Image _level;
-        [SerializeField]
-        private Color _lockColor;
-        [SerializeField]
-        private Color _defaultColor;
 
         private ScreenManager.ScreenManager _screenManager;
 
@@ -41,6 +36,7 @@ namespace ScriptsMenu.Map
         public void OpenLevel()
         {
             _levelData.IsOpen = true;
+            gameObject.SetActive(true);
         }
 
         public void OpenNextLevel()
@@ -53,8 +49,16 @@ namespace ScriptsMenu.Map
 
         public void Refresh()
         {
-            _level.color = _levelData.IsOpen ? _defaultColor : _lockColor;
-            _goldOutline.gameObject.SetActive(_levelData.HasGoldBorder);
+            gameObject.SetActive(_levelData.IsOpen);
+            
+            var spriteProvider = GameManager.SpriteProvider;
+            if (_levelData.HasGoldBorder)
+            {
+                _level.sprite = spriteProvider.GetSpriteByType(SpriteType.GoldLevel);
+                return;
+            }
+
+            _level.sprite = spriteProvider.GetSpriteByType(_levelData.IsPassedEasyLevel ? SpriteType.PassedLevel : SpriteType.FailedLevel);
         }
 
         public void OnPointerClick(PointerEventData eventData)

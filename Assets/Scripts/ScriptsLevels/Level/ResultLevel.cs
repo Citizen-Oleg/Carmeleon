@@ -56,11 +56,24 @@ namespace ScriptsLevels.Level
                 modifier.IsPassed = true;
             }
             
+            levelData.HasGoldBorder = CheckPatencyGoldStroke(levelData);
             var context = new VictoryScreenContext(
                 CheckEasyPatencyLevel(levelData), CheckAveragePatencyLevel(levelData), CheckHighPatencyLevel(levelData),
                 activeModifier.Count);
             GameManager.PlayerData.AddPassedLevel(GameManager.instance.CurrentLevel.LevelData);
             GameManager.ScreenManager.OpenScreenWithContext(ScreenType.VictoryScreen, context);
+        }
+        
+        private bool CheckPatencyGoldStroke(LevelData levelData)
+        {
+            var hasLostHP = _playerBase.CurrentHp < _playerBase.MAXHp;
+            if (levelData.Modifiers.Count(modifier => modifier.IsActive) == NUMBER_OF_MODIFICATORS_FOR_GOLDEN_RIMS && !hasLostHP)
+            {
+                levelData.HasGoldBorder = true;
+                return true;
+            }
+
+            return false;
         }
 
         private SpriteType CheckEasyPatencyLevel(LevelData levelData)
@@ -106,7 +119,6 @@ namespace ScriptsLevels.Level
             
             if (isMaxModificator && !hasLostHP && !levelData.IsPassedHighLevel)
             {
-                levelData.HasGoldBorder = true;
                 levelData.IsPassedHighLevel = true;
                 AwardAccrual();
                 return SpriteType.ReceivedCrystalReward;

@@ -9,15 +9,7 @@ namespace ScriptsMenu.Map
     {
         public bool IsOpen { get; private set; }
         public bool IsPassed => _levels.All(level => level.LevelData.IsPassedEasyLevel);
-
-        [Header("UI data")]
-        [SerializeField]
-        private Image _region;
-        [SerializeField]
-        private Color _lockColor;
-        [SerializeField]
-        private Color _defaultColor;
-        [Space]
+        
         [SerializeField]
         private List<Region> _neighboringRegions;
         [SerializeField]
@@ -27,17 +19,11 @@ namespace ScriptsMenu.Map
         [Header("No bonus levels")]
         [SerializeField]
         private List<Level> _levels = new List<Level>();
-
-        private void Start()
-        {
-            ChangeColor();
-        }
-
+        
         public void TerritoryDiscovery()
         {
             IsOpen = true;
             _startLevel.OpenLevel();
-            ChangeColor();
         }
 
         public void DiscoveryNeighboringTerritories()
@@ -47,11 +33,6 @@ namespace ScriptsMenu.Map
             {
                 neighboringRegion.TerritoryDiscovery();
             }
-        }
-
-        private void ChangeColor()
-        {
-            _region.color = IsOpen ? _defaultColor : _lockColor;
         }
     }
 }

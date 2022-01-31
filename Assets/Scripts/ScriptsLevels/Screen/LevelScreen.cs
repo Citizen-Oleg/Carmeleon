@@ -1,10 +1,10 @@
 ﻿using JetBrains.Annotations;
 using ScreenManager;
+using ScriptsLevels.Providers;
 using ScriptsMenu.ContextScreen;
 using ScriptsMenu.Modifiers;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace ScriptsLevels.Screen
@@ -26,10 +26,6 @@ namespace ScriptsLevels.Screen
         private TextMeshProUGUI _description;
 
         [Header("Splinter")]
-        [SerializeField]
-        private Color _receiptColor;
-        [SerializeField]
-        private Color _nonReceivedColor;
         [SerializeField]
         private Image _easeSplinter;
         [SerializeField]
@@ -70,11 +66,21 @@ namespace ScriptsLevels.Screen
         private void ShowSplinter()
         {
             var levelData = _level.LevelData;
-            _easeSplinter.color = levelData.IsPassedEasyLevel ? _receiptColor : _nonReceivedColor;
-            _averageSplinter.color = levelData.IsPassedAverageLevel ? _receiptColor : _nonReceivedColor;
-            _highSplinter.color = levelData.IsPassedHighLevel ? _receiptColor : _nonReceivedColor;
+            _easeSplinter.sprite = GetSpriteFromPassing(levelData.IsPassedEasyLevel);
+            _averageSplinter.sprite = GetSpriteFromPassing(levelData.IsPassedAverageLevel);
+            _highSplinter.sprite = GetSpriteFromPassing(levelData.IsPassedHighLevel);
+
         }
 
+        private Sprite GetSpriteFromPassing(bool isPassed)
+        {
+            var spriteProvider = GameManager.SpriteProvider;
+            
+            return spriteProvider.GetSpriteByType(isPassed
+                ? SpriteType.ReceivedCrystal
+                : SpriteType.NotReceivedCrystal);
+        }
+        
         private void CreateModifier()
         {
             foreach (var modifier in _level.LevelData.Modifiers)
