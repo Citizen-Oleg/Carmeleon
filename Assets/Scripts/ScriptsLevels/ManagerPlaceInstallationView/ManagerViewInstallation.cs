@@ -45,7 +45,7 @@ namespace ScriptsLevels.ManagerPlaceInstallationView
 
         private Vector2 GetViewPosition(PlaceInstallationTower placeInstallationTower)
         {
-            return UIUtility.WorldToCanvasPosition(_container, placeInstallationTower.transform);
+            return UIUtility.WorldToCanvasPosition(_container, placeInstallationTower.PositionView);
         }
 
         private void ShowViewPlaceInstallation(PlaceInstallationTower placeInstallationTower)

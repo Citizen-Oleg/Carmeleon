@@ -50,13 +50,15 @@ namespace ScriptsLevels.Level
         {
             var levelData = GameManager.instance.CurrentLevel.LevelData;
 
-            foreach (var modifier in levelData.Modifiers.Where(modifier => modifier.IsActive))
+            var activeModifier = levelData.Modifiers.Where(modifier => modifier.IsActive).ToList();
+            foreach (var modifier in activeModifier)
             {
                 modifier.IsPassed = true;
             }
             
             var context = new VictoryScreenContext(
-                CheckEasyPatencyLevel(levelData), CheckAveragePatencyLevel(levelData), CheckHighPatencyLevel(levelData));
+                CheckEasyPatencyLevel(levelData), CheckAveragePatencyLevel(levelData), CheckHighPatencyLevel(levelData),
+                activeModifier.Count);
             GameManager.PlayerData.AddPassedLevel(GameManager.instance.CurrentLevel.LevelData);
             GameManager.ScreenManager.OpenScreenWithContext(ScreenType.VictoryScreen, context);
         }

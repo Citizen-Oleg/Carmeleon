@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using JetBrains.Annotations;
 using ScreenManager;
 using ScriptsLevels.ContextScreen;
@@ -16,6 +17,8 @@ namespace ScriptsLevels.Screen
         private Image _averageSplinter;
         [SerializeField]
         private Image _highSplinter;
+        [SerializeField]
+        private List<Image> _amuletFragments;
 
         private ScreenManager.ScreenManager _screenManager;
         private void Start()
@@ -30,6 +33,11 @@ namespace ScriptsLevels.Screen
             _easySplinter.sprite = spriteProvider.GetSpriteByType(context.EasyLevel);
             _averageSplinter.sprite = spriteProvider.GetSpriteByType(context.AverageLevel);
             _highSplinter.sprite = spriteProvider.GetSpriteByType(context.HighLevel);
+
+            for (int i = 0; i < context.CountModifier; i++)
+            {
+                _amuletFragments[i].gameObject.SetActive(true);
+            }
         }
 
         public override void Initialize(ScreenType screenType)

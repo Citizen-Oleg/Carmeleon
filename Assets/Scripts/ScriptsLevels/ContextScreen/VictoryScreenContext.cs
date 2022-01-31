@@ -8,12 +8,14 @@ namespace ScriptsLevels.ContextScreen
         public SpriteType EasyLevel { get; }
         public SpriteType AverageLevel { get; }
         public SpriteType HighLevel { get; }
+        public int CountModifier { get; }
 
-        public VictoryScreenContext(SpriteType easyLevel, SpriteType averageLevel, SpriteType hghLevel)
+        public VictoryScreenContext(SpriteType easyLevel, SpriteType averageLevel, SpriteType hghLevel, int countModifier)
         {
             EasyLevel = easyLevel;
             AverageLevel = averageLevel;
             HighLevel = hghLevel;
+            CountModifier = countModifier;
         }
     }
 }

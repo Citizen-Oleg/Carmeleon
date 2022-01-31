@@ -11,9 +11,13 @@ namespace PlaceInstallation
     public class PlaceInstallationTower : MonoBehaviour
     {
         public event Action<PlaceInstallationTower> OnDestroyTower;
-
+        
         public IBehaviorPlaceInstallation BehaviorPlaceInstallation => _behaviorPlaceInstallation;
+        public Transform PositionView => _positionView;
 
+        [SerializeField]
+        private Transform _positionView;
+        
         private IBehaviorPlaceInstallation _behaviorPlaceInstallation;
         
         private void Awake()
