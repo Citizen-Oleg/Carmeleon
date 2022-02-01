@@ -22,7 +22,7 @@ namespace EnemyComponent
         public Transform PositionHealthBar => _positionHealthBar;
         
         public int ID => _id;
-        
+        public EnemyType EnemyType => _enemyType;
         public string Name => _name;
         public Transform Position => _positionExplanationUI;
         public CharacteristicsEnemy CharacteristicsEnemy => _characteristicsEnemy;
@@ -38,6 +38,8 @@ namespace EnemyComponent
         private int _id;
         [SerializeField]
         private string _name;
+        [SerializeField]
+        private EnemyType _enemyType;
         [SerializeField]
         private Transform _positionExplanationUI;
         [SerializeField]

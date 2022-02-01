@@ -10,6 +10,8 @@ namespace ManagerHB
     public class HealthBar : MonoBehaviour
     {
         [SerializeField]
+        private Image _bossSkull;
+        [SerializeField]
         private Slider _healthBarSlider;
         [SerializeField]
         private TextMeshProUGUI _health;
@@ -29,7 +31,7 @@ namespace ManagerHB
             _parent = _transform.parent as RectTransform;
         }
 
-        private void Update()
+        private void LateUpdate()
         {
             _transform.anchoredPosition = UIUtility.WorldToCanvasPosition(_parent, _enemy.PositionHealthBar);
         }
@@ -47,7 +49,9 @@ namespace ManagerHB
             _enemy = enemy;
             _lastMaxHp = _enemy.CharacteristicsEnemy.MaxHp;
             
-            Update();
+            _bossSkull.gameObject.SetActive(_enemy.EnemyType == EnemyType.Boss);
+            
+            LateUpdate();
             RefreshUI();
 
             _enemy.HealthBehavior.OnHealthСhanges += RefreshUI;
@@ -59,8 +63,7 @@ namespace ManagerHB
             if (characteristicsEnemy != null && (_lastHp != characteristicsEnemy.CurrentHp 
                                                   || _lastMaxHp != characteristicsEnemy.MaxHp))
             {
-                _health.text = $"{characteristicsEnemy.CurrentHp} / " +
-                               $"{characteristicsEnemy.MaxHp}";
+                _health.text = $"{characteristicsEnemy.CurrentHp}";
                 
                 _healthBarSlider.value = (float) characteristicsEnemy.CurrentHp / characteristicsEnemy.MaxHp;
 
