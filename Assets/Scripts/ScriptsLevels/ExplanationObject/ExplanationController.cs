@@ -46,13 +46,14 @@ namespace ScriptsLevels.ExplanationObject
                 _viewExplanation.Close();
                 return;
             }
-            
+        }
 
+        private void LateUpdate()
+        {
             if (_currentObject != null)
             {
                 RefreshPosition();
             }
-            
         }
 
         private void RefreshPosition()
