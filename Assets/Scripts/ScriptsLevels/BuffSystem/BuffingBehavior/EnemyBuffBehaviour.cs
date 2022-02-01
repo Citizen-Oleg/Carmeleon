@@ -1,4 +1,5 @@
-﻿using BuffSystem.SettingsBuff;
+﻿using System;
+using BuffSystem.SettingsBuff;
 using EnemyComponent;
 using Interface;
 using UnityEngine;
@@ -9,7 +10,7 @@ namespace ScriptsLevels.BuffSystem.BuffingBehavior
     {
         [SerializeField]
         private SettingsBuff<Enemy> _settingsBuff;
-
+        
         public void BuffTarget(Enemy target)
         {
             target.EnemyBuffController.AddBuff(_settingsBuff);

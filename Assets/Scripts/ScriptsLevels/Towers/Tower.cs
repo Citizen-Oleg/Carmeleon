@@ -33,7 +33,6 @@ namespace Towers
         {
             _towerAnimationController = new TowerAnimationController(GetComponent<Animator>());
             GetComponent<Rigidbody2D>().isKinematic = true;
-            GetComponent<Collider2D>().isTrigger = true;
         }
 
         private void OnEnable()

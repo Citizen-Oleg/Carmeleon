@@ -1,6 +1,4 @@
-﻿using System;
-using BuffSystem.SettingsBuff;
-using EnemyComponent;
+﻿using EnemyComponent;
 using Interface;
 using UnityEngine;
 
@@ -16,7 +14,7 @@ namespace BuffSystem
         {
             _buffBehaviour = GetComponent<IBuffBehaviour<Enemy>>();
         }
-
+        
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.TryGetComponent(out Enemy enemy))

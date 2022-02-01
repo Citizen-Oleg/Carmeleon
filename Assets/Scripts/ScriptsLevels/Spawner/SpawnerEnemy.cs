@@ -79,8 +79,9 @@ namespace Spawner
                     
                     if (product is Enemy enemy)
                     {
-                        enemy.transform.position = enemyData.StartNode.transform.position;
-                        enemy.MovementEnemyController.Initialize(enemy, enemyData.StartNode == null ? _defaultStartNode : enemyData.StartNode);
+                        var node = enemyData.StartNode == null ? _defaultStartNode : enemyData.StartNode;
+                        enemy.transform.position = node.transform.position;
+                        enemy.MovementEnemyController.Initialize(enemy, node);
                     
                         EventStreams.UserInterface.Publish(new EnemyCreatedEvent(enemy));
                     }

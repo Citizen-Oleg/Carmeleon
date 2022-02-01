@@ -1,20 +1,27 @@
-﻿using BuffSystem.SettingsBuff;
+﻿using System;
+using BuffSystem.SettingsBuff;
+using Interface;
 using Towers;
 using UnityEngine;
 
 namespace BuffSystem
 {
+    [RequireComponent(typeof(IBuffBehaviour<Tower>))]
     [RequireComponent(typeof(Collider2D))]
     public class PassiveRadiusBuffTower : MonoBehaviour
     {
-        [SerializeField]
-        private SettingsBuff<Tower> _settingsBuff;
+        private IBuffBehaviour<Tower> _buffBehaviour;
         
+        private void Awake()
+        {
+            _buffBehaviour = GetComponent<IBuffBehaviour<Tower>>();
+        }
+
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.TryGetComponent(out Tower tower))
             {
-                tower.TowerBuffController.AddBuff(_settingsBuff);
+                _buffBehaviour.BuffTarget(tower);
             }
         }
 
@@ -22,7 +29,7 @@ namespace BuffSystem
         {
             if (other.TryGetComponent(out Tower tower))
             {
-                tower.TowerBuffController.StopBuff(_settingsBuff);
+                _buffBehaviour.StopBuffTarget(tower);
             }
         }
     }

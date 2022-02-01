@@ -10,7 +10,7 @@ namespace Towers
     [RequireComponent(typeof(SpriteRenderer))]
     public class Projectile : MonoBehaviour, IProduct
     {
-        private const float DISTANCE_TO_TARGET = 0.1f;
+        private const float DISTANCE_TO_TARGET = 0.25f;
         
         public float FlightSpeed
         {
@@ -82,7 +82,7 @@ namespace Towers
 
             transform.right = _target.transform.position - transform.position;
 
-            if (Vector3.Distance(transform.position, _target.transform.position) < DISTANCE_TO_TARGET)
+            if (Vector2.Distance(transform.position, _target.PositionBody.position) < DISTANCE_TO_TARGET)
             {
                 ApplyDamage();
             }

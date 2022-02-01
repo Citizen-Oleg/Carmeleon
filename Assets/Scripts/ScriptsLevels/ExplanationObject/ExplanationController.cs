@@ -9,6 +9,8 @@ namespace ScriptsLevels.ExplanationObject
     public class ExplanationController : MonoBehaviour
     {
         [SerializeField]
+        private LayerMask _explanationObjectLayer;
+        [SerializeField]
         private RectTransform _container;
         [SerializeField]
         private ViewExplanation _viewExplanation;
@@ -24,7 +26,7 @@ namespace ScriptsLevels.ExplanationObject
         private void Update()
         {
             var target = Camera.main.ScreenPointToRay(Input.mousePosition);
-            var raycastHit = Physics2D.Raycast(target.origin, target.direction);
+            var raycastHit = Physics2D.Raycast(target.origin, target.direction, 100f, _explanationObjectLayer);
 
             if (raycastHit.collider == null)
             {
@@ -35,16 +37,11 @@ namespace ScriptsLevels.ExplanationObject
             if (raycastHit.collider.TryGetComponent(out IExplanationObject explanationObject))
             {
                 _currentObject = explanationObject;
-
-                if (!_viewExplanation.IsOpen)
-                {
-                    _viewExplanation.Show(explanationObject.Name);
-                } 
+                _viewExplanation.Show(explanationObject.Name);
             }
             else
             {
                 _viewExplanation.Close();
-                return;
             }
         }
 
