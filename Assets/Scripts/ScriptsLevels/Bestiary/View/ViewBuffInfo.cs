@@ -13,12 +13,7 @@ namespace ScriptsLevels.Bestiary
         private TextMeshProUGUI _nameBuff;
         [SerializeField]
         private TextMeshProUGUI _descriptionBuff;
-
-        private void Awake()
-        {
-            gameObject.SetActive(false);
-        }
-
+        
         public void Initialize(Sprite spriteBuff, string nameBuff, string descriptionBuff)
         {
             gameObject.SetActive(true);

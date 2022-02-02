@@ -1,7 +1,40 @@
 fileFormatVersion: 2
 guid: aa9dbb365578d654e8d8933930538ae5
 ScriptedImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -2469966350872474088
+    second: Bestiary_0
+  - first:
+      213: -1582749448149937766
+    second: Bestiary_1
+  - first:
+      213: 6350220364476358303
+    second: Bestiary_2
+  - first:
+      213: 8237378552291595869
+    second: Bestiary_3
+  - first:
+      213: -3603535020815855613
+    second: Bestiary_4
+  - first:
+      213: -6217197184928183185
+    second: Bestiary_5
+  - first:
+      213: 7699668444662555141
+    second: Bestiary_6
+  - first:
+      213: -4494418725126270418
+    second: Bestiary_7
+  - first:
+      213: 8055362563560816867
+    second: Bestiary_8
+  - first:
+      213: 6832599463045676445
+    second: Bestiary_9
+  - first:
+      213: 3024153294145506519
+    second: Bestiary_10
   externalObjects: {}
   serializedVersion: 2
   userData: 
@@ -91,18 +124,18 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   mosaicSpriteImportData: []
   rigSpriteImportData:
-  - name: "\u0421\u043E\u0440\u0442\u0438\u0440\u043E\u0432\u043A\u0430 \u0412\u043E\u0437\u0434\u0443\u0445"
+  - name: Bestiary_0
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 1598
-      y: 141
-      width: 103
-      height: 87
-    spriteID: 6838db27bf71830489a3ffe291676d47
+      x: 5
+      y: 4
+      width: 1585
+      height: 840
+    spriteID: 81e0419b0bae8bdd0800000000000000
     internalID: 0
     spriteBone: []
     spriteOutline: []
@@ -112,8 +145,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 924, y: -773}
-  - name: "\u0421\u043E\u0440\u0442\u0438\u0440\u043E\u0432\u043A\u0430 \u0417\u0435\u043C\u043B\u044F"
+    uvTransform: {x: 5, y: 4}
+  - name: Bestiary_1
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -121,10 +154,10 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 1598
-      y: 236
-      width: 99
-      height: 80
-    spriteID: d714b65c550c8ef40a068d14d92d4bc0
+      y: 687
+      width: 80
+      height: 83
+    spriteID: a91d39e33c1f80ae0800000000000000
     internalID: 0
     spriteBone: []
     spriteOutline: []
@@ -134,8 +167,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 1019, y: -678}
-  - name: "\u0421\u043E\u0440\u0442\u0438\u0440\u043E\u0432\u043A\u0430 \u0412\u043E\u0434\u0430"
+    uvTransform: {x: 1598, y: 687}
+  - name: Bestiary_2
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -143,10 +176,54 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 1598
-      y: 508
+      y: 600
+      width: 87
+      height: 78
+    spriteID: f9e901ec6c3802850800000000000000
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1598, y: 600}
+  - name: Bestiary_3
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1599
+      y: 509
+      width: 87
+      height: 83
+    spriteID: d5613c9562c015270800000000000000
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1599, y: 509}
+  - name: Bestiary_4
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1599
+      y: 416
       width: 88
       height: 84
-    spriteID: c28e5c0455d159f43b9b266aab54981b
+    spriteID: 300579cadfbadfdc0800000000000000
     internalID: 0
     spriteBone: []
     spriteOutline: []
@@ -156,8 +233,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 1112, y: -406}
-  - name: "\u0421\u043E\u0440\u0442\u0438\u0440\u043E\u0432\u043A\u0430 \u041E\u0433\u043E\u043D\u044C"
+    uvTransform: {x: 1599, y: 416}
+  - name: Bestiary_5
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -165,10 +242,10 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 1598
-      y: 324
+      y: 325
       width: 93
-      height: 84
-    spriteID: e868e6bcaa0140543b753011e21e1b53
+      height: 83
+    spriteID: f6c0cc5b91418b9a0800000000000000
     internalID: 0
     spriteBone: []
     spriteOutline: []
@@ -178,8 +255,30 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 1205, y: -591}
-  - name: "\u0412\u043A\u043B\u0430\u0434\u043A\u0430 \u0411\u0430\u0448\u043D\u0438"
+    uvTransform: {x: 1598, y: 325}
+  - name: Bestiary_6
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1599
+      y: 237
+      width: 98
+      height: 79
+    spriteID: 5026564e7a7bada60800000000000000
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1599, y: 237}
+  - name: Bestiary_7
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -187,10 +286,10 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 1598
-      y: 416
-      width: 90
-      height: 84
-    spriteID: bf726d1c651db3b4d9aaa0cdc91b297c
+      y: 144
+      width: 10
+      height: 6
+    spriteID: e221cf06bfd90a1c0800000000000000
     internalID: 0
     spriteBone: []
     spriteOutline: []
@@ -200,8 +299,52 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 1387, y: -322}
-  - name: "\u0412\u043A\u043B\u0430\u0434\u043A\u0430 \u0412\u0440\u0430\u0433\u0438"
+    uvTransform: {x: 1598, y: 144}
+  - name: Bestiary_8
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1609
+      y: 142
+      width: 92
+      height: 86
+    spriteID: 3e0c50a82956acf60800000000000000
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1609, y: 142}
+  - name: Bestiary_9
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1598
+      y: 4
+      width: 108
+      height: 129
+    spriteID: d9dbc5fc20542de50800000000000000
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1598, y: 4}
+  - name: Bestiary_10
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -211,8 +354,8 @@ ScriptedImporter:
       x: 1715
       y: 4
       width: 86
-      height: 78
-    spriteID: 76a2a384b5eb42943b744cc83eb41993
+      height: 77
+    spriteID: 7dccedbf563f7f920800000000000000
     internalID: 0
     spriteBone: []
     spriteOutline: []
@@ -222,95 +365,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 1506, y: -675}
-  - name: "\u0412\u043A\u043B\u0430\u0434\u043A\u0430 \u0420\u0435\u0430\u0433\u0435\u043D\u0442\u044B"
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 1598
-      y: 600
-      width: 88
-      height: 79
-    spriteID: 824fdbe7b57fab448b616c1f716eee70
-    internalID: 0
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: 1393, y: -8}
-  - name: "\u0412\u043A\u043B\u0430\u0434\u043A\u0430 \u041C\u0435\u0437\u0430\u043D\u043D\u0438\u043A\u0438"
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 1598
-      y: 687
-      width: 81
-      height: 84
-    spriteID: de568f35e83eacd408d8dea68f5f6e2a
-    internalID: 0
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: 1409, y: 179}
-  - name: "\u0417\u0430\u043A\u0440\u044B\u0442\u044C \u0411\u0435\u0441\u0442\u0438\u0430\u0440\u0438\u0439"
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 1598
-      y: 4
-      width: 109
-      height: 129
-    spriteID: 57ac4ab15c22c02478f387192f605368
-    internalID: 0
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: 108, y: -196}
-  - name: "\u041A\u043D\u0438\u0433\u0430"
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 4
-      width: 1586
-      height: 840
-    spriteID: bc72364dff6f1c340841562bdc23e7cc
-    internalID: 0
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: -163, y: -90}
+    uvTransform: {x: 1715, y: 4}
   platformSettings: []
   mosaicLayers: 1
   documentPivot: {x: 0, y: 0}
