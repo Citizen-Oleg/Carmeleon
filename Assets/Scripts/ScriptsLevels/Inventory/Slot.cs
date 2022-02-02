@@ -65,7 +65,10 @@ namespace Inventory
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            _viewExplanation.Close();
+            if (_viewExplanation.IsOpen)
+            {
+                _viewExplanation.Close();
+            }
         }
 
         public void SetItem(ItemInSlot itemInSlot)

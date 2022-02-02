@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Towers
 {
-    [RequireComponent(typeof(TowerCharacteristics))]
+    [RequireComponent(typeof(Tower))]
     public class RangeAttackBehavior : MonoBehaviour, IAttackBehaviour
     {
         public bool IsCooldown => _lastShotTime + _towerCharacteristics.AttackSpeed > Time.time;
@@ -19,13 +19,15 @@ namespace Towers
         
         protected float _lastShotTime;
 
+        protected Tower _tower;
         protected TowerCharacteristics _towerCharacteristics;
         protected ProjectileFactory _projectileFactory;
         
         private void Awake()
         {
             _projectileFactory = LevelManager.ProjectileFactory;
-            _towerCharacteristics = GetComponent<TowerCharacteristics>();
+            _tower = GetComponent<Tower>();
+            _towerCharacteristics = _tower.TowerCharacteristics;
         }
         
         public bool CanAttack(Enemy enemy)

@@ -24,6 +24,11 @@ namespace Towers
             _animator.ResetTrigger(IsAttack);
         }
 
+        public void Refresh()
+        {
+            _animator.Rebind();
+        }
+
         public bool IsActiveAnimationAttack()
         {
             return _animator.GetCurrentAnimatorStateInfo(0).IsName("Attack");
