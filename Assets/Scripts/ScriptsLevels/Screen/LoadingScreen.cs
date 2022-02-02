@@ -7,16 +7,18 @@ namespace ScriptsLevels.Screen
     public class LoadingScreen : BaseScreen
     {
         [SerializeField]
-        private Slider _loadingProgress;
+        private float _speedRotation;
+        [SerializeField]
+        private Image _imageSnake;
         
-        private void Update()
-        {
-            _loadingProgress.value = GameManager.LoadingController.LoadingProgress;
-        }
-
         public override void Initialize(ScreenType screenType)
         {
             ScreenType = screenType;
+        }
+
+        private void Update()
+        {
+            _imageSnake.transform.Rotate(Vector3.forward * _speedRotation * Time.deltaTime);
         }
     }
 }

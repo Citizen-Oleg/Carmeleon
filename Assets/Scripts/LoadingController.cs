@@ -7,8 +7,6 @@ namespace DefaultNamespace
 {
     public class LoadingController : MonoBehaviour
     {
-        public float LoadingProgress { get; private set; }
-        
         public void StartLoad(string sceneName)
         {
             GameManager.ScreenManager.OpenScreen(ScreenType.LoadingScreen);
@@ -21,7 +19,6 @@ namespace DefaultNamespace
             var operation = SceneManager.LoadSceneAsync(sceneName);
             while (!operation.isDone)
             {
-                LoadingProgress = Mathf.Clamp01(operation.progress / 1f);
                 yield return null;
             }
             
