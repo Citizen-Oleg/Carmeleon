@@ -1455,9 +1455,9 @@ GameObject:
   - component: {fileID: 8138105530931551608}
   - component: {fileID: 8138105530931551609}
   - component: {fileID: 8138105530931551610}
-  - component: {fileID: 8138105530931551493}
   - component: {fileID: 8138105530931551494}
   - component: {fileID: 7267865529230202147}
+  - component: {fileID: 5945709501906444722}
   m_Layer: 9
   m_Name: HydraTower
   m_TagString: Untagged
@@ -1614,22 +1614,6 @@ MonoBehaviour:
   _positionExplanationUI: {fileID: 8138105531057333816}
   _towerCharacteristics: {fileID: 8138105530931551609}
   _towerBuffController: {fileID: 8138105530931551608}
---- !u!114 &8138105530931551493
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8138105530931551614}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29a1d297c2fe4ab5b7ce7fce1b64b40b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _prefabProjectile: {fileID: 2883211231895526961, guid: 0d47a70e19dfb9940bd7496fc7b91405, type: 3}
-  _projectileLaunchPosition: {fileID: 8138105531155680059}
-  _numberShots: 3
-  _delayBeforeFiring: 0.6
 --- !u!114 &8138105530931551494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1654,6 +1638,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e00cef9859b4a1c8ddaa16239e92269, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5945709501906444722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8138105530931551614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1930a72f83c64bb0b730e5798ccbedf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _prefabProjectile: {fileID: 2883211231895526961, guid: 0d47a70e19dfb9940bd7496fc7b91405, type: 3}
+  _projectileLaunchPosition: {fileID: 8138105531155680059}
+  _numberShots: 3
+  _delayBeforeFiring: 0.6
+  _buffChance: 10
+  _settingsBuffEnemy: {fileID: 11400000, guid: 9387f704cb1127c40ae13d75e2fa3750, type: 2}
 --- !u!1 &8138105531043285605
 GameObject:
   m_ObjectHideFlags: 0

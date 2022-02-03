@@ -9,16 +9,16 @@ namespace Towers
     public class BurstAttackBehaviour : RangeAttackBehavior
     {
         [SerializeField]
-        private int _numberShots;
+        protected int _numberShots;
         [SerializeField]
-        private float _delayBeforeFiring;
+        protected float _delayBeforeFiring;
         
         public override void Attack(Enemy enemy)
         {
             StartCoroutine(BurstAttack(enemy));
         }
 
-        private IEnumerator BurstAttack(Enemy enemy)
+        protected virtual IEnumerator BurstAttack(Enemy enemy)
         {
             for (int i = 0; i < _numberShots; i++)
             {
