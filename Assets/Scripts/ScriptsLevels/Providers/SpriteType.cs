@@ -11,6 +11,8 @@ namespace ScriptsLevels.Providers
         PassedSelectedModifier = 6,
         FailedLevel = 7,
         PassedLevel = 8,
-        GoldLevel = 9
+        GoldLevel = 9,
+        OpenTalent = 10,
+        BoughtTalent = 11
     }
 } 

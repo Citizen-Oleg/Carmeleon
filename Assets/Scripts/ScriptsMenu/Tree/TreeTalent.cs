@@ -28,7 +28,7 @@ namespace ScriptsMenu.Tree
             talentNode.TalentData.Talent.ActivateTalent();
         }
 
-        public void OpenActivatedTalent(TalentNode talentNode)
+        private void OpenActivatedTalent(TalentNode talentNode)
         {
             talentNode.TalentData.IsActive = true;
             talentNode.OpenTalent();

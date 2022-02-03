@@ -1,4 +1,5 @@
 ﻿using ResourceManager;
+using ScriptsLevels.Providers;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -26,11 +27,11 @@ namespace ScriptsMenu.Tree
         [SerializeField]
         private Image _imageTalent;
         [SerializeField]
+        private Image _imageState;
+        [SerializeField]
         private TextMeshProUGUI _textPrice;
         [SerializeField]
         private TextMeshProUGUI _descriptionTalent;
-        [SerializeField]
-        private Color _activeColor;
         [SerializeField]
         private Color _openColor;
         [SerializeField]
@@ -41,11 +42,9 @@ namespace ScriptsMenu.Tree
         private void Start()
         {
             _resourceManagerGame = GameManager.ResourceManagerGame;
-
             _descriptionTalent.text = _talentData.Talent.Description;
             _imageTalent.sprite = _talentData.Talent.IconTalent;
-            _textPrice.text = _price.Amount.ToString();
-            
+
             Refresh();
         }
 
@@ -74,22 +73,32 @@ namespace ScriptsMenu.Tree
 
         public void Refresh()
         {
-            if (_talentData.IsOpen)
-            {
-                _nodeImage.color = _openColor;
-                _imageTalent.color = _openColor;
-                _descriptionTalent.color = _openColor;
-            }
-            else
+            var spriteProvider = GameManager.SpriteProvider;
+
+            _textPrice.gameObject.SetActive(!_talentData.IsActive);
+            if (!_talentData.IsOpen)
             {
                 _nodeImage.color = _closeColor;
                 _imageTalent.color = _closeColor;
-                _descriptionTalent.color = _closeColor;
+                _imageState.sprite = spriteProvider.GetSpriteByType(SpriteType.OpenTalent);
+                _textPrice.text = _price.Amount.ToString();
+                return;
             }
-
+            
+            _nodeImage.color = _openColor;
+            _imageTalent.color = _openColor;
+            _descriptionTalent.text = _talentData.Talent.Description;
+            
             if (_talentData.IsActive)
             {
-                _nodeImage.color = _activeColor;
+                _imageState.sprite = spriteProvider.GetSpriteByType(SpriteType.BoughtTalent);
+                return;
+            }
+            
+            if (_talentData.IsOpen)
+            {
+                _imageState.sprite = spriteProvider.GetSpriteByType(SpriteType.OpenTalent);
+                _textPrice.text = _price.Amount.ToString();
             }
         }
         
