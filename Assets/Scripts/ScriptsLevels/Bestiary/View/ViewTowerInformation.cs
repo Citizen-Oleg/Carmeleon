@@ -8,6 +8,8 @@ namespace ScriptsLevels.Bestiary
 {
     public class ViewTowerInformation : MonoBehaviour
     {
+        private const string GLOBAL_ATTACK = "Глобальный";
+        
         [SerializeField]
         private TextMeshProUGUI _textAttackSpeed;
         [SerializeField]
@@ -31,28 +33,47 @@ namespace ScriptsLevels.Bestiary
             _viewBuffInfoTower.gameObject.SetActive(false);
             _viewDebuffInfoEnemy.gameObject.SetActive(false);
             
-            var characteristics = bestiaryItemTower.Item.Tower.TowerCharacteristics;
+            if (bestiaryItemTower.SpriteCraftItem != null)
+            {
+                _imageCraft.sprite = bestiaryItemTower.SpriteCraftItem;
+            }
+            else
+            {
+                _imageCraft.gameObject.SetActive(false);
+            }
             
+            SetCharacteristics(bestiaryItemTower);
+            ShowViewDebuffEnemy(bestiaryItemTower);
+            ShowViewBuffTower(bestiaryItemTower);
+        }
+
+        private void SetCharacteristics(BestiaryItemTower bestiaryItemTower)
+        {
+            var characteristics = bestiaryItemTower.Item.Tower.TowerCharacteristics;
             _textAttackSpeed.text = characteristics.AttackSpeed.ToString();
             _textDamageType.text = GetTextDamageType(characteristics.DamageType);
             _textDamage.text = characteristics.Damage.ToString();
-            _textRadius.text = characteristics.AttackRadius == 0 ? "Глобальный" : characteristics.AttackRadius.ToString();
-            _imageCraft.sprite = bestiaryItemTower.SpriteCraftItem;
-            
+            _textRadius.text = characteristics.AttackRadius == 0 ? GLOBAL_ATTACK : characteristics.AttackRadius.ToString();
+        }
+
+        private void ShowViewDebuffEnemy(BestiaryItemTower bestiaryItemTower)
+        {
             if (bestiaryItemTower.SettingsDebuffEnemy != null)
             {
                 var buff = bestiaryItemTower.SettingsDebuffEnemy;
                 _viewDebuffInfoEnemy.Initialize(buff.Sprite, buff.Name, buff.Description);
             }
+        }
 
+        private void ShowViewBuffTower(BestiaryItemTower bestiaryItemTower)
+        {
             if (bestiaryItemTower.SettingsBuffTower != null)
             {
                 var buff = bestiaryItemTower.SettingsBuffTower;
                 _viewBuffInfoTower.Initialize(buff.Sprite, buff.Name, buff.Description);
             }
         }
-
-
+        
         private string GetTextDamageType(DamageType damageType)
         {
             switch (damageType)

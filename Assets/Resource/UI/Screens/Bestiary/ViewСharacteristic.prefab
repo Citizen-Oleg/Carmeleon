@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 561068501475827003}
   - component: {fileID: 4070787748223317911}
   m_Layer: 5
-  m_Name: "View\u0421haracteristicEnemy"
+  m_Name: "View\u0421haracteristic"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -80,8 +80,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 25.3078, y: -0.89999}
-  m_SizeDelta: {x: 210.3699, y: 30}
+  m_AnchoredPosition: {x: 25.3078, y: 0}
+  m_SizeDelta: {x: 210.3699, y: 38.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4070460723934420262
 CanvasRenderer:
@@ -138,7 +138,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
+  m_fontSize: 38.8
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
