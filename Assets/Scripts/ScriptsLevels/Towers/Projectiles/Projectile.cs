@@ -80,7 +80,7 @@ namespace Towers
             transform.position = Vector3.MoveTowards(transform.position, _target.PositionBody.position,
                 _flightSpeed * Time.deltaTime);
 
-            transform.right = _target.transform.position - transform.position;
+            transform.right = (Vector2) (_target.transform.position - transform.position);
 
             if (Vector2.Distance(transform.position, _target.PositionBody.position) < DISTANCE_TO_TARGET)
             {

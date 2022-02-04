@@ -40,5 +40,13 @@ namespace Towers
             _callback?.Invoke(this);
             _target = null;
         }
+        
+#if UNITY_EDITOR
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, _explosionRadius);
+        }
+#endif
     }
 }

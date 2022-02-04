@@ -16,8 +16,7 @@ namespace Towers
         private ITargetsProvider _targetsProvider;
         private IAttackBehaviour _attackBehaviour;
         private Tower _tower;
-        private List<Enemy> _currenTargets = new List<Enemy>();
-
+        
         private void Awake()
         {
             _targetsProvider = GetComponent<ITargetsProvider>();
@@ -32,9 +31,9 @@ namespace Towers
                             && !_tower.TowerAnimationController.IsActiveAnimationAttack();
             if (canShoot)
             {
-                _currenTargets = _targetsProvider.GetTargets(_tower.TowerCharacteristics.AttackRadius);
+                var targets = _targetsProvider.GetTargets(_tower.TowerCharacteristics.AttackRadius);
 
-                if (_currenTargets.Count != 0)
+                if (targets.Count != 0)
                 {
                     _tower.TowerAnimationController.Attack();
                 }
@@ -45,7 +44,8 @@ namespace Towers
         private void AttackEvent()
         {
             _tower.TowerAnimationController.ResetAttack();
-            foreach (var enemy in _currenTargets)
+            var targets = _targetsProvider.GetTargets(_tower.TowerCharacteristics.AttackRadius);
+            foreach (var enemy in targets)
             {
                 if (_attackBehaviour.CanAttack(enemy))
                 {
