@@ -266,6 +266,7 @@ GameObject:
   - component: {fileID: 5946779699284015907}
   - component: {fileID: 4692682011915339414}
   - component: {fileID: 2158643003400524683}
+  - component: {fileID: 1827580905792017652}
   m_Layer: 6
   m_Name: Oleg
   m_TagString: Untagged
@@ -472,6 +473,7 @@ MonoBehaviour:
   _attackBehaviour: {fileID: 8357942709956376797}
   _healthBehavior: {fileID: 3211740387353800348}
   _enemyBuffController: {fileID: 2002156259237270947}
+  _enemyAnimationController: {fileID: 1827580905792017652}
 --- !u!114 &5946779699284015907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -523,6 +525,29 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1827580905792017652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357624036424363145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd9d46c509474166b82e580fec557cf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _defaultColor: {r: 1, g: 1, b: 1, a: 1}
+  _frostColor: {r: 0.39557344, g: 0.38033998, b: 0.7264151, a: 1}
+  _spriteRenderers:
+  - {fileID: 2800446639927522292}
+  - {fileID: 725023010839686234}
+  - {fileID: 839355510001070791}
+  - {fileID: 6803235943989050290}
+  - {fileID: 3319770750376536052}
+  - {fileID: 4997246652779216546}
+  - {fileID: 975275374934161442}
+  - {fileID: 527458311448497583}
 --- !u!1 &1623063058666719878
 GameObject:
   m_ObjectHideFlags: 0

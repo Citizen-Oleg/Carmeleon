@@ -938,6 +938,7 @@ GameObject:
   - component: {fileID: 6309615808287023676}
   - component: {fileID: 3458257990748078204}
   - component: {fileID: 7350687057781939548}
+  - component: {fileID: 2870593359118968871}
   m_Layer: 6
   m_Name: Golem
   m_TagString: Untagged
@@ -1140,6 +1141,7 @@ MonoBehaviour:
   _attackBehaviour: {fileID: 4887461285388554070}
   _healthBehavior: {fileID: 4887461285388554071}
   _enemyBuffController: {fileID: 4887461285388554066}
+  _enemyAnimationController: {fileID: 2870593359118968871}
 --- !u!114 &7490559105118165154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1202,6 +1204,28 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &2870593359118968871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4887461285388554030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd9d46c509474166b82e580fec557cf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _defaultColor: {r: 1, g: 1, b: 1, a: 1}
+  _frostColor: {r: 0.39557344, g: 0.38033998, b: 0.7264151, a: 1}
+  _spriteRenderers:
+  - {fileID: 4887461284049927220}
+  - {fileID: 4887461285022026456}
+  - {fileID: 4887461284114432360}
+  - {fileID: 4887461283912361818}
+  - {fileID: 4887461285678206030}
+  - {fileID: 4887461285302817895}
+  - {fileID: 4887461285388489948}
 --- !u!1 &4887461285422394731
 GameObject:
   m_ObjectHideFlags: 0

@@ -801,6 +801,7 @@ GameObject:
   - component: {fileID: 8455614518606881963}
   - component: {fileID: 5112480318185256821}
   - component: {fileID: -3540506884119666330}
+  - component: {fileID: 3484860799006522977}
   m_Layer: 6
   m_Name: Mage
   m_TagString: Untagged
@@ -1003,6 +1004,7 @@ MonoBehaviour:
   _attackBehaviour: {fileID: 6424541551407336178}
   _healthBehavior: {fileID: 8455614518606881963}
   _enemyBuffController: {fileID: 8331902883761264783}
+  _enemyAnimationController: {fileID: 3484860799006522977}
 --- !u!50 &-3540506884119666330
 Rigidbody2D:
   serializedVersion: 4
@@ -1024,6 +1026,28 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &3484860799006522977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3711103828056158382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd9d46c509474166b82e580fec557cf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _defaultColor: {r: 1, g: 1, b: 1, a: 1}
+  _frostColor: {r: 0.39557344, g: 0.38033998, b: 0.7264151, a: 1}
+  _spriteRenderers:
+  - {fileID: 2874121844324604037}
+  - {fileID: 8325597093448110673}
+  - {fileID: 4972901479431433880}
+  - {fileID: 6360907647825430540}
+  - {fileID: 7897168637704601303}
+  - {fileID: 4138067015108170221}
+  - {fileID: 8438248201083223799}
 --- !u!1 &4750406753857655053
 GameObject:
   m_ObjectHideFlags: 0

@@ -26,7 +26,7 @@ namespace BuffSystem.Buffs
 
         ~FreezingBuff()
         {
-            _enemy.HealthBehavior.OnHealthСhanges -= Stop;
+            _enemy.HealthBehavior.OnTakeDamage -= Stop;
         }
         
         public void Start()
@@ -34,7 +34,7 @@ namespace BuffSystem.Buffs
             IsActive = true;
             Refresh();
             _enemy.CharacteristicsEnemy.IsFrozen = true;
-            _enemy.HealthBehavior.OnHealthСhanges += Stop;
+            _enemy.HealthBehavior.OnTakeDamage += Stop;
         }
 
         public void Stop()

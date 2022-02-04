@@ -1289,6 +1289,7 @@ GameObject:
   - component: {fileID: 674344216568307572}
   - component: {fileID: 674344216568307573}
   - component: {fileID: 674344216568307562}
+  - component: {fileID: 8254035024589467939}
   m_Layer: 6
   m_Name: ShieldBearer
   m_TagString: Untagged
@@ -1510,6 +1511,30 @@ MonoBehaviour:
   _attackBehaviour: {fileID: 674344216568307572}
   _healthBehavior: {fileID: 674344216568307573}
   _enemyBuffController: {fileID: 674344216568307568}
+  _enemyAnimationController: {fileID: 8254035024589467939}
+--- !u!114 &8254035024589467939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 674344216568307567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd9d46c509474166b82e580fec557cf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _defaultColor: {r: 1, g: 1, b: 1, a: 1}
+  _frostColor: {r: 0.39557344, g: 0.38033998, b: 0.7264151, a: 1}
+  _spriteRenderers:
+  - {fileID: 674344216572702226}
+  - {fileID: 674344215474646973}
+  - {fileID: 674344214518668672}
+  - {fileID: 674344216513416680}
+  - {fileID: 674344215237801487}
+  - {fileID: 674344214906501810}
+  - {fileID: 674344215423647815}
+  - {fileID: 674344215480624201}
 --- !u!1 &674344216572702225
 GameObject:
   m_ObjectHideFlags: 0

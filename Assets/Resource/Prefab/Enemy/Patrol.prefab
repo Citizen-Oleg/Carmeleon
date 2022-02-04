@@ -1243,6 +1243,7 @@ GameObject:
   - component: {fileID: 3714395865411465437}
   - component: {fileID: 8127289038983389779}
   - component: {fileID: -4804777618418205108}
+  - component: {fileID: 7376091641238171995}
   m_Layer: 6
   m_Name: Patrol
   m_TagString: Untagged
@@ -1449,6 +1450,7 @@ MonoBehaviour:
   _attackBehaviour: {fileID: 8445539486105657151}
   _healthBehavior: {fileID: 3714395865411465437}
   _enemyBuffController: {fileID: 2606108087437687260}
+  _enemyAnimationController: {fileID: 7376091641238171995}
 --- !u!50 &-4804777618418205108
 Rigidbody2D:
   serializedVersion: 4
@@ -1470,6 +1472,31 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &7376091641238171995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7360800232009634946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd9d46c509474166b82e580fec557cf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _defaultColor: {r: 1, g: 1, b: 1, a: 1}
+  _frostColor: {r: 0.39557344, g: 0.38033998, b: 0.7264151, a: 1}
+  _spriteRenderers:
+  - {fileID: 1364593151186189697}
+  - {fileID: 6426881920962819496}
+  - {fileID: 8788521266165167119}
+  - {fileID: 1990279593557544273}
+  - {fileID: 6825565060885034364}
+  - {fileID: 6784856443316338839}
+  - {fileID: 6711328077024347586}
+  - {fileID: 7316756114271790147}
+  - {fileID: 3897066936229208085}
+  - {fileID: 4262704311773347430}
 --- !u!1 &7968881559794526357
 GameObject:
   m_ObjectHideFlags: 0

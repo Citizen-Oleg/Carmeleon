@@ -956,6 +956,7 @@ GameObject:
   - component: {fileID: 5547881052878769695}
   - component: {fileID: 8258848771888105681}
   - component: {fileID: -6437314292614375398}
+  - component: {fileID: 8115751737049576963}
   m_Layer: 6
   m_Name: Knight
   m_TagString: Untagged
@@ -1161,6 +1162,7 @@ MonoBehaviour:
   _attackBehaviour: {fileID: 3478684433838179234}
   _healthBehavior: {fileID: 5547881052878769695}
   _enemyBuffController: {fileID: 2435645700999453994}
+  _enemyAnimationController: {fileID: 8115751737049576963}
 --- !u!50 &-6437314292614375398
 Rigidbody2D:
   serializedVersion: 4
@@ -1182,6 +1184,28 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &8115751737049576963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6104677576855485902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd9d46c509474166b82e580fec557cf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _defaultColor: {r: 1, g: 1, b: 1, a: 1}
+  _frostColor: {r: 0.39557344, g: 0.38033998, b: 0.7264151, a: 1}
+  _spriteRenderers:
+  - {fileID: 3119007555575527679}
+  - {fileID: 4801209964618501682}
+  - {fileID: 876561166863390740}
+  - {fileID: 4435947188203308375}
+  - {fileID: 6687151770706624341}
+  - {fileID: 2153464032606471869}
+  - {fileID: 8070221073242566882}
 --- !u!1 &6270415108921073073
 GameObject:
   m_ObjectHideFlags: 0

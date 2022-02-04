@@ -89,6 +89,26 @@ namespace EnemyComponent
                 _isStan = value;
             }
         }
+        
+        public bool IsFrozen
+        {
+            get => _isFrozen;
+            set
+            {
+                if (value)
+                {
+                    IsCast = false;
+                }
+
+                if (_isDeath)
+                {
+                    return;
+                }
+                
+                _enemy.EnemyAnimationController.SetAnimationFrozen(value);
+                _isFrozen = value;
+            }
+        }
 
         public bool IsCast { get; set; }
 
@@ -140,12 +160,7 @@ namespace EnemyComponent
             get => _hasImmunityAir;
             set => _hasImmunityAir = value;
         }
-
-        public bool IsFrozen
-        {
-            get => _isFrozen;
-            set => _isFrozen = value;
-        }
+        
 
         public float Speed => _baseSpeed * (1 + PercentageIncreaseSpeed / 100f) * (1 - PercentageSpeedReduction / 100f);
         public int MaxHp => (int) (_maxHP * (1 + PercentageIncreaseMaxHp / 100f));

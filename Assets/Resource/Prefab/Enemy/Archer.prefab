@@ -1181,6 +1181,7 @@ GameObject:
   - component: {fileID: 4968989969612601628}
   - component: {fileID: 4481594415283266694}
   - component: {fileID: -706268136715357097}
+  - component: {fileID: 4496959153230164044}
   m_Layer: 6
   m_Name: Archer
   m_TagString: Untagged
@@ -1383,6 +1384,7 @@ MonoBehaviour:
   _attackBehaviour: {fileID: 1030166464842997013}
   _healthBehavior: {fileID: 4968989969612601628}
   _enemyBuffController: {fileID: 8799653750465514833}
+  _enemyAnimationController: {fileID: 4496959153230164044}
 --- !u!50 &-706268136715357097
 Rigidbody2D:
   serializedVersion: 4
@@ -1404,6 +1406,28 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &4496959153230164044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7720766263443472100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd9d46c509474166b82e580fec557cf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _defaultColor: {r: 1, g: 1, b: 1, a: 1}
+  _frostColor: {r: 0.39557344, g: 0.38033998, b: 0.7264151, a: 1}
+  _spriteRenderers:
+  - {fileID: 6215453035106645501}
+  - {fileID: 5600049448286592494}
+  - {fileID: 1712180556824003087}
+  - {fileID: 2016638621774874004}
+  - {fileID: 8452846302579377964}
+  - {fileID: 4536072880086841893}
+  - {fileID: 4790203451354152058}
 --- !u!1 &8415811813727476850
 GameObject:
   m_ObjectHideFlags: 0

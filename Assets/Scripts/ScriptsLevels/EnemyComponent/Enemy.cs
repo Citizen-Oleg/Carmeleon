@@ -17,6 +17,7 @@ namespace EnemyComponent
     [RequireComponent(typeof(CharacteristicsEnemy))]
     [RequireComponent(typeof(AttackBehaviourEnemy))]
     [RequireComponent(typeof(HealthBehavior))]
+    [RequireComponent(typeof(EnemyAnimationController))]
     public class Enemy : MonoBehaviour, IProduct, IExplanationObject
     {
         public Transform PositionHealthBar => _positionHealthBar;
@@ -58,12 +59,8 @@ namespace EnemyComponent
         private HealthBehavior _healthBehavior;
         [SerializeField]
         private EnemyBuffController _enemyBuffController;
-        
+        [SerializeField]
         private EnemyAnimationController _enemyAnimationController;
-
-        private void Awake()
-        {
-            _enemyAnimationController = new EnemyAnimationController(GetComponent<Animator>());
-        }
+        
     }
 }
