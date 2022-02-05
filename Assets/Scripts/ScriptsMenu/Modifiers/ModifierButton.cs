@@ -1,5 +1,6 @@
     using System;
 using JetBrains.Annotations;
+    using ScriptsLevels.ExplanationObject;
     using ScriptsLevels.Providers;
     using TMPro;
 using UnityEngine;
@@ -12,12 +13,9 @@ namespace ScriptsMenu.Modifiers
     {
         [SerializeField]
         private Image _imageButton;
-     
-        [Header("Description view")]
+
         [SerializeField]
-        private TextMeshProUGUI _textDescription;
-        [SerializeField]
-        private GameObject _description;
+        private ViewExplanation _viewExplanation;
         
         private ModifierData _modifier;
         
@@ -25,9 +23,8 @@ namespace ScriptsMenu.Modifiers
         {
             _modifier = modifier;
             _modifier.IsActive = false;
-
-            _textDescription.text = _modifier.Modifier.Description;
-            _description.SetActive(false);
+            
+           _viewExplanation.gameObject.SetActive(false);
             
             SetSpriteModifier();
         }
@@ -66,12 +63,12 @@ namespace ScriptsMenu.Modifiers
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            _description.SetActive(true);
+            _viewExplanation.Show(_modifier.Modifier.Description);
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            _description.SetActive(false);
+            _viewExplanation.Close();
         }
     }
 }
