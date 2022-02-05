@@ -1093,12 +1093,12 @@ MonoBehaviour:
   _isMoving: 1
   _hasImmunityPhysical: 0
   _hasImmunityWater: 0
-  _hasImmunityEarth: 1
+  _hasImmunityEarth: 0
   _hasImmunityFire: 0
   _hasImmunityAir: 0
   _armor: 0
   _fireResistance: 0
-  _earthResistance: 0
+  _earthResistance: 50
   _waterResistance: 0
   _airResistance: 0
 --- !u!114 &4887461285388554070
@@ -1162,7 +1162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5217b87563f94229a81fe62c53455819, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _settingsBuff: {fileID: 11400000, guid: 31156b4019c48cd40a89443b5e91a427, type: 2}
+  _settingsBuff: {fileID: 11400000, guid: 93153f54b5dc85c408d239db1587124a, type: 2}
 --- !u!114 &6309615808287023676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1446,7 +1446,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4887461285544334058}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.9, z: 0}
+  m_LocalPosition: {x: 0, y: 3.582, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4887461285388554025}
