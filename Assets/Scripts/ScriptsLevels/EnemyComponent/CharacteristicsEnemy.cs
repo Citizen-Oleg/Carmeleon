@@ -62,7 +62,11 @@ namespace EnemyComponent
         public bool IsDeath
         {
             get => _isDeath;
-            set => _isDeath = value;
+            set
+            {
+                _enemy.EnemyAnimationController.SetAnimationDead(value);
+                _isDeath = value;
+            }
         }
 
         public bool IsMoving

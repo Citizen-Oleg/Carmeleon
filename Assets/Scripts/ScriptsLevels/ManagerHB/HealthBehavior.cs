@@ -39,7 +39,6 @@ namespace ManagerHB
             if (_enemy.CharacteristicsEnemy.CurrentHp <= 0)
             {
                 _enemy.CharacteristicsEnemy.IsDeath = true;
-                _enemy.EnemyAnimationController.SetAnimationDead();
             }
         }
         

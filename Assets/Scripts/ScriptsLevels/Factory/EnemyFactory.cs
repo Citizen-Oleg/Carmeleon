@@ -61,10 +61,13 @@ namespace Factory
             
             characteristics.CurrentHp = characteristics.MaxHp;
 
-            enemy.EnemyAnimationController.DefaultState();
-            
             characteristics.IsDeath = false;
             characteristics.IsCast = false;
+            characteristics.IsFrozen = false;
+            characteristics.IsStan = false;
+
+            enemy.EnemyAnimationController.DefaultState();
+            
             characteristics.IsMoving = true;
         }
         

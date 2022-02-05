@@ -41,11 +41,14 @@ namespace EnemyComponent
             _animator.SetBool(IsMoving, isMoving);
         }
 
-        public void SetAnimationDead()
+        public void SetAnimationDead(bool isDead)
         {
-            _animator.StopPlayback();
-
-            _animator.SetBool(IsDead, true);
+            if (isDead)
+            {
+                _animator.StopPlayback();
+            }
+            
+            _animator.SetBool(IsDead, isDead);
         }
 
         public void SetAnimationStan(bool isStan)
