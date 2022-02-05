@@ -13,11 +13,15 @@ namespace EnemyComponent
         private static readonly int IsCast = Animator.StringToHash("IsCast");
 
         [SerializeField]
+        private List<SpriteRenderer> _spriteRenderers = new List<SpriteRenderer>();
+        [SerializeField]
         private Color _defaultColor = Color.white;
+        
+        [Header("Ice settings")]
         [SerializeField]
         private Color _frostColor = Color.blue;
         [SerializeField]
-        private List<SpriteRenderer> _spriteRenderers = new List<SpriteRenderer>();
+        private GameObject _ice;
         
         private Animator _animator;
 
@@ -52,6 +56,8 @@ namespace EnemyComponent
         public void SetAnimationFrozen(bool isFrozen)
         {
             SetFreezeColor(isFrozen);
+            _ice.gameObject.SetActive(isFrozen);
+            
             if (isFrozen)
             {
                 _animator.StartPlayback();

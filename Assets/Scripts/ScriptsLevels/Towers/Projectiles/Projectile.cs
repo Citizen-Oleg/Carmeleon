@@ -69,7 +69,7 @@ namespace Towers
         
         protected void ApplyBuffEnemy(Enemy enemy)
         {
-            if (_settingsBuff != null)
+            if (_settingsBuff != null && !enemy.CharacteristicsEnemy.IsDeath)
             {
                 enemy.EnemyBuffController.AddBuff(_settingsBuff);
             }

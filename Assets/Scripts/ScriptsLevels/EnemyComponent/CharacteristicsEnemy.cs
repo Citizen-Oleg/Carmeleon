@@ -100,11 +100,6 @@ namespace EnemyComponent
                     IsCast = false;
                 }
 
-                if (_isDeath)
-                {
-                    return;
-                }
-                
                 _enemy.EnemyAnimationController.SetAnimationFrozen(value);
                 _isFrozen = value;
             }

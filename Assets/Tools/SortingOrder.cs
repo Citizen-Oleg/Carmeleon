@@ -1,16 +1,22 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using UnityEngine.Rendering;
 
 namespace Tools
 {
+    [RequireComponent(typeof(SortingGroup))]
     public class SortingOrder : MonoBehaviour
     {
-        private Renderer _renderer;
+        private SortingGroup _sortingGroup;
         
-        [ContextMenu("SortgingOredLayer")]
-        private void SortingOrderLayer()
+        private void Awake()
         {
-            _renderer = gameObject.GetComponent<Renderer>();
-            _renderer.sortingOrder = (int) transform.position.y;
+            _sortingGroup = gameObject.GetComponent<SortingGroup>();
+        }
+
+        private void Update()
+        {
+            _sortingGroup.sortingOrder = (int) -transform.position.y;
         }
     }
 }

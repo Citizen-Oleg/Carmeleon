@@ -18,7 +18,7 @@ namespace Towers
         {
             base.Attack(enemy);
 
-            if (IsBuffAttack())
+            if (IsBuffAttack() && !enemy.CharacteristicsEnemy.IsDeath)
             {
                 BuffTarget(enemy);
             }
