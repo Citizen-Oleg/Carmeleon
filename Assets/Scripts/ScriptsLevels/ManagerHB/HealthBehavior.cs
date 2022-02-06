@@ -39,6 +39,7 @@ namespace ManagerHB
             if (_enemy.CharacteristicsEnemy.CurrentHp <= 0)
             {
                 _enemy.CharacteristicsEnemy.IsDeath = true;
+                OnDead?.Invoke(_enemy);
             }
         }
         
@@ -54,8 +55,6 @@ namespace ManagerHB
         [UsedImplicitly]
         private void Dead()
         {
-            _enemy.CharacteristicsEnemy.IsDeath = true;
-            OnDead?.Invoke(_enemy);
             EventStreams.UserInterface.Publish(new EnemyDestroyedEvent(_enemy));
         }
         

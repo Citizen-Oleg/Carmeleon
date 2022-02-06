@@ -12999,19 +12999,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _startDelay: 2
-  _delayedSpawnEnemies: 2
+  _delayedSpawnEnemies: 1
   _defaultStartNode: {fileID: 886702605}
   _waveSpawns:
   - _enemySpawnData:
-    - _enemy: {fileID: 4887461285388554068, guid: 60bd1be646a193041bc812dd0c72e1cd, type: 3}
+    - _enemy: {fileID: 6346612384935151170, guid: ee792a6da6d431d46824c04013d4984b, type: 3}
       _startNode: {fileID: 886702605}
-      _count: 1
-    - _enemy: {fileID: 8127289038983389779, guid: f2847d254cfbd28499d97660030754f1, type: 3}
-      _startNode: {fileID: 886702605}
-      _count: 5
-    - _enemy: {fileID: 8127289038983389779, guid: f2847d254cfbd28499d97660030754f1, type: 3}
-      _startNode: {fileID: 886702605}
-      _count: 5
+      _count: 30
 --- !u!4 &1669284895
 Transform:
   m_ObjectHideFlags: 0
@@ -13048,6 +13042,11 @@ MonoBehaviour:
   - {fileID: 8127289038983389779, guid: f2847d254cfbd28499d97660030754f1, type: 3}
   - {fileID: 4887461285388554068, guid: 60bd1be646a193041bc812dd0c72e1cd, type: 3}
   - {fileID: 674344216568307562, guid: 6f682aaa98d464742bdd73248516d742, type: 3}
+  - {fileID: 5612257551933800306, guid: 9466d3383a4980644b687a936067a63d, type: 3}
+  - {fileID: 7719297104341663980, guid: 1056d70e321a5bb4189d3fd1a0f50a75, type: 3}
+  - {fileID: 3138554296611794327, guid: 611eebe5bdd721441b3959b9714a75bb, type: 3}
+  - {fileID: 5733955112387868814, guid: f1cf0b68c501cc84fbca4420aa659fda, type: 3}
+  - {fileID: 6346612384935151170, guid: ee792a6da6d431d46824c04013d4984b, type: 3}
 --- !u!1001 &1685516406
 PrefabInstance:
   m_ObjectHideFlags: 0
