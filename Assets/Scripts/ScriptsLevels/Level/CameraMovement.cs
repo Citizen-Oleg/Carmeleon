@@ -70,8 +70,8 @@ namespace Level
         {
             var mousePosition = Input.mousePosition;
             var positionCamera = _camera.transform.position;
-            var speed = _panSpeed * Time.fixedTime;
-            
+            var speed = _panSpeed * Time.fixedDeltaTime;
+
             if (mousePosition.x > Screen.width - _screenPanThreshold)
             {
                 positionCamera.x += speed;

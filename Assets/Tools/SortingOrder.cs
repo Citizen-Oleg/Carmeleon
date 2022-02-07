@@ -7,6 +7,8 @@ namespace Tools
     [RequireComponent(typeof(SortingGroup))]
     public class SortingOrder : MonoBehaviour
     {
+        private const int MULTIPLIER_FOR_CORRECT_LAYER = 10;
+        
         private SortingGroup _sortingGroup;
         
         private void Awake()
@@ -16,7 +18,7 @@ namespace Tools
 
         private void Update()
         {
-            _sortingGroup.sortingOrder = (int) -transform.position.y;
+            _sortingGroup.sortingOrder = Mathf.RoundToInt(-transform.position.y * MULTIPLIER_FOR_CORRECT_LAYER);
         }
     }
 }

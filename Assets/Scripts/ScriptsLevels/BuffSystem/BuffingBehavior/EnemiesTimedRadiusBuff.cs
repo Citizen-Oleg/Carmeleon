@@ -12,7 +12,7 @@ namespace ScriptsLevels.BuffSystem
     public class EnemiesTimedRadiusBuff : MonoBehaviour
     {
         [SerializeField]
-        private LayerMask _enemyLayer;
+        private LayerMask _layer;
         [SerializeField]
         private float _cooldownBuff;
         [SerializeField]
@@ -45,7 +45,7 @@ namespace ScriptsLevels.BuffSystem
         [UsedImplicitly]
         private void ApplyBuff()
         {
-            var count = Physics2D.OverlapCircleNonAlloc(transform.position, _radiusBuff, _colliders2D, _enemyLayer);
+            var count = Physics2D.OverlapCircleNonAlloc(transform.position, _radiusBuff, _colliders2D, _layer);
             for (var i = 0; i < count; i++)
             {
                 if (_colliders2D[i] == null)

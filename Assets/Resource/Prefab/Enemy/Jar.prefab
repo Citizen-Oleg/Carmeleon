@@ -422,7 +422,7 @@ MonoBehaviour:
   _enemy: {fileID: 6346612384935151170}
   _maxHP: 350
   _currentHP: 350
-  _baseSpeed: 0.75
+  _baseSpeed: 0.5
   _damageToBase: 1
   _isDeath: 0
   _isMoving: 1
@@ -500,7 +500,7 @@ MonoBehaviour:
   _enemyType: 0
   _positionExplanationUI: {fileID: 6346612385892560986}
   _positionBody: {fileID: 6346612386406415823}
-  _positionHealthBar: {fileID: 6346612386406415823}
+  _positionHealthBar: {fileID: 6346612385383362170}
   _lootController: {fileID: 6346612384935151196}
   _characteristicsEnemy: {fileID: 6346612384935151198}
   _movementEnemyController: {fileID: 6346612384935151199}
@@ -729,7 +729,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6346612385383362173}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.025, y: 2.507, z: 0}
+  m_LocalPosition: {x: 0.025, y: 2.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6346612384935151177}
@@ -1181,7 +1181,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6346612385892560989}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.033, y: 3.605, z: 0}
+  m_LocalPosition: {x: 0.033, y: 3.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6346612384935151177}

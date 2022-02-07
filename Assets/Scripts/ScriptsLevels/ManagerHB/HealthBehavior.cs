@@ -32,6 +32,7 @@ namespace ManagerHB
             }
             
             var calculatedDamage = _damageCalculator.GetCalculatedDamage(_enemy.CharacteristicsEnemy, damageType, damage);
+            Debug.Log(calculatedDamage);
             _enemy.CharacteristicsEnemy.CurrentHp -= calculatedDamage;
             OnTakeDamage?.Invoke();
             OnHealthСhanges?.Invoke();
