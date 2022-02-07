@@ -7,27 +7,26 @@ using UnityEngine;
 namespace ScriptsLevels.BuffSystem.BuffingBehavior
 {
     [RequireComponent(typeof(IBuffBehaviour<Tower>))]
+    [RequireComponent(typeof(IBuffBehaviour<Tower>))]
     [RequireComponent(typeof(Enemy))]
     public class TowersTimedRadiusBuff : MonoBehaviour
     {
-        [SerializeField]
-        private LayerMask _layer;
         [SerializeField]
         private float _cooldownBuff;
         [SerializeField]
         private float _radiusBuff;
 
         private bool IsCooldown => _startTime + _cooldownBuff > Time.time;
-        
-        private readonly Collider2D[] _colliders2D = new Collider2D[GlobalConstant.DEFAULT_SIZE_COLLIDERS_ARRAY];
         private float _startTime;
 
         private IBuffBehaviour<Tower> _buffBehaviour;
+        private ITargetsProvider<Tower> _targetsProvider;
         private Enemy _enemy;
 
         private void Start()
         {
             _buffBehaviour = GetComponent<IBuffBehaviour<Tower>>();
+            _targetsProvider = GetComponent<ITargetsProvider<Tower>>();
             _enemy = GetComponent<Enemy>();
             _startTime = Time.time;
         }
@@ -44,18 +43,11 @@ namespace ScriptsLevels.BuffSystem.BuffingBehavior
         [UsedImplicitly]
         private void ApplyBuff()
         {
-            var count = Physics2D.OverlapCircleNonAlloc(transform.position, _radiusBuff, _colliders2D, _layer);
-            for (var i = 0; i < count; i++)
+            var targets = _targetsProvider.GetTargets(_radiusBuff);
+            
+            foreach (var tower in targets)
             {
-                if (_colliders2D[i] == null)
-                {
-                    break;
-                }
-                
-                if (_colliders2D[i].TryGetComponent(out Tower tower))
-                {
-                    _buffBehaviour.BuffTarget(tower);
-                }
+                _buffBehaviour.BuffTarget(tower);
             }
 
             _enemy.EnemyAnimationController.ResetCast();

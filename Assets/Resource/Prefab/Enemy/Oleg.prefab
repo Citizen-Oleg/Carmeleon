@@ -269,6 +269,7 @@ GameObject:
   - component: {fileID: 1827580905792017652}
   - component: {fileID: 5438844095752108147}
   - component: {fileID: 1265134317692629879}
+  - component: {fileID: 6739095705366826975}
   m_Layer: 6
   m_Name: Oleg
   m_TagString: Untagged
@@ -493,9 +494,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd3bc699a11741ba8f4cb4e3940a4457, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _layer:
-    serializedVersion: 2
-    m_Bits: 0
   _cooldownBuff: 5
   _radiusBuff: 5
 --- !u!114 &4692682011915339414
@@ -579,6 +577,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49819965d724449198b495a401a72022, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6739095705366826975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357624036424363145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16a0ca6a06914559aafd90fa36a5200e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &1623063058666719878
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,18 +8,18 @@ using UnityEngine;
 
 namespace Towers
 {
-    [RequireComponent(typeof(ITargetsProvider))]
+    [RequireComponent(typeof(ITargetsProvider<Enemy>))]
     [RequireComponent(typeof(IAttackBehaviour))]
     [RequireComponent(typeof(Tower))]
     public class RadiusProjectileLauncher : MonoBehaviour
     {
-        private ITargetsProvider _targetsProvider;
+        private ITargetsProvider<Enemy> _targetsProvider;
         private IAttackBehaviour _attackBehaviour;
         private Tower _tower;
         
         private void Awake()
         {
-            _targetsProvider = GetComponent<ITargetsProvider>();
+            _targetsProvider = GetComponent<ITargetsProvider<Enemy>>();
             _attackBehaviour = GetComponent<IAttackBehaviour>();
             _tower = GetComponent<Tower>();
         }

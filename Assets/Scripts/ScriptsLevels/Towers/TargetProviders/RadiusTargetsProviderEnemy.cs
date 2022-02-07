@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Towers
 {
-    public class RadiusTargetsProvider : MonoBehaviour, ITargetsProvider
+    public class RadiusTargetsProviderEnemy : MonoBehaviour, ITargetsProvider<Enemy>
     {
         [SerializeField]
         private LayerMask _enemyLayer;

@@ -3,8 +3,8 @@ using EnemyComponent;
 
 namespace Interface
 {
-    public interface ITargetsProvider
+    public interface ITargetsProvider<T>
     {
-        public List<Enemy> GetTargets(float radius);
+        public List<T> GetTargets(float radius);
     }
 }

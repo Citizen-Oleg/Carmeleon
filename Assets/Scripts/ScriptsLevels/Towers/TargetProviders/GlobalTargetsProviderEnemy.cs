@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Towers
 {
-    public class GlobalTargetsProvider : MonoBehaviour, ITargetsProvider
+    public class GlobalTargetsProviderEnemy : MonoBehaviour, ITargetsProvider<Enemy>
     {
         public List<Enemy> GetTargets(float radius)
         {

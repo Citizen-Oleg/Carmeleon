@@ -7,12 +7,11 @@ using UnityEngine;
 
 namespace ScriptsLevels.BuffSystem
 {
+    [RequireComponent(typeof(ITargetsProvider<Enemy>))]
     [RequireComponent(typeof(IBuffBehaviour<Enemy>))]
     [RequireComponent(typeof(Enemy))]
     public class EnemiesTimedRadiusBuff : MonoBehaviour
     {
-        [SerializeField]
-        private LayerMask _layer;
         [SerializeField]
         private float _cooldownBuff;
         [SerializeField]
@@ -20,15 +19,16 @@ namespace ScriptsLevels.BuffSystem
 
         private bool IsCooldown => _startTime + _cooldownBuff > Time.time;
         
-        private readonly Collider2D[] _colliders2D = new Collider2D[GlobalConstant.DEFAULT_SIZE_COLLIDERS_ARRAY];
         private float _startTime;
 
+        private ITargetsProvider<Enemy> _targetsProvider;
         private IBuffBehaviour<Enemy> _buffBehaviour;
         private Enemy _enemy;
 
         private void Start()
         {
             _buffBehaviour = GetComponent<IBuffBehaviour<Enemy>>();
+            _targetsProvider = GetComponent<ITargetsProvider<Enemy>>();
             _enemy = GetComponent<Enemy>();
             _startTime = Time.time;
         }
@@ -45,18 +45,11 @@ namespace ScriptsLevels.BuffSystem
         [UsedImplicitly]
         private void ApplyBuff()
         {
-            var count = Physics2D.OverlapCircleNonAlloc(transform.position, _radiusBuff, _colliders2D, _layer);
-            for (var i = 0; i < count; i++)
+            var targets = _targetsProvider.GetTargets(_radiusBuff);
+
+            foreach (var enemy in targets)
             {
-                if (_colliders2D[i] == null)
-                {
-                    break;
-                }
-                
-                if (_colliders2D[i].TryGetComponent(out Enemy enemy))
-                {
-                    _buffBehaviour.BuffTarget(enemy);
-                }
+                _buffBehaviour.BuffTarget(enemy);
             }
 
             _enemy.EnemyAnimationController.ResetCast();

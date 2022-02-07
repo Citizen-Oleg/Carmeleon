@@ -1441,6 +1441,7 @@ GameObject:
   - component: {fileID: 7401086557635814484}
   - component: {fileID: 7401086557635814490}
   - component: {fileID: 2496364222410825226}
+  - component: {fileID: 6031402089526372868}
   m_Layer: 6
   m_Name: Governor
   m_TagString: Untagged
@@ -1615,9 +1616,9 @@ MonoBehaviour:
   _hasImmunityAir: 0
   _armor: 25
   _fireResistance: -50
-  _earthResistance: -25
-  _waterResistance: 35
-  _airResistance: -15
+  _earthResistance: 25
+  _waterResistance: 25
+  _airResistance: -35
 --- !u!114 &7401086557635814483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1739,11 +1740,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8afa2897a2954e358af802dbb3ed75f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _layer:
-    serializedVersion: 2
-    m_Bits: 512
   _cooldownBuff: 10
   _radiusBuff: 5
+--- !u!114 &6031402089526372868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7401086557635814495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 209350ad5df44a7ca10f23c876e22d2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _towerLayer:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!1 &7401086557657887484
 GameObject:
   m_ObjectHideFlags: 0
