@@ -2,6 +2,8 @@
 using Interface;
 using Inventory;
 using ScriptsLevels.Inventory;
+using ScriptsLevels.Level;
+using Towers;
 using UnityEngine;
 
 namespace PlaceInstallation
@@ -12,16 +14,19 @@ namespace PlaceInstallation
     {
         public event Action<PlaceInstallationTower> OnDestroyTower;
         
+        
         public IBehaviorPlaceInstallation BehaviorPlaceInstallation => _behaviorPlaceInstallation;
         public Transform PositionView => _positionView;
 
         [SerializeField]
         private Transform _positionView;
-        
+
+        private ManagerTower _managerTower;
         private IBehaviorPlaceInstallation _behaviorPlaceInstallation;
         
         private void Awake()
         {
+            _managerTower = LevelManager.ManagerTower;
             _behaviorPlaceInstallation = GetComponent<IBehaviorPlaceInstallation>();
         }
 
@@ -39,13 +44,17 @@ namespace PlaceInstallation
 
         public void InstallTower(ItemInSlot itemInSlot, TowerItem towerItem)
         {
+            _managerTower.AddTower(towerItem.Tower);
             _behaviorPlaceInstallation.InstallTower(itemInSlot, towerItem);
         }
 
         public ItemInSlot DestroyTower()
         {
             OnDestroyTower?.Invoke(this);
-            return _behaviorPlaceInstallation.DestroyTower();
+            var itemInSlot = _behaviorPlaceInstallation.DestroyTower();
+            var tower = (TowerItem) itemInSlot.InventoryItem.Item;
+            _managerTower.RemoveTower(tower.Tower);
+            return itemInSlot;
         }
     }
 }

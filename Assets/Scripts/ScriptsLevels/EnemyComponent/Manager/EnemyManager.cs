@@ -13,7 +13,7 @@ namespace EnemyComponent.Manager
     {
         public List<Enemy> Enemies => _enemies;
 
-        private List<Enemy> _enemies = new List<Enemy>();
+        private readonly List<Enemy> _enemies = new List<Enemy>();
         private CompositeDisposable _subscriptions;
         private SpawnerEnemy _spawnerEnemy;
         

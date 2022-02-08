@@ -7,7 +7,7 @@ using UnityEngine;
 namespace Towers
 {
     [RequireComponent(typeof(Tower))]
-    [RequireComponent(typeof(ITargetProvider))]
+    [RequireComponent(typeof(ITargetProvider<Enemy>))]
     [RequireComponent(typeof(IAttackBehaviour))]
     public class ProjectileLauncher : MonoBehaviour
     {
@@ -15,14 +15,14 @@ namespace Towers
 
         private Tower _tower;
         private IAttackBehaviour _attackBehaviour;
-        private ITargetProvider _targetProvider;
+        private ITargetProvider<Enemy> _targetProvider;
         private Enemy _currentTarget;
 
         private void Awake()
         {
             _tower = GetComponent<Tower>();
             _attackBehaviour = GetComponent<IAttackBehaviour>();
-            _targetProvider =  GetComponent<ITargetProvider>();
+            _targetProvider =  GetComponent<ITargetProvider<Enemy>>();
         }
 
         private void Update()

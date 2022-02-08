@@ -7,7 +7,6 @@ namespace PlaceInstallation
 {
     public class BehaviorPlaceInstallation : MonoBehaviour, IBehaviorPlaceInstallation
     {
-        public virtual bool HasBusy(TowerItem towerItem) => _itemInSlot != null && _towerItem != null;
         public float BlockDuration => _blockDuration;
         public bool HasBlock => _blockTime > Time.time;
 
@@ -23,6 +22,11 @@ namespace PlaceInstallation
 
         private float _blockTime;
 
+        public virtual bool HasBusy(TowerItem towerItem)
+        {
+            return _itemInSlot != null && _towerItem != null && _towerItem.Tower.TowerCharacteristics.CanAttack;
+        }
+        
         public virtual void InstallTower(ItemInSlot itemInSlot, TowerItem towerItem)
         {
             _itemInSlot = itemInSlot;

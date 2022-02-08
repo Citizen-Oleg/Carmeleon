@@ -678,6 +678,7 @@ GameObject:
   - component: {fileID: 444555043}
   - component: {fileID: 444555044}
   - component: {fileID: 444555045}
+  - component: {fileID: 444555046}
   m_Layer: 0
   m_Name: LevelController
   m_TagString: Untagged
@@ -723,6 +724,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55ecea42d1764274b71fb01b27bc5144, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _managerTower: {fileID: 444555046}
   _reagentPool: {fileID: 444555042}
   _craftController: {fileID: 203561932}
   _resourceManagerLevel: {fileID: 444555041}
@@ -905,6 +907,18 @@ MonoBehaviour:
   - {fileID: 2085291315}
   - {fileID: 1978209294}
   - {fileID: 1685516408}
+--- !u!114 &444555046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 444555034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06d9ae419bf040a1ac578c8b8a73bfd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &451058199
 PrefabInstance:
   m_ObjectHideFlags: 0

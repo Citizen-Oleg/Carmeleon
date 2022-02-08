@@ -12,8 +12,10 @@ namespace EnemyComponent
     public class MovementEnemyController : MonoBehaviour
     {
         public event Action<PlayerBase> OnFinishPoint;
-        
+
         private const float DISTANCE_POINT_CHANGE = 0.1f;
+
+        public Node CurrentNode => _currentNode;
 
         private Enemy _enemy;
         private Node _currentNode;

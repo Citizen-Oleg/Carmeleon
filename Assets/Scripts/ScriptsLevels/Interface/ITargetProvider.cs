@@ -2,8 +2,8 @@
 
 namespace Interface
 {
-    public interface ITargetProvider
+    public interface ITargetProvider<T>
     {
-        Enemy GetTarget();
+        T GetTarget();
     }
 }

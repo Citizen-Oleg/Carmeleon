@@ -7,7 +7,7 @@ using UnityEngine;
 namespace Towers
 {
     [RequireComponent(typeof(Tower))]
-    public class TargetProvider : MonoBehaviour, ITargetProvider
+    public class TargetProviderEnemy : MonoBehaviour, ITargetProvider<Enemy>
     {
         private readonly NearestTargetProvider _nearestTargetProvider = new NearestTargetProvider();
 

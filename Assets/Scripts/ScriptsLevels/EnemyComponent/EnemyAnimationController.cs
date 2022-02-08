@@ -79,7 +79,7 @@ namespace EnemyComponent
             }
         }
 
-        public void CastBuff()
+        public void Cast()
         {
             _animator.SetTrigger(IsCast);
         }

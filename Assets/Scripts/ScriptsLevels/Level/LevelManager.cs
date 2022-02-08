@@ -25,9 +25,13 @@ namespace ScriptsLevels.Level
         public static CraftController CraftController => instance._craftController;
         public static ReagentPool ReagentPool => instance._reagentPool;
         public static LevelSettings LevelSettings => instance._levelSettings;
+        public static ManagerTower ManagerTower => instance._managerTower;
+        public static EnemyFactory EnemyFactory => instance._enemyFactory;
 
         public StateLevel StateLevel => _stateLevel;
 
+        [SerializeField]
+        private ManagerTower _managerTower;
         [SerializeField]
         private ReagentPool _reagentPool;
         [SerializeField]
@@ -42,6 +46,8 @@ namespace ScriptsLevels.Level
         private InventoryScreen _inventoryScreen;
         [SerializeField]
         private ProjectileFactory _projectileFactory;
+        [SerializeField]
+        private EnemyFactory _enemyFactory;
         [SerializeField]
         private SpawnerEnemy _spawnerEnemy;
         [SerializeField]
