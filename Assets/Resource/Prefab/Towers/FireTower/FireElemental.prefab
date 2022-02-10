@@ -450,6 +450,7 @@ GameObject:
   - component: {fileID: 876394835617086788}
   - component: {fileID: 876394835617086789}
   - component: {fileID: 876394835617086791}
+  - component: {fileID: 3276450316192551808}
   m_Layer: 9
   m_Name: FireElemental
   m_TagString: Untagged
@@ -487,6 +488,7 @@ Transform:
   - {fileID: 876394836674106544}
   - {fileID: 876394835029443995}
   - {fileID: 1269018080118099256}
+  - {fileID: 2737097833701694294}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -581,6 +583,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a50bb344f9a41d09e8b3c2ca78cca11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _tower: {fileID: 876394835617086784}
   _damageType: 1
   _baseDamage: 20
   _baseAttackSpeed: 1
@@ -602,6 +605,7 @@ MonoBehaviour:
   _positionExplanationUI: {fileID: 876394835029443995}
   _towerCharacteristics: {fileID: 876394835617086787}
   _towerBuffController: {fileID: 876394835617086786}
+  _towerAnimationController: {fileID: 3276450316192551808}
 --- !u!114 &876394835617086788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -640,6 +644,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prefabProjectile: {fileID: 8737750500861165839, guid: 4d43ed5a760d633478d55b821c505be3, type: 3}
   _projectileLaunchPosition: {fileID: 1269018080118099256}
+--- !u!114 &3276450316192551808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 876394835617086794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34037c644f564e4d8e08310b0113fad8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _chains: {fileID: 5380735156384089459}
+  _animator: {fileID: 876394835617086796}
 --- !u!1 &876394835653035312
 GameObject:
   m_ObjectHideFlags: 0
@@ -1543,3 +1561,85 @@ Transform:
   m_Father: {fileID: 876394835617086797}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5380735156384089459
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2737097833701694294}
+  - component: {fileID: 8534341348864413917}
+  m_Layer: 9
+  m_Name: chains
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &2737097833701694294
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5380735156384089459}
+  m_LocalRotation: {x: -0, y: -0, z: -0.6753254, w: 0.73752}
+  m_LocalPosition: {x: 0.0433, y: 0.5672, z: 0}
+  m_LocalScale: {x: 0.32865348, y: 0.3251757, z: 1}
+  m_Children: []
+  m_Father: {fileID: 876394835617086797}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -84.959}
+--- !u!212 &8534341348864413917
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5380735156384089459}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 20
+  m_Sprite: {fileID: 21300000, guid: f9c8fa5944c216f4fbd78b03f8681263, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0

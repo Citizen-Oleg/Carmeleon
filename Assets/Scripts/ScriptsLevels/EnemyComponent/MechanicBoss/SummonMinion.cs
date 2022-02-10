@@ -52,6 +52,7 @@ namespace ScriptsLevels.EnemyComponent.MechanicBoss
                 enemy.MovementEnemyController.Initialize(enemy, _enemy.MovementEnemyController.CurrentNode);
                 
                 EventStreams.UserInterface.Publish(new EnemySummon());
+                EventStreams.UserInterface.Publish(new EnemyCreatedEvent(enemy));
             }
 
             _enemy.EnemyAnimationController.ResetCast();

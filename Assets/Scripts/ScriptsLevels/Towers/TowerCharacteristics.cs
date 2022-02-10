@@ -39,13 +39,19 @@ namespace Towers
         public bool CanAttack
         {
             get => _canAttack;
-            set => _canAttack = value;
+            set
+            {
+                _tower.TowerAnimationController.SetDisplayChains(value);
+                _canAttack = value;
+            }
         }
 
         public int Damage => (int) (_baseDamage * (1 + _percentageIncreaseDamage / 100f) * (1 - _percentageDamageReduction / 100f));
         public float AttackSpeed => _baseAttackSpeed * (1 + _percentageIncreaseAttackSpeed / 100f) * (1 - _percentageAttackSpeedReduction / 100f);
         public DamageType DamageType => _damageType;
 
+        [SerializeField]
+        private Tower _tower;
         [SerializeField]
         private DamageType _damageType;
         [SerializeField]

@@ -741,6 +741,7 @@ GameObject:
   - component: {fileID: 2086356506209729856}
   - component: {fileID: 2086356506209729859}
   - component: {fileID: 2086356506209729858}
+  - component: {fileID: 2006816967829118071}
   m_Layer: 9
   m_Name: IceGuardian
   m_TagString: Untagged
@@ -774,6 +775,7 @@ Transform:
   - {fileID: 2086356505832416368}
   - {fileID: 2086356506446805134}
   - {fileID: 2086356506640060188}
+  - {fileID: 4394575091415057615}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -868,6 +870,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a50bb344f9a41d09e8b3c2ca78cca11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _tower: {fileID: 2086356506209729871}
   _damageType: 3
   _baseDamage: 25
   _baseAttackSpeed: 0.7
@@ -889,6 +892,7 @@ MonoBehaviour:
   _positionExplanationUI: {fileID: 2086356506446805134}
   _towerCharacteristics: {fileID: 2086356506209729868}
   _towerBuffController: {fileID: 2086356506209729869}
+  _towerAnimationController: {fileID: 2006816967829118071}
 --- !u!114 &2086356506209729856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -929,6 +933,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfa61905aa174687a7ab651ed2f0f380, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2006816967829118071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2086356506209729866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34037c644f564e4d8e08310b0113fad8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _chains: {fileID: 7894143457971191931}
+  _animator: {fileID: 2086356506209729864}
 --- !u!1 &2086356506343564876
 GameObject:
   m_ObjectHideFlags: 0
@@ -1377,3 +1395,85 @@ Transform:
   m_Father: {fileID: 2086356506209729867}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7894143457971191931
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4394575091415057615}
+  - component: {fileID: 2203129013204174491}
+  m_Layer: 9
+  m_Name: chains
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &4394575091415057615
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7894143457971191931}
+  m_LocalRotation: {x: -0, y: -0, z: -0.605571, w: 0.7957914}
+  m_LocalPosition: {x: 0.01, y: 0.978, z: 0}
+  m_LocalScale: {x: 0.39187998, y: 0.41315132, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2086356506209729867}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -74.54}
+--- !u!212 &2203129013204174491
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7894143457971191931}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 20
+  m_Sprite: {fileID: 21300000, guid: f9c8fa5944c216f4fbd78b03f8681263, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0

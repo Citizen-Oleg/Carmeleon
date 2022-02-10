@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace BuffSystem.SettingsBuff
 {
+    [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/BuffSettings/TowersBuff/TemporaryBlockTower", order = 6)]
     public class SettingsTemporaryBlockTower : SettingsBuff<Tower>
     {
         [SerializeField]
