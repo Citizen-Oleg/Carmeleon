@@ -1,6 +1,7 @@
 ﻿using System;
 using EnemyComponent;
 using Interface;
+using JetBrains.Annotations;
 using Towers;
 using UnityEngine;
 
@@ -30,13 +31,24 @@ namespace ScriptsLevels.BuffSystem.BuffingBehavior
         {
             if (!IsCooldown && _enemy.CharacteristicsEnemy.IsMoving)
             {
-                var target = _targetProvider.GetTarget();
-
-                if (target != null)
-                {
-                    _buffBehaviour.BuffTarget(target);
-                }
+                _enemy.CharacteristicsEnemy.IsCast = true;
+                _enemy.EnemyAnimationController.Cast();
             }
+        }
+        
+        [UsedImplicitly]
+        private void ApplyBuff()
+        {
+            var target = _targetProvider.GetTarget();
+
+            if (target != null)
+            {
+                _buffBehaviour.BuffTarget(target);
+            }
+
+            _enemy.EnemyAnimationController.ResetCast();
+            _enemy.CharacteristicsEnemy.IsCast = false;
+            _startTime = Time.time;
         }
     }
 }
