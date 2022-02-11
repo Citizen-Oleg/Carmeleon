@@ -8,6 +8,8 @@ namespace Inventory
 {
     public class InventoryManager : MonoBehaviour
     {
+        [SerializeField]
+        private InventoryScreen _inventoryScreen;
         [Range(0, 12)]
         [SerializeField]
         private int _countSlots = 12;
@@ -23,7 +25,7 @@ namespace Inventory
         private void Awake()
         {
             var playerData = GameManager.PlayerData;
-            _slotInteractionController = new SlotInteractionController();
+            _slotInteractionController = new SlotInteractionController(_inventoryScreen);
             _slots = new Slot[_countSlots];
 
             for (int i = 0; i < _slots.Length; i++)

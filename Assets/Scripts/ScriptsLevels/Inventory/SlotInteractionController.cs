@@ -22,12 +22,12 @@ namespace Inventory
         private bool HasItem => _currentSlot.HasItem;
         private ItemInSlot ItemInSlot => _currentSlot.ItemInSlot;
         
-        private InventoryScreen _inventoryScreen;
+        private readonly InventoryScreen _inventoryScreen;
         private Slot _currentSlot;
         
-        public SlotInteractionController()
+        public SlotInteractionController(InventoryScreen inventoryScreen)
         {
-            _inventoryScreen = LevelManager.InventoryScreen;
+            _inventoryScreen = inventoryScreen;
         }
 
         public void PointerEventDataHandler(PointerEventData eventData, Slot slot)

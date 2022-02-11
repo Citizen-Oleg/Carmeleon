@@ -7,17 +7,12 @@ namespace Inventory.Craft
 {
     public class CraftSlot : Slot
     {
-        private CraftController _craftController;
-        
-        private void Awake()
-        {
-            _craftController = LevelManager.CraftController;
-        }
-        
+        public event Action OnCheckCraft;
+
         public override void OnPointerDown(PointerEventData eventData)
         {
             base.OnPointerDown(eventData);
-            _craftController.CheckCraft();
+            OnCheckCraft?.Invoke();
         }
 
         public void DecreaseItemAmount(int amount)

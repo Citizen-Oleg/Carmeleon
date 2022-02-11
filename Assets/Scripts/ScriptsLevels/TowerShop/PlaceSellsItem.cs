@@ -13,14 +13,13 @@ namespace TowerShop
         [Range(0, 100)]
         [SerializeField]
         private float _moneyBackPercentage;
-        
+        [SerializeField]
         private InventoryScreen _inventoryScreen;
+        [SerializeField]
         private ResourceManagerLevel _resourceManagerLevel;
 
         private void Awake()
         {
-            _inventoryScreen = LevelManager.InventoryScreen;
-            _resourceManagerLevel = LevelManager.ResourceManagerLevel;
             _inventoryScreen.OnChangingItem += Display;
             gameObject.SetActive(false);
         }
@@ -29,15 +28,19 @@ namespace TowerShop
         {
             gameObject.SetActive(hasMapping);
         }
-        
-        
+
         public void OnPointerClick(PointerEventData eventData)
         {
-            if (eventData.button == PointerEventData.InputButton.Left && _inventoryScreen.HasCurrentItem)
+            if (!_inventoryScreen.HasCurrentItem)
             {
-                var itemInSlot = _inventoryScreen.CurrentItemInSlot;
-                var item = itemInSlot.InventoryItem;
-
+                return;
+            }
+            
+            var itemInSlot = _inventoryScreen.CurrentItemInSlot;
+            var item = itemInSlot.InventoryItem;
+            
+            if (eventData.button == PointerEventData.InputButton.Left)
+            {
                 float amount = item.HasStack && itemInSlot.Amount != 0
                     ? item.Price.Amount * itemInSlot.Amount
                     : item.Price.Amount;
@@ -45,6 +48,23 @@ namespace TowerShop
                 amount *= _moneyBackPercentage / 100;
                 _resourceManagerLevel.AddResource(item.Price.Type, (int) amount);
                 _inventoryScreen.ResetCurrentItem();
+            }
+            else
+            {
+                float amount = item.Price.Amount;
+                amount *= _moneyBackPercentage / 100;
+                
+                _resourceManagerLevel.AddResource(item.Price.Type, (int) amount);
+
+                if (itemInSlot.Amount > 1)
+                {
+                    itemInSlot.Amount--;
+                    _inventoryScreen.CheckCurrentItem();
+                }
+                else
+                {
+                    _inventoryScreen.ResetCurrentItem();
+                }
             }
         }
 

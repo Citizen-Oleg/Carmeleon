@@ -14,7 +14,6 @@ public class GameManager : PersistentSingleton<GameManager>
     public static ScreenManager.ScreenManager ScreenManager => instance._screenManager;
     public static ResourceManagerGame ResourceManagerGame => instance._resourceManagerGame;
     public static LoadManager LoadManager => instance._loadManager;
-    public static SaveManager SaveManager => instance._saveManager;
     public static SpriteProvider SpriteProvider => instance._spriteProvider;
     public static LoadingController LoadingController => instance._loadingController;
     public static SettingsGame SettingsGame => instance._settingsGame;

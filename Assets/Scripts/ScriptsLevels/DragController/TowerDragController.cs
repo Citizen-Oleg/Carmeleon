@@ -17,19 +17,15 @@ namespace DragController
     public class TowerDragController : MonoBehaviour, IPointerExitHandler, IPointerEnterHandler
     {
         [SerializeField]
+        private TowerItemManager _towerItemManager;
+        [SerializeField]
         private InventoryScreen _inventoryScreen;
         [SerializeField]
         private LayerMask _layerPlaceInstallation;
         
         private ItemInSlot _currentItemInSlot;
         private TowerItem _towerItem;
-        private TowerItemManager _towerItemManager;
-
-        private void Awake()
-        {
-            _towerItemManager = LevelManager.TowerItemManager;
-        }
-
+        
         private void Update()
         {
             if (_currentItemInSlot != null)

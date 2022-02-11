@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using ScriptsLevels.Inventory;
 using UnityEngine;
 
 namespace Inventory.Craft
@@ -11,9 +10,12 @@ namespace Inventory.Craft
     {
         private const int TALKING_RESOURCES_FOR_CRAFTING = 1;
         private const int CRAFTING_GRID_SIZE = 3;
+        
         private CraftSlot[,] CraftTable { get; set; }
         public bool HasResultItem => _resultSlot != null;
-        
+
+        [SerializeField]
+        private InventoryScreen _inventoryScreen;
         [SerializeField]
         private ItemsManager _itemsManager;
         [SerializeField]
@@ -28,7 +30,7 @@ namespace Inventory.Craft
         public void Awake()
         {
             CraftTable = new CraftSlot[CRAFTING_GRID_SIZE, CRAFTING_GRID_SIZE];
-            _slotInteractionController = new SlotInteractionController();
+            _slotInteractionController = new SlotInteractionController(_inventoryScreen);
             CreateSlotsPrefabs();
         }
 
@@ -40,6 +42,7 @@ namespace Inventory.Craft
                 {
                     CraftTable[i, j] = Instantiate(_craftSlotPrefab, _craftGrid, false);
                     CraftTable[i, j].Initialize(_slotInteractionController, true);
+                    CraftTable[i, j].OnCheckCraft += CheckCraft;
                 }
             }
         }
@@ -130,6 +133,17 @@ namespace Inventory.Craft
             }
             
             CheckCraft();
+        }
+
+        private void OnDestroy()
+        {
+            for (int i = 0; i < CraftTable.GetLength(0); i++)
+            {
+                for (int j = 0; j < CraftTable.GetLength(1); j++)
+                {
+                    CraftTable[i, j].OnCheckCraft -= CheckCraft;
+                }
+            }
         }
     }
 }

@@ -1,8 +1,6 @@
-﻿using System;
-using EnemyComponent.Manager;
+﻿using EnemyComponent.Manager;
 using Factory;
 using Inventory;
-using Inventory.Craft;
 using Loot;
 using ResourceManager;
 using ScreenManager;
@@ -17,16 +15,13 @@ namespace ScriptsLevels.Level
     {
         public static SpawnerEnemy SpawnerEnemy => instance._spawnerEnemy;
         public static EnemyManager EnemyManager => instance._enemyManager;
-        public static ProjectileFactory ProjectileFactory => instance._projectileFactory;
-        public static InventoryScreen InventoryScreen => instance._inventoryScreen;
-        public static TowerItemManager TowerItemManager => instance._towerItemManager;
+        public static ManagerTower ManagerTower => instance._managerTower;
         public static InventoryManager InventoryManager => instance._inventoryManager;
         public static ResourceManagerLevel ResourceManagerLevel => instance._resourceManagerLevel;
-        public static CraftController CraftController => instance._craftController;
+        public static ProjectileFactory ProjectileFactory => instance._projectileFactory;
         public static ReagentPool ReagentPool => instance._reagentPool;
-        public static LevelSettings LevelSettings => instance._levelSettings;
-        public static ManagerTower ManagerTower => instance._managerTower;
         public static EnemyFactory EnemyFactory => instance._enemyFactory;
+        public static LevelSettings LevelSettings => instance._levelSettings;
 
         public StateLevel StateLevel => _stateLevel;
 
@@ -35,15 +30,9 @@ namespace ScriptsLevels.Level
         [SerializeField]
         private ReagentPool _reagentPool;
         [SerializeField]
-        private CraftController _craftController;
-        [SerializeField]
         private ResourceManagerLevel _resourceManagerLevel;
         [SerializeField]
         private InventoryManager _inventoryManager;
-        [SerializeField]
-        private TowerItemManager _towerItemManager;
-        [SerializeField]
-        private InventoryScreen _inventoryScreen;
         [SerializeField]
         private ProjectileFactory _projectileFactory;
         [SerializeField]

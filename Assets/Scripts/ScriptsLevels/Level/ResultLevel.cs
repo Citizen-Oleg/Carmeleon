@@ -16,8 +16,7 @@ namespace ScriptsLevels.Level
     {
         private const int REWARD_FOR_PASSED_MODE = 1;
         private const int NUMBER_OF_MODIFICATORS_TO_START_ADVANCED_LEVEL = 2;
-        private const int NUMBER_OF_MODIFICATORS_FOR_GOLDEN_RIMS = 5;
-        
+
         [SerializeField]
         private PlayerBase _playerBase;
         
@@ -66,8 +65,8 @@ namespace ScriptsLevels.Level
         
         private bool CheckPatencyGoldStroke(LevelData levelData)
         {
-            var hasLostHP = _playerBase.CurrentHp < _playerBase.MAXHp;
-            if (levelData.Modifiers.Count(modifier => modifier.IsActive) == NUMBER_OF_MODIFICATORS_FOR_GOLDEN_RIMS && !hasLostHP)
+            var hasLostHp = _playerBase.CurrentHp < _playerBase.MAXHp;
+            if (levelData.Modifiers.Count(modifier => modifier.IsActive) == levelData.Modifiers.Count && !hasLostHp)
             {
                 levelData.HasGoldBorder = true;
                 return true;

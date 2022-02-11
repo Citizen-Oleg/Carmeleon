@@ -1,21 +1,18 @@
 ﻿using System;
 using Level;
 using ScriptsLevels.Level;
+using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace Inventory.Craft
 {
     public class CraftResultSlot : Slot
     {
+        [SerializeField]
         private InventoryScreen _inventoryScreen;
+        [SerializeField]
         private CraftController _craftController;
         
-        private void Awake()
-        {
-            _inventoryScreen = LevelManager.InventoryScreen;
-            _craftController = LevelManager.CraftController;
-        }
-
         public override void OnPointerDown(PointerEventData eventData)
         {
             if (eventData.button == PointerEventData.InputButton.Left)

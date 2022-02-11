@@ -69,6 +69,7 @@ namespace TowerShop
             if (_isOpen)
             {
                 _callback?.Invoke(_item, this);
+                _viewExplanation.Show(_item.Item.Name);
             }
         }
 
