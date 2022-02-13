@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using ScriptsLevels.Inventory;
 using UnityEngine;
 
 namespace Inventory.Craft
@@ -47,7 +48,7 @@ namespace Inventory.Craft
             }
         }
 
-        public void CheckCraft()
+        private void CheckCraft()
         {
             var currentRecipeW = 0;
             var currentRecipeH = 0;
@@ -102,7 +103,7 @@ namespace Inventory.Craft
 
             foreach (var item in _itemsManager.ItemsWithCraft)
             {
-                if (item.HasRecipe && item.CraftRecipe.ItemsOrder.SequenceEqual(craftOrder))
+                if (item.HasRecipe && SuitableRecipe(craftOrder, item))
                 {
                     craftItem = new ItemInSlot(item, item.CraftRecipe.Amount);
                     break;
@@ -117,6 +118,34 @@ namespace Inventory.Craft
             {
                 _resultSlot.ResetItem();
             }
+        }
+        
+        private bool SuitableRecipe(Item[] craftOrder, InventoryItem inventoryItem)
+        {
+            if (craftOrder.Length != inventoryItem.CraftRecipe.ItemsOrder.Length)
+            {
+                return false;
+            }
+            
+            for (var i = 0; i < craftOrder.Length; i++)
+            {
+                if (craftOrder[i] == null && inventoryItem.CraftRecipe.ItemsOrder[i] == null)
+                {
+                    continue;
+                }
+                
+                if (craftOrder[i] == null || inventoryItem.CraftRecipe.ItemsOrder[i] == null)
+                {
+                    return false;
+                }
+
+                if (craftOrder[i].ID != inventoryItem.CraftRecipe.ItemsOrder[i].ID)
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
 
         public void CraftItem()

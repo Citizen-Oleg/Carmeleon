@@ -384,7 +384,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _resource:
     _type: 0
-    _amount: 0
+    _amount: 25
   _chanceReagentDrop: 25
   _droppedReagent:
   - {fileID: 7209583451981731166, guid: f178549b94c413f498d9c00b235989b5, type: 3}
@@ -429,10 +429,10 @@ MonoBehaviour:
   _hasImmunityFire: 0
   _hasImmunityAir: 0
   _armor: 25
-  _fireResistance: 0
-  _earthResistance: 0
-  _waterResistance: 0
-  _airResistance: 0
+  _fireResistance: -35
+  _earthResistance: -35
+  _waterResistance: 15
+  _airResistance: -25
 --- !u!114 &8357942709956376797
 MonoBehaviour:
   m_ObjectHideFlags: 0

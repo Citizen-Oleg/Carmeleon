@@ -1737,7 +1737,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _tower: {fileID: 8279071859884453257}
   _damageType: 1
-  _baseDamage: 100
+  _baseDamage: 75
   _baseAttackSpeed: 2.5
   _attackRadius: 2
   _canAttack: 1
@@ -1784,7 +1784,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prefabProjectile: {fileID: 8737750500861165839, guid: 4d43ed5a760d633478d55b821c505be3, type: 3}
   _projectileLaunchPosition: {fileID: 8279071859305081719}
-  _buffChance: 100
+  _buffChance: 50
   _buffEnemy: {fileID: 11400000, guid: 0125caf13d188f347b2e4028a87591e3, type: 2}
 --- !u!114 &8279071859884453265
 MonoBehaviour:

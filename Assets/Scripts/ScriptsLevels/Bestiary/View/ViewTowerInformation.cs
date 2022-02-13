@@ -36,6 +36,7 @@ namespace ScriptsLevels.Bestiary
             if (bestiaryItemTower.SpriteCraftItem != null)
             {
                 _imageCraft.sprite = bestiaryItemTower.SpriteCraftItem;
+                _imageCraft.gameObject.SetActive(true);
             }
             else
             {

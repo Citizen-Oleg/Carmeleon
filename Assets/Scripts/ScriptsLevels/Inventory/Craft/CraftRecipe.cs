@@ -12,7 +12,7 @@ namespace Inventory.Craft
         public Item[] ItemsOrder { get; private set; }
         
         [SerializeField]
-        private int _amount;
+        private int _amount = 1;
         [SerializeField]
         private List<RowItemsRecipe> _rowItemsRecipes = new List<RowItemsRecipe>();
         
@@ -26,7 +26,7 @@ namespace Inventory.Craft
             {
                 foreach (var item in rowItemsRecipe.Items)
                 {
-                    ItemsOrder[orderId++] = item.Item;
+                    ItemsOrder[orderId++] = item?.Item;
                 }
             }
         }

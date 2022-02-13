@@ -317,7 +317,7 @@ MonoBehaviour:
   _tower: {fileID: 1541183421797343020}
   _damageType: 4
   _baseDamage: 35
-  _baseAttackSpeed: 1.5
+  _baseAttackSpeed: 2.5
   _attackRadius: 3
   _canAttack: 1
 --- !u!114 &1541183421797343020
@@ -349,7 +349,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3e3d79585ea4f6a94175a2632b3d067, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _buffChance: 100
+  _buffChance: 25
   _buffEnemy: {fileID: 11400000, guid: dcc730e8d2785024f895be2db5a1810a, type: 2}
 --- !u!114 &1541183421797343013
 MonoBehaviour:
