@@ -27,7 +27,13 @@ namespace ScriptsLevels.Bestiary
                 _towerTab.DamageTypeSimilaritySearch(_damageType);
             }
         }
-        
+
+        [UsedImplicitly]
+        public void SetActiveButton(bool isActive)
+        {
+            _isActive = isActive;
+        }
+
         private void ResetSort()
         {
             _towerTab.ResetSorting();
