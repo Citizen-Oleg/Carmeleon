@@ -8500,14 +8500,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _reagentShopSize: 1
-  _improvedTowersSize: 1
+  _improvedTowersSize: 4
   _inventorySize: 4
   _standardTowerLevel:
   - {fileID: 11400000, guid: 4d85cdc4e4b928a4aa66dbba5d61c5ca, type: 2}
   - {fileID: 11400000, guid: c3a68cf4e354aad4484c0baffea42373, type: 2}
   - {fileID: 11400000, guid: c5b41cbd4c5e6914bbf31ddad3804ee8, type: 2}
   - {fileID: 11400000, guid: a3102fe477101084daef6692b07289c4, type: 2}
-  _improvedLevelTowers: []
+  _improvedLevelTowers:
+  - {fileID: 11400000, guid: 7f026055503f00a47afd3ca0302978fd, type: 2}
+  - {fileID: 11400000, guid: 48a15a8aa20c36344acf35e941acc77c, type: 2}
+  - {fileID: 11400000, guid: 04746c8dcd7a7bc47b7100546d16a8bc, type: 2}
+  - {fileID: 11400000, guid: dbe4a22a54923f9489742d0ce00b5721, type: 2}
   _reagentsLevel:
   - {fileID: 11400000, guid: 3ec4a9b2b47b291468de585e05b5abe6, type: 2}
   - {fileID: 11400000, guid: 0581b6531081a5949b4afe73dc08a643, type: 2}
