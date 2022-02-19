@@ -55,6 +55,8 @@ namespace EnemyComponent
             }
             
             _currentNode = node;
+
+            transform.rotation = _currentNode.transform.rotation;
         }
     }
 }
