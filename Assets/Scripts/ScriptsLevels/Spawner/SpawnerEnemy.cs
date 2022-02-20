@@ -71,23 +71,18 @@ namespace Spawner
             
             foreach (var enemyData in wave.ExitSpawnData)
             {
-                StartCoroutine(SimultaneousSpawn(enemyData));
+                while (!enemyData.EnemySpawnData.TrueForAll(data => data.Count == 0))
+                {
+                    foreach (var enemySpawnData in enemyData.EnemySpawnData)
+                    {
+                        CreateEnemyBySpawnData(enemySpawnData);
+                    }
+
+                    yield return new WaitForSeconds(enemyData.DelayedSpawnEnemies);
+                }
             }
 
             _hasSpawning = false;
-        }
-
-        private IEnumerator SimultaneousSpawn(ExitSpawnData exitSpawnData)
-        {
-            while (!exitSpawnData.EnemySpawnData.TrueForAll(data => data.Count == 0))
-            {
-                foreach (var enemySpawnData in exitSpawnData.EnemySpawnData)
-                {
-                    CreateEnemyBySpawnData(enemySpawnData);
-                }
-
-                yield return new WaitForSeconds(exitSpawnData.DelayedSpawnEnemies);
-            }
         }
         
         private void CreateEnemyBySpawnData(EnemySpawnData enemySpawnData)
