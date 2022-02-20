@@ -32,16 +32,12 @@ namespace View
                 EventStreams.UserInterface.Subscribe<EnemyDestroyedEvent>(RefreshUI),
                 EventStreams.UserInterface.Subscribe<EnemySummon>(RefreshUI)
             };
-
+            
             var waves = LevelManager.SpawnerEnemy.WaveSpawns;
-            _totalEnemies = waves.SelectMany(waveSpawn => waveSpawn.EnemySpawnData).Sum(spawnData => spawnData.Count);
+            _totalEnemies = waves.Sum(waveSpawn => waveSpawn.ExitSpawnData.Sum(exitSpawnData => exitSpawnData.EnemySpawnData.Sum(spawnData => spawnData.Count)));
+
             _maxNumberEnemies.text = _totalEnemies.ToString();
             _currentNumberEnemies.text = "0";
-        }
-        
-        private void OnDestroy()
-        {
-            _subscriptions?.Dispose();
         }
 
         private void RefreshUI(EnemyDestroyedEvent enemyDestroyedEvent)
@@ -54,6 +50,11 @@ namespace View
         { 
             _totalEnemies++;
             _maxNumberEnemies.text = _totalEnemies.ToString();
+        }
+        
+        private void OnDestroy()
+        {
+            _subscriptions?.Dispose();
         }
     }
 }

@@ -10,6 +10,8 @@ namespace ScriptsMenu.Modifiers.LevelsModifier.ScriptableModifiers
     public class SettingsAdditionalBoss : Modifier
     {
         [SerializeField]
+        private float _delayedSpawnEnemies = 1;
+        [SerializeField]
         private Enemy _enemyPrefab;
         [SerializeField]
         private int count = 1;
@@ -18,7 +20,7 @@ namespace ScriptsMenu.Modifiers.LevelsModifier.ScriptableModifiers
         {
             var spawner = LevelManager.SpawnerEnemy;
 
-            return new AdditionalBossModifier(spawner, _enemyPrefab, count);
+            return new AdditionalBossModifier(spawner, _enemyPrefab, count, _delayedSpawnEnemies);
         }
     }
 }

@@ -25,8 +25,6 @@ namespace Spawner
         [SerializeField]
         private float _startDelay;
         [SerializeField]
-        private float _delayedSpawnEnemies;
-        [SerializeField]
         private Node _defaultStartNode;
         [SerializeField]
         private List<WaveSpawn> _waveSpawns = new List<WaveSpawn>();
@@ -60,37 +58,57 @@ namespace Spawner
             }
             else
             {
-                StartCoroutine(Spawn()); 
+                StartCoroutine(StartWave()); 
             }
         }
         
-        private IEnumerator Spawn()
+        private IEnumerator StartWave()
         {
             _hasSpawning = true;
             var wave = _waveSpawns[_waveNumber++];
 
             yield return new WaitForSeconds(_startDelay);
             
-            foreach (var enemyData in wave.EnemySpawnData)
+            foreach (var enemyData in wave.ExitSpawnData)
             {
-                for (var i = 0; i < enemyData.Count; i++)
-                {
-                    var product = _enemyFactory.GetProduct(enemyData.Enemy);
-                    
-                    if (product is Enemy enemy)
-                    {
-                        var node = enemyData.StartNode == null ? _defaultStartNode : enemyData.StartNode;
-                        enemy.transform.position = node.transform.position;
-                        enemy.MovementEnemyController.Initialize(enemy, node);
-                    
-                        EventStreams.UserInterface.Publish(new EnemyCreatedEvent(enemy));
-                    }
-                    
-                    yield return new WaitForSeconds(_delayedSpawnEnemies);
-                }
+                StartCoroutine(SimultaneousSpawn(enemyData));
             }
 
             _hasSpawning = false;
+        }
+
+        private IEnumerator SimultaneousSpawn(ExitSpawnData exitSpawnData)
+        {
+            while (!exitSpawnData.EnemySpawnData.TrueForAll(data => data.Count == 0))
+            {
+                foreach (var enemySpawnData in exitSpawnData.EnemySpawnData)
+                {
+                    CreateEnemyBySpawnData(enemySpawnData);
+                }
+
+                yield return new WaitForSeconds(exitSpawnData.DelayedSpawnEnemies);
+            }
+        }
+        
+        private void CreateEnemyBySpawnData(EnemySpawnData enemySpawnData)
+        {
+            if (enemySpawnData.Count == 0)
+            {
+                return;
+            }
+            
+            var product = _enemyFactory.GetProduct(enemySpawnData.Enemy);
+                    
+            if (product is Enemy enemy)
+            {
+                var node = enemySpawnData.StartNode == null ? _defaultStartNode : enemySpawnData.StartNode;
+                enemy.transform.position = node.transform.position;
+                enemy.MovementEnemyController.Initialize(enemy, node);
+                    
+                EventStreams.UserInterface.Publish(new EnemyCreatedEvent(enemy));
+            }
+
+            enemySpawnData.Count--;
         }
         
         private void OnDestroy()
