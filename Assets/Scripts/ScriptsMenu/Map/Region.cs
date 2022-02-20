@@ -28,7 +28,11 @@ namespace ScriptsMenu.Map
 
         public void DiscoveryNeighboringTerritories()
         {
-            _bonusLevel.OpenLevel();
+            if (_bonusLevel != null)
+            {
+                _bonusLevel.OpenLevel();
+            }
+
             foreach (var neighboringRegion in _neighboringRegions)
             {
                 neighboringRegion.TerritoryDiscovery();
