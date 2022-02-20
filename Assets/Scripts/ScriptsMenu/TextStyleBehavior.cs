@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -32,6 +33,14 @@ namespace ScriptsMenu
         public void OnPointerExit(PointerEventData eventData)
         { 
             _textMeshProUGUI.fontStyle ^= FontStyles.Underline;
+        }
+
+        private void OnDisable()
+        {
+            if ((_textMeshProUGUI.fontStyle & FontStyles.Underline) != 0)
+            {
+                _textMeshProUGUI.fontStyle ^= FontStyles.Underline;
+            }
         }
     }
 }
