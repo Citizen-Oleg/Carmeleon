@@ -133,7 +133,6 @@ GameObject:
   m_Component:
   - component: {fileID: 145552438}
   - component: {fileID: 145552440}
-  - component: {fileID: 145552439}
   m_Layer: 0
   m_Name: EndNode
   m_TagString: Untagged
@@ -155,20 +154,6 @@ Transform:
   m_Father: {fileID: 1721042845}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!114 &145552439
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 145552437}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e61e2285ee9562543a87ca2e3a3f38f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _maxHP: 20
-  _currentHP: 20
 --- !u!114 &145552440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6389,7 +6374,7 @@ PrefabInstance:
     - target: {fileID: 534283401960018626, guid: 79025f7c53177884396f19bf801a828d, type: 3}
       propertyPath: _playerBase
       value: 
-      objectReference: {fileID: 145552439}
+      objectReference: {fileID: 1490252963}
     - target: {fileID: 3098650757206501650, guid: 79025f7c53177884396f19bf801a828d, type: 3}
       propertyPath: _placeInstallationTowers.Array.size
       value: 17
@@ -6645,9 +6630,20 @@ PrefabInstance:
     - target: {fileID: 6983806811375189653, guid: 79025f7c53177884396f19bf801a828d, type: 3}
       propertyPath: _playerBase
       value: 
-      objectReference: {fileID: 145552439}
+      objectReference: {fileID: 1490252963}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79025f7c53177884396f19bf801a828d, type: 3}
+--- !u!114 &1490252963 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7286683627894350088, guid: 79025f7c53177884396f19bf801a828d, type: 3}
+  m_PrefabInstance: {fileID: 1490252962}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e61e2285ee9562543a87ca2e3a3f38f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1656230747
 GameObject:
   m_ObjectHideFlags: 0
