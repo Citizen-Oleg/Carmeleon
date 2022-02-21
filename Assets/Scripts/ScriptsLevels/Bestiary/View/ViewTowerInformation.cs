@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using EnemyComponent;
+using ScriptsLevels.Bestiary.View;
 using TMPro;
 using Towers;
 using UnityEngine;
@@ -9,7 +12,12 @@ namespace ScriptsLevels.Bestiary
     public class ViewTowerInformation : MonoBehaviour
     {
         private const string GLOBAL_ATTACK = "Глобальный";
-        
+
+        [SerializeField]
+        private List<TextDamageType> _textDamageTypes = new List<TextDamageType>();
+        [SerializeField]
+        private List<TextAttackType> _textAttackTypes = new List<TextAttackType>();
+        [Space(2)]
         [SerializeField]
         private TextMeshProUGUI _textAttackSpeed;
         [SerializeField]
@@ -18,6 +26,8 @@ namespace ScriptsLevels.Bestiary
         private TextMeshProUGUI _textDamage;
         [SerializeField]
         private TextMeshProUGUI _textRadius;
+        [SerializeField]
+        private TextMeshProUGUI _typeAttack;
         [SerializeField]
         private Image _imageCraft;
 
@@ -55,6 +65,7 @@ namespace ScriptsLevels.Bestiary
             _textDamageType.text = GetTextDamageType(characteristics.DamageType);
             _textDamage.text = characteristics.Damage.ToString();
             _textRadius.text = characteristics.AttackRadius == 0 ? GLOBAL_ATTACK : characteristics.AttackRadius.ToString();
+            _typeAttack.text = GetTextByTypeAttack(characteristics.AttackType);
         }
 
         private void ShowViewDebuffEnemy(BestiaryItemTower bestiaryItemTower)
@@ -77,23 +88,28 @@ namespace ScriptsLevels.Bestiary
         
         private string GetTextDamageType(DamageType damageType)
         {
-            switch (damageType)
+            foreach (var textDamageType in _textDamageTypes)
             {
-                case DamageType.Air:
-                    return "Воздух";
-                case  DamageType.Clean:
-                    return "Чистый";
-                case DamageType.Earth:
-                    return "Земля";
-                case DamageType.Fire:
-                    return "Огненный";
-                case DamageType.Physical:
-                    return "Физический";
-                case DamageType.Water:
-                    return "Вода";
-                default:
-                    return "Неизвестно";
+                if (textDamageType.DamageType == damageType)
+                {
+                    return textDamageType.NameType;
+                }
             }
+
+            return "Неизвестно";
+        }
+
+        private string GetTextByTypeAttack(AttackType typeAttack)
+        {
+            foreach (var textAttackType in _textAttackTypes)
+            {
+                if (textAttackType.TypeAttack == typeAttack)
+                {
+                    return textAttackType.NameType;
+                }
+            }
+
+            return "Неизвестно";
         }
     }
 }

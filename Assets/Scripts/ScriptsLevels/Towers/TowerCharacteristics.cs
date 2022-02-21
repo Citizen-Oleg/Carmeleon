@@ -1,4 +1,5 @@
 ﻿using System;
+using EnemyComponent;
 using UnityEditor;
 using UnityEngine;
 
@@ -49,11 +50,14 @@ namespace Towers
         public int Damage => (int) (_baseDamage * (1 + _percentageIncreaseDamage / 100f) * (1 - _percentageDamageReduction / 100f));
         public float AttackSpeed => _baseAttackSpeed * (1 + _percentageIncreaseAttackSpeed / 100f) * (1 - _percentageAttackSpeedReduction / 100f);
         public DamageType DamageType => _damageType;
+        public AttackType AttackType => _attackType;
 
         [SerializeField]
         private Tower _tower;
         [SerializeField]
         private DamageType _damageType;
+        [SerializeField]
+        private AttackType _attackType;
         [SerializeField]
         private int _baseDamage;
         [SerializeField]

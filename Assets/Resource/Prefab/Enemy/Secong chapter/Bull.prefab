@@ -331,7 +331,7 @@ MonoBehaviour:
   _resource:
     _type: 0
     _amount: 0
-  _chanceReagentDrop: 20
+  _chanceReagentDrop: 15
   _droppedReagent:
   - {fileID: 7209583451981731166, guid: f178549b94c413f498d9c00b235989b5, type: 3}
   - {fileID: 7209583451981731166, guid: 51b1069777969ec4aacc41791fd0ab0e, type: 3}
@@ -374,11 +374,11 @@ MonoBehaviour:
   _hasImmunityEarth: 0
   _hasImmunityFire: 0
   _hasImmunityAir: 0
-  _armor: 35
+  _armor: 15
   _fireResistance: -25
   _earthResistance: -25
-  _waterResistance: 25
-  _airResistance: 25
+  _waterResistance: -15
+  _airResistance: -15
 --- !u!114 &5612257551933800319
 MonoBehaviour:
   m_ObjectHideFlags: 0
