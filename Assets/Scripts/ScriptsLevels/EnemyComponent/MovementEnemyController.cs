@@ -11,7 +11,7 @@ namespace EnemyComponent
     [RequireComponent(typeof(Enemy))]
     public class MovementEnemyController : MonoBehaviour
     {
-        public event Action<PlayerBase> OnFinishPoint;
+        public event Action OnFinishPoint;
 
         private const float DISTANCE_POINT_CHANGE = 0.1f;
 
@@ -50,7 +50,7 @@ namespace EnemyComponent
             var node = _currentNode.GetNextNode();
             if (node == null)
             {
-                OnFinishPoint?.Invoke(_currentNode.GetComponent<PlayerBase>());
+                OnFinishPoint?.Invoke();
                 return;
             }
             

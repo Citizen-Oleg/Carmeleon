@@ -1,6 +1,7 @@
 ﻿using System;
 using Event;
 using Player;
+using ScriptsLevels.Event;
 using SimpleEventBus;
 using Towers;
 using UnityEngine;
@@ -23,9 +24,9 @@ namespace EnemyComponent
             _enemy.MovementEnemyController.OnFinishPoint += Attack;
         }
         
-        private void Attack(PlayerBase playerBase)
+        private void Attack()
         {
-            playerBase.TakeDamage(_enemy.CharacteristicsEnemy.DamageToBase);
+            EventStreams.UserInterface.Publish(new DamageBasePlayerEvent(_enemy.CharacteristicsEnemy.DamageToBase));
             OnAttackBase?.Invoke();
         }
 

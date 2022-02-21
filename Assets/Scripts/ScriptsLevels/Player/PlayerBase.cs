@@ -16,16 +16,28 @@ namespace Player
         private int _maxHP;
         [SerializeField]
         private int _currentHP;
+
+        private IDisposable _subsriber;
         
-        public void TakeDamage(int damage)
+        private void Awake()
         {
-            _currentHP -= damage;
+            _subsriber = EventStreams.UserInterface.Subscribe<DamageBasePlayerEvent>(TakeDamage);
+        }
+
+        public void TakeDamage(DamageBasePlayerEvent damageEvent)
+        {
+            _currentHP -= damageEvent.Damage;
             _currentHP = Mathf.Clamp(_currentHP, 0, _maxHP);
             OnDamage?.Invoke();
             if (_currentHP <= 0)
             {
                 EventStreams.UserInterface.Publish(new EventCompletingLevel());
             }
+        }
+
+        private void OnDestroy()
+        {
+            _subsriber?.Dispose();
         }
     }
 }

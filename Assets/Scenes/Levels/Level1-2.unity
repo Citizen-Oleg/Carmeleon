@@ -1187,6 +1187,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 611431015651668168, guid: 75537a01157a1bd4397e372203b26155, type: 3}
   m_PrefabInstance: {fileID: 1423743942}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1423743944 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 611431015651668166, guid: 75537a01157a1bd4397e372203b26155, type: 3}
+  m_PrefabInstance: {fileID: 1423743942}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da9943f0161240cdb6194e9e7740f548, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1543840418
 GameObject:
   m_ObjectHideFlags: 0
@@ -1297,11 +1308,11 @@ PrefabInstance:
     - target: {fileID: 3098650757206501650, guid: 79025f7c53177884396f19bf801a828d, type: 3}
       propertyPath: _placeInstallationTowers.Array.data[12]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 65188045}
     - target: {fileID: 3098650757206501650, guid: 79025f7c53177884396f19bf801a828d, type: 3}
       propertyPath: _placeInstallationTowers.Array.data[13]
       value: 
-      objectReference: {fileID: 65188045}
+      objectReference: {fileID: 1423743944}
     - target: {fileID: 3488600463715730112, guid: 79025f7c53177884396f19bf801a828d, type: 3}
       propertyPath: m_Name
       value: LevelController
