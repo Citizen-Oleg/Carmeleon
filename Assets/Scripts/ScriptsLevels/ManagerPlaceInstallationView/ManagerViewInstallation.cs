@@ -35,7 +35,7 @@ namespace ScriptsLevels.ManagerPlaceInstallationView
             }
         }
 
-        private void Update()
+        private void LateUpdate()
         {
             foreach (var viewPlaceInstallation in _viewPlaceInstallations)
             {
