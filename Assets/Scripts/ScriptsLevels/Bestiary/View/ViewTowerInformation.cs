@@ -27,8 +27,6 @@ namespace ScriptsLevels.Bestiary
         [SerializeField]
         private TextMeshProUGUI _textRadius;
         [SerializeField]
-        private TextMeshProUGUI _typeAttack;
-        [SerializeField]
         private Image _imageCraft;
 
         [Header("Buff info")]
@@ -62,10 +60,9 @@ namespace ScriptsLevels.Bestiary
         {
             var characteristics = bestiaryItemTower.Item.Tower.TowerCharacteristics;
             _textAttackSpeed.text = characteristics.AttackSpeed.ToString();
-            _textDamageType.text = GetTextDamageType(characteristics.DamageType);
+            _textDamageType.text = GetTextDamageType(characteristics.DamageType) + ", " +  GetTextByTypeAttack(characteristics.AttackType);
             _textDamage.text = characteristics.Damage.ToString();
             _textRadius.text = characteristics.AttackRadius == 0 ? GLOBAL_ATTACK : characteristics.AttackRadius.ToString();
-            _typeAttack.text = GetTextByTypeAttack(characteristics.AttackType);
         }
 
         private void ShowViewDebuffEnemy(BestiaryItemTower bestiaryItemTower)
