@@ -68,9 +68,16 @@ namespace ScriptsLevels.Level
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
-                GameManager.ScreenManager.OpenScreen(ScreenType.ExitView);
+                if (_stateLevel == StateLevel.Normal)
+                {
+                    SetState(StateLevel.Pause);
+                }
+                else
+                {
+                    SetState(StateLevel.Normal);
+                }
             }
         }
 
