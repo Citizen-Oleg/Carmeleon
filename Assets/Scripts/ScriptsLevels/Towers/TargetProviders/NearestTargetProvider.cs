@@ -21,14 +21,16 @@ namespace Towers
                 var target = targets[index];
                 var distanceToTarget = Vector2.Distance(target.transform.position, position);
 
-                if (minDistance > distanceToTarget && distanceToTarget < radius)
+                if (minDistance > distanceToTarget)
                 {
                     minDistance = distanceToTarget;
                     minIndex = index;
                 }
             }
 
-            return targets[minIndex];
+            var distanceToNearestTarget = Vector2.Distance(targets[minIndex].transform.position, position);
+
+            return distanceToNearestTarget <= radius ? targets[minIndex] : null;
         }
     }
 }

@@ -33,7 +33,7 @@ namespace Towers
                 {
                     break;
                 }
-                if (_colliders2D[i].TryGetComponent(out Enemy enemy))
+                if (_colliders2D[i].TryGetComponent(out Enemy enemy) && !enemy.CharacteristicsEnemy.IsDeath)
                 {
                     _targets.Add(enemy);
                 }

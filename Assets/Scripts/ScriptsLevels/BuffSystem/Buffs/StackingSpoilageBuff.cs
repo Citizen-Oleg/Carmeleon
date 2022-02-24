@@ -46,6 +46,7 @@ namespace BuffSystem.Buffs
         {
             _currentStack++;
             ApplyDamage();
+            Refresh();
         }
 
         public void Update()

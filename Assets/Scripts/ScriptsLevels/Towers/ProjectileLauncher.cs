@@ -72,7 +72,7 @@ namespace Towers
         {
             _tower.TowerAnimationController.ResetAttack();
             
-            if (_hasTarget)
+            if (_hasTarget && _attackBehaviour.CanAttack(_currentTarget))
             {
                 _attackBehaviour.Attack(_currentTarget);
             }

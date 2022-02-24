@@ -9,7 +9,7 @@ namespace Inventory.Craft
     public class CraftRecipe : ScriptableObject
     {
         public int Amount => _amount;
-        public Item[] ItemsOrder { get; private set; }
+        public Item[,] ItemsOrder { get; private set; }
         
         [SerializeField]
         private int _amount = 1;
@@ -18,15 +18,13 @@ namespace Inventory.Craft
         
         public void Initialize()
         {
-            var count = _rowItemsRecipes.Sum(rowItemsRecipe => rowItemsRecipe.Items.Count);
-            
-            ItemsOrder = new Item[count];
-            var orderId = 0;
-            foreach (var rowItemsRecipe in _rowItemsRecipes)
+            ItemsOrder = new Item[_rowItemsRecipes.Count, _rowItemsRecipes[0].Items.Count];
+
+            for (int i = 0; i < _rowItemsRecipes.Count; i++)
             {
-                foreach (var item in rowItemsRecipe.Items)
+                for (int j = 0; j < _rowItemsRecipes[i].Items.Count; j++)
                 {
-                    ItemsOrder[orderId++] = item?.Item;
+                    ItemsOrder[i, j] = _rowItemsRecipes[i].Items[j]?.Item;
                 }
             }
         }

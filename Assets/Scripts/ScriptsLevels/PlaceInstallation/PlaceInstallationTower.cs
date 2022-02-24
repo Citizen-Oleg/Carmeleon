@@ -14,7 +14,6 @@ namespace PlaceInstallation
     {
         public event Action<PlaceInstallationTower> OnDestroyTower;
         
-        
         public IBehaviorPlaceInstallation BehaviorPlaceInstallation => _behaviorPlaceInstallation;
         public Transform PositionView => _positionView;
 

@@ -15,7 +15,6 @@ namespace BuffSystem.Buffs
         private readonly Enemy _enemy;
         private readonly float _reductionPercentage;
         
-
         public PassiveSlowingDownBuff(Enemy enemy, float reductionPercentage)
         {
             _enemy = enemy;

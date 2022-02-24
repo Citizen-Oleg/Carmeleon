@@ -88,16 +88,20 @@ namespace Inventory.Craft
                 }
             }
             
-            var craftOrder = new Item[currentRecipeH * currentRecipeW];
+            var craftOrder = new Item[currentRecipeH, currentRecipeW];
 
-            var orderIndex = 0;
+            var orderIndexHorizontal = 0;
+            var orderIndexVertical = 0;
             
             for (int i = currentRecipeHStartIndex; i < currentRecipeHStartIndex + currentRecipeH; i++)
             {
                 for (int j = currentRecipeWStartIndex; j < currentRecipeWStartIndex + currentRecipeW; j++)
                 {
-                    craftOrder[orderIndex++] = CraftTable[i,j].ItemInSlot?.InventoryItem.Item;
+                    craftOrder[orderIndexHorizontal, orderIndexVertical++] = CraftTable[i,j].ItemInSlot?.InventoryItem.Item;
                 }
+
+                orderIndexHorizontal++;
+                orderIndexVertical = 0;
             }
             ItemInSlot craftItem = null;
 
@@ -120,28 +124,32 @@ namespace Inventory.Craft
             }
         }
         
-        private bool SuitableRecipe(Item[] craftOrder, InventoryItem inventoryItem)
+        private bool SuitableRecipe(Item[,] craftOrder, InventoryItem inventoryItem)
         {
-            if (craftOrder.Length != inventoryItem.CraftRecipe.ItemsOrder.Length)
+            if (craftOrder.GetLength(0) != inventoryItem.CraftRecipe.ItemsOrder.GetLength(0) ||
+                craftOrder.GetLength(1) != inventoryItem.CraftRecipe.ItemsOrder.GetLength(1))
             {
                 return false;
             }
             
-            for (var i = 0; i < craftOrder.Length; i++)
+            for (var i = 0; i < craftOrder.GetLength(0); i++)
             {
-                if (craftOrder[i] == null && inventoryItem.CraftRecipe.ItemsOrder[i] == null)
+                for (int j = 0; j < craftOrder.GetLength(1); j++)
                 {
-                    continue;
-                }
+                    if (craftOrder[i,j] == null && inventoryItem.CraftRecipe.ItemsOrder[i,j] == null)
+                    {
+                        continue;
+                    }
                 
-                if (craftOrder[i] == null || inventoryItem.CraftRecipe.ItemsOrder[i] == null)
-                {
-                    return false;
-                }
+                    if (craftOrder[i,j] == null || inventoryItem.CraftRecipe.ItemsOrder[i,j] == null)
+                    {
+                        return false;
+                    }
 
-                if (craftOrder[i].ID != inventoryItem.CraftRecipe.ItemsOrder[i].ID)
-                {
-                    return false;
+                    if (craftOrder[i,j].ID != inventoryItem.CraftRecipe.ItemsOrder[i,j].ID)
+                    {
+                        return false;
+                    }
                 }
             }
 
