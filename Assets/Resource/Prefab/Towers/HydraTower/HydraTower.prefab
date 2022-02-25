@@ -1541,6 +1541,8 @@ GameObject:
   - component: {fileID: 7267865529230202147}
   - component: {fileID: 5945709501906444722}
   - component: {fileID: 7756905192861252516}
+  - component: {fileID: -6191639898106015370}
+  - component: {fileID: -262648904081891160}
   m_Layer: 9
   m_Name: HydraTower
   m_TagString: Untagged
@@ -1679,6 +1681,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _tower: {fileID: 8138105530931551610}
   _damageType: 3
+  _attackType: 0
   _baseDamage: 15
   _baseAttackSpeed: 1.5
   _attackRadius: 3
@@ -1756,6 +1759,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _chains: {fileID: 7606216174565960057}
   _animator: {fileID: 8138105530931551612}
+--- !u!210 &-6191639898106015370
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8138105530931551614}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: -1000
+--- !u!114 &-262648904081891160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8138105530931551614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49819965d724449198b495a401a72022, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8138105531043285605
 GameObject:
   m_ObjectHideFlags: 0

@@ -183,7 +183,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _resource:
     _type: 0
-    _amount: 0
+    _amount: 5
   _chanceReagentDrop: 5
   _droppedReagent:
   - {fileID: 7209583451981731166, guid: f178549b94c413f498d9c00b235989b5, type: 3}
@@ -216,8 +216,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemy: {fileID: 3138554296611794327}
-  _maxHP: 175
-  _currentHP: 175
+  _maxHP: 200
+  _currentHP: 200
   _baseSpeed: 0.75
   _damageToBase: 1
   _isDeath: 0
@@ -230,7 +230,7 @@ MonoBehaviour:
   _armor: 25
   _fireResistance: 75
   _earthResistance: -25
-  _waterResistance: -50
+  _waterResistance: -25
   _airResistance: 0
 --- !u!114 &3138554296611794330
 MonoBehaviour:

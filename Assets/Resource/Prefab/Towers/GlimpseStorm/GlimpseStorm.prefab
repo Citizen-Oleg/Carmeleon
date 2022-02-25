@@ -795,6 +795,8 @@ GameObject:
   - component: {fileID: 5592552055377960614}
   - component: {fileID: 5592552055377960615}
   - component: {fileID: 5592552055377960281}
+  - component: {fileID: 7482361440549959265}
+  - component: {fileID: -1855578860690511906}
   m_Layer: 9
   m_Name: GlimpseStorm
   m_TagString: Untagged
@@ -997,6 +999,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e00cef9859b4a1c8ddaa16239e92269, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7482361440549959265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5592552055377960620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fe2f6b72943489ebd3d6ad6cd7928f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _prefabProjectile: {fileID: 4779381524695618653, guid: fc9cb24e166b330439446fbbdcceccad, type: 3}
+  _projectileLaunchPosition: {fileID: 5592552054562644870}
+  _buffChance: 45
+  _buffEnemy: {fileID: 11400000, guid: fa488e08cc425714b8079777fd6d71e3, type: 2}
+--- !u!210 &-1855578860690511906
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5592552055377960620}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: -1000
 --- !u!1 &5592552055495129458
 GameObject:
   m_ObjectHideFlags: 0

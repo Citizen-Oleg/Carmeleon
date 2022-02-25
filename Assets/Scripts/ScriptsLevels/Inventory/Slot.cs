@@ -13,7 +13,6 @@ namespace Inventory
     /// </summary>
     public class Slot : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler
     {
-        public event Action<Slot> OnChange;
         public bool IsOpen => _isOpen;
         public bool HasItem => _itemInSlot != null;
         public bool HasFreePlaces => HasItem && _itemInSlot.InventoryItem.MAXStacks != _itemInSlot.Amount;
@@ -96,7 +95,6 @@ namespace Inventory
         {
             _itemInSlot = null;
             RefreshUI();
-            OnChange?.Invoke(this);
         }
 
         public void RefreshUI()

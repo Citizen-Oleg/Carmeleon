@@ -1366,6 +1366,7 @@ GameObject:
   - component: {fileID: 8867356908015657831}
   - component: {fileID: 8867356908015657830}
   - component: {fileID: 2995282138556404060}
+  - component: {fileID: -7570001948676579302}
   m_Layer: 9
   m_Name: EarthquakeTotem
   m_TagString: Untagged
@@ -1500,7 +1501,7 @@ MonoBehaviour:
   _tower: {fileID: 8867356908015657827}
   _damageType: 0
   _attackType: 1
-  _baseDamage: 10
+  _baseDamage: 15
   _baseAttackSpeed: 6
   _attackRadius: 0
   _canAttack: 1
@@ -1571,6 +1572,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _chains: {fileID: 5791858717710302136}
   _animator: {fileID: 8867356908015657836}
+--- !u!210 &-7570001948676579302
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8867356908015657838}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: -1000
 --- !u!1 &8867356908030743141
 GameObject:
   m_ObjectHideFlags: 0

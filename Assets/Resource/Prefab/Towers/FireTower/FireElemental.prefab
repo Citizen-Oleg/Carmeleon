@@ -451,6 +451,7 @@ GameObject:
   - component: {fileID: 876394835617086789}
   - component: {fileID: 876394835617086791}
   - component: {fileID: 3276450316192551808}
+  - component: {fileID: -2080659084742214357}
   m_Layer: 9
   m_Name: FireElemental
   m_TagString: Untagged
@@ -585,6 +586,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _tower: {fileID: 876394835617086784}
   _damageType: 1
+  _attackType: 0
   _baseDamage: 20
   _baseAttackSpeed: 1
   _attackRadius: 3
@@ -658,6 +660,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _chains: {fileID: 5380735156384089459}
   _animator: {fileID: 876394835617086796}
+--- !u!210 &-2080659084742214357
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 876394835617086794}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: -1000
 --- !u!1 &876394835653035312
 GameObject:
   m_ObjectHideFlags: 0

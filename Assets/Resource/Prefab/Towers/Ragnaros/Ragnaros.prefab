@@ -1169,6 +1169,7 @@ GameObject:
   - component: {fileID: 9032134956413013387}
   - component: {fileID: 9032134956413013386}
   - component: {fileID: 4798156179623649130}
+  - component: {fileID: 7224884463246871455}
   m_Layer: 9
   m_Name: Ragnaros
   m_TagString: Untagged
@@ -1359,7 +1360,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _prefabProjectile: {fileID: 3461659919730805869, guid: 52d6770004216da419fd8b81b8635765, type: 3}
   _projectileLaunchPosition: {fileID: 9032134956234866146}
-  _buffChance: 15
+  _buffChance: 10
   _buffEnemy: {fileID: 11400000, guid: 6195eed37a810e14aa02c7d70d930fc0, type: 2}
 --- !u!114 &4798156179623649130
 MonoBehaviour:
@@ -1375,3 +1376,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _chains: {fileID: 2806068161403345217}
   _animator: {fileID: 9032134956413013392}
+--- !u!210 &7224884463246871455
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9032134956413013394}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: -1000

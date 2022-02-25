@@ -19,6 +19,12 @@ namespace Towers
             for (var index = 0; index < targets.Count; index++)
             {
                 var target = targets[index];
+
+                if (target.CharacteristicsEnemy.IsDeath)
+                {
+                    continue;
+                }
+                
                 var distanceToTarget = Vector2.Distance(target.transform.position, position);
 
                 if (minDistance > distanceToTarget)

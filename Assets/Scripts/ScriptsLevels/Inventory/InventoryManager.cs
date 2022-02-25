@@ -20,7 +20,6 @@ namespace Inventory
 
         private SlotInteractionController _slotInteractionController;
         private Slot[] _slots;
-        private readonly List<Slot> _filledSlotsStacks = new List<Slot>();
 
         private void Awake()
         {
@@ -31,17 +30,7 @@ namespace Inventory
             for (int i = 0; i < _slots.Length; i++)
             {
                 _slots[i] = Instantiate(_prefabSlot, _containerSlots, false);
-                _slots[i].OnChange += RemoveFilledSlot;
-
                 _slots[i].Initialize(_slotInteractionController, i < playerData.InventorySize);
-            }
-        }
-
-        private void OnDestroy()
-        {
-            foreach (var slot in _slots)
-            {
-                slot.OnChange -= RemoveFilledSlot;
             }
         }
 
@@ -55,11 +44,6 @@ namespace Inventory
             var freeSlot = GetFreeSlot();
             if (freeSlot != null)
             {
-                if (inventoryItem.HasStack)
-                {
-                    _filledSlotsStacks.Add(freeSlot);
-                }
-                
                 freeSlot.SetItem(new ItemInSlot(inventoryItem));
                 return true;
             }
@@ -72,17 +56,9 @@ namespace Inventory
             return _slots.FirstOrDefault(slot => !slot.HasItem && slot.IsOpen);
         }
 
-        private void RemoveFilledSlot(Slot slot)
-        {
-            if (!slot.HasItem)
-            {
-                _filledSlotsStacks.Remove(slot);
-            }
-        }
-        
         private bool AddItemToFilledSlot(InventoryItem inventoryItem)
         {
-            foreach (var slot in _filledSlotsStacks)
+            foreach (var slot in _slots)
             {
                 if (slot.HasItem && slot.ItemInSlot.InventoryItem.Item.ID == inventoryItem.Item.ID && slot.HasFreePlaces)
                 {
