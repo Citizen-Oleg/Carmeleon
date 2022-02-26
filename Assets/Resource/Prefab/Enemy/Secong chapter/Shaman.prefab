@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 8046864680725973177}
   - component: {fileID: 8046864680725973175}
   - component: {fileID: 8046864680725973174}
+  - component: {fileID: 3894356224009573809}
   m_Layer: 6
   m_Name: Shaman
   m_TagString: Untagged
@@ -319,6 +320,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _settingsBuff: {fileID: 11400000, guid: f4fa30addc3c50b41ac1972843946717, type: 2}
+--- !u!58 &3894356224009573809
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8046864680725973126}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 7
 --- !u!1 &8046864680761340331
 GameObject:
   m_ObjectHideFlags: 0
