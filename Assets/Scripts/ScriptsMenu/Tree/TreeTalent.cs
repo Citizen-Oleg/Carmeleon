@@ -13,7 +13,7 @@ namespace ScriptsMenu.Tree
 
         private ResourceManagerGame _resourceManagerGame;
         
-        private void Start()
+        private void Awake()
         {
             _talentNodes = new BubbleSortTalentNode().Sort(_talentNodes);
             _resourceManagerGame = GameManager.ResourceManagerGame;
