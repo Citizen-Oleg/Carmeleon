@@ -63,6 +63,11 @@ namespace DragController
         
         private void LeftClick()
         {
+            if (_inventoryScreen.HasCurrentItem)
+            {
+                return;
+            }
+            
             var target = Camera.main.ScreenPointToRay(Input.mousePosition);
             var raycastHit = Physics2D.Raycast(target.origin, target.direction, 100f , _layerPlaceInstallation);
 

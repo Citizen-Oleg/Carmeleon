@@ -5318,7 +5318,7 @@ PrefabInstance:
     - target: {fileID: 5046214855986566779, guid: 79025f7c53177884396f19bf801a828d, type: 3}
       propertyPath: _defaultStartNode
       value: 
-      objectReference: {fileID: 457976143}
+      objectReference: {fileID: 1594155660}
     - target: {fileID: 5046214855986566779, guid: 79025f7c53177884396f19bf801a828d, type: 3}
       propertyPath: _delayedSpawnEnemies
       value: 1
@@ -10790,8 +10790,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 1814958142}
-  _screenPanThreshold: 25
-  _panSpeed: 25
+  _screenPanThreshold: 15
+  _panSpeed: 10
   _upperBound: 8.67
   _bottomBound: 6.2
   _leftBound: -2.5
