@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using EnemyComponent;
 using Interface;
 using JetBrains.Annotations;
@@ -33,7 +34,7 @@ namespace Towers
             {
                 var targets = _targetsProvider.GetTargets(_tower.TowerCharacteristics.AttackRadius);
 
-                if (targets.Count != 0)
+                if (targets.Count != 0 && targets.FirstOrDefault(target => _attackBehaviour.CanAttack(target)))
                 {
                     _tower.TowerAnimationController.Attack();
                 }
