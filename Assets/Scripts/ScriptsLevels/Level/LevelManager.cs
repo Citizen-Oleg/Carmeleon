@@ -1,6 +1,7 @@
 ﻿using EnemyComponent.Manager;
 using Factory;
 using Inventory;
+using Inventory.Craft;
 using Loot;
 using ResourceManager;
 using ScreenManager;
@@ -22,9 +23,12 @@ namespace ScriptsLevels.Level
         public static ReagentPool ReagentPool => instance._reagentPool;
         public static EnemyFactory EnemyFactory => instance._enemyFactory;
         public static LevelSettings LevelSettings => instance._levelSettings;
+        public static ItemsManager ItemsManager => instance._itemsManager;
 
         public StateLevel StateLevel => _stateLevel;
 
+        [SerializeField]
+        private ItemsManager _itemsManager;
         [SerializeField]
         private ManagerTower _managerTower;
         [SerializeField]

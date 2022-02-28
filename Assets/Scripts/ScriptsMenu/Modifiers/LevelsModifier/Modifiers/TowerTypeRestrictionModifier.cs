@@ -2,6 +2,7 @@
 using Inventory;
 using Level.ScriptsMenu.Interface;
 using ScriptsLevels.Inventory;
+using ScriptsLevels.Level;
 using Towers;
 
 namespace ScriptsMenu.Modifiers.LevelsModifier.Modifiers
@@ -24,6 +25,9 @@ namespace ScriptsMenu.Modifiers.LevelsModifier.Modifiers
 
             var improvedTowers = _playerData.ImprovedLevelTowers;
             RemoveTowersWrongType(improvedTowers);
+
+            var recipeTowers = LevelManager.ItemsManager.ItemsWithCraft;
+            RemoveTowersWrongType(recipeTowers);
         }
 
         private void RemoveTowersWrongType(List<InventoryItem> towerItems)
@@ -31,7 +35,7 @@ namespace ScriptsMenu.Modifiers.LevelsModifier.Modifiers
             for (int i = 0; i < towerItems.Count; i++)
             {
                 var item = (TowerItem) towerItems[i].Item;
-                if (item.Tower.TowerCharacteristics.DamageType != _damageType)
+                if (item.Tower.TowerCharacteristics.DamageType == _damageType)
                 {
                     towerItems.RemoveAt(i);
                     i--;
