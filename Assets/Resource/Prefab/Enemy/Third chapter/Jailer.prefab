@@ -1012,7 +1012,7 @@ MonoBehaviour:
   _enemy: {fileID: 7547762207149223244}
   _maxHP: 900
   _currentHP: 900
-  _baseSpeed: 0.65
+  _baseSpeed: 0.5
   _damageToBase: 1
   _isDeath: 0
   _isMoving: 1
@@ -1135,7 +1135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00c29f5ac838427ba73a357f4ba635df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cooldownBuff: 4
+  _cooldownBuff: 5
 --- !u!1 &7547762207344634158
 GameObject:
   m_ObjectHideFlags: 0

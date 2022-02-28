@@ -32,6 +32,7 @@ namespace EnemyComponent
         {
             _enemy = enemy;
             _currentNode = node;
+            transform.rotation = _currentNode.transform.rotation;
         }
 
         private void MoveToThePoint()
