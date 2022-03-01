@@ -41,20 +41,20 @@ namespace TowerShop
             
             if (eventData.button == PointerEventData.InputButton.Left)
             {
-                float amount = item.HasStack && itemInSlot.Amount != 0
-                    ? item.Price.Amount * itemInSlot.Amount
-                    : item.Price.Amount;
+                float amount = item.HasStack && itemInSlot.Amount > 1
+                    ? itemInSlot.Amount * (item.Price.Amount - itemInSlot.Amount * (GameManager.PlayerData.StoreDiscount / 100))
+                    : item.Price.Amount - item.Price.Amount * (GameManager.PlayerData.StoreDiscount / 100);
                 
                 amount *= _moneyBackPercentage / 100;
-                _resourceManagerLevel.AddResource(item.Price.Type, (int) amount);
+                _resourceManagerLevel.AddResource(item.Price.Type, Mathf.CeilToInt(amount));
                 _inventoryScreen.ResetCurrentItem();
             }
             else
             {
-                float amount = item.Price.Amount;
+                float amount = item.Price.Amount - item.Price.Amount * (GameManager.PlayerData.StoreDiscount / 100);
                 amount *= _moneyBackPercentage / 100;
                 
-                _resourceManagerLevel.AddResource(item.Price.Type, (int) amount);
+                _resourceManagerLevel.AddResource(item.Price.Type, Mathf.CeilToInt(amount));
 
                 if (itemInSlot.Amount > 1)
                 {

@@ -793,7 +793,6 @@ GameObject:
   - component: {fileID: 5592552055377960611}
   - component: {fileID: 5592552055377960608}
   - component: {fileID: 5592552055377960614}
-  - component: {fileID: 5592552055377960615}
   - component: {fileID: 5592552055377960281}
   - component: {fileID: 7482361440549959265}
   - component: {fileID: -1855578860690511906}
@@ -973,20 +972,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfa61905aa174687a7ab651ed2f0f380, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5592552055377960615
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5592552055377960620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1dc5f44495d645e9a20c4ee5949b22e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _prefabProjectile: {fileID: 4779381524695618653, guid: fc9cb24e166b330439446fbbdcceccad, type: 3}
-  _projectileLaunchPosition: {fileID: 5592552054562644870}
 --- !u!114 &5592552055377960281
 MonoBehaviour:
   m_ObjectHideFlags: 0
