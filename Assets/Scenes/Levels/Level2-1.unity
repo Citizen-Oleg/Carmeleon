@@ -1640,7 +1640,7 @@ PrefabInstance:
       objectReference: {fileID: 651088931}
     - target: {fileID: 3098650757206501650, guid: 79025f7c53177884396f19bf801a828d, type: 3}
       propertyPath: _placeInstallationTowers.Array.size
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 3098650757206501650, guid: 79025f7c53177884396f19bf801a828d, type: 3}
       propertyPath: _placeInstallationTowers.Array.data[0]
@@ -1685,7 +1685,7 @@ PrefabInstance:
     - target: {fileID: 3098650757206501650, guid: 79025f7c53177884396f19bf801a828d, type: 3}
       propertyPath: _placeInstallationTowers.Array.data[10]
       value: 
-      objectReference: {fileID: 2011567893}
+      objectReference: {fileID: 1370285801}
     - target: {fileID: 3098650757206501650, guid: 79025f7c53177884396f19bf801a828d, type: 3}
       propertyPath: _placeInstallationTowers.Array.data[11]
       value: 
@@ -3417,6 +3417,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3aded55244a65b74b87d29392aa22dc0, type: 3}
+--- !u!114 &1370285801 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3665574212156874530, guid: 3aded55244a65b74b87d29392aa22dc0, type: 3}
+  m_PrefabInstance: {fileID: 1370285800}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da9943f0161240cdb6194e9e7740f548, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1396048571
 GameObject:
   m_ObjectHideFlags: 0

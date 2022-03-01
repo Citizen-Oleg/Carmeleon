@@ -46,7 +46,7 @@ namespace TowerShop
                     : item.Price.Amount - item.Price.Amount * (GameManager.PlayerData.StoreDiscount / 100);
                 
                 amount *= _moneyBackPercentage / 100;
-                _resourceManagerLevel.AddResource(item.Price.Type, Mathf.CeilToInt(amount));
+                _resourceManagerLevel.AddResource(item.Price.Type, Mathf.FloorToInt(amount));
                 _inventoryScreen.ResetCurrentItem();
             }
             else
@@ -54,7 +54,7 @@ namespace TowerShop
                 float amount = item.Price.Amount - item.Price.Amount * (GameManager.PlayerData.StoreDiscount / 100);
                 amount *= _moneyBackPercentage / 100;
                 
-                _resourceManagerLevel.AddResource(item.Price.Type, Mathf.CeilToInt(amount));
+                _resourceManagerLevel.AddResource(item.Price.Type, Mathf.FloorToInt(amount));
 
                 if (itemInSlot.Amount > 1)
                 {
