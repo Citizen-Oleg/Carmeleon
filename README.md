@@ -1,5 +1,11 @@
 # Carmeleon
+Художник, левел-дизайнер - https://github.com/AngelSamOf
 
+Программист, аниматор:
+ - LinkedLn - www.linkedin.com/in/GayduchikOleg-a46418226
+ - Telegram - @Citizen_Oleg
+ 
+ 
 ### Carmeleon это игра в жанре tower defense.
 В игре 3 региона, в каждом регионе по 3 уровня. На каждый регион приходятся свои враги и боссы. 
 В игре 24 врага из которых 6 это боссы и 16 башен.
