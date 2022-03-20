@@ -55,7 +55,7 @@ namespace ScriptsLevels.Level
                 modifier.IsPassed = true;
             }
             
-            levelData.HasGoldBorder = CheckPatencyGoldStroke(levelData);
+            CheckPatencyGoldStroke(levelData);
             var context = new VictoryScreenContext(
                 CheckEasyPatencyLevel(levelData), CheckAveragePatencyLevel(levelData), CheckHighPatencyLevel(levelData),
                 activeModifier.Count);
@@ -63,16 +63,13 @@ namespace ScriptsLevels.Level
             GameManager.ScreenManager.OpenScreenWithContext(ScreenType.VictoryScreen, context);
         }
         
-        private bool CheckPatencyGoldStroke(LevelData levelData)
+        private void CheckPatencyGoldStroke(LevelData levelData)
         {
             var hasLostHp = _playerBase.CurrentHp < _playerBase.MAXHp;
             if (levelData.Modifiers.Count(modifier => modifier.IsActive) == levelData.Modifiers.Count && !hasLostHp)
             {
                 levelData.HasGoldBorder = true;
-                return true;
             }
-
-            return false;
         }
 
         private SpriteType CheckEasyPatencyLevel(LevelData levelData)
