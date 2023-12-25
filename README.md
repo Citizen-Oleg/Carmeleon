@@ -3,7 +3,7 @@
 
 Программист, аниматор:
  - LinkedLn - www.linkedin.com/in/GayduchikOleg-a46418226
- - Telegram - @Citizen_Oleg
+ - Telegram - https://t.me/GaiduchikOleg
  
  
 ### Carmeleon это игра в жанре tower defense.
